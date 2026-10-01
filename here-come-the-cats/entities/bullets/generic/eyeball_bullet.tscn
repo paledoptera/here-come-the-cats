@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bsth48t6vc2v0"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_gyreh"]
+[ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="2_gyreh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyreh"]
+radius = 7.017834
+
+[sub_resource type="Animation" id="Animation_jdsci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PupilOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PupilOffset/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PupilOffset/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.461, 0.461)]
+}
+
+[sub_resource type="Animation" id="Animation_gyreh"]
+resource_name = "new_animation"
+length = 3.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PupilOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6000001, 2.4, 3.2000003),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(-4.5, 0), Vector2(4.5, 0), Vector2(-4.5, 0), Vector2(4.5, 0), Vector2(-4.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PupilOffset/Sprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.56666666, 1, 1.1333333, 1.4333333, 1.6, 1.9666668, 2.3000002, 2.6000001, 2.8333335, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(0, 2), Vector2(0, -2), Vector2(0, -2), Vector2(0, 2), Vector2(0.615, -0.591), Vector2(0, -1), Vector2(-0.7812493, 0.99999976), Vector2(-4.21875, -1.9999998), Vector2(1.124999, -2.3841858e-07), Vector2(0.21874976, 0.99999994), Vector2(0, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PupilOffset/Sprite2D:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.70000005, 1.2666668, 1.5333334, 1.7333335, 2.5000002, 2.7, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.461, 0.461), Vector2(0.741, 0.741), Vector2(0.51, 0.51), Vector2(0.412, 0.412), Vector2(0.868, 0.868), Vector2(0.565, 0.565), Vector2(0.456, 0.456), Vector2(0.783, 0.783), Vector2(0.461, 0.461)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdsci"]
+_data = {
+&"RESET": SubResource("Animation_jdsci"),
+&"eyeball": SubResource("Animation_gyreh")
+}
+
+[node name="EyeballBullet" type="Area2D" unique_id=194047947]
+z_index = 101
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_gyreh")
+damage = 9
+destructible = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_gyreh")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_gyreh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=62282786]
+libraries/ = SubResource("AnimationLibrary_jdsci")
+autoplay = &"eyeball"
+
+[node name="PupilOffset" type="Node2D" parent="." unique_id=956333394]
+position = Vector2(-4.5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PupilOffset" unique_id=156917907]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.461, 0.461)
+texture = ExtResource("2_gyreh")
+offset = Vector2(0, 0.5)

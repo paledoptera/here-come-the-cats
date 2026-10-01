@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://cl0rkh36ajx45"]
+
+[ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_ptj17"]
+[ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="3_lum2q"]
+[ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/attacks/door.gd" id="4_c61wv"]
+[ext_resource type="PackedScene" uid="uid://bwkuilratplt7" path="res://entities/bullets/generic/teeth_bullet.tscn" id="5_71x67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6vb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[node name="MouthTower" type="Node2D" unique_id=1013303839]
+
+[node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
+position = Vector2(-17, 215)
+linked_contraptions = [NodePath("../Door")]
+one_shot = true
+
+[node name="Switch2" parent="." unique_id=204933456 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
+position = Vector2(-17, 250)
+linked_contraptions = [null]
+one_shot = true
+
+[node name="Switch3" parent="." unique_id=77129867 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
+position = Vector2(-17, 285)
+linked_contraptions = [null]
+one_shot = true
+
+[node name="EyeballBullet6" parent="." unique_id=1511751441 instance=ExtResource("3_lum2q")]
+position = Vector2(136, 368)
+scale = Vector2(3, 3)
+shootable_hp = 20
+
+[node name="EyeballBullet7" parent="." unique_id=805338266 instance=ExtResource("3_lum2q")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(50, 413)
+scale = Vector2(3, 3)
+shootable_hp = 20
+
+[node name="OldHouse6" type="Panel" parent="." unique_id=335475720]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 202.0
+offset_right = -7.5
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="Door" type="Node2D" parent="." unique_id=1754490220]
+position = Vector2(0, 71)
+script = ExtResource("4_c61wv")
+offset = Vector2(0, -70)
+
+[node name="TeethTop" type="Node2D" parent="Door" unique_id=1345429299]
+position = Vector2(0, 163)
+scale = Vector2(1, -1)
+
+[node name="OldHouse4" type="Panel" parent="Door/TeethTop" unique_id=772400896]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 93.0
+offset_right = 85.5
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="RightHalf" type="Node2D" parent="Door/TeethTop" unique_id=923372900]
+
+[node name="TeethBullet2" parent="Door/TeethTop/RightHalf" unique_id=2088546641 instance=ExtResource("5_71x67")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Door/TeethTop/RightHalf" unique_id=1987211643 instance=ExtResource("5_71x67")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Door/TeethTop/RightHalf" unique_id=1839852011 instance=ExtResource("5_71x67")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Door/TeethTop/RightHalf" unique_id=39438686 instance=ExtResource("5_71x67")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Door/TeethTop/RightHalf" unique_id=109455554 instance=ExtResource("5_71x67")]
+position = Vector2(101, 85)
+
+[node name="LeftHalf" type="Node2D" parent="Door/TeethTop" unique_id=1610253661]
+position = Vector2(178, 0)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="TeethBullet2" parent="Door/TeethTop/LeftHalf" unique_id=91074447 instance=ExtResource("5_71x67")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Door/TeethTop/LeftHalf" unique_id=50707095 instance=ExtResource("5_71x67")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Door/TeethTop/LeftHalf" unique_id=1364864460 instance=ExtResource("5_71x67")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Door/TeethTop/LeftHalf" unique_id=849499051 instance=ExtResource("5_71x67")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Door/TeethTop/LeftHalf" unique_id=1088757493 instance=ExtResource("5_71x67")]
+position = Vector2(101, 85)
+
+[node name="TeethBottom" type="Node2D" parent="." unique_id=1215636734]
+position = Vector2(0, 71)
+
+[node name="RightHalf" type="Node2D" parent="TeethBottom" unique_id=1709873034]
+
+[node name="TeethBullet2" parent="TeethBottom/RightHalf" unique_id=1097047468 instance=ExtResource("5_71x67")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="TeethBottom/RightHalf" unique_id=480728516 instance=ExtResource("5_71x67")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="TeethBottom/RightHalf" unique_id=107141497 instance=ExtResource("5_71x67")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="TeethBottom/RightHalf" unique_id=1499016679 instance=ExtResource("5_71x67")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="TeethBottom/RightHalf" unique_id=489475485 instance=ExtResource("5_71x67")]
+position = Vector2(101, 85)
+
+[node name="LeftHalf" type="Node2D" parent="TeethBottom" unique_id=267055512]
+position = Vector2(178, 0)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="TeethBullet2" parent="TeethBottom/LeftHalf" unique_id=409435731 instance=ExtResource("5_71x67")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="TeethBottom/LeftHalf" unique_id=522250705 instance=ExtResource("5_71x67")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="TeethBottom/LeftHalf" unique_id=1892367850 instance=ExtResource("5_71x67")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="TeethBottom/LeftHalf" unique_id=1791222722 instance=ExtResource("5_71x67")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="TeethBottom/LeftHalf" unique_id=1998608474 instance=ExtResource("5_71x67")]
+position = Vector2(101, 85)
+
+[node name="OldHouse4" type="Panel" parent="." unique_id=38749667]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 178.0
+offset_right = 85.5
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse5" type="Panel" parent="." unique_id=92338289]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 312.0
+offset_right = 88.0
+offset_bottom = 378.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse9" type="Panel" parent="." unique_id=662147124]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 312.0
+offset_right = 88.0
+offset_bottom = 346.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse8" type="Panel" parent="." unique_id=1064310094]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 312.0
+offset_right = 88.0
+offset_bottom = 341.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse7" type="Panel" parent="." unique_id=1501712630]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 312.0
+offset_right = 88.0
+offset_bottom = 321.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")

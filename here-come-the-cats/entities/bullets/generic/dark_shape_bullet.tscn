@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://brlogaq325mgc"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_nnf63"]
+[ext_resource type="Texture2D" uid="uid://e85wahg7h8ui" path="res://entities/bullets/generic/res/dark_shape.png" id="2_nnf63"]
+
+[sub_resource type="GDScript" id="GDScript_x5dwq"]
+resource_name = "darkshapesprite"
+script/source = "extends Sprite2D
+
+func _on_timer_timeout() -> void:
+	frame = wrapi(frame+1,0,3)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74fs8"]
+radius = 2.5
+
+[node name="DarkShapeBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_nnf63")
+damage = 9
+graze_points = 0
+destructible = true
+velocity = Vector2(-150, 0)
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_nnf63")
+offset = Vector2(0, 0.5)
+hframes = 3
+script = SubResource("GDScript_x5dwq")
+
+[node name="Timer" type="Timer" parent="Sprite2D" unique_id=991396953]
+wait_time = 0.1
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_74fs8")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=124109330]
+
+[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]

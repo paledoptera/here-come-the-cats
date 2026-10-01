@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b6414grtxowj8"]
+
+[ext_resource type="PackedScene" uid="uid://brlogaq325mgc" path="res://entities/bullets/generic/dark_shape_bullet.tscn" id="1_mtvce"]
+
+[node name="Swarm" type="Node2D" unique_id=1881260773]
+
+[node name="DiamondBullet" parent="." unique_id=194047947 instance=ExtResource("1_mtvce")]
+position = Vector2(92, -45)
+rotation = 3.1415927
+
+[node name="DiamondBullet2" parent="." unique_id=1251708699 instance=ExtResource("1_mtvce")]
+position = Vector2(134, 16.69992)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet3" parent="." unique_id=1936946848 instance=ExtResource("1_mtvce")]
+position = Vector2(226, -97.70009)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet4" parent="." unique_id=1382866677 instance=ExtResource("1_mtvce")]
+position = Vector2(308, 143.70358)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet5" parent="." unique_id=2083429569 instance=ExtResource("1_mtvce")]
+position = Vector2(358, -141.35674)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet6" parent="." unique_id=763854810 instance=ExtResource("1_mtvce")]
+position = Vector2(534, -41.505096)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet7" parent="." unique_id=96756431 instance=ExtResource("1_mtvce")]
+position = Vector2(423, 64.788574)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet8" parent="." unique_id=1310643229 instance=ExtResource("1_mtvce")]
+position = Vector2(887.021, 125.987946)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet9" parent="." unique_id=1596861541 instance=ExtResource("1_mtvce")]
+position = Vector2(676, -64.052246)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet10" parent="." unique_id=1653273819 instance=ExtResource("1_mtvce")]
+position = Vector2(831, 169.47177)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet12" parent="." unique_id=2013186071 instance=ExtResource("1_mtvce")]
+position = Vector2(274.6714, 23.725342)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet13" parent="." unique_id=1764628302 instance=ExtResource("1_mtvce")]
+position = Vector2(179.08138, 153.19534)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet14" parent="." unique_id=1891991171 instance=ExtResource("1_mtvce")]
+position = Vector2(580.8014, 178.60535)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet15" parent="." unique_id=310688690 instance=ExtResource("1_mtvce")]
+position = Vector2(583.22144, 178.60535)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet16" parent="." unique_id=1917404857 instance=ExtResource("1_mtvce")]
+position = Vector2(643.72144, 68.49533)
+rotation = 3.1415927
+metadata/_scene_painted = true
+
+[node name="DiamondBullet17" parent="." unique_id=1339598671 instance=ExtResource("1_mtvce")]
+position = Vector2(810.7014, 33.405334)
+rotation = 3.1415927
+metadata/_scene_painted = true

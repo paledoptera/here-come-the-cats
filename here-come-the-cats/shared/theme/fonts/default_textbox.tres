@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" format=3 uid="uid://72sk30ahlloh"]
+
+[ext_resource type="FontFile" uid="uid://orufvaa8fn7h" path="res://shared/theme/fonts/DeterminationMonoWebRegular-Z5oq.ttf" id="1_tjpnq"]
+
+[resource]
+base_font = ExtResource("1_tjpnq")

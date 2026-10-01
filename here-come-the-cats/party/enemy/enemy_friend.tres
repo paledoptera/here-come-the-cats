@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://bwk0888uoya3f"]
+
+[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://party/character_stats/character_stats.gd" id="1_4863u"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="2_ietca"]
+
+[resource]
+script = ExtResource("1_4863u")
+name = "FRIEND"
+metadata/_custom_type_script = "uid://doj56elw7dew4"

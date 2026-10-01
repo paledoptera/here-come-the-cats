@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dpamn6vphyrlm"]
+
+[ext_resource type="PackedScene" uid="uid://uec82rpcc8iu" path="res://entities/soul/soul/_soul.tscn" id="1_m4v8k"]
+
+[node name="SoulPink" unique_id=443094051 instance=ExtResource("1_m4v8k")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=135992417]
+modulate = Color(1, 0.58431375, 1, 1)
+
+[node name="CollisionPolygon2D" parent="." index="1" unique_id=1893006654]
+visible = false
