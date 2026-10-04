@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmp4abyqiue4l"]
+
+[ext_resource type="Script" uid="uid://dqtl2ska6v1q5" path="res://tail.gd" id="1_3q4c3"]
+
+[node name="TailEffect" type="Node2D" unique_id=1027478356]
+z_index = 4096
+script = ExtResource("1_3q4c3")
+range = 40.0
+clamp = 20.0
+offset = Vector2(0, 2)
+constant_offset = Vector2(-5, 0)

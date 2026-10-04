@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://boxyth7xolqo5"]
+
+[ext_resource type="Texture2D" uid="uid://bupy4x870qjs8" path="res://minigames/here_come_the_cats/res/cat.png" id="1_qnem6"]
+[ext_resource type="Script" uid="uid://brbevk61yo5c7" path="res://minigames/here_come_the_cats/the_cat.gd" id="2_x5ve8"]
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://shared/actors/actor.gd" id="3_npub8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 89.05
+
+[node name="CatBoss" type="Area2D" unique_id=1194674963]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_x5ve8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1003610428]
+position = Vector2(21, 0)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1668615500]
+z_index = -1
+scale = Vector2(2, 2)
+texture = ExtResource("1_qnem6")
+script = ExtResource("3_npub8")
+id = &"friend"

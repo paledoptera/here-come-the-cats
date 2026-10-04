@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://clserw2almu6" path="res://minigames/here_come_the_cats/scripts/death_clock.gd" id="1_v1nm2"]
 [ext_resource type="Texture2D" uid="uid://xm17fnbg34j5" path="res://minigames/here_come_the_cats/res/death_clock.png" id="2_ugkk7"]
+[ext_resource type="Texture2D" uid="uid://cfgrtxp4lli60" path="res://minigames/here_come_the_cats/res/death_clock_cover.png" id="3_cyjn5"]
 [ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="3_gitn3"]
+[ext_resource type="Texture2D" uid="uid://m84awsagrpdc" path="res://minigames/here_come_the_cats/res/life_and_death.png" id="4_cyjn5"]
 [ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="4_hda0d"]
 [ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="5_cyjn5"]
 [ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="6_wogfk"]
 [ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="7_mdcpx"]
+[ext_resource type="Texture2D" uid="uid://4jx6i0o7j328" path="res://minigames/here_come_the_cats/res/death_clock_hand.png" id="8_ugkk7"]
+[ext_resource type="AudioStream" uid="uid://blvtrq80jhiyg" path="res://shared/sound_effects/snd_titan_beam_loop.wav" id="9_gitn3"]
 
 [sub_resource type="Animation" id="Animation_yl35i"]
 length = 0.001
@@ -70,10 +74,70 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(320, 14)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/LineContainer/Line2D2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, 9)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/LineContainer/Line2D2:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.452)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Cat/Eyes:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5000007, -12)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Cat/EyeSprite:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Cat:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_dfqgm"]
 resource_name = "clock"
-length = 2.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -85,19 +149,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(1.5, -12)]
+"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
+tracks/1/path = NodePath("Offset/Cat/Tail:rotation")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.17453292519943295, 0.17453292519943295, 0.17453292519943295, -0.17453292519943295, -0.17453292519943295, 0.17453292519943295, 0.17453292519943295, -0.17453292519943295, -0.17453292519943295]
+"values": [-0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,34 +170,94 @@ tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSpriteWhite:modulate")
+tracks/3/path = NodePath("Offset/Cat/EyeSpriteWhite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.43333334, 1, 1.1, 1.4333334, 2),
-"transitions": PackedFloat32Array(0.40612632, 1.8025012, 1, 1, 1.8025012, 1, 1),
+"times": PackedFloat32Array(0, 0.43333334, 0.96666664, 1, 1.4333334, 1.9666668, 2, 2.4333334, 2.9666667, 3, 3.4333334, 3.9666667, 4),
+"transitions": PackedFloat32Array(1.8025012, 1, 0, 1.8025012, 1, 0, 1, 1, 0, 1.8025012, 1, 0, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI/UpperPanel/Clock/ClockContainer:position")
+tracks/4/path = NodePath("Offset/ClockContainer:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.56666666, 1, 1.4333334, 1.9666667),
+"times": PackedFloat32Array(0, 0.56666666, 1, 1.4333334, 1.9666667, 2, 2.5666666, 3, 3.4333334, 3.9666667),
+"transitions": PackedFloat32Array(-2, -2, 1, -2, 1, -2, -2, 1, -2, 1),
+"update": 0,
+"values": [Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14), Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/LineContainer/Line2D2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2333333, 2, 3.2333333, 4),
+"transitions": PackedFloat32Array(0.5, -2, 1, -2, 1),
+"update": 0,
+"values": [Vector2(-18, 9), Vector2(-18, 12), Vector2(-18, 9), Vector2(-18, 12), Vector2(-18, 9)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/LineContainer/Line2D2:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
 "transitions": PackedFloat32Array(-2, -2, 1, -2, 1),
 "update": 0,
-"values": [Vector2(320, 14), Vector2(320, 16.7), Vector2(320, 15), Vector2(320, 16.7), Vector2(320, 14)]
+"values": [Vector2(1, 0.452), Vector2(1, 0.5), Vector2(1, 0.452), Vector2(1, 0.5), Vector2(1, 0.452)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Cat/Eyes:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Offset/Cat/EyeSprite:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Offset/Cat:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.93333334, 1, 1.2, 1.9333334, 1.9666668, 2.1666667, 2.9, 2.9333334, 3.1333334, 3.8666668),
+"transitions": PackedFloat32Array(2, -2, 1, 0.5, -2, 1, 2, -2, 1, 2, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8ppo"]
@@ -142,62 +266,168 @@ _data = {
 &"clock": SubResource("Animation_dfqgm")
 }
 
-[node name="Clock" type="Node2D" unique_id=170005693]
+[sub_resource type="Animation" id="Animation_ugkk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[node name="ClockContainer" type="Node2D" parent="." unique_id=1697272895]
-position = Vector2(320, 14.015403)
-scale = Vector2(3, 2)
+[sub_resource type="Animation" id="Animation_gitn3"]
+resource_name = "activate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.36666667, 0.5),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(320, -150), Vector2(320, 20), Vector2(320, -2), Vector2(320, 5), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.3, 0.4666667),
+"transitions": PackedFloat32Array(2, 0.5, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.37), Vector2(1.2, 0.9), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hda0d"]
+_data = {
+&"RESET": SubResource("Animation_ugkk7"),
+&"activate": SubResource("Animation_gitn3")
+}
+
+[node name="DeathClock" type="Node2D" unique_id=170005693]
 script = ExtResource("1_v1nm2")
 
-[node name="Sprite2D" type="Sprite2D" parent="ClockContainer" unique_id=1726486974]
+[node name="Offset" type="Node2D" parent="." unique_id=1083184150]
+position = Vector2(0, -150)
+
+[node name="LineContainer" type="Node2D" parent="Offset" unique_id=1667453235]
+position = Vector2(-320, 0)
+
+[node name="Line2D2" type="Line2D" parent="Offset/LineContainer" unique_id=725075468]
+position = Vector2(-18, 9)
+scale = Vector2(1, 0.452)
+points = PackedVector2Array(20, -26, 70, -33.18584, 112, -33.18584, 148, -7, 176, 33, 219, 66, 256, 86, 287, 90, 314, 82, 334, 62, 357, 68, 374, 86, 400, 94, 436, 96, 474, 89, 546, 38, 614, -40, 472, -22, 226, 46, 183, 42, 145, 31, 126, 17.699118, 83, -66.37168, 192, -79.64602, 165, -37.61062, 173, -4.424778, 193, 22.123896, 224, 33.185844, 259, 39, 409, 64, 458, 56, 489, 36, 522, -11)
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Offset/LineContainer/Line2D2" unique_id=1992141705]
+points = PackedVector2Array(20, -26, 70, -33.18584, 112, -33.18584, 148, -7, 176, 33, 219, 66, 256, 86, 287, 90, 314, 82, 334, 62, 357, 68, 374, 86, 400, 94, 436, 96, 474, 89, 546, 38, 614, -40, 472, -22, 226, 46, 183, 42, 145, 31, 126, 17.699118, 83, -66.37168, 192, -79.64602, 165, -37.61062, 173, -4.424778, 193, 22.123896, 224, 33.185844, 259, 39, 409, 64, 458, 56, 489, 36, 522, -11)
+width = 3.0
+default_color = Color(1, 0, 1, 1)
+
+[node name="LifeAndDeath" type="Sprite2D" parent="Offset" unique_id=1969336885]
+position = Vector2(0, 65)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cyjn5")
+
+[node name="ClockContainer" type="Node2D" parent="Offset" unique_id=2090839216]
+position = Vector2(0, 15.386778)
+scale = Vector2(2, 1.2)
+
+[node name="Clock" type="Sprite2D" parent="Offset/ClockContainer" unique_id=1726486974]
+unique_name_in_owner = true
+position = Vector2(0, 43.56704)
 texture = ExtResource("2_ugkk7")
 
-[node name="Cat" type="Sprite2D" parent="." unique_id=4864249]
-position = Vector2(320, 59)
+[node name="Cover" type="Sprite2D" parent="Offset/ClockContainer" unique_id=1343760445]
+position = Vector2(0, 24.677687)
+scale = Vector2(1, 1.171)
+texture = ExtResource("3_cyjn5")
+
+[node name="HandContainer" type="Node2D" parent="Offset/ClockContainer" unique_id=1570082178]
+position = Vector2(0, 43.86428)
+
+[node name="Hand" type="Sprite2D" parent="Offset/ClockContainer/HandContainer" unique_id=104959514]
+unique_name_in_owner = true
+rotation = -3.1415927
+scale = Vector2(1.0000002, 1.5000004)
+texture = ExtResource("8_ugkk7")
+offset = Vector2(0, 3.5)
+
+[node name="Cat" type="Sprite2D" parent="Offset" unique_id=4864249]
+position = Vector2(0, 43)
 scale = Vector2(2, 2)
 texture = ExtResource("3_gitn3")
 
-[node name="EyeSprite" type="Sprite2D" parent="Cat" unique_id=960695278]
-position = Vector2(0, -12.999998)
+[node name="EyeSprite" type="Sprite2D" parent="Offset/Cat" unique_id=960695278]
+position = Vector2(0, -14)
 texture = ExtResource("4_hda0d")
-flip_h = true
 
-[node name="EyeSpriteWhite" type="Sprite2D" parent="Cat" unique_id=1958788454]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -12.999998)
+[node name="EyeSpriteWhite" type="Sprite2D" parent="Offset/Cat" unique_id=1958788454]
+modulate = Color(1, 1, 1, 0.8805103)
+self_modulate = Color(1, 1, 1, 0.73333335)
+position = Vector2(0, -13.999998)
 texture = ExtResource("5_cyjn5")
 
-[node name="Eyes" type="Node2D" parent="Cat" unique_id=1830166222]
-position = Vector2(2.497193, -12)
+[node name="Eyes" type="Node2D" parent="Offset/Cat" unique_id=1830166222]
+position = Vector2(2.5000007, -12)
 scale = Vector2(0.5, 0.5)
 
-[node name="Left" type="ColorRect" parent="Cat/Eyes" unique_id=1294733190]
-offset_left = -10.0
-offset_top = -8.0
-offset_right = -6.0
-offset_bottom = 4.0
+[node name="Left" type="ColorRect" parent="Offset/Cat/Eyes" unique_id=1294733190]
+offset_left = -16.994385
+offset_top = -10.0
+offset_right = -8.994385
+offset_bottom = 2.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Right" type="ColorRect" parent="Cat/Eyes" unique_id=866048225]
-offset_left = 6.0
-offset_top = -8.0
-offset_right = 10.0
-offset_bottom = 4.0
+[node name="Right" type="ColorRect" parent="Offset/Cat/Eyes" unique_id=866048225]
+offset_left = 9.005615
+offset_top = -10.0
+offset_right = 17.005615
+offset_bottom = 2.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Tail" type="Sprite2D" parent="Cat" unique_id=159943169]
+[node name="Tail" type="Sprite2D" parent="Offset/Cat" unique_id=159943169]
 z_index = -1
-position = Vector2(0, -0.5)
-rotation = 6.100747
+position = Vector2(0, 11)
+rotation = 0.13704039
 texture = ExtResource("6_wogfk")
 offset = Vector2(0, 24)
 flip_v = true
 
 [node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1438762163]
-root_node = NodePath("../../../..")
 libraries/ = SubResource("AnimationLibrary_y8ppo")
 autoplay = &"clock"
 script = ExtResource("7_mdcpx")
 metadata/_custom_type_script = "uid://lmwp8k10f2p4"
+
+[node name="Actions" type="AnimationPlayer" parent="." unique_id=2128639122]
+libraries/ = SubResource("AnimationLibrary_hda0d")
+
+[node name="Whirring" type="AudioStreamPlayer" parent="." unique_id=1348348090]
+stream = ExtResource("9_gitn3")
+pitch_scale = 0.46

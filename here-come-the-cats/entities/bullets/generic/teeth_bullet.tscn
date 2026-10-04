@@ -13,7 +13,6 @@ collision_layer = 2
 script = ExtResource("1_lcb38")
 damage = 9
 graze_points = 0
-destructible = true
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 

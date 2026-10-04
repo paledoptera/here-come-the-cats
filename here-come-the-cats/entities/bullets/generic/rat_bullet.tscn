@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dleaep2u7jhkw"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_fku8u"]
+[ext_resource type="Texture2D" uid="uid://g1gd8pt8m7sg" path="res://entities/bullets/generic/rat.png" id="2_fku8u"]
+[ext_resource type="PackedScene" uid="uid://cmp4abyqiue4l" path="res://entities/misc/tail_effect/tail_effect.tscn" id="3_1fd6h"]
+[ext_resource type="Texture2D" uid="uid://cnyt60ecuoid6" path="res://minigames/here_come_the_cats/res/rat_tail.png" id="4_jeawm"]
+
+[sub_resource type="GDScript" id="GDScript_x5dwq"]
+resource_name = "darkshapesprite"
+script/source = "extends Sprite2D
+
+func _on_timer_timeout() -> void:
+	frame = wrapi(frame+1,0,3)
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lj2tg"]
+radius = 6.0
+
+[node name="RatBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_fku8u")
+damage = 9
+graze_points = 0
+shootable = true
+dashable = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_fku8u")
+offset = Vector2(0, 0.5)
+script = SubResource("GDScript_x5dwq")
+
+[node name="TailEffect" parent="Sprite2D" unique_id=1027478356 instance=ExtResource("3_1fd6h")]
+position = Vector2(-12, 0)
+range = 30.0
+clamp = 5.0
+lerp = 0.5
+offset = Vector2(0, 0)
+constant_offset = Vector2(0, 0)
+
+[node name="1" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=1583947593]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="2" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=841115813]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="3" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=2106673103]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="4" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=265955977]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="5" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=742776618]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="6" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=360048909]
+z_index = 4096
+texture = ExtResource("4_jeawm")
+
+[node name="Timer" type="Timer" parent="Sprite2D" unique_id=991396953]
+wait_time = 0.1
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+position = Vector2(5, 0.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lj2tg")
+
+[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]

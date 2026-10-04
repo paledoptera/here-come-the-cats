@@ -30,8 +30,16 @@ func queue_action(action: StringName):
 	print("ACTION QUEUE: ", action_queue)
 
 
-func trigger_damage_number(damage_number: FloatingText):
+func trigger_damage_number(damage_number: FloatingText, text_position:= Vector2.ZERO, text_position_global: bool = false):
 	add_child(damage_number)
+	damage_number.top_level = true
+	if not text_position:
+		damage_number.global_position = to_global(Vector2.ZERO)
+	else:
+		if text_position_global:
+			damage_number.global_position = text_position
+		else:
+			damage_number.global_position = to_global(Vector2.ZERO)+text_position
 
 
 func trigger_effect(effect: PackedScene):

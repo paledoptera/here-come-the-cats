@@ -1,39 +1,27 @@
 [gd_scene format=3 uid="uid://ddmjcvocbt7r1"]
 
 [ext_resource type="Script" uid="uid://dnn0h0cjtutoq" path="res://minigames/here_come_the_cats/here_come_the_cats.gd" id="1_wfeub"]
-[ext_resource type="Texture2D" uid="uid://dr1tov7e3jh2d" path="res://minigames/here_come_the_cats/res/tvs_background.png" id="2_hmtnl"]
+[ext_resource type="Texture2D" uid="uid://bbja8m1plracs" path="res://minigames/here_come_the_cats/res/tvs_background_2.png" id="2_lij5d"]
+[ext_resource type="PackedScene" uid="uid://boxyth7xolqo5" path="res://minigames/here_come_the_cats/the_cat.tscn" id="3_lij5d"]
 [ext_resource type="Script" uid="uid://cto4ulidgj8p7" path="res://minigames/here_come_the_cats/scripts/custom_lyrics.gd" id="3_q223y"]
 [ext_resource type="Texture2D" uid="uid://dlp2h35d5k6dh" path="res://minigames/here_come_the_cats/res/rat.png" id="4_fxwvx"]
 [ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="5_lij5d"]
 [ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="5_px3a1"]
-[ext_resource type="Texture2D" uid="uid://bupy4x870qjs8" path="res://minigames/here_come_the_cats/res/cat.png" id="6_eed83"]
-[ext_resource type="PackedScene" uid="uid://rqcwv0u2ltx8" path="res://entities/attacks/old_house.tscn" id="6_odm7m"]
-[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="6_pr80w"]
-[ext_resource type="PackedScene" uid="uid://b6414grtxowj8" path="res://entities/attacks/swarm.tscn" id="8_08nor"]
+[ext_resource type="PackedScene" uid="uid://d35leuhfk216b" path="res://minigames/here_come_the_cats/entities/pink_line.tscn" id="9_lij5d"]
+[ext_resource type="PackedScene" uid="uid://c3g6e8a6mvxyh" path="res://entities/attacks/cat_paw.tscn" id="10_hesta"]
+[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="11_odm7m"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="12_wfeub"]
 [ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://entities/tp_bar/tp_bar.tscn" id="14_n0lwv"]
 [ext_resource type="Script" uid="uid://d01i7b7547qb3" path="res://common/music/song_synced_animation_player.gd" id="15_odm7m"]
 [ext_resource type="PackedScene" uid="uid://b4pby4bifr6bi" path="res://minigames/here_come_the_cats/entities/clock.tscn" id="17_hesta"]
+[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="18_v4cn4"]
 [ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="18_wfeub"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://party/ui/stats_tab/stats_tab.tscn" id="19_hesta"]
-[ext_resource type="Texture2D" uid="uid://chwlnfewit2ru" path="res://minigames/here_come_the_cats/res/dess.png" id="21_hesta"]
-[ext_resource type="AudioStream" uid="uid://2tkc7bc1u0mf" path="res://shared/sound_effects/snd_cat_bell.wav" id="21_iuken"]
+[ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://dialogue/entities/speech_bubble/bubble_tail_left.tscn" id="19_odm7m"]
+[ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="21_hesta"]
 [ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="21_odm7m"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="22_odm7m"]
-[ext_resource type="PackedScene" uid="uid://cl0rkh36ajx45" path="res://entities/attacks/mouth_tower.tscn" id="27_bg4j1"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5vjsp"]
-blend_mode = 3
-
-[sub_resource type="Gradient" id="Gradient_yl35i"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dxg3j"]
-gradient = SubResource("Gradient_yl35i")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e8jcs"]
-blend_mode = 1
+[ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="22_pr80w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(184, 490)
@@ -216,7 +204,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat:scale")
+tracks/3/path = NodePath("UI/UpperPanel/DeathClock/Cat:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -228,7 +216,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI/UpperPanel/Clock:position")
+tracks/4/path = NodePath("UI/UpperPanel/DeathClock:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -279,7 +267,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat:scale")
+tracks/3/path = NodePath("UI/UpperPanel/DeathClock/Cat:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -291,7 +279,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI/UpperPanel/Clock:position")
+tracks/4/path = NodePath("UI/UpperPanel/DeathClock:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -444,14 +432,146 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../UpperPanel/Clock:position")
+tracks/11/path = NodePath("../..:ticking_volume")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -150)]
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../..:event")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../../CatPartyLine:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 572)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../CatPartyLine2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -116)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../Attacks/CatPaws/CatPaw1:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(391, 346)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../../Attacks/CatPaws/CatPaw2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(218, 345)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../../Attacks/CatPaws/CatPaw3:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, 106)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../../Attacks/CatPaws/CatPaw4:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224.00003, 103)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../../Attacks/CatPaws/CatPaw1:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.47996554]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../../Attacks/CatPaws/CatPaw2:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.36651915]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../../Attacks/CatPaws/CatPaw3:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9111356]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../../Attacks/CatPaws/CatPaw4:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.1311207]
 }
 
 [sub_resource type="Animation" id="Animation_p8yqf"]
@@ -515,22 +635,22 @@ tracks/4/path = NodePath("../../Bounds/Cat:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(40.833336, 41.000004, 41.166668, 41.466667, 90),
-"transitions": PackedFloat32Array(1, 0.5, -2, 1, 1),
+"times": PackedFloat32Array(41.000004, 41.233334, 41.466667, 68.76667, 69.4),
+"transitions": PackedFloat32Array(-2, -2, 1, -2, 1),
 "update": 0,
-"values": [Vector2(1065, 201), Vector2(836, 185), Vector2(563.86, 258.55), Vector2(511.63, 232), Vector2(511.63, 232)]
+"values": [Vector2(811.63, 232), Vector2(511.63, 232), Vector2(533.065, 232), Vector2(511.63, 232), Vector2(811.63, 232)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("../../Bounds/Cat:rotation")
-tracks/5/interp = 1
+tracks/5/interp = 4
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(40.7, 41.033337, 41.166668, 41.466667, 90),
-"transitions": PackedFloat32Array(1, 0.5, -2, 1, 1),
+"times": PackedFloat32Array(40.7, 41.033337, 41.233334, 90),
+"transitions": PackedFloat32Array(1, -2, 0, 1),
 "update": 0,
-"values": [0.0, 0.42760566, -0.23387411976723976, 0.0, 0.0]
+"values": [0.0, 0.42760566, 0.0, 0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -551,10 +671,10 @@ tracks/7/path = NodePath("../../Attacks/PinkLine:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 10.133334, 16.933332, 27.866669, 41.1),
-"transitions": PackedFloat32Array(0.933033, -2, 2, 1, 1),
+"times": PackedFloat32Array(0, 10.133334, 16.933332, 27.866669, 41.1, 90.03334),
+"transitions": PackedFloat32Array(0.933033, -2, 2, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1025, 240), Vector2(0, 240), Vector2(-548, 240), Vector2(-1299, 240), Vector2(-2624, 240)]
+"values": [Vector2(1025, 240), Vector2(0, 240), Vector2(-548, 240), Vector2(-1299, 240), Vector2(-2624, 240), Vector2(-7354, 240)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -575,7 +695,7 @@ tracks/9/path = NodePath("../Hints/Hint1:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 2.2333333, 2.4, 7.8666663, 8.300001),
+"times": PackedFloat32Array(0, 2.2333333, 2.4, 6.5666666, 7.0000014),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -604,32 +724,189 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1)]
 }
-tracks/12/type = "audio"
+tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../../SongSyncedAnimationPlayer/Sfx")
+tracks/12/path = NodePath("../..:ticking_volume")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("21_iuken")
-}],
-"times": PackedFloat32Array(10.4)
+"times": PackedFloat32Array(0, 6.8666673, 7.0333333, 17.766666),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.1]
 }
-tracks/12/use_blend = true
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../UpperPanel/Clock:position")
+tracks/13/path = NodePath("../..:event")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(2.2333333, 10.400001, 10.566667, 10.666667, 10.766666),
-"transitions": PackedFloat32Array(1, 0.5, -2, -2, 1),
+"times": PackedFloat32Array(0, 6.7999997, 6.8333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 1]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../CatPartyLine:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 41.133335, 41.366665, 41.566666, 41.766666, 42, 68.9, 69.166664),
+"transitions": PackedFloat32Array(1, 0.5, -2, -2, -2, 0, 2, 1),
 "update": 0,
-"values": [Vector2(0, -150), Vector2(0, -150), Vector2(0, 20), Vector2(0, -5), Vector2(0, 0)]
+"values": [Vector2(0, 572), Vector2(0, 572), Vector2(0, 387), Vector2(0, 451), Vector2(0, 421.349), Vector2(0, 428), Vector2(0, 428), Vector2(0, 572)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../CatPartyLine2:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 41.166668, 41.4, 41.6, 41.8, 42.033337, 68.93334, 69.200005),
+"transitions": PackedFloat32Array(1, 0.5, -2, -2, -2, 0, 2, 1),
+"update": 0,
+"values": [Vector2(67, -116), Vector2(67, -116), Vector2(67, 57), Vector2(67, 26.342), Vector2(67, 41.293), Vector2(67, 35), Vector2(67, 35), Vector2(67, -116)]
+}
+tracks/16/type = "animation"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../../Attacks/CatPaws/CatPaw1/CatPawAnim")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"clips": PackedStringArray("slap", "slap", "slap"),
+"times": PackedFloat32Array(56.7, 60.200005, 63.6)
+}
+tracks/17/type = "animation"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../../Attacks/CatPaws/CatPaw2/CatPawAnim")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"clips": PackedStringArray("slap", "slap", "slap"),
+"times": PackedFloat32Array(57.033337, 60.53334, 63.933334)
+}
+tracks/18/type = "animation"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../../Attacks/CatPaws/CatPaw3/CatPawAnim")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"clips": PackedStringArray("slap", "slap", "slap"),
+"times": PackedFloat32Array(57.500004, 61.000008, 64.4)
+}
+tracks/19/type = "animation"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../../Attacks/CatPaws/CatPaw4/CatPawAnim")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"clips": PackedStringArray("slap", "slap", "slap"),
+"times": PackedFloat32Array(57.933334, 61.43334, 64.833336)
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../../Attacks/CatPaws/CatPaw1:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(391, 346), Vector2(160.00002, 379), Vector2(87, 270)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../../Attacks/CatPaws/CatPaw2:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(218, 345), Vector2(252.00003, 330), Vector2(125.00001, 237.00003)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../../Attacks/CatPaws/CatPaw3:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(97, 106), Vector2(105.99999, 99.99999), Vector2(114, 358)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../../Attacks/CatPaws/CatPaw4:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(224.00003, 103), Vector2(138.00002, 193), Vector2(184.99997, 261.99997)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../../Attacks/CatPaws/CatPaw1:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-0.47996554, 0.2984513, 1.834341]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../../Attacks/CatPaws/CatPaw2:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.36651915, -0.2268928, 0.93898714]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("../../Attacks/CatPaws/CatPaw3:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.9111356, 3.338815, 6.244788]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("../../Attacks/CatPaws/CatPaw4:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(56.433334, 59.6, 63.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-3.1311207, -3.2620203, -6.028367]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hesta"]
@@ -637,12 +914,6 @@ _data = {
 &"RESET": SubResource("Animation_0uhk3"),
 &"lyrics": SubResource("Animation_p8yqf")
 }
-
-[sub_resource type="Curve2D" id="Curve2D_odm7m"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1000, 0, -16.514359, 0.093301475, 16.514359, -0.093301475, 640, 0, -23.04351, -0.47631347, 23.04351, 0.47631347, 643, 100, -48.783375, 0.8492768, 48.783375, -0.8492768, 1017, 100, 46.5691, 0.1426785, -46.5691, -0.1426785, 1015, -2, 57.92637, -0.75131416, -57.92637, 0.75131416, 951, -2, -44.32757, 0.75131476, 44.32757, -0.75131476, 951, -105, 0, 0, 0, 0, 1234, -95, -63.11844, -1.026316, 63.11844, 1.026316, 1378.0002, -93, -71.328964, -1.026316, 71.328964, 1.026316, 1436.0002, 35, 0, 0, 0, 0, 1655.4414, 35, -22.39235, 0.4665073, 22.39235, -0.4665073, 1877.4414, 36, -40.586132, -0.4665073, 40.586132, 0.4665073, 1907.0002, 120, -46.184223, -0.4665073, 46.184223, 0.4665073, 2211.0002, 114, -53.64834, 0, 53.64834, 0, 2249.0002, -131, -65.28925, -0.82644624, 65.28925, 0.82644624, 2576.0002, -131, -66, 2, 66, -2, 2638.0002, 156, 0, 0, 0, 0, 3043.4414, 158, 0, 0, 0, 0, 3592.4414, 148)
-}
-point_count = 19
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ppo"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
@@ -677,7 +948,7 @@ func _process(delta: float) -> void:
 	other_box.text = text
 "
 
-[node name="HereComesTheCats" type="Node2D" unique_id=175424421]
+[node name="HereComeTheCats" type="Node2D" unique_id=175424421]
 script = ExtResource("1_wfeub")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1691800533]
@@ -685,14 +956,14 @@ layer = -1
 
 [node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=336475762]
 z_index = -4096
-repeat_size = Vector2(524, 0)
-autoscroll = Vector2(-200, 0)
+repeat_size = Vector2(786, 0)
+autoscroll = Vector2(-50, 0)
 repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D" unique_id=2073250097]
 position = Vector2(317, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("2_hmtnl")
+texture = ExtResource("2_lij5d")
 
 [node name="AttackDim" type="ColorRect" parent="Background/Parallax2D" unique_id=314917018]
 modulate = Color(0, 0, 0, 0.69803923)
@@ -705,33 +976,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ColorRect" type="TextureRect" parent="Background" unique_id=1939036808]
-modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
-z_index = -10
-material = SubResource("CanvasItemMaterial_5vjsp")
-offset_right = 638.0
-offset_bottom = 480.0
-texture = SubResource("GradientTexture2D_dxg3j")
-
-[node name="ColorRect2" type="TextureRect" parent="Background" unique_id=1356503980]
-modulate = Color(1, 1, 1, 0.05490196)
-z_index = -11
-material = SubResource("CanvasItemMaterial_e8jcs")
-offset_right = 638.0
-offset_bottom = 480.0
-texture = SubResource("GradientTexture2D_dxg3j")
-
 [node name="Bounds" type="StaticBody2D" parent="." unique_id=35075466]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds" unique_id=819987811]
 position = Vector2(-70, 235)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Cat" type="Sprite2D" parent="Bounds" unique_id=984586568]
-z_index = -1
+[node name="Cat" parent="Bounds" unique_id=1696939824 instance=ExtResource("3_lij5d")]
 position = Vector2(1065, 201)
-scale = Vector2(2, 2)
-texture = ExtResource("6_eed83")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" unique_id=1387223446]
 position = Vector2(745, 235)
@@ -802,38 +1054,51 @@ script = ExtResource("15_odm7m")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SongSyncedAnimationPlayer" unique_id=1262929793]
 volume_db = -80.0
 
-[node name="Sfx" type="AudioStreamPlayer" parent="SongSyncedAnimationPlayer" unique_id=1953524556]
-
 [node name="Attacks" type="Node2D" parent="." unique_id=1643777401]
 z_index = -1
 
-[node name="PinkLine" type="Path2D" parent="Attacks" unique_id=1997525250 groups=["pink_lines"]]
-z_index = 101
+[node name="PinkLine" parent="Attacks" unique_id=42622812 instance=ExtResource("9_lij5d")]
 position = Vector2(0, 240)
-curve = SubResource("Curve2D_odm7m")
-script = ExtResource("6_pr80w")
 
-[node name="Swarm" parent="Attacks/PinkLine" unique_id=1881260773 instance=ExtResource("8_08nor")]
-position = Vector2(-241, 0)
+[node name="FriendCoin" parent="Attacks/PinkLine" unique_id=1685877794 instance=ExtResource("11_odm7m")]
+position = Vector2(4109.188, 12)
 
-[node name="OldHouse" parent="Attacks/PinkLine" unique_id=1635334405 instance=ExtResource("6_odm7m")]
-z_index = -1
-position = Vector2(690, -152)
+[node name="FriendCoin2" parent="Attacks/PinkLine" unique_id=910287764 instance=ExtResource("11_odm7m")]
+position = Vector2(4618.188, -37)
 
-[node name="MouthTower" parent="Attacks/PinkLine" unique_id=1013303839 instance=ExtResource("27_bg4j1")]
-position = Vector2(2334.0002, -250)
+[node name="CatPaws" type="Node2D" parent="Attacks" unique_id=525588304]
+
+[node name="CatPaw1" parent="Attacks/CatPaws" unique_id=1275086199 instance=ExtResource("10_hesta")]
+position = Vector2(391, 346)
+rotation = -0.47996554
+
+[node name="CatPaw2" parent="Attacks/CatPaws" unique_id=690221156 instance=ExtResource("10_hesta")]
+position = Vector2(218, 345)
+rotation = 0.36651915
+scale = Vector2(1.5, 1.5)
+
+[node name="CatPaw3" parent="Attacks/CatPaws" unique_id=1063249652 instance=ExtResource("10_hesta")]
+position = Vector2(97, 106)
+rotation = 1.9111356
+
+[node name="CatPaw4" parent="Attacks/CatPaws" unique_id=1707162455 instance=ExtResource("10_hesta")]
+position = Vector2(224.00003, 103)
+rotation = -3.1311207
+scale = Vector2(1.23, 1.23)
 
 [node name="StartMusic" type="Node" parent="." unique_id=1465770231]
 script = ExtResource("22_odm7m")
 song = ExtResource("5_lij5d")
 bpm = 138.979
+start_position = 27.0
 enable_rhythm_tracking = true
+volume = 0.75
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1547504540]
 
 [node name="TPBar" parent="UI" unique_id=1921588265 instance=ExtResource("14_n0lwv")]
-position = Vector2(49, 221)
+position = Vector2(19, 221)
 
 [node name="LowerPanel" type="ColorRect" parent="UI" unique_id=1110783948]
 z_index = 20
@@ -893,8 +1158,8 @@ offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
 metadata/_edit_use_anchors_ = true
 
-[node name="Clock" parent="UI/UpperPanel" unique_id=170005693 instance=ExtResource("17_hesta")]
-position = Vector2(0, -150)
+[node name="DeathClock" parent="UI/UpperPanel" unique_id=170005693 instance=ExtResource("17_hesta")]
+unique_name_in_owner = true
 
 [node name="CustomLyrics" type="Node2D" parent="UI" unique_id=1717309864 node_paths=PackedStringArray("text")]
 material = SubResource("CanvasItemMaterial_wfeub")
@@ -907,7 +1172,7 @@ self_modulate = Color(1, 1, 1, 0.5058824)
 z_index = -2
 offset_top = -60.0
 offset_right = 640.0
-offset_bottom = 104.00015
+offset_bottom = 104.000275
 texture = SubResource("GradientTexture2D_g4v7s")
 
 [node name="DialogueBox3" type="RichTextLabel" parent="UI/CustomLyrics" unique_id=1445375659]
@@ -992,48 +1257,43 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("21_odm7m")]
+z_index = 105
 position = Vector2(144, 232)
 speed_mult = 2.0
 
-[node name="Dess" type="Sprite2D" parent="SoulFriend" unique_id=1592751513]
-z_index = -1
-scale = Vector2(2, 2)
-texture = ExtResource("21_hesta")
-offset = Vector2(1.435, -0.993)
+[node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]
 
-[node name="Mouse" type="Sprite2D" parent="SoulFriend/Dess" unique_id=1979054937]
-show_behind_parent = true
-position = Vector2(3, 19.5)
-texture = ExtResource("4_fxwvx")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SoulFriend/Dess" unique_id=1229738276]
+remote_path = NodePath("../../../SpeechBubbleParent")
+update_rotation = false
+update_scale = false
 
-[node name="Tail1" type="Sprite2D" parent="SoulFriend/Dess/Mouse" unique_id=298822532]
-position = Vector2(-22.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
+[node name="CatPartyLine" parent="." unique_id=1995562823 instance=ExtResource("22_pr80w")]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(0, 572)
 
-[node name="Tail2" type="Sprite2D" parent="SoulFriend/Dess/Mouse" unique_id=682298154]
-position = Vector2(-31.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
+[node name="CatPartyLine2" parent="." unique_id=988757228 instance=ExtResource("22_pr80w")]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(0, -116)
+scale = Vector2(1, -1)
 
-[node name="Tail3" type="Sprite2D" parent="SoulFriend/Dess/Mouse" unique_id=114003555]
-position = Vector2(-40.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
+[node name="SpeechBubbleParent" type="Node2D" parent="." unique_id=926743467]
+z_index = 105
+position = Vector2(144, 232)
 
-[node name="Tail4" type="Sprite2D" parent="SoulFriend/Dess/Mouse" unique_id=1664336467]
-position = Vector2(-49.5, 0.99999994)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
+[node name="SpeechBubble" parent="SpeechBubbleParent" unique_id=525169759 instance=ExtResource("18_v4cn4")]
+offset_left = 120.0
+offset_top = -19.0
+offset_right = 220.0
+offset_bottom = 25.0
+text = "
+"
+identifier = &"dess"
 
-[node name="Tail5" type="Sprite2D" parent="SoulFriend/Dess/Mouse" unique_id=407652530]
-position = Vector2(-58, 5.5000005)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_wfeub")
-offset = Vector2(-0.75, -1.765)
-flip_h = true
+[node name="Tail" parent="SpeechBubbleParent/SpeechBubble" unique_id=719384932 instance=ExtResource("19_odm7m")]
+layout_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SoulFriend/Dess/Mouse" unique_id=897521418]
-libraries/ = SubResource("AnimationLibrary_pr80w")
-autoplay = &"tail"
-speed_scale = 0.5
+[editable path="Attacks/CatPaws/CatPaw1"]
+[editable path="Attacks/CatPaws/CatPaw2"]
+[editable path="Attacks/CatPaws/CatPaw3"]
+[editable path="Attacks/CatPaws/CatPaw4"]

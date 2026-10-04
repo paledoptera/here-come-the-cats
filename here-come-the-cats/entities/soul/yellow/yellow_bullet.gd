@@ -8,8 +8,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is Bullet and area.shootable:
-		area.bullet_shot(damage)
+	if area is Bullet and area.shootable or area is CatBoss:
+		area.bullet_shot(damage, self)
 		destroy()
 	if area is Switch:
 		area.trigger()

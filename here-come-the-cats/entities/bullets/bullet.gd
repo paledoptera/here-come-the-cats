@@ -65,7 +65,7 @@ func _on_body_entered(body: Node2D) -> void:
 func destroy() -> void:
 	queue_free()
 
-func bullet_shot(bullet_damage:int) -> void:
+func bullet_shot(bullet_damage:int, other_bullet: Area2D) -> void:
 	shootable_hp -= bullet_damage
 	if shootable_hp <= 0:
 		destroy()

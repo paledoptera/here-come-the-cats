@@ -52,7 +52,12 @@ func _process(delta: float) -> void:
 	if not enable_rhythm:
 		return
 	
-	var audio: AudioStreamPlayer
+	if not current_song:
+		return
+	
+	if not music[current_song]:
+		current_song = ""
+		return 
 	current_position = music[current_song].get_playback_position()
 	var sec_per_beat=60.0/bpm
 	current_beat = current_position/sec_per_beat

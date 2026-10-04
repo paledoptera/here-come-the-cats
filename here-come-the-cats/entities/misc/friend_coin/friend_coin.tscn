@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://8beh8ncwgxop"]
+
+[ext_resource type="Script" uid="uid://bsmohnn13q2ok" path="res://entities/misc/friend_coin/friend_coin.gd" id="1_fcq2e"]
+[ext_resource type="Texture2D" uid="uid://bpwmen2o3qg7x" path="res://entities/misc/friend_coin/res/friend_coin.png" id="1_yu5e4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu5e4"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(0, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcq2e"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(20, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pecv1"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(40, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0hcu"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(60, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulnfd"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(80, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eh61"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(100, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psvif"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(120, 0, 20, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvy68"]
+atlas = ExtResource("1_yu5e4")
+region = Rect2(140, 0, 20, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu5e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcq2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pecv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0hcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulnfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eh61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psvif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvy68")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 13.0
+height = 44.0
+
+[node name="FriendCoin" type="Node2D" unique_id=1685877794]
+script = ExtResource("1_fcq2e")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=144636966]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.4349244
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1355285293]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=495276307]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

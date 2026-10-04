@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c41u6n7akk2ry"]
+
+[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="1_cab8o"]
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_xud30"]
+[ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="3_a6uy5"]
+
+[sub_resource type="Curve2D" id="Curve2D_a6uy5"]
+_data = {
+"points": PackedVector2Array(10.743801, -238.84296, -10.743801, 238.84296, 1610.9998, -343, 72.48805, 0.33018333, -72.48805, -0.33018333, 1563.9998, -24, 71.32549, 0, -71.32549, 0, 1453.9998, -24, -1.6528925, -159.50412, 1.6528925, 159.50412, 1401.9998, 172)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_wfeub"]
+_data = {
+"points": PackedVector2Array(3.005259, -173.41096, -3.005259, 173.41096, 1552.7462, -347, -169.04582, -3.7565737, 169.04582, 3.7565737, 1705.7462, -184, -111.9459, -0.37565756, 111.9459, 0.37565756, 1949.7462, -180, 4.456446, -427.4989, -4.456446, 427.4989, 2031.7462, 235)
+}
+point_count = 4
+
+[node name="Rain" type="Node2D" unique_id=339688884]
+
+[node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("1_cab8o")]
+position = Vector2(-217, 96)
+
+[node name="FriendCoin2" parent="." unique_id=1190232249 instance=ExtResource("1_cab8o")]
+position = Vector2(651, -31)
+
+[node name="Line1" type="Path2D" parent="." unique_id=792918810 groups=["pink_lines"]]
+z_index = 101
+position = Vector2(-1354.7462, 103)
+curve = SubResource("Curve2D_a6uy5")
+script = ExtResource("2_xud30")
+
+[node name="Rat1" parent="Line1" unique_id=936060058 instance=ExtResource("3_a6uy5")]
+position = Vector2(1610.833, -105.06967)
+rotation = 1.5772043
+progress = 238.11008
+
+[node name="Rat2" parent="Line1" unique_id=1357673167 instance=ExtResource("3_a6uy5")]
+position = Vector2(1402.0001, 171.99998)
+rotation = 1.5604343
+progress = 688.5774
+
+[node name="Rat3" parent="Line1" unique_id=1837908122 instance=ExtResource("3_a6uy5")]
+position = Vector2(1398.9878, 57.446373)
+rotation = 1.553547
+progress = 573.99817
+
+[node name="Line2" type="Path2D" parent="." unique_id=390555571 groups=["pink_lines"]]
+z_index = 101
+position = Vector2(-1354.7462, 103)
+curve = SubResource("Curve2D_wfeub")
+script = ExtResource("2_xud30")

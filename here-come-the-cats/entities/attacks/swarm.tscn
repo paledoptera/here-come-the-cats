@@ -1,84 +1,68 @@
 [gd_scene format=3 uid="uid://b6414grtxowj8"]
 
-[ext_resource type="PackedScene" uid="uid://brlogaq325mgc" path="res://entities/bullets/generic/dark_shape_bullet.tscn" id="1_mtvce"]
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_rnhy8"]
+[ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="3_u7t8u"]
+
+[sub_resource type="Curve2D" id="Curve2D_u7t8u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1000, 0, -59.3393, -1.409328, 59.3393, 1.409328, 363.0003, -5, -72.13501, -8.488678, 72.13501, 8.488678, 422.0003, -180)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_tlp7r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1000, 0, -97.52112, 0.40885377, 97.52112, -0.40885377, 521, -8, -136.59781, -1.050662, 136.59781, 1.050662, 644, 199)
+}
+point_count = 3
 
 [node name="Swarm" type="Node2D" unique_id=1881260773]
 
-[node name="DiamondBullet" parent="." unique_id=194047947 instance=ExtResource("1_mtvce")]
-position = Vector2(92, -45)
-rotation = 3.1415927
+[node name="IntroUpperLine" type="Path2D" parent="." unique_id=999034436 groups=["pink_lines"]]
+position = Vector2(241, -83)
+curve = SubResource("Curve2D_u7t8u")
+script = ExtResource("2_rnhy8")
 
-[node name="DiamondBullet2" parent="." unique_id=1251708699 instance=ExtResource("1_mtvce")]
-position = Vector2(134, 16.69992)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat1" parent="IntroUpperLine" unique_id=936060058 instance=ExtResource("3_u7t8u")]
+position = Vector2(-252.35657, -3.4015324)
+rotation = -0.00415797
+progress = 747.65137
 
-[node name="DiamondBullet3" parent="." unique_id=1936946848 instance=ExtResource("1_mtvce")]
-position = Vector2(226, -97.70009)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat2" parent="IntroUpperLine" unique_id=1997386975 instance=ExtResource("3_u7t8u")]
+position = Vector2(422.0003, -180.00003)
+rotation = 0.117138915
+progress = 1571.3563
 
-[node name="DiamondBullet4" parent="." unique_id=1382866677 instance=ExtResource("1_mtvce")]
-position = Vector2(308, 143.70358)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat3" parent="IntroUpperLine" unique_id=1868640435 instance=ExtResource("3_u7t8u")]
+position = Vector2(300.45398, -5.1996245)
+rotation = -0.0005071723
+progress = 1300.4545
 
-[node name="DiamondBullet5" parent="." unique_id=2083429569 instance=ExtResource("1_mtvce")]
-position = Vector2(358, -141.35674)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat4" parent="IntroUpperLine" unique_id=269847571 instance=ExtResource("3_u7t8u")]
+position = Vector2(202.86382, -5.032196)
+rotation = -0.0024793714
+progress = 1202.8733
 
-[node name="DiamondBullet6" parent="." unique_id=763854810 instance=ExtResource("1_mtvce")]
-position = Vector2(534, -41.505096)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="IntroUpperLine2" type="Path2D" parent="." unique_id=358158757 groups=["pink_lines"]]
+position = Vector2(241.0003, 103)
+curve = SubResource("Curve2D_tlp7r")
+script = ExtResource("2_rnhy8")
 
-[node name="DiamondBullet7" parent="." unique_id=96756431 instance=ExtResource("1_mtvce")]
-position = Vector2(423, 64.788574)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat2" parent="IntroUpperLine2" unique_id=1771562197 instance=ExtResource("3_u7t8u")]
+position = Vector2(-16.979204, -5.2159586)
+rotation = -0.0052727754
+progress = 983.034
 
-[node name="DiamondBullet8" parent="." unique_id=1310643229 instance=ExtResource("1_mtvce")]
-position = Vector2(887.021, 125.987946)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat3" parent="IntroUpperLine2" unique_id=630997264 instance=ExtResource("3_u7t8u")]
+position = Vector2(82.23884, -5.738506)
+rotation = -0.0052598137
+progress = 1082.2542
 
-[node name="DiamondBullet9" parent="." unique_id=1596861541 instance=ExtResource("1_mtvce")]
-position = Vector2(676, -64.052246)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat4" parent="IntroUpperLine2" unique_id=1263254572 instance=ExtResource("3_u7t8u")]
+position = Vector2(581.21967, 166.81117)
+rotation = 1.072965
+progress = 1723.0507
 
-[node name="DiamondBullet10" parent="." unique_id=1653273819 instance=ExtResource("1_mtvce")]
-position = Vector2(831, 169.47177)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet12" parent="." unique_id=2013186071 instance=ExtResource("1_mtvce")]
-position = Vector2(274.6714, 23.725342)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet13" parent="." unique_id=1764628302 instance=ExtResource("1_mtvce")]
-position = Vector2(179.08138, 153.19534)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet14" parent="." unique_id=1891991171 instance=ExtResource("1_mtvce")]
-position = Vector2(580.8014, 178.60535)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet15" parent="." unique_id=310688690 instance=ExtResource("1_mtvce")]
-position = Vector2(583.22144, 178.60535)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet16" parent="." unique_id=1917404857 instance=ExtResource("1_mtvce")]
-position = Vector2(643.72144, 68.49533)
-rotation = 3.1415927
-metadata/_scene_painted = true
-
-[node name="DiamondBullet17" parent="." unique_id=1339598671 instance=ExtResource("1_mtvce")]
-position = Vector2(810.7014, 33.405334)
-rotation = 3.1415927
-metadata/_scene_painted = true
+[node name="Rat5" parent="IntroUpperLine2" unique_id=1245825579 instance=ExtResource("3_u7t8u")]
+position = Vector2(478.57465, -7.7966967)
+rotation = -0.00499106
+progress = 1478.5953

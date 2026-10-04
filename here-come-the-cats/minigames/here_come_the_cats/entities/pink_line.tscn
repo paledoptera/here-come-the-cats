@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d35leuhfk216b"]
+
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="1_uau76"]
+[ext_resource type="PackedScene" uid="uid://b6414grtxowj8" path="res://entities/attacks/swarm.tscn" id="2_p3bsf"]
+[ext_resource type="PackedScene" uid="uid://rqcwv0u2ltx8" path="res://entities/attacks/old_house.tscn" id="3_um7ad"]
+[ext_resource type="PackedScene" uid="uid://c41u6n7akk2ry" path="res://entities/attacks/rain.tscn" id="4_4h1k2"]
+[ext_resource type="PackedScene" uid="uid://cl0rkh36ajx45" path="res://entities/attacks/mouth_tower.tscn" id="5_guhno"]
+[ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="6_p3bsf"]
+
+[sub_resource type="Curve2D" id="Curve2D_odm7m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1000, 0, -16.514359, 0.093301475, 16.514359, -0.093301475, 640, 0, -23.04351, -0.47631347, 23.04351, 0.47631347, 643, 100, -48.783375, 0.8492768, 48.783375, -0.8492768, 1017, 100, 46.5691, 0.1426785, -46.5691, -0.1426785, 1015, -2, 57.92637, -0.75131416, -57.92637, 0.75131416, 951, -2, -44.32757, 0.75131476, 44.32757, -0.75131476, 951, -105, 0, 0, 0, 0, 1234, -95, -63.11844, -1.026316, 63.11844, 1.026316, 1378.0002, -93, -71.328964, -1.026316, 71.328964, 1.026316, 1436.0002, 35, 0, 0, 0, 0, 1655.4414, 35, -22.39235, 0.4665073, 22.39235, -0.4665073, 1877.4414, 36, -40.586132, -0.4665073, 40.586132, 0.4665073, 1907.0002, 120, -46.184223, -0.4665073, 46.184223, 0.4665073, 2211.0002, 114, -53.64834, 0, 53.64834, 0, 2249.0002, -131, -65.28925, -0.82644624, 65.28925, 0.82644624, 2576.0002, -131, -66, 2, 66, -2, 2638.0002, 156, 0, 0, 0, 0, 3043.4414, 158, -66.86701, 0.75131476, 66.86701, -0.75131476, 3537.6406, 147, -85.95041, 0.82644624, 85.95041, -0.82644624, 3571, -106, -59.999996, -0.9090909, 59.999996, 0.9090909, 3818.6406, -104, -104.54545, -1.8181818, 104.54545, 1.8181818, 3896, 9, -88, 0, 88, 0, 4260, 14, -118.8, 1.1, 118.8, -1.1, 4256, 112, -99, -5.5, 99, 5.5, 4620, 123, -90.200005, -1.1, 90.200005, 1.1, 4621.6406, -178, 0, 0, 0, 0, 5185, -160, -95.83201, -2.6620002, 95.83201, 2.6620002, 5626, -151, -129.10701, -3.9930003, 129.10701, 3.9930003, 5605, 71, -74.40557, 0, 74.40557, 0, 6256, 64, -95.6643, 1.7715611, 95.6643, -1.7715611, 6338, -37, 0, 0, 0, 0, 7374, -39)
+}
+point_count = 32
+
+[node name="PinkLine" type="Path2D" unique_id=42622812 groups=["pink_lines"]]
+z_index = 101
+curve = SubResource("Curve2D_odm7m")
+script = ExtResource("1_uau76")
+
+[node name="Swarm" parent="." unique_id=1881260773 instance=ExtResource("2_p3bsf")]
+position = Vector2(-241, 0)
+
+[node name="OldHouse" parent="." unique_id=709242782 instance=ExtResource("3_um7ad")]
+z_index = -1
+position = Vector2(690, -152)
+
+[node name="Rain" parent="." unique_id=339688884 instance=ExtResource("4_4h1k2")]
+position = Vector2(1403.7462, 0)
+
+[node name="MouthTower" parent="." unique_id=1013303839 instance=ExtResource("5_guhno")]
+position = Vector2(2334.0002, -250)
+
+[node name="Rat1" parent="." unique_id=936060058 instance=ExtResource("6_p3bsf")]
+position = Vector2(-133.29619, 0.0364327)
+rotation = 2.5993379e-05
+progress = 866.7034
+
+[node name="Rat2" parent="." unique_id=71586689 instance=ExtResource("6_p3bsf")]
+position = Vector2(571.371, 0.02583913)
+rotation = -0.0001498535
+progress = 1571.3563
+
+[node name="Rat3" parent="." unique_id=165677687 instance=ExtResource("6_p3bsf")]
+position = Vector2(459.28998, 0.036039136)
+rotation = -5.4683867e-05
+progress = 1459.2866
+
+[node name="Rat4" parent="." unique_id=956662243 instance=ExtResource("6_p3bsf")]
+position = Vector2(854.1435, 100.506584)
+progress = 1957.425

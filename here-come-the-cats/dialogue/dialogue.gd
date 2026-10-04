@@ -63,6 +63,19 @@ func check_if_text_finished() -> void:
 	for i in current_boxes:
 		if not i:
 			continue
+		
+		if current.auto_skip:
+			if i.visible_ratio < 1.0:
+				finished = false
+				break
+			if current.auto_skip_after > 0.0:
+				current.auto_skip_after -= get_process_delta_time()
+				finished = false
+				break
+			else:
+				finished = true
+			break
+		
 		if i.visible_ratio < 1.0 or not current.require_input:
 			finished = false
 			break

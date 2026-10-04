@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2fc20c7ycwg6"]
+
+[ext_resource type="Script" uid="uid://b7178v286vok5" path="res://entities/attacks/rat_pathfollow.gd" id="1_lj2tg"]
+[ext_resource type="PackedScene" uid="uid://dleaep2u7jhkw" path="res://entities/bullets/generic/rat_bullet.tscn" id="2_bflfa"]
+
+[node name="Rat1" type="PathFollow2D" unique_id=936060058]
+script = ExtResource("1_lj2tg")
+
+[node name="RatBullet" parent="." unique_id=194047947 instance=ExtResource("2_bflfa")]
+rotation = 0.0049163676
+scale = Vector2(-2, 2)

@@ -20,9 +20,11 @@ var buffer: float = 0.33
 var dash_momentum: float = 0.0
 var dashing: bool = false
 
+
 var pink_lines: Array[Node]
 var pink_followers: Array[Node]
 var pink_line: Path2D
+var pink_angle: float = 0.0
 var pink_follower: PathFollow2D
 var pink_percent: float = 0.0
 var can_flip_to_pink: bool = false
@@ -39,9 +41,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	Party.tp = clampf(Party.tp,0.0,100.0)
-
+	var h_input = Input.get_axis("left","right")
+	if h_input != 0.0:
+		direction.x = h_input
 	
+	Party.tp = clampf(Party.tp,0.0,100.0)
+	
+	if pink_follower:
+		pink_angle = pink_follower.rotation
 
 		
 	
@@ -94,6 +101,12 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if soul_state == SoulState.YELLOW:
 		process_pink_switcher()
+	
+	if global_position.distance_to(pink_follower.global_position) > 32.0:
+		pink_outline.modulate = pink_outline.modulate.lerp(Color.TRANSPARENT,0.2)
+	else:
+		pink_outline.modulate = pink_outline.modulate.lerp(Color.WHITE,0.2)
+	
 
 func handle_shoot(_delta: float) -> void:
 	dashing = false
@@ -143,7 +156,7 @@ func handle_shoot(_delta: float) -> void:
 
 func switch_soul_mode() -> void:
 	
-	
+
 	
 	if soul_state == SoulState.YELLOW:
 		if global_position.distance_to(pink_follower.global_position) > 32.0:
@@ -157,9 +170,11 @@ func switch_soul_mode() -> void:
 	soul_state = wrapi(soul_state+1,0,2)
 
 	if soul_state == SoulState.YELLOW:
+		Actors.do_action("dess","switch_to_yellow")
 		$AnimationPlayer.play("switch_to_yellow")
 		charge_timer = 0.0
 	else:
+		Actors.do_action("dess","switch_to_pink")
 		$AnimationPlayer.play("switch_to_pink")
 		charge_timer = 0.0
 
@@ -188,7 +203,6 @@ func setup_pink() -> void:
 	
 	for i in pink_lines:
 		var follower = PathFollow2D.new()
-		follower.rotates = false
 		i.add_child(follower)
 		pink_followers.append(follower)
 	
@@ -216,14 +230,8 @@ func process_pink_switcher() -> void:
 	
 	pink_follower = nearest_follower
 	
-	if nearest_distance > 32.0:
-		print("DISTANCE")
-		pink_outline.modulate = pink_outline.modulate.lerp(Color.WHITE,0.2)
-		return
-	
 	
 	if pink_outline and nearest_follower:
 		
 		pink_outline.reparent(nearest_follower,false)
-		pink_outline.modulate = pink_outline.modulate.lerp(Color.TRANSPARENT,0.2)
-	
+		

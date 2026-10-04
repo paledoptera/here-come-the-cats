@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c3e2s410krvah" path="res://entities/soul/soul/res/soul_nooutline.png" id="4_tsytj"]
 [ext_resource type="Texture2D" uid="uid://c23y1f0vpogfg" path="res://entities/soul/soul/res/orange_dots.png" id="5_eh2da"]
 [ext_resource type="Texture2D" uid="uid://brsx35kjl8ymg" path="res://entities/soul/soul/res/soul_withoutline.png" id="6_mq280"]
+[ext_resource type="AudioStream" uid="uid://dv7i5fej3vskx" path="res://shared/sound_effects/snd_strongwind_loop.wav" id="9_eh2da"]
 
 [sub_resource type="GDScript" id="GDScript_76v1n"]
 resource_name = "HeartOutline"
@@ -172,14 +173,37 @@ func _process(delta: float) -> void:
 			playing = true
 		pitch_scale = min(0.25 + (soul.charge_timer * 0.05),1)
 		print(\"TEST\", linear_to_db(0.5))
-					#snd_pitch(loop_sound, min(0.5 + (chargetimer * 0.05), 1));
-	elif soul.dashing:
-		if not playing:
-			playing = true
-		print(\"LENGHT = \", soul.velocity.length())
-		pitch_scale = min(0.25 + (soul.velocity.length() * 0.0005)*1.2, 1.5)
 	else:
 		playing = false
+					#snd_pitch(loop_sound, min(0.5 + (chargetimer * 0.05), 1));
+"
+
+[sub_resource type="GDScript" id="GDScript_nbd1g"]
+resource_name = "Wind"
+script/source = "extends AudioStreamPlayer
+
+@onready var soul: Soul = get_parent()
+var wait_time: float = 0.0
+var velocity: float = 0.0
+
+func _process(delta: float) -> void:
+	velocity = lerpf(velocity, (soul.velocity.length() * 0.003),0.1)
+	
+	if soul.dashing:
+		wait_time += delta
+		if wait_time > 0.08:
+			wait_time -= 0.08
+			Sound.play(preload(\"uid://bi7px1mguwaaa\"),volume_linear*2,velocity*1.5)
+
+		
+		
+		pitch_scale = min(0.1 + velocity, 2.0)
+		volume_linear = lerp(volume_linear,0.2,0.3)
+	else:
+		wait_time = 0.08
+		volume_linear = lerp(volume_linear,0.0,0.1)
+	
+	
 "
 
 [sub_resource type="Animation" id="Animation_d1x2a"]
@@ -780,19 +804,25 @@ stream = ExtResource("4_mq280")
 volume_db = -6.0
 script = SubResource("GDScript_vpd5p")
 
+[node name="Wind" type="AudioStreamPlayer" parent="." index="4" unique_id=132834410]
+stream = ExtResource("9_eh2da")
+volume_db = -6.0
+autoplay = true
+script = SubResource("GDScript_nbd1g")
+
 [node name="Sprite2D" parent="Grazer" parent_id_path=PackedInt32Array(1156557386) index="0" unique_id=1747282588]
 frame = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=215915312]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=215915312]
 libraries/ = SubResource("AnimationLibrary_d1x2a")
 speed_scale = 0.87
 
-[node name="Flash" type="Sprite2D" parent="." index="6" unique_id=1076581337]
+[node name="Flash" type="Sprite2D" parent="." index="7" unique_id=1076581337]
 modulate = Color(1, 1, 1, 0.7764706)
 rotation = -1.5707964
 texture = ExtResource("4_tsytj")
 
-[node name="PinkParticles" type="CPUParticles2D" parent="." index="7" unique_id=1447657351]
+[node name="PinkParticles" type="CPUParticles2D" parent="." index="8" unique_id=1447657351]
 modulate = Color(1, 0.57254905, 1, 1)
 show_behind_parent = true
 amount = 30
@@ -801,6 +831,6 @@ gravity = Vector2(0, 0)
 scale_amount_curve = SubResource("Curve_mq280")
 color_ramp = SubResource("Gradient_mq280")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="8" unique_id=2000973015]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="9" unique_id=2000973015]
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -27,12 +27,13 @@ func set_target(actor_id: StringName, target_id: StringName):
 	actor.set_target(target)
 
 
-func trigger_damage_number(actor_id: StringName, floating_text: FloatingText):
+func trigger_damage_number(actor_id: StringName, floating_text: FloatingText, text_position:= Vector2.ZERO, text_position_global: bool = false):
 	var actor = _find_actor(actor_id)
 	if not actor:
 		return
+		
 	
-	actor.trigger_damage_number(floating_text)
+	actor.trigger_damage_number(floating_text, text_position, text_position_global)
 
 
 func trigger_effect(actor_id: StringName, effect: PackedScene):

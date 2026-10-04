@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://c3g6e8a6mvxyh"]
+
+[ext_resource type="Texture2D" uid="uid://otk2mcr2ukdw" path="res://entities/attacks/res/cat_paw.png" id="1_8a0bl"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="2_j1mux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a0bl"]
+size = Vector2(20, 235)
+
+[sub_resource type="Animation" id="Animation_8a0bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bullet/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j1mux"]
+resource_name = "slap"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.6, 0.9333334, 1.2),
+"transitions": PackedFloat32Array(1, 2, 0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 400), Vector2(0, 400), Vector2(0, -28), Vector2(0, 0), Vector2(0, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.6, 0.6333333, 0.70000005, 1.2),
+"transitions": PackedFloat32Array(2, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11.245, 3.77), Vector2(2.74, 2.74), Vector2(3.547, 3.037), Vector2(3, 3), Vector2(3.547, 3.037)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bullet/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.76666677),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.26666668, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swdlb"]
+_data = {
+&"RESET": SubResource("Animation_8a0bl"),
+&"slap": SubResource("Animation_j1mux")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1mux"]
+bg_color = Color(0, 0, 0, 0.5294118)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+
+[node name="CatPaw" type="Node2D" unique_id=1275086199]
+z_index = 4096
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044721684]
+position = Vector2(0, 400)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8a0bl")
+
+[node name="Bullet" type="Area2D" parent="." unique_id=961662763]
+collision_layer = 2
+script = ExtResource("2_j1mux")
+damage = 26
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1828549608]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_8a0bl")
+disabled = true
+
+[node name="CatPawAnim" type="AnimationPlayer" parent="." unique_id=1531989924]
+libraries/ = SubResource("AnimationLibrary_swdlb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1276746683]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = 115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1mux")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1520544529]
+modulate = Color(1, 0.5176471, 0, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_right = 24.0
+offset_bottom = 243.0
+scale = Vector2(2.5, 1)
+text = "!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+!
+!
+"
+scroll_active = false

@@ -5,6 +5,7 @@ extends Resource
 @export var require_input: bool = true
 @export var is_skippable: bool = true
 @export var auto_skip: bool = false
+@export var auto_skip_after: float = 0.0
 @export var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
 @export var talksound_oneshot: bool = false
 @export_group("Portrait")

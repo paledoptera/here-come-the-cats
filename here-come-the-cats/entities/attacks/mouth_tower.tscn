@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="3_lum2q"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/attacks/door.gd" id="4_c61wv"]
 [ext_resource type="PackedScene" uid="uid://bwkuilratplt7" path="res://entities/bullets/generic/teeth_bullet.tscn" id="5_71x67"]
+[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="5_lum2q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6vb"]
 bg_color = Color(0, 0, 0, 1)
@@ -16,19 +17,8 @@ border_color = Color(0, 1, 0, 1)
 [node name="MouthTower" type="Node2D" unique_id=1013303839]
 
 [node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
-position = Vector2(-17, 215)
+position = Vector2(-17, 248)
 linked_contraptions = [NodePath("../Door")]
-one_shot = true
-
-[node name="Switch2" parent="." unique_id=204933456 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
-position = Vector2(-17, 250)
-linked_contraptions = [null]
-one_shot = true
-
-[node name="Switch3" parent="." unique_id=77129867 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_ptj17")]
-position = Vector2(-17, 285)
-linked_contraptions = [null]
-one_shot = true
 
 [node name="EyeballBullet6" parent="." unique_id=1511751441 instance=ExtResource("3_lum2q")]
 position = Vector2(136, 368)
@@ -233,3 +223,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("5_lum2q")]
+position = Vector2(-106, 334)
