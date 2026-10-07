@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://dd5aewx0bpt22"]
+
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="1_wm4rk"]
+[ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/diamond_bullet.tscn" id="2_u8g27"]
+[ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="4_5sbl7"]
+
+[sub_resource type="GDScript" id="GDScript_5sbl7"]
+resource_name = "catspit"
+script/source = "extends Attack
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$BulletSpawner.spawn()
+"
+
+[node name="CatSpit" type="Node2D" unique_id=602485451]
+script = SubResource("GDScript_5sbl7")
+time = 15.0
+id = &"catspit"
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=1947977135 node_paths=PackedStringArray("parent")]
+z_index = 4096
+script = ExtResource("1_wm4rk")
+bullet = ExtResource("2_u8g27")
+spawn_amount_min = 3
+spawn_amount_max = 10
+speed_mult_min = 0.5
+speed_mult_max = 2.0
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Marker2D" type="Marker2D" parent="BulletSpawner" unique_id=1237492264]
+position = Vector2(-5, 0)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D" unique_id=294276397]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D2" type="Marker2D" parent="BulletSpawner" unique_id=1532449910]
+position = Vector2(-2, -12)
+rotation = 3.6285598
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D2" unique_id=1424446158]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D3" type="Marker2D" parent="BulletSpawner" unique_id=1211467128]
+position = Vector2(-2, 10)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D3" unique_id=1769104811]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D4" type="Marker2D" parent="BulletSpawner" unique_id=280198811]
+position = Vector2(-5.999997, 6.000002)
+rotation = -3.4574974
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D4" unique_id=1129778866]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D5" type="Marker2D" parent="BulletSpawner" unique_id=746804382]
+position = Vector2(-8.999998, 18.000002)
+rotation = -3.9147735
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D5" unique_id=1497033213]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D6" type="Marker2D" parent="BulletSpawner" unique_id=1321992223]
+position = Vector2(-8.999996, -3.999998)
+rotation = -2.8989918
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D6" unique_id=1206685005]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D7" type="Marker2D" parent="BulletSpawner" unique_id=46243007]
+position = Vector2(6.4746895, -17.482962)
+rotation = 3.6260927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D7" unique_id=453874977]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D8" type="Marker2D" parent="BulletSpawner" unique_id=931139113]
+position = Vector2(9.4746895, -29.482962)
+rotation = 4.4628067
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D8" unique_id=1801876556]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D9" type="Marker2D" parent="BulletSpawner" unique_id=2138541278]
+position = Vector2(9.4746895, -7.4829617)
+rotation = 3.6260927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D9" unique_id=804183151]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D11" type="Marker2D" parent="BulletSpawner" unique_id=696468636]
+position = Vector2(2.4746914, 0.51704025)
+rotation = -2.5411994
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D11" unique_id=107481739]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D12" type="Marker2D" parent="BulletSpawner" unique_id=1818399084]
+position = Vector2(2.4746943, -21.482962)
+rotation = -2.0472713
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D12" unique_id=687964732]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D13" type="Marker2D" parent="BulletSpawner" unique_id=468104181]
+position = Vector2(5.2718115, 23.429419)
+rotation = 2.188055
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D13" unique_id=492402627]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D14" type="Marker2D" parent="BulletSpawner" unique_id=1829481087]
+position = Vector2(8.271812, 11.429423)
+rotation = 2.6750221
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D14" unique_id=369205046]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D15" type="Marker2D" parent="BulletSpawner" unique_id=340103243]
+position = Vector2(8.2718115, 33.42942)
+rotation = 2.188055
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D15" unique_id=646101551]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D16" type="Marker2D" parent="BulletSpawner" unique_id=1097924857]
+position = Vector2(4.271814, 29.429424)
+rotation = -3.530801
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D16" unique_id=1605954982]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D17" type="Marker2D" parent="BulletSpawner" unique_id=1464314123]
+position = Vector2(-9, 12)
+rotation = -2.5569074
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D17" unique_id=1980200044]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")
+
+[node name="Marker2D18" type="Marker2D" parent="BulletSpawner" unique_id=1968406944]
+position = Vector2(1.2718163, 19.429419)
+rotation = -3.3108895
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D18" unique_id=112390587]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_5sbl7")

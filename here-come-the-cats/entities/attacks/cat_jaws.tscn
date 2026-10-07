@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://bqpe6h8uay2lv"]
+
+[ext_resource type="PackedScene" uid="uid://bwkuilratplt7" path="res://entities/bullets/generic/teeth_bullet.tscn" id="1_00jav"]
+[ext_resource type="Texture2D" uid="uid://ci5peb5h0s3f3" path="res://entities/attacks/res/biter.png" id="1_0vlm6"]
+[ext_resource type="Script" uid="uid://biowbche1ulj0" path="res://entities/attacks/attack.gd" id="1_y3wqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_0vlm6")
+region = Rect2(0, 63.220146, 100, 6.779854)
+
+[sub_resource type="Animation" id="Animation_8a0bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Teeth/TeethTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-89, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Teeth/TeethBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-89, 449)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teeth/TeethTop:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Teeth/TeethBottom:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -121)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j1mux"]
+resource_name = "slap"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Teeth/TeethTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.23333335, 0.6333333, 0.93333334, 1.2, 1.5333333),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, -2, -2),
+"update": 0,
+"values": [Vector2(-89, 16), Vector2(-89, 132), Vector2(-89, 126), Vector2(-89, 313), Vector2(-89, 313), Vector2(-89, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Teeth/TeethBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.23333335, 0.6333333, 0.93333334, 1.2, 1.5333333),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, -2, -2),
+"update": 0,
+"values": [Vector2(-89, 449), Vector2(-89, 328), Vector2(-89, 342.275), Vector2(-89, 161), Vector2(-89, 161), Vector2(-89, 449)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teeth/TeethTop:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.6333333, 0.79999995, 0.93333334, 1, 1.2),
+"transitions": PackedFloat32Array(-2, -2, 2, -2, 0.5, -2, -2),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(1, -0.845), Vector2(1, -1), Vector2(1, -2.03), Vector2(1, -1), Vector2(1, -0.86), Vector2(1, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Teeth/TeethBottom:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.6333333, 0.79999995, 0.93333334, 1, 1.2),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, -2, 1, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.845), Vector2(1, 1), Vector2(1, 2.03), Vector2(1, 1), Vector2(1, 0.86), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.23333332, 0.6333334, 0.8, 0.9333334, 1.2, 1.5333334),
+"transitions": PackedFloat32Array(-2, -2, -5.0982404, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-1, 581), Vector2(-1, 11), Vector2(-1, -5), Vector2(-1, -24), Vector2(-1, 181), Vector2(-1, 174), Vector2(-1, -110)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 1.5333334, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swdlb"]
+_data = {
+&"RESET": SubResource("Animation_8a0bl"),
+&"chomp": SubResource("Animation_j1mux")
+}
+
+[node name="CatJaws" type="Node2D" unique_id=1275086199]
+z_index = 4096
+script = ExtResource("1_y3wqw")
+time = 2.0
+id = &"catjaws"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=760400712]
+modulate = Color(1, 1, 1, 0)
+z_index = -4096
+position = Vector2(-1, -121)
+scale = Vector2(2, 2)
+texture = ExtResource("1_0vlm6")
+offset = Vector2(1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D" unique_id=1880227887]
+offset_left = 0.5
+offset_top = 38.5
+offset_right = 100.5
+offset_bottom = 424.5
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.06)
+texture = SubResource("AtlasTexture_g4v7s")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Teeth" type="Node2D" parent="." unique_id=480953928]
+scale = Vector2(0.6, 1)
+
+[node name="TeethTop" type="Node2D" parent="Teeth" unique_id=2033621908]
+position = Vector2(-89, 16)
+scale = Vector2(1, -1)
+
+[node name="RightHalf" type="Node2D" parent="Teeth/TeethTop" unique_id=1570761349]
+
+[node name="TeethBullet2" parent="Teeth/TeethTop/RightHalf" unique_id=194047947 instance=ExtResource("1_00jav")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Teeth/TeethTop/RightHalf" unique_id=913903990 instance=ExtResource("1_00jav")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Teeth/TeethTop/RightHalf" unique_id=692163624 instance=ExtResource("1_00jav")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Teeth/TeethTop/RightHalf" unique_id=207901800 instance=ExtResource("1_00jav")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Teeth/TeethTop/RightHalf" unique_id=1602651157 instance=ExtResource("1_00jav")]
+position = Vector2(101, 85)
+
+[node name="LeftHalf" type="Node2D" parent="Teeth/TeethTop" unique_id=1996506459]
+position = Vector2(178, 0)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="TeethBullet2" parent="Teeth/TeethTop/LeftHalf" unique_id=923714407 instance=ExtResource("1_00jav")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Teeth/TeethTop/LeftHalf" unique_id=19187194 instance=ExtResource("1_00jav")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Teeth/TeethTop/LeftHalf" unique_id=1604740110 instance=ExtResource("1_00jav")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Teeth/TeethTop/LeftHalf" unique_id=486411322 instance=ExtResource("1_00jav")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Teeth/TeethTop/LeftHalf" unique_id=2143205514 instance=ExtResource("1_00jav")]
+position = Vector2(101, 85)
+
+[node name="TeethBottom" type="Node2D" parent="Teeth" unique_id=1758298114]
+position = Vector2(-89, 449)
+
+[node name="RightHalf" type="Node2D" parent="Teeth/TeethBottom" unique_id=186242710]
+
+[node name="TeethBullet2" parent="Teeth/TeethBottom/RightHalf" unique_id=83090971 instance=ExtResource("1_00jav")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Teeth/TeethBottom/RightHalf" unique_id=1632372513 instance=ExtResource("1_00jav")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Teeth/TeethBottom/RightHalf" unique_id=760619079 instance=ExtResource("1_00jav")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Teeth/TeethBottom/RightHalf" unique_id=1526336846 instance=ExtResource("1_00jav")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Teeth/TeethBottom/RightHalf" unique_id=2072705503 instance=ExtResource("1_00jav")]
+position = Vector2(101, 85)
+
+[node name="LeftHalf" type="Node2D" parent="Teeth/TeethBottom" unique_id=2095055826]
+position = Vector2(178, 0)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="TeethBullet2" parent="Teeth/TeethBottom/LeftHalf" unique_id=1925228535 instance=ExtResource("1_00jav")]
+position = Vector2(171, 77)
+
+[node name="TeethBullet3" parent="Teeth/TeethBottom/LeftHalf" unique_id=1001218316 instance=ExtResource("1_00jav")]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+
+[node name="TeethBullet4" parent="Teeth/TeethBottom/LeftHalf" unique_id=1190638989 instance=ExtResource("1_00jav")]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+
+[node name="TeethBullet5" parent="Teeth/TeethBottom/LeftHalf" unique_id=287404354 instance=ExtResource("1_00jav")]
+position = Vector2(118, 83)
+rotation = 3.1415927
+scale = Vector2(2, -1.5)
+
+[node name="TeethBullet6" parent="Teeth/TeethBottom/LeftHalf" unique_id=1002414970 instance=ExtResource("1_00jav")]
+position = Vector2(101, 85)
+
+[node name="CatPawAnim" type="AnimationPlayer" parent="." unique_id=1531989924]
+libraries/ = SubResource("AnimationLibrary_swdlb")
+autoplay = &"chomp"

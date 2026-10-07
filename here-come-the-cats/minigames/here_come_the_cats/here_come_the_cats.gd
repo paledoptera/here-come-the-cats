@@ -8,15 +8,30 @@ const SOUL: Dictionary[SoulType,PackedScene] = {
 	SoulType.PINK : preload("uid://dpamn6vphyrlm"),
 	}
 
+const CAT_ATTACKS_2_BEAT = [
+	preload("uid://dd5aewx0bpt22"), # cat spit
+	preload("uid://bqpe6h8uay2lv"), # cat jaws
+	preload("uid://clib1tg1p531h"), # cat tail
+	
+]
+
+const CAT_ATTACKS_4_BEAT = [
+	null
+]
+
 enum SoulType {YELLOW, PINK}
 
 
+
+var repeating_attack_name: StringName = ""
+var repeating_attack_amount: int = 0
 
 var sound: int = 0
 var soul: Soul
 var beat: float = 0.0
 @export var event: int = 0: set = _on_event_changed
 @export var ticking_volume: float = 0.0
+@export var attacking: bool = false
 
 func _init() -> void:
 	Party.enemy.clear()
@@ -25,28 +40,44 @@ func _init() -> void:
 	Party.enemy = [preload("uid://bwk0888uoya3f")] # enemy_friend
 
 func _ready() -> void:
-	Music.beat.connect(spawn_cat_collectible)
+	Music.beat.connect(_on_beat)
 	EventBus.damage_player.connect(_damage_player)
 	EventBus.coin_collected.connect(_on_coin_collected)
 	await get_tree().create_timer(1.0).timeout
-	var line1 = DialogueString.new("Damn it!! \nMouse trap!")
-	line1.talksound = preload("res://shared/sound_effects/snd_txt_dess.wav")
-	line1.identifier = "dess"
-	line1.auto_skip = true
-	line1.require_input = true
-	line1.auto_skip_after = 3.0
-	Dialogue.display_text(line1)
-	await Dialogue.text_finished
-	Dialogue.clear_text.emit()
+	#var line1 = DialogueString.new("Damn it!! \nMouse trap!")
+	#line1.talksound = preload("res://shared/sound_effects/snd_txt_dess.wav")
+	#line1.identifier = "dess"
+	#line1.auto_skip = true
+	#line1.require_input = true
+	#line1.auto_skip_after = 3.0
+	#Dialogue.display_text(line1)
+	#await Dialogue.text_finished
+	#Dialogue.clear_text.emit()
 
 func _process(delta: float) -> void:
 	if Party.enemy[0].hp <= 0.0:
 		SceneLoader.change_scene(preload("uid://byl3bkak2eqx5"))
 		pass
 
-func spawn_cat_collectible() -> void:
+func _on_beat() -> void:
 	print("BEAT, ", Music.last_beat)
 	beat += 1.0
+	
+	print("BEAT MOD, ", fmod(beat,3.0))
+	
+	
+
+	
+	if attacking == false:
+		return
+	
+	if fmod(beat,3.0) == 0.0:
+		start_attack(CAT_ATTACKS_2_BEAT.pick_random())
+
+		
+		pass
+	
+	
 	
 		
 	#
@@ -95,6 +126,29 @@ func _on_event_changed(value: int) -> void:
 	match event:
 		0: # start
 			pass
-		1: # clock active
+		2: # clock active
 			%DeathClock.activate()
-			
+		1: # cat anim
+			$Background/TV/PerspectiveQuad2D/SubViewport/AnimatedSprite2D.play("default")
+
+
+func start_attack(attack: PackedScene):
+	var pos = %Cat.global_position
+	var inst = attack.instantiate()
+	
+	match inst.id.to_lower():
+		"catjaws":
+			pos = $SoulFriend.global_position
+			pos.y = 0.0
+			pos.x += randf_range(-100.0,100.0)
+		"cattail":
+			pos.x = randf_range(200.0,440.0)
+			pos.y = 200.0
+	
+	add_child(inst)
+		
+	inst.global_position = pos
+
+	match inst.id.to_lower():
+		"cattail":
+			inst.look_at($SoulFriend.global_position)

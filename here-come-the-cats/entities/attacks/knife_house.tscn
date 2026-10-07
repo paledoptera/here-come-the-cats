@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://b42tcwpq4y22c"]
+
+[ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_oycta"]
+[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_pia8t"]
+[ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/attacks/door.gd" id="4_et73e"]
+[ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="5_1rxv2"]
+[ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="7_pia8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jv2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5hf4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_1rxv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stabby/KnifeBullet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(242, 188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stabby/KnifeBullet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(281, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stabby/KnifeBullet3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_oycta"]
+resource_name = "knives"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stabby/KnifeBullet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.6, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(242, 188), Vector2(242, 64.295), Vector2(242, 188), Vector2(242, 102)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stabby/KnifeBullet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.5666667, 0.8000001, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(281, 128), Vector2(281, 198), Vector2(281, 99.75), Vector2(281, 132), Vector2(281, 214)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stabby/KnifeBullet3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.43333337, 0.70000005, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 128), Vector2(320, 143), Vector2(320, 119), Vector2(320, 205), Vector2(320, 109)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pia8t"]
+_data = {
+&"RESET": SubResource("Animation_1rxv2"),
+&"knives": SubResource("Animation_oycta")
+}
+
+[sub_resource type="GDScript" id="GDScript_1rxv2"]
+resource_name = "knifecarousel"
+script/source = "extends Node2D
+
+func _process(delta: float) -> void:
+	rotate(0.1)
+"
+
+[node name="Node2D" type="Node2D" unique_id=709242782]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168786282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165847083]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="OldHouse" type="Panel" parent="." unique_id=1635334405]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 84.0
+offset_right = 318.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_38jv2")
+
+[node name="OldHouse4" type="Panel" parent="." unique_id=1187271392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -7.0
+offset_right = -7.5
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse6" type="Panel" parent="." unique_id=1480784931]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -7.0
+offset_right = 99.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse7" type="Panel" parent="." unique_id=1806437731]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = -7.0
+offset_right = 369.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse5" type="Panel" parent="." unique_id=576104582]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 619.0
+offset_top = 185.0
+offset_right = 628.5
+offset_bottom = 242.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse2" type="Panel" parent="." unique_id=166632205]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 184.0
+offset_right = 235.5
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="PinkWallBullet" parent="." unique_id=42666868 instance=ExtResource("2_pia8t")]
+position = Vector2(47, 15)
+rotation = 1.5707964
+
+[node name="Door" type="Node2D" parent="." unique_id=102478406]
+position = Vector2(636, 85)
+script = ExtResource("4_et73e")
+offset = Vector2(0, 100)
+
+[node name="OldHouse5" type="Panel" parent="Door" unique_id=446587511]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 1.0
+offset_right = -7.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="Stabby" type="Node2D" parent="." unique_id=654690659]
+
+[node name="KnifeBullet" parent="Stabby" unique_id=233631274 instance=ExtResource("7_pia8t")]
+position = Vector2(242, 188)
+rotation = 1.5707964
+
+[node name="KnifeBullet2" parent="Stabby" unique_id=194047947 instance=ExtResource("7_pia8t")]
+position = Vector2(281, 128)
+rotation = 1.5707964
+
+[node name="KnifeBullet3" parent="Stabby" unique_id=1074015885 instance=ExtResource("7_pia8t")]
+position = Vector2(320, 128)
+rotation = 1.5707964
+
+[node name="AnimationContraption" type="Node2D" parent="Stabby" unique_id=2110322402]
+script = ExtResource("5_1rxv2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stabby/AnimationContraption" unique_id=1337313044]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_pia8t")
+autoplay = &"knives"
+speed_scale = 0.5
+
+[node name="Switch" parent="Stabby" unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_oycta")]
+position = Vector2(116, 213)
+linked_contraptions = [NodePath("../AnimationContraption")]
+
+[node name="KnifeCarousel" type="Node2D" parent="." unique_id=1894827629]
+position = Vector2(503, 186)
+script = SubResource("GDScript_1rxv2")
+
+[node name="KnifeContainer1" type="Node2D" parent="KnifeCarousel" unique_id=1239576620]
+
+[node name="KnifeBullet" parent="KnifeCarousel/KnifeContainer1" unique_id=1149938295 instance=ExtResource("7_pia8t")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="KnifeContainer2" type="Node2D" parent="KnifeCarousel" unique_id=1746721246]
+rotation = 2.364921
+
+[node name="KnifeBullet" parent="KnifeCarousel/KnifeContainer2" unique_id=854423559 instance=ExtResource("7_pia8t")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="KnifeContainer3" type="Node2D" parent="KnifeCarousel" unique_id=528819176]
+rotation = 4.2324233
+
+[node name="KnifeBullet" parent="KnifeCarousel/KnifeContainer3" unique_id=1630087902 instance=ExtResource("7_pia8t")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="Switch" parent="." unique_id=501395368 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_oycta")]
+position = Vector2(612, 244)
+linked_contraptions = [NodePath("../Door")]

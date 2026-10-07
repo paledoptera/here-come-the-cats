@@ -20,4 +20,5 @@ func spawn(spawn_position: Vector2 = global_position, parent: Node = get_parent(
 		bullet_inst.velocity.y += randf_range(add_velocity_min.y,add_velocity_max.y)
 		bullet_inst.velocity = bullet_inst.velocity.rotated(bullet_inst.global_rotation)
 		bullet_inst.speed_multiplier = speed_mult
+		bullet_inst.z_index = z_index
 	return bullet_inst

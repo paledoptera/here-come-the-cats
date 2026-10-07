@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://c3tyaq6bdfbgw"]
+
+[ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_clid0"]
+[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_8bwge"]
+[ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="3_bbrrq"]
+[ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/attacks/door.gd" id="4_pi7x6"]
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_q6hcw"]
+[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_7jmad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jv2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5hf4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_hesta"]
+_data = {
+"points": PackedVector2Array(-2.549046, -78.7018, 0, 75, -500, -150, 0, 75, 0.637, -75, -650, -150, 0, -75, -4.4608307, 75.51549, -500, -150)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "pathfollow"
+script/source = "extends PathFollow2D
+
+
+
+func _process(delta: float) -> void:
+	progress += 5.0
+"
+
+[node name="Node2D" type="Node2D" unique_id=709242782]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168786282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165847083]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="OldHouse" type="Panel" parent="." unique_id=1635334405]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_38jv2")
+
+[node name="OldHouse4" type="Panel" parent="." unique_id=1187271392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -7.0
+offset_right = -7.5
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse5" type="Panel" parent="." unique_id=576104582]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 380.0
+offset_top = 109.0
+offset_right = 389.5
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse2" type="Panel" parent="." unique_id=166632205]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 184.0
+offset_right = 120.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse3" type="Panel" parent="." unique_id=1940541492]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 245.0
+offset_top = 109.0
+offset_right = 322.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_clid0")]
+position = Vector2(-17, 141)
+linked_contraptions = [NodePath("../Door")]
+
+[node name="PinkWallBullet" parent="." unique_id=42666868 instance=ExtResource("2_8bwge")]
+position = Vector2(386, 60)
+
+[node name="EyeballBullet4" parent="." unique_id=194047947 instance=ExtResource("3_bbrrq")]
+position = Vector2(140, 222.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="EyeballBullet5" parent="." unique_id=1120900300 instance=ExtResource("3_bbrrq")]
+position = Vector2(241, 278)
+scale = Vector2(1.5, 1.5)
+
+[node name="EyeballBullet6" parent="." unique_id=680171823 instance=ExtResource("3_bbrrq")]
+position = Vector2(188, 249)
+scale = Vector2(3, 3)
+shootable_hp = 20
+
+[node name="Door" type="Node2D" parent="." unique_id=102478406]
+position = Vector2(0, 201)
+script = ExtResource("4_pi7x6")
+offset = Vector2(0, -100)
+
+[node name="OldHouse5" type="Panel" parent="Door" unique_id=446587511]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 1.0
+offset_right = -7.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="PinkLine" type="Path2D" parent="." unique_id=2092716446 groups=["pink_lines"]]
+z_index = 101
+position = Vector2(666, 240)
+curve = SubResource("Curve2D_hesta")
+script = ExtResource("5_q6hcw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PinkLine" unique_id=374889910]
+position = Vector2(-500, -150)
+rotation = 1.5707964
+rotates = false
+script = SubResource("GDScript_g4v7s")
+
+[node name="EyeballBullet7" parent="PinkLine/PathFollow2D" unique_id=739223144 instance=ExtResource("3_bbrrq")]
+modulate = Color(1, 0, 1, 1)
+rotation = -1.5707964
+scale = Vector2(3, 3)
+shootable_hp = 20
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="PinkLine" unique_id=1757552322]
+position = Vector2(-649.69543, -155.32452)
+progress = 214.5
+rotates = false
+script = SubResource("GDScript_g4v7s")
+
+[node name="FriendCoin" parent="PinkLine/PathFollow2D2" unique_id=1685877794 instance=ExtResource("6_7jmad")]

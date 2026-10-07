@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://clib1tg1p531h"]
+
+[ext_resource type="Script" uid="uid://biowbche1ulj0" path="res://entities/attacks/attack.gd" id="1_qas5y"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="2_gbhx1"]
+[ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="2_qas5y"]
+[ext_resource type="Texture2D" uid="uid://beo5y2a0bgvxu" path="res://entities/attacks/res/cat_tail.png" id="3_gbhx1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("2_qas5y")
+axis_stretch_vertical = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qokwg"]
+size = Vector2(20, 900)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1mux"]
+bg_color = Color(0, 0, 0, 0.5294118)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8a0bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Bullet/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j1mux"]
+resource_name = "slap"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.6, 0.9333334, 1.2),
+"transitions": PackedFloat32Array(1, 2, 0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 700), Vector2(0, 700), Vector2(0, -200), Vector2(0, -150), Vector2(0, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.5, 0.6, 0.6333333, 0.70000005, 1.2),
+"transitions": PackedFloat32Array(-2, -2, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11.245, 3.77), Vector2(4.6, 9), Vector2(11, 2.74), Vector2(8, 3.037), Vector2(11, 3), Vector2(3.547, 3.037)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Bullet/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.76666677),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Panel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.26666668, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swdlb"]
+_data = {
+&"RESET": SubResource("Animation_8a0bl"),
+&"cattail": SubResource("Animation_j1mux")
+}
+
+[node name="CatTail" type="Node2D" unique_id=1275086199]
+z_index = 4096
+script = ExtResource("1_qas5y")
+time = 3.0
+id = &"cattail"
+
+[node name="Pivot" type="Node2D" parent="." unique_id=350645946]
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=1044721684]
+position = Vector2(0, 400)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pivot/Sprite2D" unique_id=1383089578]
+position = Vector2(0, -46.419094)
+scale = Vector2(0.17785682, 0.5305039)
+texture = ExtResource("3_gbhx1")
+
+[node name="Panel" type="Panel" parent="Pivot/Sprite2D/Sprite2D2" unique_id=83214787]
+show_behind_parent = true
+clip_children = 2
+offset_left = -9.510854
+offset_top = 24.190819
+offset_right = 8.904004
+offset_bottom = 955.1909
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bullet" type="Area2D" parent="Pivot" unique_id=961662763]
+collision_layer = 2
+script = ExtResource("2_gbhx1")
+damage = 26
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Bullet" unique_id=1828549608]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_qokwg")
+disabled = true
+
+[node name="Panel" type="Panel" parent="Pivot" unique_id=1276746683]
+modulate = Color(1, 1, 1, 0)
+clip_children = 2
+offset_left = -20.0
+offset_top = -453.0
+offset_right = 20.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1mux")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pivot/Panel" unique_id=1520544529]
+modulate = Color(1, 0.5176471, 0, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_right = 24.0
+offset_bottom = 1003.0
+scale = Vector2(2.5, 1)
+text = "!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+"
+scroll_active = false
+
+[node name="CatTailAnim" type="AnimationPlayer" parent="." unique_id=1531989924]
+libraries/ = SubResource("AnimationLibrary_swdlb")
+autoplay = &"cattail"

@@ -216,7 +216,9 @@ tracks/2/keys = {
 [shake]
 Game by Paledoptera
 
-Background art by Airplane
+Background sketches by Airplane
+
+FRIEND Lipsyncing by Norming
 
 Playtesting by x x x
 
@@ -228,9 +230,12 @@ A tribute to
 WAITRESS
 (the band, not the musical)
 
-Songs of theirs used:
-- Here Come The Cats (Deltarune edit)
-- Rubio's Lament (credits)", "[wave]
+Music used:
+
+Waitress - Here Come The Cats
+Waitress - Rubio's Lament
+Everhood 2 OST  - Main Menu 
+Deltarune OST - findher.ogg", "[wave]
 Inspired by these two
 incredible animations:", "[wave]
 Inspired by these two
@@ -305,7 +310,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(32.7, 36.733334, 42.533333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": ["Burn in hell, you damn pest.", "How many more of your pets 
+"values": ["Burn in hell, you oversized pest.", "How many more of your pets 
 do you want to see killed, hunter?", ""]
 }
 tracks/6/type = "value"
@@ -469,7 +474,7 @@ libraries/ = SubResource("AnimationLibrary_t8423")
 autoplay = &"credits"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1246253023]
-volume_db = -12.0
+volume_db = -6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1677255594]
 position = Vector2(331, 81)
