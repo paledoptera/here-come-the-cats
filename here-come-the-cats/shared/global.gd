@@ -5,6 +5,7 @@ enum GameState { SCREEN, OVERWORLD, CUTSCENE, BATTLE }
 
 signal game_restarted
 
+var options:= CatsOptions.new()
 
 var backtraces: Array
 var game_state: GameState = GameState.SCREEN

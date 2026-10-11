@@ -165,3 +165,4 @@ renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 textures/vram_compression/compress_with_gpu=false
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

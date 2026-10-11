@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://diufc56tt4lmw"]
+
+[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle.gd" id="1_kvlkf"]
+[ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="2_dir8a"]
+[ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="3_7rrju"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="4_qjuxq"]
+[ext_resource type="AudioStream" uid="uid://j7rc388kii2s" path="res://shared/music/mus_the_great_forever.ogg" id="5_awv02"]
+[ext_resource type="PackedScene" uid="uid://boxyth7xolqo5" path="res://minigames/here_come_the_cats/the_cat.tscn" id="6_htiug"]
+[ext_resource type="Texture2D" uid="uid://cumgik06v2dtj" path="res://screens/cats_battle/res/cat_evolved.png" id="7_4huyb"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="8_kvlkf"]
+
+[node name="CatsBattle" type="Node" unique_id=46766806]
+script = ExtResource("1_kvlkf")
+
+[node name="CatPartyLine3" parent="." unique_id=1995562823 instance=ExtResource("2_dir8a")]
+modulate = Color(0.27387288, 0.2738727, 0.27387273, 1)
+z_index = -1
+position = Vector2(318.00003, 31)
+scale = Vector2(0.77, 0.77)
+
+[node name="CatPartyLine2" parent="." unique_id=1715570439 instance=ExtResource("2_dir8a")]
+modulate = Color(0.5931336, 0.59313357, 0.59313357, 1)
+z_index = -1
+position = Vector2(318.00003, 67.999985)
+scale = Vector2(0.93, 0.93)
+
+[node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("2_dir8a")]
+z_index = -1
+position = Vector2(0, 111.999985)
+
+[node name="Dess" parent="." unique_id=289208110 instance=ExtResource("3_7rrju")]
+position = Vector2(152, 187)
+
+[node name="StartMusic" type="Node" parent="." unique_id=1831962852]
+script = ExtResource("4_qjuxq")
+song = ExtResource("5_awv02")
+bpm = 155.0
+enable_rhythm_tracking = true
+metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="CatBoss" parent="." unique_id=1194674963 instance=ExtResource("6_htiug")]
+position = Vector2(502, 204)
+
+[node name="Sprite2D" parent="CatBoss" index="1" unique_id=1668615500]
+position = Vector2(-20, -1)
+texture = ExtResource("7_4huyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=679814416]
+modulate = Color(1, 0.59607846, 1, 1)
+position = Vector2(94, 200)
+texture = ExtResource("8_kvlkf")
+
+[editable path="CatBoss"]

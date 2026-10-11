@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eh0pmaffjat1"]
 
-[ext_resource type="Script" uid="uid://beq5fi3x0s0pj" path="res://entities/attacks/switch.gd" id="1_rvqxt"]
+[ext_resource type="Script" uid="uid://beq5fi3x0s0pj" path="res://entities/sections/switch.gd" id="1_rvqxt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvqxt"]
 resource_local_to_scene = true

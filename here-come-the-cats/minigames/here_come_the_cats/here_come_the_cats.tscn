@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="5_lij5d"]
 [ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="5_px3a1"]
 [ext_resource type="Texture2D" uid="uid://dhjx7a2khcn7v" path="res://entities/effects/talking_cat/res/talking_cat.png" id="6_hrecn"]
+[ext_resource type="PackedScene" uid="uid://drong1tvp14ic" path="res://minigames/here_come_the_cats/screen_bounds.tscn" id="7_bg4j1"]
 [ext_resource type="PackedScene" uid="uid://d35leuhfk216b" path="res://minigames/here_come_the_cats/entities/pink_line.tscn" id="9_lij5d"]
 [ext_resource type="Texture2D" uid="uid://beo5y2a0bgvxu" path="res://entities/attacks/res/cat_tail.png" id="9_n0lwv"]
 [ext_resource type="PackedScene" uid="uid://c3g6e8a6mvxyh" path="res://entities/attacks/cat_paw.tscn" id="10_hesta"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://entities/tp_bar/tp_bar.tscn" id="14_n0lwv"]
 [ext_resource type="Script" uid="uid://d01i7b7547qb3" path="res://common/music/song_synced_animation_player.gd" id="15_odm7m"]
 [ext_resource type="PackedScene" uid="uid://b4pby4bifr6bi" path="res://minigames/here_come_the_cats/entities/clock.tscn" id="17_hesta"]
+[ext_resource type="Script" uid="uid://1cqg21n7qomg" path="res://minigames/here_come_the_cats/ui.gd" id="17_hrecn"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="18_v4cn4"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://party/ui/stats_tab/stats_tab.tscn" id="19_hesta"]
 [ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://dialogue/entities/speech_bubble/bubble_tail_left.tscn" id="19_odm7m"]
@@ -26,6 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="21_odm7m"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="22_odm7m"]
 [ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="22_pr80w"]
+[ext_resource type="Script" uid="uid://tgcq44hpc2r3" path="res://entities/soul/soul/soul_friend.gd" id="24_aglli"]
+[ext_resource type="Texture2D" uid="uid://g1gd8pt8m7sg" path="res://entities/bullets/generic/rat.png" id="26_wtedt"]
+[ext_resource type="PackedScene" uid="uid://cmp4abyqiue4l" path="res://entities/misc/tail_effect/tail_effect.tscn" id="27_0luxh"]
+[ext_resource type="Texture2D" uid="uid://cnyt60ecuoid6" path="res://minigames/here_come_the_cats/res/rat_tail.png" id="28_ygebw"]
 
 [sub_resource type="Resource" id="Resource_is6xv"]
 resource_local_to_scene = true
@@ -609,12 +615,6 @@ animations = [{
 "name": &"default",
 "speed": 30.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(184, 490)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ppo"]
-size = Vector2(477, 121)
 
 [sub_resource type="Animation" id="Animation_hesta"]
 length = 0.001
@@ -1282,10 +1282,10 @@ tracks/7/path = NodePath("../../Attacks/PinkLine:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 10.133334, 16.933332, 27.866669, 41.1, 69.4, 88.7, 95.86667, 107.23333),
-"transitions": PackedFloat32Array(0.933033, -2, 2, 1, 1, 0.8408964, 2, 1, 1),
+"times": PackedFloat32Array(0, 10.133334, 16.933332, 27.866669, 41.1, 69.4, 88.7, 95.86667, 107.23333, 151.96667),
+"transitions": PackedFloat32Array(0.933033, -2, 2, 1, 1, 0.8408964, 2, 0.9012507, 1, 1),
 "update": 0,
-"values": [Vector2(1025, 240), Vector2(0, 240), Vector2(-548, 240), Vector2(-1299, 240), Vector2(-2624, 240), Vector2(-5356.3164, 240), Vector2(-6582.1206, 240), Vector2(-7017, 240), Vector2(-8801, 240)]
+"values": [Vector2(1025, 240), Vector2(0, 240), Vector2(-548, 240), Vector2(-1299, 240), Vector2(-2624, 240), Vector2(-5356.3164, 240), Vector2(-6582.1206, 240), Vector2(-7017, 240), Vector2(-8801, 240), Vector2(-12775, 240)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1583,6 +1583,20 @@ func _process(delta: float) -> void:
 	other_box.text = text
 "
 
+[sub_resource type="Animation" id="Animation_kfws3"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_7d2pb"]
+resource_name = "tail"
+length = 0.8
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlini"]
+_data = {
+&"RESET": SubResource("Animation_kfws3"),
+&"tail": SubResource("Animation_7d2pb")
+}
+
 [node name="HereComeTheCats" type="Node2D" unique_id=175424421]
 script = ExtResource("1_wfeub")
 
@@ -1631,23 +1645,7 @@ position = Vector2(266.305, 205)
 scale = Vector2(3.34, 3.34)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
-[node name="Bounds" type="StaticBody2D" parent="." unique_id=35075466]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds" unique_id=819987811]
-position = Vector2(-70, 235)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" unique_id=1387223446]
-position = Vector2(745, 235)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds" unique_id=1952416251]
-position = Vector2(158.5, -9)
-shape = SubResource("RectangleShape2D_y8ppo")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds" unique_id=1511401609]
-position = Vector2(158.5, 492)
-shape = SubResource("RectangleShape2D_y8ppo")
+[node name="ScreenBounds" parent="." unique_id=1667283980 instance=ExtResource("7_bg4j1")]
 
 [node name="CatTail" type="Node2D" parent="." unique_id=759219582]
 
@@ -1743,11 +1741,15 @@ scale = Vector2(1.23, 1.23)
 script = ExtResource("22_odm7m")
 song = ExtResource("5_lij5d")
 bpm = 138.979
+start_position = 100.0
 enable_rhythm_tracking = true
+loop = false
 volume = 0.9
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1547504540]
+follow_viewport_enabled = true
+script = ExtResource("17_hrecn")
 
 [node name="TPBar" parent="UI" unique_id=1921588265 instance=ExtResource("14_n0lwv")]
 position = Vector2(19, 221)
@@ -1908,9 +1910,14 @@ between [color=PINK]PINK [color=WHITE]and [color=GOLD]GOLD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("21_odm7m")]
+[node name="SoulFriend" type="CharacterBody2D" parent="." unique_id=443094051 groups=["soul"] instance=ExtResource("21_odm7m")]
+self_modulate = Color(1, 1, 1, 0.4509804)
 z_index = 105
 position = Vector2(144, 232)
+motion_mode = 1
+script = ExtResource("24_aglli")
+is_in_air = true
+switchable = true
 speed_mult = 2.0
 
 [node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]
@@ -1919,6 +1926,43 @@ speed_mult = 2.0
 remote_path = NodePath("../../../SpeechBubbleParent")
 update_rotation = false
 update_scale = false
+
+[node name="Rat" type="Sprite2D" parent="SoulFriend/Dess" unique_id=1295525588]
+show_behind_parent = true
+position = Vector2(3, 19.5)
+texture = ExtResource("26_wtedt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SoulFriend/Dess/Rat" unique_id=1763017370]
+libraries/ = SubResource("AnimationLibrary_hlini")
+autoplay = &"tail"
+speed_scale = 0.5
+
+[node name="TailEffect" parent="SoulFriend/Dess/Rat" unique_id=1027478356 instance=ExtResource("27_0luxh")]
+position = Vector2(-17, 1)
+
+[node name="1" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=188306289]
+texture = ExtResource("28_ygebw")
+
+[node name="2" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=450678847]
+texture = ExtResource("28_ygebw")
+
+[node name="3" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=166029469]
+texture = ExtResource("28_ygebw")
+
+[node name="4" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=2100404851]
+texture = ExtResource("28_ygebw")
+
+[node name="5" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=452331893]
+texture = ExtResource("28_ygebw")
+
+[node name="6" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=246618518]
+texture = ExtResource("28_ygebw")
+
+[node name="7" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=1148426429]
+texture = ExtResource("28_ygebw")
+
+[node name="8" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=189143203]
+texture = ExtResource("28_ygebw")
 
 [node name="CatPartyLine" parent="." unique_id=1995562823 instance=ExtResource("22_pr80w")]
 modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
@@ -1949,6 +1993,8 @@ layout_mode = 1
 unique_name_in_owner = true
 z_index = 104
 position = Vector2(1065, 201)
+
+[connection signal="impending_doom" from="UI/UpperPanel/DeathClock" to="UI" method="_on_death_clock_impending_doom"]
 
 [editable path="Attacks/CatPaws/CatPaw1"]
 [editable path="Attacks/CatPaws/CatPaw2"]

@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://wfktweg8on8i"]
+
+[ext_resource type="Texture2D" uid="uid://kpj24yc0ry6x" path="res://temp/tutorial_mockupo.png" id="1_2corh"]
+[ext_resource type="Script" uid="uid://df5u5nmkuadqd" path="res://screens/tutorial/tutorial.gd" id="1_xl6kk"]
+[ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="4_alrl7"]
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_6f2ve"]
+[ext_resource type="Script" uid="uid://cdr84qwtc7no" path="res://screens/tutorial/panning_area.gd" id="6_xl6kk"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="7_h7x3i"]
+[ext_resource type="PackedScene" uid="uid://drong1tvp14ic" path="res://minigames/here_come_the_cats/screen_bounds.tscn" id="7_mvsrh"]
+
+[sub_resource type="Curve2D" id="Curve2D_6f2ve"]
+_data = {
+"points": PackedVector2Array(0.56447387, 215.06454, -0.56447387, -215.06454, 729, -7, -108.37898, 2.8223693, 108.37898, -2.8223693, 800, -249, -3.951317, -50.238174, 3.951317, 50.238174, 873, -119, -47.810936, -2.04904, 47.810936, 2.04904, 1272, -88, -69.97609, -2.3325365, 69.97609, 2.3325365, 1326, -190, -56.587334, 1.8660288, 56.587334, -1.8660288, 1579, -181, 5.588291, -105.55661, -5.588291, 105.55661, 1612, -56)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_n0lwv"]
+_data = {
+"points": PackedVector2Array(-2.3132591, 49.735073, 2.3132591, -49.735073, 2186, -57, -60.915825, -1.5421728, 60.915825, 1.5421728, 2240, -175, -73.63875, -1.927716, 73.63875, 1.927716, 2340, -169, -62.84354, -5.0120616, 62.84354, 5.0120616, 2390, -1, 0, 0, 0, 0, 2515, 7)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(995, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(706, 107)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq6ep"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 34
+border_width_top = 15
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_h7x3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/Camera2D:limit_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xl6kk"]
+resource_name = "investigate"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:limit_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5666667, 2.4333334),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [-100, 0]
+}
+
+[sub_resource type="Animation" id="Animation_6f2ve"]
+resource_name = "pan_over"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9333334),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(320, 240), Vector2(728, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/Camera2D:limit_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.66666675, 4),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0, -100]
+}
+
+[sub_resource type="Animation" id="Animation_i3p7n"]
+resource_name = "soul_enter"
+
+[sub_resource type="Animation" id="Animation_mvsrh"]
+resource_name = "start"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3p7n"]
+_data = {
+&"RESET": SubResource("Animation_h7x3i"),
+&"investigate": SubResource("Animation_xl6kk"),
+&"pan_over": SubResource("Animation_6f2ve"),
+&"soul_enter": SubResource("Animation_i3p7n"),
+&"start": SubResource("Animation_mvsrh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(386, 351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl6kk"]
+size = Vector2(386, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7x3i"]
+size = Vector2(402, 135.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvsrh"]
+size = Vector2(344, 315)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(37, 130)
+
+[node name="Tutorial" type="Node2D" unique_id=1740187192]
+script = ExtResource("1_xl6kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=925347696]
+position = Vector2(1457, 253)
+texture = ExtResource("1_2corh")
+
+[node name="PinkLine1" type="Path2D" parent="." unique_id=42622812 groups=["pink_lines"]]
+position = Vector2(0, 240)
+curve = SubResource("Curve2D_6f2ve")
+script = ExtResource("5_6f2ve")
+
+[node name="PinkLine2" type="Path2D" parent="." unique_id=1280447149 groups=["pink_lines"]]
+position = Vector2(0, 240)
+curve = SubResource("Curve2D_n0lwv")
+script = ExtResource("5_6f2ve")
+
+[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("4_alrl7")]
+position = Vector2(728, 147)
+
+[node name="PinkArea" type="Area2D" parent="." unique_id=1617425280]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkArea" unique_id=1590188470]
+position = Vector2(1169.5, 84.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PinkArea" unique_id=570957530]
+position = Vector2(2621, 84.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="YellowArea" type="Area2D" parent="." unique_id=2101373458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YellowArea" unique_id=609052938]
+position = Vector2(1915, 233.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261299943]
+
+[node name="DialogueBox2" parent="CanvasLayer" unique_id=151941393 instance=ExtResource("7_h7x3i")]
+offset_top = 332.0
+offset_right = 637.0
+offset_bottom = 543.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vq6ep")
+bbcode_enabled = true
+tab_size = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678890847]
+libraries/ = SubResource("AnimationLibrary_i3p7n")
+
+[node name="PanningArea1" type="Area2D" parent="." unique_id=1835361824]
+position = Vector2(899, -2)
+script = ExtResource("6_xl6kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanningArea1" unique_id=736808949]
+position = Vector2(183, 165.5)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="PanningArea2" type="Area2D" parent="." unique_id=889923283]
+position = Vector2(1367, 1)
+script = ExtResource("6_xl6kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanningArea2" unique_id=493993178]
+position = Vector2(107.5, 82.5)
+shape = SubResource("RectangleShape2D_xl6kk")
+
+[node name="PanningArea3" type="Area2D" parent="." unique_id=444072695]
+position = Vector2(1739, 216)
+script = ExtResource("6_xl6kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanningArea3" unique_id=258978952]
+position = Vector2(25, 36.25)
+shape = SubResource("RectangleShape2D_h7x3i")
+
+[node name="PanningArea4" type="Area2D" parent="." unique_id=643810330]
+position = Vector2(2153, 216)
+script = ExtResource("6_xl6kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanningArea4" unique_id=2071636343]
+position = Vector2(-4, -53.5)
+shape = SubResource("RectangleShape2D_mvsrh")
+
+[node name="PanningArea5" type="Area2D" parent="." unique_id=822467380]
+position = Vector2(2500, 216)
+script = ExtResource("6_xl6kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanningArea5" unique_id=290545858]
+position = Vector2(-4, -53.5)
+shape = SubResource("RectangleShape2D_mvsrh")
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=673568287]
+
+[node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1159366109]
+position = Vector2(320, 240)
+limit_top = 0
+limit_bottom = 480
+
+[node name="ScreenBounds" parent="CameraPivot/Camera2D" unique_id=1667283980 instance=ExtResource("7_mvsrh")]
+position = Vector2(-320, -117)
+
+[node name="CutsceneArea" type="Area2D" parent="." unique_id=334064409]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneArea" unique_id=2017763391]
+position = Vector2(2482, 246)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[connection signal="body_entered" from="PinkArea" to="." method="_on_pink_area_body_entered"]
+[connection signal="body_entered" from="YellowArea" to="." method="_on_yellow_area_body_entered"]
+[connection signal="body_entered" from="PanningArea1" to="." method="_on_panning_area_body_entered"]
+[connection signal="body_entered" from="PanningArea1" to="PanningArea1" method="_on_body_entered"]
+[connection signal="pan_to" from="PanningArea1" to="." method="_on_panning_pan_to"]
+[connection signal="body_entered" from="PanningArea2" to="." method="_on_panning_area_body_entered"]
+[connection signal="body_entered" from="PanningArea2" to="PanningArea2" method="_on_body_entered"]
+[connection signal="pan_to" from="PanningArea2" to="." method="_on_panning_pan_to"]
+[connection signal="body_entered" from="PanningArea3" to="." method="_on_panning_area_body_entered"]
+[connection signal="body_entered" from="PanningArea3" to="PanningArea3" method="_on_body_entered"]
+[connection signal="pan_to" from="PanningArea3" to="." method="_on_panning_pan_to"]
+[connection signal="body_entered" from="PanningArea4" to="." method="_on_panning_area_body_entered"]
+[connection signal="body_entered" from="PanningArea4" to="PanningArea4" method="_on_body_entered"]
+[connection signal="pan_to" from="PanningArea4" to="." method="_on_panning_pan_to"]
+[connection signal="body_entered" from="PanningArea5" to="." method="_on_panning_area_body_entered"]
+[connection signal="body_entered" from="PanningArea5" to="PanningArea5" method="_on_body_entered"]
+[connection signal="pan_to" from="PanningArea5" to="." method="_on_panning_pan_to"]
+[connection signal="body_entered" from="CutsceneArea" to="." method="_on_cutscene_area_body_entered"]

@@ -3,11 +3,11 @@ class_name SoulFriend extends Soul
 enum ShootState {IDLE, CHARGING, SHOOT}
 enum SoulState {YELLOW, PINK}
 
-var soul_state := SoulState.YELLOW
-
-
-
+@export var constant_pink_speed: float = 0.0
+@export var soul_state := SoulState.YELLOW
 @export var direction := Vector2.RIGHT
+@export var is_in_air: bool = false
+@export var switchable: bool = false
 var shoot_state := ShootState.IDLE
 var charge_max: float = 16.0
 var charge_timer: float = 0.0
@@ -19,6 +19,8 @@ var dash_flash_max: float = 0.0
 var buffer: float = 0.33
 var dash_momentum: float = 0.0
 var dashing: bool = false
+var base_speed_mult: float = 1.0
+var constant_pink_offset: float = 0.0
 
 
 var pink_lines: Array[Node]
@@ -35,6 +37,8 @@ var active: bool = true
 
 func _ready() -> void:
 	super()
+	
+	base_speed_mult = speed_mult
 	
 	setup_pink()
 
@@ -57,10 +61,14 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D/HeartbeatEffect/HeartbeatAnim.speed_scale = 0.3
 			pink_percent = move_toward(pink_percent,0.0,delta * 2.0)
 			handle_shoot(delta)
-			speed_mult = 2.0
-			momentum = 0.2
+			speed_mult = base_speed_mult
+			if is_in_air:
+				momentum = 0.2
+			else:
+				momentum = 1.0
 			slerp = false
 			super(delta)
+		
 		SoulState.PINK:
 			$Sprite2D/HeartbeatEffect/HeartbeatAnim.speed_scale = 0.7
 			
@@ -70,19 +78,24 @@ func _physics_process(delta: float) -> void:
 			slerp = true
 			super(delta)
 			
+			if not pink_follower:
+				process_pink_switcher()
+
 			var line = pink_follower.get_parent()
 			var offset = line.curve.get_closest_offset(line.to_local(global_position))
-			pink_follower.progress = offset
+			
+			pink_follower.progress = offset+constant_pink_speed
 			pink_follower.force_update_transform()
-			speed_mult = 2.0
+			speed_mult = base_speed_mult
 			handle_dash(delta)
 
 	
 	if soul_state == SoulState.PINK:
 		global_position = global_position.lerp(pink_follower.global_position,pink_percent)
 		pink_outline.modulate = Color.TRANSPARENT
-		
-	if Input.is_action_just_pressed("menu"):
+	
+	
+	if Input.is_action_just_pressed("menu") and switchable:
 		switch_soul_mode()
 
 
@@ -168,7 +181,11 @@ func switch_soul_mode() -> void:
 	
 
 	soul_state = wrapi(soul_state+1,0,2)
+	
+	play_switch_animation()
 
+
+func play_switch_animation():
 	if soul_state == SoulState.YELLOW:
 		Actors.do_action("dess","switch_to_yellow")
 		$AnimationPlayer.play("switch_to_yellow")
@@ -181,7 +198,7 @@ func switch_soul_mode() -> void:
 func handle_dash(delta: float) -> void:
 	if Input.is_action_pressed("confirm"):
 		
-		speed_mult = 6.0
+		speed_mult = base_speed_mult*3.0
 		momentum = 0.2
 		if target_velocity != Vector2.ZERO:
 			dashing = true
@@ -203,6 +220,7 @@ func setup_pink() -> void:
 	
 	for i in pink_lines:
 		var follower = PathFollow2D.new()
+		follower.loop = i.loop
 		i.add_child(follower)
 		pink_followers.append(follower)
 	
@@ -228,7 +246,8 @@ func process_pink_switcher() -> void:
 			nearest_follower = follower
 			nearest_distance = distance
 	
-	pink_follower = nearest_follower
+	if nearest_follower:
+		pink_follower = nearest_follower
 	
 	
 	if pink_outline and nearest_follower:

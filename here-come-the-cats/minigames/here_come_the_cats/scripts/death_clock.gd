@@ -1,5 +1,7 @@
 class_name DeathClock extends Node2D
 
+signal impending_doom
+
 enum ClockState { BELL, IDLE, DANGEROUS, DEATH}
 var active: bool = false
 var ticking_volume: float = 1.0
@@ -13,7 +15,7 @@ func _ready() -> void:
 	EventBus.coin_collected.connect(_on_coin_collected)
 
 func _process(delta: float) -> void:
-	if not active:
+	if not active or time_left == 0.0:
 		$Whirring.playing = false
 		return
 		
@@ -33,6 +35,9 @@ func _on_beat() -> void:
 	if not active:
 		return
 	
+	if time_left == 0.0:
+		return
+	
 	match state:
 		ClockState.BELL:
 			time_left = clampf(time_left-45.0,-180.0,0.0)
@@ -47,9 +52,9 @@ func _on_beat() -> void:
 				state = ClockState.DANGEROUS
 		
 		ClockState.DANGEROUS:
-			
+			impending_doom.emit()
 			time_left = clampf(time_left+2.25,-180.0,0.0)
-			ticking_volume = lerp(ticking_volume,1.0,0.2)
+			ticking_volume = lerp(ticking_volume,1.0,0.3)
 			Sound.play(preload("res://shared/sound_effects/snd_meow.wav"),ticking_volume,0.5+(ticking_volume/2))
 			
 	

@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://clyt0hcde7icu"]
+
+[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle.gd" id="1_2cnw3"]
+[ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="1_d8rup"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="2_q4pqm"]
+[ext_resource type="AudioStream" uid="uid://j7rc388kii2s" path="res://shared/music/mus_the_great_forever.ogg" id="3_0qvdd"]
+[ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="4_0qvdd"]
+[ext_resource type="PackedScene" uid="uid://boxyth7xolqo5" path="res://minigames/here_come_the_cats/the_cat.tscn" id="5_suynh"]
+[ext_resource type="Texture2D" uid="uid://cumgik06v2dtj" path="res://screens/cats_battle/res/cat_evolved.png" id="7_rcghe"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="7_vq6ep"]
+
+[sub_resource type="Animation" id="Animation_2cnw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vq6ep"]
+resource_name = "song"
+length = 17.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 0),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333378, 1.4666667, 2.3666666, 3.3666666, 3.5666666, 6.3333335, 6.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.81081104, 0.81081104, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(17),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_battle"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcghe"]
+_data = {
+&"RESET": SubResource("Animation_2cnw3"),
+&"song": SubResource("Animation_vq6ep")
+}
+
+[node name="CatsBattle" type="Node" unique_id=46766806]
+script = ExtResource("1_2cnw3")
+
+[node name="CatPartyLine3" parent="." unique_id=1995562823 instance=ExtResource("4_0qvdd")]
+modulate = Color(0.27387288, 0.2738727, 0.27387273, 1)
+z_index = -1
+position = Vector2(318.00003, 79.00001)
+scale = Vector2(0.77, 0.77)
+
+[node name="CatPartyLine2" parent="." unique_id=1715570439 instance=ExtResource("4_0qvdd")]
+modulate = Color(0.5931336, 0.59313357, 0.59313357, 1)
+z_index = -1
+position = Vector2(318.00003, 116)
+scale = Vector2(0.93, 0.93)
+
+[node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("4_0qvdd")]
+z_index = -1
+position = Vector2(0, 160)
+
+[node name="Dess" parent="." unique_id=289208110 instance=ExtResource("1_d8rup")]
+position = Vector2(132, 214)
+
+[node name="StartMusic" type="Node" parent="." unique_id=1831962852]
+script = ExtResource("2_q4pqm")
+song = ExtResource("3_0qvdd")
+bpm = 155.0
+enable_rhythm_tracking = true
+metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="CatBoss" parent="." unique_id=1194674963 instance=ExtResource("5_suynh")]
+position = Vector2(502, 204)
+
+[node name="Sprite2D" parent="CatBoss" index="1" unique_id=1668615500]
+position = Vector2(-20, -1)
+texture = ExtResource("7_rcghe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2122876813]
+
+[node name="DialogueBox" parent="CanvasLayer" unique_id=151941393 instance=ExtResource("7_vq6ep")]
+unique_name_in_owner = true
+offset_left = 22.0
+offset_top = 325.0
+offset_right = 659.0
+offset_bottom = 536.0
+bbcode_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1951644419]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1733832803]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 47.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "
+[shake]AND WE CALL IT
+[color=red][font_size=200]HELL"
+scroll_active = false
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2017726193]
+libraries/ = SubResource("AnimationLibrary_rcghe")
+autoplay = &"song"
+
+[editable path="CatBoss"]

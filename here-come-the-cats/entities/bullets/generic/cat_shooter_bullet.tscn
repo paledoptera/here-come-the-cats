@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bovecdjgyv6ky"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_wps7y"]
+[ext_resource type="Texture2D" uid="uid://e33fslfl4avm" path="res://entities/bullets/generic/res/cat_shooter1.png" id="2_wps7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvgqs"]
+radius = 27.518175
+
+[node name="CatShooterBullet" type="Area2D" unique_id=194047947]
+z_index = 3916
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_wps7y")
+damage = 9
+graze_points = 0
+destructible = true
+shootable = true
+shootable_hp = 5
+velocity = Vector2(150, 0)
+life_time = 4.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_wps7y")
+offset = Vector2(0, 0.5)
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+position = Vector2(0, 7.5)
+shape = SubResource("CircleShape2D_dvgqs")

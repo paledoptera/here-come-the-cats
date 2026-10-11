@@ -1,6 +1,7 @@
 extends Node
 
 signal beat
+signal song_ended
 
 var current_song: String = ""
 var enable_rhythm: bool = false
@@ -47,6 +48,8 @@ func play(p_music: AudioStream, p_volume := 1.0, start_position := 0.0, p_loop :
 	audio_player.play(start_position)
 	
 	current_song = p_music.resource_path
+	
+	audio_player.finished.connect(_on_song_finished)
 
 func _process(delta: float) -> void:
 	if not enable_rhythm:
@@ -79,3 +82,6 @@ func stop():
 		if music[current_song]:
 			music[current_song].stop()
 			music[current_song].queue_free()
+
+func _on_song_finished() -> void:
+	song_ended.emit()

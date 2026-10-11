@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DialogueBlock" format=3 uid="uid://cow55bc8uwjn6"]
+
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="1_tck8a"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="2_kyhwp"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="3_agm12"]
+[ext_resource type="Texture2D" uid="uid://d2e24c2xqudtw" path="res://dialogue/entities/portraits/dess/dess_neutral.png" id="4_k8h4s"]
+[ext_resource type="AudioStream" uid="uid://bgg28hhigw6nj" path="res://shared/sound_effects/snd_txt_dess.wav" id="5_0w4an"]
+
+[sub_resource type="Resource" id="Resource_tck8a"]
+script = ExtResource("2_kyhwp")
+text = "* Ow!!
+* What the hell?!"
+talksound = ExtResource("5_0w4an")
+portrait = ExtResource("4_k8h4s")
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[resource]
+script = ExtResource("1_tck8a")
+text = Array[ExtResource("2_kyhwp")]([SubResource("Resource_tck8a")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"

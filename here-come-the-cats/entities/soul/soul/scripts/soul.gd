@@ -1,5 +1,6 @@
 class_name Soul extends CharacterBody2D
 
+@export var taking_input: bool = true
 @export var horizontal: bool = true
 @export var vertical: bool = true
 @export var speed_mult: float = 1.0
@@ -22,7 +23,9 @@ func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_axis("left", "right")
 	var direction_y := Input.get_axis("up", "down")
 	
-	current_speed = soul_speed * speed_mult
+	if taking_input:
+	
+		current_speed = soul_speed * speed_mult
 	
 	# "focus mode"
 	if Input.is_action_pressed("cancel"):

@@ -12,7 +12,8 @@ class BattleFlags:
 			soul_speed = value
 			soul_speed_changed.emit(value)
 	var soul_bearer: StringName = "susie" # this is for animations
-	var mercy_disabled: bool = false
+	var mercy_disabled: bool = true
+	var items_disabled: bool = true
 	var defend_tp: int = DEFAULT_DEFEND_TP
 	var attack_tp: int = DEFAULT_ATTACK_TP
 

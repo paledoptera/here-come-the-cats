@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://dqqckiaym4gb"]
+
+[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="1_4kdyj"]
+[ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_qum7t"]
+[ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="3_fmkj0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6vb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[node name="Towers" type="Node2D" unique_id=1013303839]
+
+[node name="Tower1" type="Node2D" parent="." unique_id=139876858]
+
+[node name="PinkWallBullet" parent="Tower1" unique_id=194047947 instance=ExtResource("1_4kdyj")]
+z_index = 0
+position = Vector2(-61, 239)
+
+[node name="PinkWallBullet2" parent="Tower1" unique_id=1997077393 instance=ExtResource("1_4kdyj")]
+z_index = 0
+position = Vector2(70, 239)
+
+[node name="OldHouse4" type="Panel" parent="Tower1" unique_id=38749667]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 281.0
+offset_right = 1.5
+offset_bottom = 378.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse6" type="Panel" parent="Tower1" unique_id=2064119783]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 268.0
+offset_right = 4.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse7" type="Panel" parent="Tower1" unique_id=1663686045]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 182.0
+offset_right = 4.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse8" type="Panel" parent="Tower1" unique_id=141747598]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 182.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="Tower2" type="Node2D" parent="." unique_id=1434446318]
+position = Vector2(439, 0)
+
+[node name="Door" type="Node2D" parent="Tower2" unique_id=1754490220]
+position = Vector2(-74, 22)
+script = ExtResource("3_fmkj0")
+offset = Vector2(0, -100)
+
+[node name="OldHouse10" type="Panel" parent="Tower2/Door" unique_id=1104702040]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -21.0
+offset_right = 24.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse11" type="Panel" parent="Tower2/Door" unique_id=740789866]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = -21.0
+offset_right = 133.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse4" type="Panel" parent="Tower2" unique_id=1637833169]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 88.0
+offset_right = 1.5
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse6" type="Panel" parent="Tower2" unique_id=2020300375]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 75.0
+offset_right = 4.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse9" type="Panel" parent="Tower2" unique_id=709790683]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 206.0
+offset_right = 4.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse7" type="Panel" parent="Tower2" unique_id=1498018338]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -11.0
+offset_right = 4.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse8" type="Panel" parent="Tower2" unique_id=1660914306]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -11.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="Switch" parent="Tower2" unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_qum7t")]
+position = Vector2(-83, 240)
+linked_contraptions = [NodePath("../Door")]
+
+[node name="Tower3" type="Node2D" parent="." unique_id=634535489]
+position = Vector2(850, 0)
+
+[node name="PinkWallBullet3" parent="Tower3" unique_id=2002382743 instance=ExtResource("1_4kdyj")]
+z_index = 0
+position = Vector2(-47, 159)
+
+[node name="Door" type="Node2D" parent="Tower3" unique_id=982793067]
+position = Vector2(175, 135)
+script = ExtResource("3_fmkj0")
+offset = Vector2(0, -100)
+
+[node name="OldHouse10" type="Panel" parent="Tower3/Door" unique_id=201425975]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -21.0
+offset_right = 24.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse4" type="Panel" parent="Tower3" unique_id=349903553]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 201.0
+offset_right = 56.5
+offset_bottom = 426.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse6" type="Panel" parent="Tower3" unique_id=1614833879]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 188.0
+offset_right = 75.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse7" type="Panel" parent="Tower3" unique_id=1575159211]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = 102.0
+offset_right = 75.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="OldHouse8" type="Panel" parent="Tower3" unique_id=2078276780]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 102.0
+offset_right = 82.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="Switch" parent="Tower3" unique_id=475317117 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_qum7t")]
+position = Vector2(58, 157)
+linked_contraptions = [NodePath("../Door")]

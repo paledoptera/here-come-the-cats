@@ -136,6 +136,7 @@ time = 3.0
 id = &"cattail"
 
 [node name="Pivot" type="Node2D" parent="." unique_id=350645946]
+position = Vector2(442, 0)
 rotation = 1.5707964
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=1044721684]

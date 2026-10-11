@@ -3,18 +3,27 @@
 [ext_resource type="Script" uid="uid://bxlyfvptktigk" path="res://screens/title_screen/title_screen.gd" id="1_4rvf0"]
 [ext_resource type="Texture2D" uid="uid://brl5dhq873ijb" path="res://screens/title_screen/wet fat mike belly.png" id="2_alfmu"]
 [ext_resource type="Script" uid="uid://clqvwknmd31e5" path="res://shared/scripts/menu/menu_input_manager.gd" id="2_jrv5w"]
-[ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://battle/stages/dream_scape/scenes/background_gonermaker.tscn" id="2_yvje3"]
 [ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://shared/scripts/menu/buttons/soul_selectable_button.gd" id="3_8eykq"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="3_fjwv1"]
 [ext_resource type="AudioStream" uid="uid://c7si5enlp24hs" path="res://shared/sound_effects/snd_menumove.wav" id="3_rgfbv"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="4_bgok2"]
 [ext_resource type="Script" uid="uid://bqfyrxl6u2sc6" path="res://shared/scripts/menu/menu_sounds.gd" id="4_ijpes"]
-[ext_resource type="AudioStream" uid="uid://bsglwqfv4882s" path="res://shared/music/mus_cognitive_dissonance.mp3" id="4_jtisy"]
 [ext_resource type="AudioStream" uid="uid://dbxc1pv4kqsht" path="res://shared/sound_effects/snd_select.wav" id="5_hjto8"]
 [ext_resource type="Script" uid="uid://c1qllnsyyxqjy" path="res://shared/scripts/menu/menu_config.gd" id="6_yvje3"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="8_v01p7"]
-[ext_resource type="FontFile" uid="uid://hry6ocb5d2ai" path="res://shared/theme/fonts/PROPHECYTYPE.ttf" id="9_hjto8"]
-[ext_resource type="Texture2D" uid="uid://bneqlcokt00xw" path="res://shared/sprites/depth_blue.png" id="9_ijpes"]
+[ext_resource type="FontFile" uid="uid://ck6k41khiw0cu" path="res://shared/theme/fonts/HP-Voice-Crack-Regular.ttf" id="9_hjto8"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="11_yvje3"]
+[ext_resource type="AudioStream" uid="uid://5fnb0dxdfr2u" path="res://shared/music/mus_title.ogg" id="13_hjto8"]
+[ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="16_e6237"]
+[ext_resource type="Texture2D" uid="uid://m84awsagrpdc" path="res://minigames/here_come_the_cats/res/life_and_death.png" id="17_8ye7k"]
+[ext_resource type="Texture2D" uid="uid://dgujvouu42ew8" path="res://shared/sprites/Deltarune_logo.png" id="17_405we"]
+[ext_resource type="Texture2D" uid="uid://xm17fnbg34j5" path="res://minigames/here_come_the_cats/res/death_clock.png" id="18_405we"]
+[ext_resource type="Texture2D" uid="uid://cfgrtxp4lli60" path="res://minigames/here_come_the_cats/res/death_clock_cover.png" id="19_wim8o"]
+[ext_resource type="Texture2D" uid="uid://4jx6i0o7j328" path="res://minigames/here_come_the_cats/res/death_clock_hand.png" id="20_5cxmk"]
+[ext_resource type="PackedScene" uid="uid://4cqlbwcvu3uh" path="res://screens/title_screen/title_afterimage_pivot.tscn" id="20_405we"]
+[ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="21_7cxjv"]
+[ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="22_uk48k"]
+[ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="23_pvcqs"]
 
 [sub_resource type="Resource" id="Resource_bgok2"]
 script = ExtResource("4_ijpes")
@@ -25,6 +34,215 @@ script = ExtResource("6_yvje3")
 menu_sounds = SubResource("Resource_bgok2")
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
+[sub_resource type="Animation" id="Animation_yl35i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSpriteWhite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/UpperPanel/Clock/ClockContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 14)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Cat/Eyes:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5000007, -12)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Cat/EyeSprite:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Cat:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_8ye7k"]
+resource_name = "clock"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset/Cat/Tail:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Offset/Cat/EyeSpriteWhite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.96666664, 1, 1.4333334, 1.9666668, 2, 2.4333334, 2.9666667, 3, 3.4333334, 3.9666667, 4),
+"transitions": PackedFloat32Array(1.8025012, 1, 0, 1.8025012, 1, 0, 1, 1, 0, 1.8025012, 1, 0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Offset/ClockContainer:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 1, 1.4333334, 1.9666667, 2, 2.5666666, 3, 3.4333334, 3.9666667),
+"transitions": PackedFloat32Array(-2, -2, 1, -2, 1, -2, -2, 1, -2, 1),
+"update": 0,
+"values": [Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14), Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Offset/Cat/Eyes:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Offset/Cat/EyeSprite:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Offset/Cat:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.93333334, 1, 1.2, 1.9333334, 1.9666668, 2.1666667, 2.9, 2.9333334, 3.1333334, 3.8666668),
+"transitions": PackedFloat32Array(2, -2, 1, 0.5, -2, 1, 2, -2, 1, 2, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qd2g0"]
+_data = {
+&"RESET": SubResource("Animation_yl35i"),
+&"titleclock": SubResource("Animation_8ye7k")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("Title/TitleSprite/SubViewport")
+
 [sub_resource type="Theme" id="Theme_7rakj"]
 default_font = ExtResource("4_bgok2")
 default_font_size = 32
@@ -33,11 +251,60 @@ default_font_size = 32
 content_margin_left = 28.0
 content_margin_top = 15.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_405we"]
+viewport_path = NodePath("Title/TitleSprite/SubViewport")
+
+[sub_resource type="Animation" id="Animation_405we"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wim8o"]
+resource_name = "title"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(-2.462289, -2.462289, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cxmk"]
+_data = {
+&"RESET": SubResource("Animation_405we"),
+&"title": SubResource("Animation_wim8o")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hjto8"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_hjto8"]
+colors = PackedColorArray(1, 0, 0.60784316, 1, 1, 0.80784315, 0.34509805, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hjto8"]
+gradient = SubResource("Gradient_hjto8")
+fill_from = Vector2(1, 0.50427353)
+fill_to = Vector2(0, 0.46581197)
+
 [node name="TitleScreen" type="Node" unique_id=2102249253]
 script = ExtResource("1_4rvf0")
-
-[node name="Background2" parent="." unique_id=721451656 instance=ExtResource("2_yvje3")]
-modulate = Color(0, 1, 1, 0.42352942)
 
 [node name="MenuInputManager" type="Node" parent="." unique_id=525626993 node_paths=PackedStringArray("menus")]
 script = ExtResource("2_jrv5w")
@@ -51,18 +318,134 @@ modulate = Color(1, 1, 1, 0.16078432)
 texture = ExtResource("2_alfmu")
 centered = false
 
-[node name="Title" type="RichTextLabel" parent="." unique_id=104037793]
+[node name="Clock" type="Node2D" parent="." unique_id=28078535]
+position = Vector2(400.00006, 263)
+rotation = -0.10471975
+scale = Vector2(2.53, 2.53)
+skew = 0.27052593
+
+[node name="Sprite2D" type="Sprite2D" parent="Clock" unique_id=305897107]
+position = Vector2(19.154137, 115.416466)
+texture = ExtResource("16_e6237")
+
+[node name="Offset" type="Node2D" parent="Clock/Sprite2D" unique_id=388264478]
+position = Vector2(0, -150)
+
+[node name="LifeAndDeath" type="Sprite2D" parent="Clock/Sprite2D/Offset" unique_id=1310666995]
+visible = false
+position = Vector2(0, 65)
+scale = Vector2(2, 2)
+texture = ExtResource("17_8ye7k")
+
+[node name="ClockContainer" type="Node2D" parent="Clock/Sprite2D/Offset" unique_id=1282721782]
+position = Vector2(0, 14)
+scale = Vector2(2, 1.2)
+
+[node name="Clock" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=893941858]
+unique_name_in_owner = true
+position = Vector2(0, 43.56704)
+texture = ExtResource("18_405we")
+
+[node name="Cover" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=1621279707]
+position = Vector2(0, 24.677687)
+scale = Vector2(1, 1.171)
+texture = ExtResource("19_wim8o")
+
+[node name="HandContainer" type="Node2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=129244382]
+position = Vector2(0, 43.86428)
+
+[node name="Hand" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer/HandContainer" unique_id=740795398]
+unique_name_in_owner = true
+rotation = -3.1415927
+scale = Vector2(1.0000002, 1.5000004)
+texture = ExtResource("20_5cxmk")
+offset = Vector2(0, 3.5)
+
+[node name="Cat" type="Sprite2D" parent="Clock/Sprite2D/Offset" unique_id=1582620852]
+position = Vector2(0, 43)
+scale = Vector2(2, 2)
+texture = ExtResource("16_e6237")
+
+[node name="EyeSprite" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=342052340]
+position = Vector2(0, -14)
+texture = ExtResource("21_7cxjv")
+
+[node name="EyeSpriteWhite" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=517071566]
+self_modulate = Color(1, 1, 1, 0.73333335)
+position = Vector2(0, -13.999998)
+texture = ExtResource("22_uk48k")
+
+[node name="Eyes" type="Node2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=936174061]
+position = Vector2(2.5000007, -12)
+scale = Vector2(0.5, 0.5)
+
+[node name="Left" type="ColorRect" parent="Clock/Sprite2D/Offset/Cat/Eyes" unique_id=1124946941]
+offset_left = -16.994385
+offset_top = -10.0
+offset_right = -8.994385
+offset_bottom = 2.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="ColorRect" parent="Clock/Sprite2D/Offset/Cat/Eyes" unique_id=2057953890]
+offset_left = 9.005615
+offset_top = -10.0
+offset_right = 17.005615
+offset_bottom = 2.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Tail" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=493023124]
+z_index = -1
+position = Vector2(0, 11)
+rotation = 5.9341197
+texture = ExtResource("23_pvcqs")
+offset = Vector2(0, 24)
+flip_v = true
+
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Clock/Sprite2D" unique_id=1512433140]
+libraries/ = SubResource("AnimationLibrary_qd2g0")
+autoplay = &"titleclock"
+script = ExtResource("11_yvje3")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
+
+[node name="Title" type="Node2D" parent="." unique_id=1718321558]
+position = Vector2(340, 83)
+
+[node name="TitleSprite" type="Sprite2D" parent="Title" unique_id=162192410]
+texture = SubResource("ViewportTexture_g4v7s")
+
+[node name="SubViewport" type="SubViewport" parent="Title/TitleSprite" unique_id=1786951520]
+transparent_bg = true
+size = Vector2i(580, 200)
+
+[node name="Logo" type="Sprite2D" parent="Title/TitleSprite/SubViewport" unique_id=1828346299]
+texture = ExtResource("17_405we")
+centered = false
+
+[node name="Pivot" type="Node2D" parent="Title/TitleSprite/SubViewport/Logo" unique_id=1093100340]
+
+[node name="Title" type="RichTextLabel" parent="Title/TitleSprite/SubViewport/Logo" unique_id=104037793]
 modulate = Color(0.8326685, 0.8326685, 0.8326685, 1)
-clip_children = 1
 custom_minimum_size = Vector2(228, 28)
 clip_contents = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 194.0
+offset_top = 100.0
+offset_right = -93.99994
+offset_bottom = -7.999939
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.58, 0.818)
 theme = SubResource("Theme_7rakj")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9999997, 0.81365067, 0.4594519, 1)
+theme_override_colors/font_shadow_color = Color(0.54509807, 0.45882353, 1, 0.8862745)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
 theme_override_fonts/normal_font = ExtResource("9_hjto8")
 theme_override_font_sizes/normal_font_size = 86
 theme_override_font_sizes/bold_font_size = 32
@@ -71,261 +454,51 @@ theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
 bbcode_enabled = true
-text = "[wave]VS. Dream Warden"
+text = "[wave freq=2.0 amp=50.0 connected=0]HERE COME THE CATS"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Parallax2D" type="Parallax2D" parent="Title" unique_id=985767168]
-repeat_size = Vector2(256, 256)
-autoscroll = Vector2(-50, -50)
-repeat_times = 5
+[node name="Pivot1" parent="Title/TitleSprite" unique_id=969240893 instance=ExtResource("20_405we")]
+show_behind_parent = true
+scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Title/Parallax2D" unique_id=1339572597]
+[node name="Sprite2D" type="Sprite2D" parent="Title/TitleSprite/Pivot1/PivotVert/PivotHor" parent_id_path=PackedInt32Array(969240893, 694134532) index="0" unique_id=170178131]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
 scale = Vector2(2, 2)
-texture = ExtResource("9_ijpes")
+texture = SubResource("ViewportTexture_405we")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Title/Parallax2D" unique_id=963626908]
-scale = Vector2(2, 2)
-texture = ExtResource("9_ijpes")
+[node name="Pivot2" parent="Title/TitleSprite" unique_id=1546884568 instance=ExtResource("20_405we")]
+show_behind_parent = true
+scale = Vector2(0.25, 0.25)
 
-[node name="ColorRect" type="ColorRect" parent="Title/Parallax2D" unique_id=1360569317]
-custom_minimum_size = Vector2(256, 256)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.9666667, 1, 0.5254902)
+[node name="Sprite2D" type="Sprite2D" parent="Title/TitleSprite/Pivot2/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1546884568, 694134532) index="0" unique_id=1251482659]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+scale = Vector2(4, 4)
+texture = SubResource("ViewportTexture_405we")
 
-[node name="SelectFight" type="RichTextLabel" parent="." unique_id=814736686]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 61.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Select a fight"
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
+[node name="Pivot3" parent="Title/TitleSprite" unique_id=2028618752 instance=ExtResource("20_405we")]
+show_behind_parent = true
+scale = Vector2(0.75, 0.75)
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=1668206618 groups=["options_parent"]]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 19.0
-offset_top = 96.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="Title/TitleSprite/Pivot3/PivotVert/PivotHor" parent_id_path=PackedInt32Array(2028618752, 694134532) index="0" unique_id=1526930344]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+scale = Vector2(1.3333334, 1.3333334)
+texture = SubResource("ViewportTexture_405we")
 
-[node name="DreamWarden" type="Control" parent="Options" unique_id=947396992 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+[node name="Pivot4" parent="Title/TitleSprite" unique_id=466724957 instance=ExtResource("20_405we")]
+show_behind_parent = true
+scale = Vector2(1, 1)
 
-[node name="Label" type="RichTextLabel" parent="Options/DreamWarden" unique_id=1392277722]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Dream Warden"
-scroll_active = false
-autowrap_mode = 0
+[node name="Sprite2D" type="Sprite2D" parent="Title/TitleSprite/Pivot4/PivotVert/PivotHor" parent_id_path=PackedInt32Array(466724957, 694134532) index="0" unique_id=427298916]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+texture = SubResource("ViewportTexture_405we")
 
-[node name="DreamWardenParry" type="Control" parent="Options" unique_id=568731779 groups=["menu_option"]]
-modulate = Color(0.48, 0.48, 0.48, 1)
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-disabled = true
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/DreamWardenParry" unique_id=1278062032]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Dream Warden (Parry phase)"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="DreamWardenAqua" type="Control" parent="Options" unique_id=1672452524 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/DreamWardenAqua" unique_id=673204509]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Dream Warden (Aqua phase)"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="DreamWardenFinal" type="Control" parent="Options" unique_id=2116385091 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-disabled = true
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/DreamWardenFinal" unique_id=406329295]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_colors/default_color = Color(0.42, 0.42, 0.42, 1)
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Dream Warden (Final phase)"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Bonus1IcePalaceBoss" type="Control" parent="Options" unique_id=963312132 groups=["menu_option"]]
-modulate = Color(0.73, 0.9325, 1, 1)
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/Bonus1IcePalaceBoss" unique_id=1894537188]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Bonus 1 - Ice Palace Boss"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Bonus2BrotherVarik" type="Control" parent="Options" unique_id=1632734780 groups=["menu_option"]]
-modulate = Color(1, 0.73, 0.73449993, 1)
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/Bonus2BrotherVarik" unique_id=1148363744]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Bonus 2 - Brother Varik"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Bonus3HereComeTheCats" type="Control" parent="Options" unique_id=178200329 groups=["menu_option"]]
-modulate = Color(1, 1, 0.73, 1)
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/Bonus3HereComeTheCats" unique_id=1137781369]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Bonus 3 - Here Come The Cats"
-scroll_active = false
-autowrap_mode = 0
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Title" unique_id=2049572906]
+libraries/ = SubResource("AnimationLibrary_5cxmk")
+autoplay = &"title"
+script = ExtResource("11_yvje3")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1820192820]
 visible = false
@@ -353,7 +526,9 @@ scroll_active = false
 
 [node name="StartMusic" type="Node" parent="." unique_id=1035462912]
 script = ExtResource("3_fjwv1")
-song = ExtResource("4_jtisy")
+song = ExtResource("13_hjto8")
+bpm = 90.0
+enable_rhythm_tracking = true
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
 [node name="Soul" type="Sprite2D" parent="." unique_id=1608488927 groups=["soul"]]
@@ -361,10 +536,170 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(64, 65)
 texture = ExtResource("8_v01p7")
 
-[connection signal="selected" from="Options/DreamWarden" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/DreamWardenParry" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/DreamWardenAqua" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/DreamWardenFinal" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/Bonus1IcePalaceBoss" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/Bonus2BrotherVarik" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/Bonus3HereComeTheCats" to="." method="_on_option_selected"]
+[node name="Overlay" type="Parallax2D" parent="." unique_id=1279667498]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+material = SubResource("CanvasItemMaterial_hjto8")
+repeat_size = Vector2(1160, 200)
+autoscroll = Vector2(200, 0)
+repeat_times = 5
+
+[node name="TextureRect" type="TextureRect" parent="Overlay" unique_id=1431544303]
+use_parent_material = true
+custom_minimum_size = Vector2(580, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -66.0
+offset_right = 332.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_hjto8")
+
+[node name="TextureRect2" type="TextureRect" parent="Overlay" unique_id=684030819]
+use_parent_material = true
+custom_minimum_size = Vector2(580, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -66.0
+offset_right = 332.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = SubResource("GradientTexture2D_hjto8")
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=1668206618 groups=["options_parent"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 203.0
+offset_right = 48.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Control" parent="Options" unique_id=947396992 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Start" unique_id=1392277722]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Start"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Options" type="Control" parent="Options" unique_id=1866516707 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Options" unique_id=1637784595]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Options"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Extras" type="Control" parent="Options" unique_id=392565835 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+disabled = true
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Extras" unique_id=774631724]
+modulate = Color(0.4506483, 0.4506483, 0.45064825, 1)
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Extras"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Quit" type="Control" parent="Options" unique_id=294885714 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Quit" unique_id=1968889892]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Quit
+"
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="selected" from="Options/Start" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Options" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Extras" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Quit" to="." method="_on_option_selected"]
+
+[editable path="Title/TitleSprite/Pivot1"]
+[editable path="Title/TitleSprite/Pivot2"]
+[editable path="Title/TitleSprite/Pivot3"]
+[editable path="Title/TitleSprite/Pivot4"]
