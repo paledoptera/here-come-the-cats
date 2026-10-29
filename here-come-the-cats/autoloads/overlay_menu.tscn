@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://clq71ori6cyov"]
+
+[ext_resource type="Script" uid="uid://cum8cpytlq7ve" path="res://autoloads/overlay_menu.gd" id="1_5gacp"]
+[ext_resource type="FontFile" uid="uid://tlnjcxhh8t5" path="res://shared/theme/fonts/damage/greater-determination-dr-damage.otf" id="1_rsg7c"]
+
+[sub_resource type="GDScript" id="GDScript_5gacp"]
+resource_name = "RestartingLabel"
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	modulate = Color.TRANSPARENT.lerp(Color.WHITE,get_owner().command_timer)
+	match OverlayMenu.command:
+		OverlayMenu.Command.QUIT:
+			text = \"Quitting...\"
+		OverlayMenu.Command.RESTART:
+			text = \"Restarting...\"
+			
+"
+
+[node name="OverlayMenu" type="Node" unique_id=1985960612]
+script = ExtResource("1_5gacp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=232111392]
+
+[node name="CommandLabel" type="Label" parent="CanvasLayer" unique_id=252355478]
+offset_left = 6.0
+offset_right = 166.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("1_rsg7c")
+script = SubResource("GDScript_5gacp")

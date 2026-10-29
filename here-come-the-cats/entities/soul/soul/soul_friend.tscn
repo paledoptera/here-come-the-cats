@@ -278,7 +278,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.4745098)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -701,11 +701,15 @@ offsets = PackedFloat32Array(0, 0.9978118)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="SoulFriend" unique_id=443094051 instance=ExtResource("1_biekx")]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("2_d1x2a")
+constant_pink_speed = 0.0
 soul_state = 0
 direction = Vector2(1, 0)
 is_in_air = false
 switchable = false
+big_shot_needs_tp = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=135992417]
 modulate = Color(0.9882353, 1, 0, 1)
@@ -716,7 +720,7 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_d1x2a")
 
 [node name="Afterimage2" type="Sprite2D" parent="Sprite2D" index="1" unique_id=1708086226]
-modulate = Color(1, 1, 1, 0.4745098)
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("4_tsytj")
 
 [node name="Afterimage3" type="Sprite2D" parent="Sprite2D" index="2" unique_id=1562784327]
@@ -772,6 +776,7 @@ remote_path = NodePath("../../Flash")
 update_position = false
 
 [node name="HeartbeatEffect" type="Node2D" parent="Sprite2D" index="7" unique_id=1370768163]
+modulate = Color(1, 1, 1, 0)
 
 [node name="Afterimage1" type="Sprite2D" parent="Sprite2D/HeartbeatEffect" index="0" unique_id=196445365]
 modulate = Color(1, 1, 1, 0.4862745)
@@ -796,6 +801,7 @@ autoplay = &"heartbeat"
 speed_scale = 0.3
 
 [node name="SwitchOutline" type="Sprite2D" parent="." index="1" unique_id=1787105376]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 0.5, 1, 1)
 texture = ExtResource("3_tsytj")
 
@@ -821,7 +827,7 @@ libraries/ = SubResource("AnimationLibrary_d1x2a")
 speed_scale = 0.87
 
 [node name="Flash" type="Sprite2D" parent="." index="7" unique_id=1076581337]
-modulate = Color(1, 1, 1, 0.7764706)
+modulate = Color(1, 1, 1, 0)
 rotation = -1.5707964
 texture = ExtResource("4_tsytj")
 

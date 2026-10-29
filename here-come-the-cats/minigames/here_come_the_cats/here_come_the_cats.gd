@@ -6,12 +6,13 @@ const CAT_COLLECTIBLE = preload("uid://c4xirgxvxcybl")
 
 const CAT_ATTACKS_2_BEAT = [
 	preload("uid://dd5aewx0bpt22"), # cat spit
-	preload("uid://bqpe6h8uay2lv"), # cat jaws
+	preload("uid://tgjgo8af01nh"), # cat shooter
 	
 ]
 
 const CAT_ATTACKS_4_BEAT = [
 	preload("uid://clib1tg1p531h"), # cat tail
+	preload("uid://bqpe6h8uay2lv"), # cat jaws
 ]
 
 enum SoulType {YELLOW, PINK}
@@ -51,10 +52,10 @@ func _ready() -> void:
 	#await Dialogue.text_finished
 	#Dialogue.clear_text.emit()
 
-#func _process(delta: float) -> void:
-	#if Party.enemy[0].hp <= 0.0:
-		#SceneLoader.change_scene(preload("uid://clyt0hcde7icu"))
-		#pass
+func _process(delta: float) -> void:
+	if Party.enemy[0].hp <= 0.0:
+		SceneLoader.change_scene(preload("uid://clyt0hcde7icu"))
+		pass
 
 func _on_beat() -> void:
 	print("BEAT, ", Music.last_beat)
@@ -68,9 +69,9 @@ func _on_beat() -> void:
 	if attacking == false:
 		return
 	
-	if fmod(beat+4.0,8.0) == 0.0:
+	if fmod(beat,8.0) == 0.0:
 		start_attack(CAT_ATTACKS_4_BEAT.pick_random())
-	if fmod(beat,4.0) == 0.0:
+	elif fmod(beat,4.0) == 0.0:
 		start_attack(CAT_ATTACKS_2_BEAT.pick_random())
 
 		
@@ -121,7 +122,10 @@ func _on_event_changed(value: int) -> void:
 			%DeathClock.activate()
 		1: # cat anim
 			$Background/TV/PerspectiveQuad2D/SubViewport/AnimatedSprite2D.play("default")
-
+		50:
+			%DeathClock.deactivate()
+		666:
+			Sound.play(preload("uid://dvms0telejmfp"))
 
 func start_attack(attack: PackedScene):
 	var pos = %Cat.global_position
@@ -135,7 +139,9 @@ func start_attack(attack: PackedScene):
 		"cattail":
 			pos.x = 700.0
 			pos.y = randf_range(150.0,300.0)
-	
+		"catshooter":
+			pos.x = 700.0
+		
 	add_child(inst)
 		
 	inst.global_position = pos

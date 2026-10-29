@@ -1,13 +1,21 @@
 extends Node2D
 
 var camera_pan_tween: Tween
+var soul: SoulFriend
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$SoulFriend.taking_input = false
+	soul = get_tree().get_first_node_in_group("soul")
+	
+	soul.taking_input = false
+	await get_tree().create_timer(1.0).timeout
 	$AnimationPlayer.play("start")
 	await $AnimationPlayer.animation_finished
 	await display_dialogue(preload("uid://fnjx16nudgv6"))
+	$AnimationPlayer.play("throw_coin")
+	$AnimationPlayer.queue("walk_to_guitar")
+	$AnimationPlayer.queue("guitar_tune")
+	pan_camera(Vector2(100.0,0.0),0.5)
 	await get_tree().create_timer(0.5).timeout
 	Music.enable_rhythm = false
 	Music.play(preload("uid://djc7ap5o0cu3c"),1.0,0.0)
@@ -16,7 +24,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("pan_over")
 	await get_tree().create_timer(1.5).timeout
 	await display_dialogue(preload("uid://cgl387m7bi5uw"))
-	$SoulFriend.taking_input = true
+	soul.taking_input = true
 	pass # Replace with function body.
 
 
@@ -25,22 +33,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-
-func _on_pink_area_body_entered(body: Node2D) -> void:
-	if body is SoulFriend:
-		if body.soul_state == SoulFriend.SoulState.PINK:
-			return
-		body.soul_state = SoulFriend.SoulState.PINK
-		body.play_switch_animation()
-		Sound.play(preload("res://shared/sound_effects/snd_smallswing.wav"))
-
-func _on_yellow_area_body_entered(body: Node2D) -> void:
-	if body is SoulFriend:
-		if body.soul_state == SoulFriend.SoulState.YELLOW:
-			return
-		body.soul_state = SoulFriend.SoulState.YELLOW
-		Sound.play(preload("res://shared/sound_effects/snd_smallswing.wav"))
-		body.play_switch_animation()
 
 
 func _on_panning_area_body_entered(body: Node2D) -> void:
@@ -90,7 +82,7 @@ func _on_cutscene_area_body_entered(body: Node2D) -> void:
 
 func cutscene() -> void:
 	Music.stop()
-	$SoulFriend.queue_free()
+	soul.queue_free()
 	$AnimationPlayer.play("soul_enter")
 	await $AnimationPlayer.animation_finished
 	await display_dialogue(preload("uid://cow55bc8uwjn6"))

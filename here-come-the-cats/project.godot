@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Here Come The Cats"
-run/main_scene="uid://ddmjcvocbt7r1"
+run/main_scene="uid://bo0085uf4akr6"
 config/features=PackedStringArray("4.7", "Mobile")
 run/max_fps=30
-config/icon="res://icon.svg"
+config/icon="uid://cku72mbw4rdpo"
 
 [audio]
 
@@ -33,6 +33,7 @@ PlayerInventory="*uid://br10nbojxuoc5"
 SceneLoader="*uid://binypt512cdek"
 Actors="*uid://drjfl7xpcapwk"
 Fader="*uid://cetc0pf5e1yct"
+OverlayMenu="*uid://clq71ori6cyov"
 
 [display]
 
@@ -165,4 +166,3 @@ renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 textures/vram_compression/compress_with_gpu=false
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
-2d/snap/snap_2d_transforms_to_pixel=true

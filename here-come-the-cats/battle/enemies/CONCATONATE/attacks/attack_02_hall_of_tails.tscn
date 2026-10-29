@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://bu8lbl08doks1"]
+
+[ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://entities/soul/battlebox.tscn" id="1_u338y"]
+[ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="2_u52ys"]
+[ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="3_k662a"]
+[ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="4_nxtvw"]
+[ext_resource type="Script" uid="uid://cc7uptlkk8ec0" path="res://battle/enemies/CONCATONATE/attacks/tongue_pink_line.gd" id="5_3rn1p"]
+[ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="6_4gbuh"]
+[ext_resource type="PackedScene" uid="uid://cqdht4528v8qf" path="res://battle/enemies/CONCATONATE/attacks/jaws.tscn" id="7_u52ys"]
+
+[sub_resource type="Animation" id="Animation_1rxv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battlebox/Stabby/KnifeBullet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(242, 188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battlebox/Stabby/KnifeBullet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(281, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Battlebox/Stabby/KnifeBullet3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_oycta"]
+resource_name = "knives"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battlebox/Stabby/KnifeBullet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(242, 188), Vector2(242, 64.295), Vector2(242, 188), Vector2(242, 188), Vector2(242, 102)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battlebox/Stabby/KnifeBullet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.5666667, 0.8000001, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(281, 64), Vector2(281, 188), Vector2(281, 64), Vector2(281, 99.75), Vector2(281, 132), Vector2(281, 214)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Battlebox/Stabby/KnifeBullet3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.43333337, 0.70000005, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 188), Vector2(320, 64), Vector2(320, 188), Vector2(320, 119), Vector2(320, 205), Vector2(320, 109)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxgiu"]
+_data = {
+&"RESET": SubResource("Animation_1rxv2"),
+&"knives": SubResource("Animation_oycta")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_wn4gx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -500, 0, -37.255276, -0.56447387, 37.255276, 0.56447387, 846, -5, -33.30396, 1.6934216, 33.30396, -1.6934216, 844, 56, -85.800026, 0, 85.800026, 0, 1225, 62, -64.9145, 1.1289477, 64.9145, -1.1289477, 1225, -122, -47.980278, 0, 47.980278, 0, 1557, -122, -47.415806, 0, 47.415806, 0, 1550, -61, -84.67108, 1.1289477, 84.67108, -1.1289477, 1776, -61, -86.3645, -1.6934216, 86.3645, 1.6934216, 1771, 49, -104.427666, -1.1289477, 104.427666, 1.1289477, 2320, 52, -76.76845, -1.6934216, 76.76845, 1.6934216, 2311, -105, 0, 0, 0, 0, 2748, -105)
+}
+point_count = 12
+
+[sub_resource type="GDScript" id="GDScript_qkyq2"]
+resource_name = "knifecarousel"
+script/source = "extends Node2D
+
+func _process(delta: float) -> void:
+	rotate(0.1)
+"
+
+[node name="Attack" type="Node2D" unique_id=1432207014]
+z_index = -10
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1420855863]
+top_level = true
+custom_minimum_size = Vector2(640, 480)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1170440326]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("1_u338y")]
+offset_left = 64.0
+offset_top = 161.0
+offset_right = 5064.0
+offset_bottom = 461.0
+
+[node name="Stabby" type="Node2D" parent="Battlebox" unique_id=549256138]
+z_index = 100
+z_as_relative = false
+position = Vector2(1656, 356)
+scale = Vector2(1, -1)
+
+[node name="KnifeBullet" parent="Battlebox/Stabby" unique_id=1534627113 instance=ExtResource("2_u52ys")]
+position = Vector2(242, 188)
+rotation = 1.5707964
+
+[node name="KnifeBullet2" parent="Battlebox/Stabby" unique_id=819485830 instance=ExtResource("2_u52ys")]
+position = Vector2(281, 128)
+rotation = 1.5707964
+
+[node name="KnifeBullet3" parent="Battlebox/Stabby" unique_id=699718896 instance=ExtResource("2_u52ys")]
+position = Vector2(320, 128)
+rotation = 1.5707964
+
+[node name="AnimationContraption" type="Node2D" parent="Battlebox/Stabby" unique_id=999335175]
+script = ExtResource("3_k662a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Battlebox/Stabby/AnimationContraption" unique_id=1849075454]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_mxgiu")
+autoplay = &"knives"
+speed_scale = 0.5
+
+[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("4_nxtvw")]
+z_index = 4096
+position = Vector2(314, 261)
+constant_pink_speed = 1.0
+soul_state = 1
+speed_mult = 2.0
+
+[node name="SwitchOutline" parent="SoulFriend" index="1" unique_id=1787105376]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="SoulFriend" unique_id=491353616]
+limit_top = 0
+limit_bottom = 480
+
+[node name="TonguePinkLine" type="Path2D" parent="." unique_id=42622812 groups=["pink_lines"]]
+z_index = 101
+position = Vector2(-1886, 210)
+curve = SubResource("Curve2D_wn4gx")
+script = ExtResource("5_3rn1p")
+speed = 200.0
+loop = false
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TonguePinkLine" unique_id=1384818225]
+position = Vector2(-500, 0)
+rotation = -0.004251739
+
+[node name="Sprite2D" type="Sprite2D" parent="TonguePinkLine/PathFollow2D" unique_id=1266114344]
+modulate = Color(1, 0.4117647, 0.7058824, 1)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_4gbuh")
+
+[node name="JAWS" parent="TonguePinkLine" unique_id=605576767 node_paths=PackedStringArray("target") instance=ExtResource("7_u52ys")]
+position = Vector2(2748.0002, -105.000015)
+target = NodePath("../../SoulFriend")
+
+[node name="AnimatedSprite2D" parent="TonguePinkLine/JAWS" index="0" unique_id=945704979]
+scale = Vector2(1.5, 1.5)
+
+[node name="KnifeCarousel1" type="Node2D" parent="." unique_id=325140653]
+position = Vector2(-974, 187)
+script = SubResource("GDScript_qkyq2")
+
+[node name="KnifeContainer1" type="Node2D" parent="KnifeCarousel1" unique_id=1203750291]
+
+[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer1" unique_id=194047947 instance=ExtResource("2_u52ys")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="KnifeContainer2" type="Node2D" parent="KnifeCarousel1" unique_id=137767543]
+rotation = 2.364921
+
+[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer2" unique_id=1325015115 instance=ExtResource("2_u52ys")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="KnifeContainer3" type="Node2D" parent="KnifeCarousel1" unique_id=1627036077]
+rotation = 4.2324233
+
+[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer3" unique_id=473270988 instance=ExtResource("2_u52ys")]
+position = Vector2(0, 44)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[editable path="SoulFriend"]
+[editable path="TonguePinkLine/JAWS"]

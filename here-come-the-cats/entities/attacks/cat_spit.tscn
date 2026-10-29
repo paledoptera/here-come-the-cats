@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dd5aewx0bpt22"]
 
 [ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="1_wm4rk"]
-[ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/diamond_bullet.tscn" id="2_u8g27"]
+[ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/hairball_bullet.tscn" id="2_u8g27"]
 [ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="4_5sbl7"]
 
 [sub_resource type="GDScript" id="GDScript_5sbl7"]

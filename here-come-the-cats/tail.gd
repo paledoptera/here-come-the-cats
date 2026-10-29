@@ -15,7 +15,6 @@ func _ready() -> void:
 	tail_segments = get_children()
 	for i in tail_segments:
 		i.top_level = true
-		i.scale = global_scale
 		i.global_position = global_position
 
 func _process(delta: float) -> void:

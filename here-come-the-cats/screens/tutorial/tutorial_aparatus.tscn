@@ -1,0 +1,419 @@
+[gd_scene format=3 uid="uid://vmwk1bvlxjl7"]
+
+[ext_resource type="Texture2D" uid="uid://drsba8fwlh41g" path="res://screens/tutorial/res/tutorial_aparatus.png" id="1_mwo4o"]
+[ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="1_vn1fq"]
+[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_fcfvr"]
+[ext_resource type="Texture2D" uid="uid://c414udju7afwu" path="res://screens/tutorial/res/tutorial_aparatus_bkg.png" id="3_cuyo5"]
+[ext_resource type="PackedScene" uid="uid://hox8tuuc125c" path="res://screens/tutorial/hint_area.tscn" id="4_0k72b"]
+[ext_resource type="Texture2D" uid="uid://51olowqp6yyf" path="res://screens/tutorial/res/tutorial_aparatus_gradient.png" id="4_4rgr7"]
+[ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="4_f5cco"]
+[ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="5_1guvq"]
+[ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="6_5uf4i"]
+[ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="7_4r7sq"]
+[ext_resource type="PackedScene" uid="uid://dbb2pgub0top3" path="res://entities/bullets/yellow/yellow_pipe_blocker_bullet.tscn" id="8_wu4yr"]
+
+[sub_resource type="Gradient" id="Gradient_f5cco"]
+colors = PackedColorArray(1, 1, 1, 1, 0.2, 0.2, 0.2, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_vn1fq"]
+_data = {
+"points": PackedVector2Array(0.56447387, 215.06454, -0.56447387, -215.06454, 729, -7, 0, 96.147, 0, -85, 729, -184.51, 0, -85, 0, 50, 894.64, -184.51, -50, 0, 0, 0, 930.185, -90, -50, 0, 50, 0, 1272, -90, -50, 0, 50, 0, 1318.57, -190, -56.587, 0, 40, 0, 1579, -190, 0, -50, -5.588291, 105.55661, 1610.6404, -85)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_0k72b"]
+_data = {
+"points": PackedVector2Array(-0.285609, 17.872, 0.285609, -17.872, 2173.6404, -143, -60.915825, -1.5421728, 60.915825, 1.5421728, 2240, -175, -75.504776, -1.4612087, 75.504776, 1.4612087, 2340, -169, -62.125, 0, 62.125, 0, 2422.135, 5, 0, 0, 0, 0, 2515, 5)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_i3p7n"]
+resource_name = "pin"
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is SoulFriend:
+		if body.soul_state == SoulFriend.SoulState.PINK:
+			return
+		body.soul_state = SoulFriend.SoulState.PINK
+		body.play_switch_animation()
+		Sound.play(preload(\"res://shared/sound_effects/snd_smallswing.wav\"))
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1fq"]
+size = Vector2(995, 189)
+
+[sub_resource type="GDScript" id="GDScript_vn1fq"]
+resource_name = "yellow"
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is SoulFriend:
+		if body.soul_state == SoulFriend.SoulState.YELLOW:
+			return
+		body.soul_state = SoulFriend.SoulState.YELLOW
+		Sound.play(preload(\"res://shared/sound_effects/snd_smallswing.wav\"))
+		body.play_switch_animation()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k72b"]
+size = Vector2(706, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(294, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1guvq"]
+size = Vector2(375, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uf4i"]
+size = Vector2(187, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r7sq"]
+size = Vector2(305, 89)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu4yr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(20, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuyo5"]
+size = Vector2(114, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu4yr"]
+size = Vector2(12, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5cco"]
+size = Vector2(31, 5.5)
+
+[node name="TutorialAparatus" type="Node2D" unique_id=1681316322]
+
+[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("1_vn1fq")]
+position = Vector2(-906, 26)
+soul_state = 1
+big_shot_needs_tp = false
+
+[node name="Grazer" parent="SoulFriend" index="5" unique_id=1156557386]
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=944381864]
+show_behind_parent = true
+z_index = 101
+scale = Vector2(2, 2)
+texture = ExtResource("1_mwo4o")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=880785113]
+show_behind_parent = true
+clip_children = 2
+scale = Vector2(2, 2)
+texture = ExtResource("3_cuyo5")
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=138064424]
+modulate = Color(0.32172796, 0.32172796, 0.32172787, 1)
+offset_left = -476.0
+offset_top = -104.5
+offset_right = 494.0
+offset_bottom = 95.5
+texture = ExtResource("4_4rgr7")
+stretch_mode = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background" unique_id=1868878163]
+position = Vector2(-19.5, 81.5)
+amount = 1000
+texture = ExtResource("4_f5cco")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(450, 1)
+spread = 180.0
+gravity = Vector2(0, -10)
+initial_velocity_max = 5.0
+angular_velocity_min = -2.0
+angular_velocity_max = 2.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+scale_amount_min = 0.1
+scale_amount_max = 2.0
+color = Color(0, 0.23041722, 1.2032687e-07, 1)
+color_ramp = SubResource("Gradient_f5cco")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=82405063]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=715746872]
+build_mode = 1
+polygon = PackedVector2Array(-946, 112, -947, -64, -921, -64, -921, -88, -915, -102, -893, -124, -857, -138, -841, -140, -803, -140, -758, -127, -733, -107, -723, -87, -723, -32, -517, -32, -517, 12, -377, 12, -377, -18, -395, -18, -395, -100, 35, -100, 35, -18, 13, -18, 13, 35, 203, 34, 203, -48, 217, -73, 249, -92, 283, -100, 341, -100, 341, -108, 631, -108, 631, -54, 688, -54, 722, -45, 754, -27, 768, -1, 769, 68, 773, 80, 787, 98, 894, 98, 895, 180, 753, 180, 744, 173, 737, 149, 735, 104, 735, 11, 727, -4, 714, -16, 689, -26, 631, -26, 631, 119, 341, 120, 341, -72, 283, -72, 268, -68, 253, -59, 244, -49, 237, -36, 237, 34, 279, 34, 279, 116, -81, 118, -81, 32, -69, 32, -69, -18, -295, -18, -295, 112, -379, 110, -379, 42, -517, 42, -517, 90, -811, 90, -811, -32, -757, -32, -757, -76, -769, -94, -786, -106, -804, -112, -841, -112, -862, -105, -873, -96, -886, -79, -887, -76, -887, -64, -863, -64, -863, 113)
+
+[node name="PinkLine1" type="Path2D" parent="." unique_id=1963943559 groups=["pink_lines"]]
+position = Vector2(-1634.6404, 119)
+curve = SubResource("Curve2D_vn1fq")
+script = ExtResource("2_fcfvr")
+
+[node name="PinkLine2" type="Path2D" parent="." unique_id=1434994272 groups=["pink_lines"]]
+position = Vector2(-1634.6404, 131)
+curve = SubResource("Curve2D_0k72b")
+script = ExtResource("2_fcfvr")
+
+[node name="PinkArea" type="Area2D" parent="." unique_id=1783905157]
+visible = false
+position = Vector2(-1650, -145)
+script = SubResource("GDScript_i3p7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkArea" unique_id=707343090]
+position = Vector2(1169.5, 84.5)
+shape = SubResource("RectangleShape2D_vn1fq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PinkArea" unique_id=103109467]
+position = Vector2(2621, 84.5)
+shape = SubResource("RectangleShape2D_vn1fq")
+
+[node name="YellowArea" type="Area2D" parent="." unique_id=545379851]
+visible = false
+position = Vector2(-1650, -145)
+script = SubResource("GDScript_vn1fq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YellowArea" unique_id=1525558827]
+position = Vector2(1915, 233.5)
+shape = SubResource("RectangleShape2D_0k72b")
+
+[node name="HintArea1" parent="." unique_id=409885071 instance=ExtResource("4_0k72b")]
+position = Vector2(-700, -115)
+
+[node name="Hint" parent="HintArea1" index="0" unique_id=1274833682]
+self_modulate = Color(1, 0.4117647, 0.7058824, 1)
+
+[node name="Subhint" parent="HintArea1/Hint" index="0" unique_id=1997185165]
+self_modulate = Color(1, 0.4117647, 0.7058824, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea1" unique_id=1615960990]
+position = Vector2(45, 146)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="HintArea2" parent="." unique_id=1863239537 instance=ExtResource("4_0k72b")]
+position = Vector2(25, -48)
+
+[node name="Hint" parent="HintArea2" index="0" unique_id=1274833682]
+self_modulate = Color(1, 1, 0, 1)
+offset_left = -147.0
+offset_top = 180.0
+offset_right = -35.0
+offset_bottom = 196.0
+text = "Press Z to shoot"
+
+[node name="Subhint" parent="HintArea2/Hint" index="0" unique_id=1997185165]
+self_modulate = Color(1, 0.4117647, 0.7058824, 1)
+text = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea2" unique_id=484547336]
+position = Vector2(85.5, 127.5)
+shape = SubResource("RectangleShape2D_1guvq")
+
+[node name="HintArea3" parent="." unique_id=1019894362 instance=ExtResource("4_0k72b")]
+position = Vector2(223, -48)
+
+[node name="Hint" parent="HintArea3" index="0" unique_id=1274833682]
+offset_left = -147.0
+offset_top = 180.0
+offset_right = -35.0
+offset_bottom = 196.0
+text = ""
+
+[node name="Subhint" parent="HintArea3/Hint" index="0" unique_id=1997185165]
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 18.0
+offset_top = 4.5
+offset_right = 221.0
+offset_bottom = 39.5
+text = "Shoot switches to open doors"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea3" unique_id=1133420835]
+position = Vector2(-8.5, 127.5)
+shape = SubResource("RectangleShape2D_5uf4i")
+
+[node name="HintArea4" parent="." unique_id=694330886 instance=ExtResource("4_0k72b")]
+position = Vector2(500, -48)
+
+[node name="Hint" parent="HintArea4" index="0" unique_id=1274833682]
+offset_left = -124.0
+offset_top = 180.0
+offset_right = -12.0
+offset_bottom = 196.0
+text = ""
+
+[node name="Subhint" parent="HintArea4/Hint" index="0" unique_id=1997185165]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 18.0
+offset_top = 4.5
+offset_right = 221.0
+offset_bottom = 39.5
+text = "Hold Z for a BIG SHOT!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea4" unique_id=434145611]
+position = Vector2(-14.5, 127.5)
+shape = SubResource("RectangleShape2D_4r7sq")
+
+[node name="PipeBlockerBullet" parent="." unique_id=2039101399 instance=ExtResource("5_1guvq")]
+position = Vector2(-519, 28)
+graze_points = 0.0
+
+[node name="PipeBlockerBullet2" parent="." unique_id=194047947 instance=ExtResource("5_1guvq")]
+position = Vector2(-287, -70)
+
+[node name="PipeBlockerBullet3" parent="." unique_id=665410402 instance=ExtResource("5_1guvq")]
+position = Vector2(-75, -70)
+
+[node name="PipeBlockerBullet4" parent="." unique_id=1656738747 instance=ExtResource("5_1guvq")]
+position = Vector2(-181, -70)
+
+[node name="Door" type="Node2D" parent="." unique_id=1213518532]
+position = Vector2(310, -106)
+script = ExtResource("7_4r7sq")
+offset = Vector2(0, -30)
+
+[node name="OldHouse5" type="Panel" parent="Door" unique_id=2099405962]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 1.0
+offset_right = -7.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door" unique_id=956806223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D" unique_id=281251076]
+position = Vector2(-7, 15.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Door2" type="Node2D" parent="." unique_id=477088136]
+position = Vector2(358, -11)
+script = ExtResource("7_4r7sq")
+offset = Vector2(-102, 0)
+
+[node name="OldHouse5" type="Panel" parent="Door2" unique_id=1802332659]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door2" unique_id=2140009758]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D" unique_id=1671214877]
+position = Vector2(40, 11)
+shape = SubResource("RectangleShape2D_cuyo5")
+
+[node name="wall" type="Node2D" parent="." unique_id=1466698568]
+position = Vector2(496, -102)
+
+[node name="OldHouse5" type="Panel" parent="wall" unique_id=1366897120]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wall" unique_id=535807383]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/StaticBody2D" unique_id=1224933970]
+position = Vector2(-11, 81)
+shape = SubResource("RectangleShape2D_wu4yr")
+
+[node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("6_5uf4i")]
+position = Vector2(279, 73)
+linked_contraptions = [NodePath("../Door")]
+
+[node name="Switch2" parent="." unique_id=1761815795 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("6_5uf4i")]
+position = Vector2(472, -88)
+linked_contraptions = [NodePath("../Door2")]
+
+[node name="OldHouse5" type="Panel" parent="." unique_id=1733897071]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 455.0
+offset_top = -6.0
+offset_right = 486.0
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OldHouse5" unique_id=227024508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OldHouse5/StaticBody2D" unique_id=638406276]
+position = Vector2(15.5, 2.75)
+shape = SubResource("RectangleShape2D_f5cco")
+
+[node name="OldHouse6" type="Panel" parent="." unique_id=1099448091]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 573.0
+offset_top = -6.0
+offset_right = 604.0
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OldHouse6" unique_id=1741580242]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OldHouse6/StaticBody2D" unique_id=1041700999]
+position = Vector2(15.5, 2.75)
+shape = SubResource("RectangleShape2D_f5cco")
+
+[node name="PipeBlockerBullet5" parent="." unique_id=50578561 instance=ExtResource("8_wu4yr")]
+position = Vector2(106, 76)
+
+[node name="PipeBlockerBullet7" parent="." unique_id=948184615 instance=ExtResource("8_wu4yr")]
+position = Vector2(493, 91)
+
+[node name="PipeBlockerBullet6" parent="." unique_id=1847029666 instance=ExtResource("8_wu4yr")]
+position = Vector2(487, 91)
+
+[node name="PipeBlockerBullet8" parent="." unique_id=881595709 instance=ExtResource("8_wu4yr")]
+position = Vector2(481, 91)
+
+[node name="PipeBlockerBullet9" parent="." unique_id=1030794211 instance=ExtResource("8_wu4yr")]
+position = Vector2(475, 91)
+
+[node name="PipeBlockerBullet10" parent="." unique_id=1806834780 instance=ExtResource("8_wu4yr")]
+position = Vector2(469, 91)
+
+[node name="PipeBlockerBullet11" parent="." unique_id=1838714870 instance=ExtResource("5_1guvq")]
+position = Vector2(854, 137)
+graze_points = 0.0
+
+[connection signal="body_entered" from="PinkArea" to="PinkArea" method="_on_body_entered"]
+[connection signal="body_entered" from="YellowArea" to="YellowArea" method="_on_body_entered"]
+
+[editable path="SoulFriend"]
+[editable path="HintArea1"]
+[editable path="HintArea2"]
+[editable path="HintArea3"]
+[editable path="HintArea4"]

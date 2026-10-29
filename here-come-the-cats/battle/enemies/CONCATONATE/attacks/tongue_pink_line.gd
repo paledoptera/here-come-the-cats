@@ -1,6 +1,7 @@
 extends "res://minigames/here_come_the_cats/pink_line.gd"
 
 @export var speed: float = 500.0
+var chain: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,15 +12,14 @@ func _ready() -> void:
 	while link_length < curve_length:
 		var new_link = link.duplicate()
 		add_child(new_link)
-		link_length += 20.0
+		link_length += 40.0
 		new_link.progress = link_length
 		link = new_link
-		
-	pass # Replace with function body.
+		chain.append(new_link)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for i in get_children():
+	for i in chain:
 		if i is PathFollow2D:
 			i.progress += speed * delta

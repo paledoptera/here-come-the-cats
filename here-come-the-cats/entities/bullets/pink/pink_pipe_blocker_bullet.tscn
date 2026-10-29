@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dvmfhtsa3g6hk"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_pweeu"]
+[ext_resource type="Texture2D" uid="uid://dp55gp0pmee2n" path="res://entities/bullets/pink/res/pink_pipe_blocker.png" id="2_pweeu"]
+[ext_resource type="Script" uid="uid://4eqy0mlc36f7" path="res://entities/bullets/pink/pink_hitbox.gd" id="3_bbn82"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxoyp"]
+radius = 9.5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhkaq"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 31.0
+height = 83.6
+
+[node name="PipeBlockerBullet" type="Area2D" unique_id=194047947]
+z_index = 101
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_pweeu")
+damage = 0
+dashable = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_pweeu")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_yxoyp")
+debug_color = Color(0.78542984, 0.3667438, 0.60463893, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1803145568]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=940187515]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_fhkaq")
+
+[node name="PinkHitbox" type="Area2D" parent="." unique_id=933826847]
+script = ExtResource("3_bbn82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkHitbox" unique_id=1311252572]
+shape = SubResource("CapsuleShape2D_g4v7s")
+debug_color = Color(0.6571671, 0.49560988, 0.40746483, 0.41960785)

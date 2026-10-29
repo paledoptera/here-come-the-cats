@@ -8,6 +8,9 @@ enum SoulState {YELLOW, PINK}
 @export var direction := Vector2.RIGHT
 @export var is_in_air: bool = false
 @export var switchable: bool = false
+@export var big_shot_needs_tp: bool = true
+@export var jaws: PathFollow2D
+@export var jaws_backwards: bool = false
 var shoot_state := ShootState.IDLE
 var charge_max: float = 16.0
 var charge_timer: float = 0.0
@@ -41,9 +44,21 @@ func _ready() -> void:
 	base_speed_mult = speed_mult
 	
 	setup_pink()
+	
+	if soul_state == SoulState.PINK:
+		$Sprite2D.modulate = Color("ff69b4")
+		$Sprite2D.rotation = 0.0
+		
 
 
 func _physics_process(delta: float) -> void:
+	if not taking_input:
+		set_collision_mask_value(1,0)
+		set_collision_layer_value(1,0)
+		return
+	else:
+		set_collision_mask_value(1,1)
+		set_collision_layer_value(1,1)
 	
 	var h_input = Input.get_axis("left","right")
 	if h_input != 0.0:
@@ -53,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	
 	if pink_follower:
 		pink_angle = pink_follower.rotation
+		pink_follower.get_child(0).global_rotation = 0.0
 
 		
 	
@@ -84,6 +100,11 @@ func _physics_process(delta: float) -> void:
 			var line = pink_follower.get_parent()
 			var offset = line.curve.get_closest_offset(line.to_local(global_position))
 			
+			if jaws:
+				if jaws_backwards:
+					offset = min(offset,jaws.progress)
+				else:
+					offset = max(offset,jaws.progress)
 			pink_follower.progress = offset+constant_pink_speed
 			pink_follower.force_update_transform()
 			speed_mult = base_speed_mult
@@ -112,8 +133,14 @@ func _physics_process(delta: float) -> void:
 	
 
 func _process(delta: float) -> void:
+	if not taking_input:
+		return
+	
 	if soul_state == SoulState.YELLOW:
 		process_pink_switcher()
+	
+	if not pink_follower:
+		return
 	
 	if global_position.distance_to(pink_follower.global_position) > 32.0:
 		pink_outline.modulate = pink_outline.modulate.lerp(Color.TRANSPARENT,0.2)
@@ -129,17 +156,23 @@ func handle_shoot(_delta: float) -> void:
 			shoot_buffer = 1.0
 		if Input.is_action_pressed("confirm"):
 			shoot_buffer -= 0.2
-			if shoot_buffer <= 0.0 and Party.tp >= 8.0:
-				shoot_state = ShootState.CHARGING
+			if shoot_buffer <= 0.0:
+				if not big_shot_needs_tp:
+					shoot_state = ShootState.CHARGING
+				elif Party.tp >= 8.0:
+					shoot_state = ShootState.CHARGING
 		$Flash.modulate = Color.TRANSPARENT
 		$Sprite2D/HeartbeatEffect.modulate = Color.TRANSPARENT
 		
 	elif shoot_state == ShootState.CHARGING:
-		if charge_timer < 16.0 and Party.tp > 1.1:
-			Party.tp -= 0.5
+		if not big_shot_needs_tp:
 			charge_timer = move_toward(charge_timer, 16.0, 0.5);
-		if Party.tp <= 0.0:
-			shoot_state = ShootState.SHOOT
+		else:
+			if charge_timer < 16.0 and Party.tp > 1.1:
+				Party.tp -= 0.5
+				charge_timer = move_toward(charge_timer, 16.0, 0.5);
+			if Party.tp <= 0.0:
+				shoot_state = ShootState.SHOOT
 		$Flash.modulate = Color.TRANSPARENT.lerp(Color.WHITE,ease(charge_timer/16.0,1.5))
 		
 		if charge_timer == 16.0:

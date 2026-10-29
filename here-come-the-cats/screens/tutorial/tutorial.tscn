@@ -1,36 +1,19 @@
 [gd_scene format=3 uid="uid://wfktweg8on8i"]
 
-[ext_resource type="Texture2D" uid="uid://kpj24yc0ry6x" path="res://temp/tutorial_mockupo.png" id="1_2corh"]
 [ext_resource type="Script" uid="uid://df5u5nmkuadqd" path="res://screens/tutorial/tutorial.gd" id="1_xl6kk"]
-[ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="4_alrl7"]
-[ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_6f2ve"]
+[ext_resource type="Texture2D" uid="uid://bu5cwy81nqwwh" path="res://screens/tutorial/res/tutorial_background.png" id="2_mvsrh"]
+[ext_resource type="Texture2D" uid="uid://bqo4pvyvm3wfl" path="res://screens/tutorial/res/tutorial_background_sketch.png" id="2_yib5u"]
+[ext_resource type="Texture2D" uid="uid://br1sn2lufx0g3" path="res://shared/sprites/dialogue_box.png" id="6_i3p7n"]
 [ext_resource type="Script" uid="uid://cdr84qwtc7no" path="res://screens/tutorial/panning_area.gd" id="6_xl6kk"]
 [ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="7_h7x3i"]
 [ext_resource type="PackedScene" uid="uid://drong1tvp14ic" path="res://minigames/here_come_the_cats/screen_bounds.tscn" id="7_mvsrh"]
+[ext_resource type="SpriteFrames" uid="uid://gmmcnk6ql674" path="res://party/hero/dess/res/dess_frames.tres" id="9_i3p7n"]
+[ext_resource type="Texture2D" uid="uid://sbt0kmr1s7cn" path="res://screens/tutorial/res/tutorial_props.png" id="10_yib5u"]
+[ext_resource type="PackedScene" uid="uid://vmwk1bvlxjl7" path="res://screens/tutorial/tutorial_aparatus.tscn" id="11_k3i8g"]
 
-[sub_resource type="Curve2D" id="Curve2D_6f2ve"]
-_data = {
-"points": PackedVector2Array(0.56447387, 215.06454, -0.56447387, -215.06454, 729, -7, -108.37898, 2.8223693, 108.37898, -2.8223693, 800, -249, -3.951317, -50.238174, 3.951317, 50.238174, 873, -119, -47.810936, -2.04904, 47.810936, 2.04904, 1272, -88, -69.97609, -2.3325365, 69.97609, 2.3325365, 1326, -190, -56.587334, 1.8660288, 56.587334, -1.8660288, 1579, -181, 5.588291, -105.55661, -5.588291, 105.55661, 1612, -56)
-}
-point_count = 7
-
-[sub_resource type="Curve2D" id="Curve2D_n0lwv"]
-_data = {
-"points": PackedVector2Array(-2.3132591, 49.735073, 2.3132591, -49.735073, 2186, -57, -60.915825, -1.5421728, 60.915825, 1.5421728, 2240, -175, -73.63875, -1.927716, 73.63875, 1.927716, 2340, -169, -62.84354, -5.0120616, 62.84354, 5.0120616, 2390, -1, 0, 0, 0, 0, 2515, 7)
-}
-point_count = 5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(995, 189)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(706, 107)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq6ep"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 34
-border_width_top = 15
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvsrh"]
+content_margin_top = 28.0
+texture = ExtResource("6_i3p7n")
 
 [sub_resource type="Animation" id="Animation_h7x3i"]
 length = 0.001
@@ -58,6 +41,45 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dess:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(207, 322)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dess:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_right"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dess:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k3i8g"]
+resource_name = "guitar_tune"
 
 [sub_resource type="Animation" id="Animation_xl6kk"]
 resource_name = "investigate"
@@ -121,14 +143,132 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(320, 240)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dess:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.3666667),
+"transitions": PackedFloat32Array(0.8122524, 1, 1),
+"update": 0,
+"values": [Vector2(207, 322), Vector2(308, 322), Vector2(308, 281)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dess:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666674, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"walk_right", &"walk_backward", &"idle_forward"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dess:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.06666666, 0.099999964, 0.13333334, 0.16666664, 0.2, 0.2333333, 0.26666674, 0.30000004, 0.3333334, 0.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_yib5u"]
+resource_name = "throw_coin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dess:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dess:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(308, 281), Vector2(316.105, 281), Vector2(311.435, 281)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dess:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7m5k5"]
+resource_name = "walk_to_guitar"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dess:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(311.435, 281), Vector2(311.435, 407)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dess:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_forward"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dess:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.20000002, 0.33333334, 0.46666667, 0.6, 0.73333335, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 2, 3, 0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i3p7n"]
 _data = {
 &"RESET": SubResource("Animation_h7x3i"),
+&"guitar_tune": SubResource("Animation_k3i8g"),
 &"investigate": SubResource("Animation_xl6kk"),
 &"pan_over": SubResource("Animation_6f2ve"),
 &"soul_enter": SubResource("Animation_i3p7n"),
-&"start": SubResource("Animation_mvsrh")
+&"start": SubResource("Animation_mvsrh"),
+&"throw_coin": SubResource("Animation_yib5u"),
+&"walk_to_guitar": SubResource("Animation_7m5k5")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
@@ -149,47 +289,35 @@ size = Vector2(37, 130)
 [node name="Tutorial" type="Node2D" unique_id=1740187192]
 script = ExtResource("1_xl6kk")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=428619208]
+position = Vector2(1457, 253)
+scale = Vector2(2, 2)
+texture = ExtResource("2_yib5u")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=925347696]
 position = Vector2(1457, 253)
-texture = ExtResource("1_2corh")
+scale = Vector2(2, 2)
+texture = ExtResource("2_mvsrh")
 
-[node name="PinkLine1" type="Path2D" parent="." unique_id=42622812 groups=["pink_lines"]]
-position = Vector2(0, 240)
-curve = SubResource("Curve2D_6f2ve")
-script = ExtResource("5_6f2ve")
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=548059636]
+position = Vector2(1457, 253)
+scale = Vector2(2, 2)
+texture = ExtResource("10_yib5u")
 
-[node name="PinkLine2" type="Path2D" parent="." unique_id=1280447149 groups=["pink_lines"]]
-position = Vector2(0, 240)
-curve = SubResource("Curve2D_n0lwv")
-script = ExtResource("5_6f2ve")
-
-[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("4_alrl7")]
-position = Vector2(728, 147)
-
-[node name="PinkArea" type="Area2D" parent="." unique_id=1617425280]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinkArea" unique_id=1590188470]
-position = Vector2(1169.5, 84.5)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PinkArea" unique_id=570957530]
-position = Vector2(2621, 84.5)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="YellowArea" type="Area2D" parent="." unique_id=2101373458]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YellowArea" unique_id=609052938]
-position = Vector2(1915, 233.5)
-shape = SubResource("RectangleShape2D_yf5fn")
+[node name="TutorialAparatus" parent="." unique_id=1681316322 instance=ExtResource("11_k3i8g")]
+position = Vector2(1617, 122)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261299943]
 
 [node name="DialogueBox2" parent="CanvasLayer" unique_id=151941393 instance=ExtResource("7_h7x3i")]
-offset_top = 332.0
-offset_right = 637.0
-offset_bottom = 543.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_vq6ep")
+offset_left = 23.0
+offset_right = 616.0
+offset_bottom = 167.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mvsrh")
 bbcode_enabled = true
+text = "* test
+* test
+* test"
 tab_size = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678890847]
@@ -240,7 +368,7 @@ shape = SubResource("RectangleShape2D_mvsrh")
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1159366109]
 position = Vector2(320, 240)
 limit_top = 0
-limit_bottom = 480
+limit_bottom = 580
 
 [node name="ScreenBounds" parent="CameraPivot/Camera2D" unique_id=1667283980 instance=ExtResource("7_mvsrh")]
 position = Vector2(-320, -117)
@@ -251,8 +379,12 @@ position = Vector2(-320, -117)
 position = Vector2(2482, 246)
 shape = SubResource("RectangleShape2D_d0u6y")
 
-[connection signal="body_entered" from="PinkArea" to="." method="_on_pink_area_body_entered"]
-[connection signal="body_entered" from="YellowArea" to="." method="_on_yellow_area_body_entered"]
+[node name="Dess" type="AnimatedSprite2D" parent="." unique_id=18886354]
+position = Vector2(207, 322)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("9_i3p7n")
+animation = &"walk_right"
+
 [connection signal="body_entered" from="PanningArea1" to="." method="_on_panning_area_body_entered"]
 [connection signal="body_entered" from="PanningArea1" to="PanningArea1" method="_on_body_entered"]
 [connection signal="pan_to" from="PanningArea1" to="." method="_on_panning_pan_to"]

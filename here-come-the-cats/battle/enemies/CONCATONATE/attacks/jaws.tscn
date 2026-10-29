@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cqdht4528v8qf"]
+
+[ext_resource type="Script" uid="uid://bvfwupx460sjc" path="res://battle/enemies/CONCATONATE/attacks/jaws.gd" id="1_fyd12"]
+[ext_resource type="Texture2D" uid="uid://bq6kmy1qahs28" path="res://battle/enemies/CONCATONATE/attacks/res/mouth_bullet.png" id="2_k8345"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="3_weiwg"]
+[ext_resource type="Texture2D" uid="uid://q8qr1yi6tsyh" path="res://battle/enemies/CONCATONATE/actor/res/catny_particle.png" id="4_k8345"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2k0i"]
+atlas = ExtResource("2_k8345")
+region = Rect2(0, 0, 130, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ppe6"]
+atlas = ExtResource("2_k8345")
+region = Rect2(130, 0, 130, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgrn"]
+atlas = ExtResource("2_k8345")
+region = Rect2(260, 0, 130, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8b82"]
+atlas = ExtResource("2_k8345")
+region = Rect2(390, 0, 130, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wxdj"]
+atlas = ExtResource("2_k8345")
+region = Rect2(520, 0, 130, 143)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pgiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2k0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ppe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pgrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8b82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wxdj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mve3e"]
+radius = 29.068884
+
+[sub_resource type="Curve" id="Curve_k8345"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="JAWS" type="PathFollow2D" unique_id=605576767]
+rotation = -0.004700889
+progress = 4031.9058
+loop = false
+script = ExtResource("1_fyd12")
+speed = 0.6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=945704979]
+z_index = 4096
+position = Vector2(-24.999722, -0.11752178)
+scale = Vector2(-1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3pgiq")
+autoplay = "default"
+
+[node name="Bullet" type="Area2D" parent="." unique_id=1072492328]
+rotation = 3.1381083
+script = ExtResource("3_weiwg")
+damage = 10
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1237741888]
+shape = SubResource("CircleShape2D_mve3e")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1509880594]
+z_index = 1842
+position = Vector2(-44.999508, -0.21153925)
+scale = Vector2(0.795, 0.795)
+amount = 300
+texture = ExtResource("4_k8345")
+emission_shape = 1
+emission_sphere_radius = 99.79
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angular_velocity_min = -1.0
+angular_velocity_max = 1.0
+orbit_velocity_min = -0.1
+scale_amount_min = 0.1
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_k8345")

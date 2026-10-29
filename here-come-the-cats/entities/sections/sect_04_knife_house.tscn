@@ -63,6 +63,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_oycta"]
 resource_name = "knives"
+length = 0.39999999999999997
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -71,10 +72,10 @@ tracks/0/path = NodePath("Stabby/KnifeBullet:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.6, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(242, 188), Vector2(242, 64.295), Vector2(242, 188), Vector2(242, 102)]
+"values": [Vector2(242, 188), Vector2(242, 64.295), Vector2(242, 188), Vector2(242, 188), Vector2(242, 102)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -83,10 +84,10 @@ tracks/1/path = NodePath("Stabby/KnifeBullet2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.5666667, 0.8000001, 0.90000004),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.5666667, 0.8000001, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(281, 128), Vector2(281, 198), Vector2(281, 99.75), Vector2(281, 132), Vector2(281, 214)]
+"values": [Vector2(281, 64), Vector2(281, 188), Vector2(281, 64), Vector2(281, 99.75), Vector2(281, 132), Vector2(281, 214)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -95,10 +96,10 @@ tracks/2/path = NodePath("Stabby/KnifeBullet3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.43333337, 0.70000005, 0.8000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.43333337, 0.70000005, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(320, 128), Vector2(320, 143), Vector2(320, 119), Vector2(320, 205), Vector2(320, 109)]
+"values": [Vector2(320, 188), Vector2(320, 64), Vector2(320, 188), Vector2(320, 119), Vector2(320, 205), Vector2(320, 109)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pia8t"]

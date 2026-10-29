@@ -1,30 +1,205 @@
 [gd_scene format=3 uid="uid://bovecdjgyv6ky"]
 
-[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_wps7y"]
+[ext_resource type="Script" uid="uid://byow0r1iqfqtp" path="res://entities/bullets/generic/cat_shooter_bullet.gd" id="1_xvsls"]
 [ext_resource type="Texture2D" uid="uid://e33fslfl4avm" path="res://entities/bullets/generic/res/cat_shooter1.png" id="2_wps7y"]
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="3_xvsls"]
+[ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="4_dvgqs"]
+[ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/hairball_bullet.tscn" id="4_xvsls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvgqs"]
 radius = 27.518175
+
+[sub_resource type="Animation" id="Animation_wps7y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_caxbq"]
+resource_name = "approach"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 1.2333333, 1.3666667, 1.6666667, 2.5333333),
+"transitions": PackedFloat32Array(0.5, -2, 0.5, -2, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-63.5, 0), Vector2(-55, 0), Vector2(-63.5, 0), Vector2(-55, 0), Vector2(-55, 287)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 1.6333332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.2333333, 1.4, 1.6333333, 1.9333333, 2.6),
+"transitions": PackedFloat32Array(0.5, -2, 0.5, 1, 1, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -13.705), Vector2(0, 0), Vector2(0, -6.17), Vector2(0, -6.245), Vector2(38.005, -6.245), Vector2(-28.78, -6.245)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dvgqs"]
+_data = {
+&"RESET": SubResource("Animation_wps7y"),
+&"approach": SubResource("Animation_caxbq")
+}
 
 [node name="CatShooterBullet" type="Area2D" unique_id=194047947]
 z_index = 3916
 scale = Vector2(2, 2)
 collision_layer = 2
-script = ExtResource("1_wps7y")
+script = ExtResource("1_xvsls")
 damage = 9
-graze_points = 0
 destructible = true
 shootable = true
 shootable_hp = 5
 velocity = Vector2(150, 0)
 life_time = 4.0
+linear_acceleration = -0.01
+rotate_sprite = true
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+[node name="Sprite2D" type="Node2D" parent="." unique_id=894016217]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=419109947]
 texture = ExtResource("2_wps7y")
 offset = Vector2(0, 0.5)
 hframes = 2
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D/Sprite2D" unique_id=1374047273]
+remote_path = NodePath("../../../CollisionShape2D")
+
+[node name="BulletSpawner" type="Node2D" parent="Sprite2D/Sprite2D" unique_id=1204556979]
+unique_name_in_owner = true
+position = Vector2(-18.5, 0)
+script = ExtResource("3_xvsls")
+bullet = ExtResource("4_xvsls")
+spawn_amount_min = 2
+spawn_amount_max = 2
+speed_mult_min = -3.0
+speed_mult_max = -3.0
+speed_mult = -1.0
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Marker2D1" type="Marker2D" parent="Sprite2D/Sprite2D/BulletSpawner" unique_id=757688567]
+position = Vector2(-17.5, 3)
+rotation = -3.1415925
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/BulletSpawner/Marker2D1" unique_id=709013691]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_dvgqs")
+
+[node name="Marker2D3" type="Marker2D" parent="Sprite2D/Sprite2D/BulletSpawner" unique_id=791356944]
+position = Vector2(-14, 7.500001)
+rotation = 2.0943952
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/BulletSpawner/Marker2D3" unique_id=774136219]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_dvgqs")
+
+[node name="Marker2D2" type="Marker2D" parent="Sprite2D/Sprite2D/BulletSpawner" unique_id=1311810724]
+position = Vector2(-13.5, 0)
+rotation = -2.094395
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/BulletSpawner/Marker2D2" unique_id=252529058]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("4_dvgqs")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
 position = Vector2(0, 7.5)
 shape = SubResource("CircleShape2D_dvgqs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2116434159]
+libraries/ = SubResource("AnimationLibrary_dvgqs")
+autoplay = &"approach"

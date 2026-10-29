@@ -9,6 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://cumgik06v2dtj" path="res://screens/cats_battle/res/cat_evolved.png" id="7_rcghe"]
 [ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="7_vq6ep"]
 
+[sub_resource type="FontVariation" id="FontVariation_vq6ep"]
+spacing_glyph = 7
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vq6ep"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_hjto8"]
+colors = PackedColorArray(1, 0, 0.60784316, 1, 1, 0.80784315, 0.34509805, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vq6ep"]
+gradient = SubResource("Gradient_hjto8")
+fill_from = Vector2(1, 0.50427353)
+fill_to = Vector2(0, 0.46581197)
+
 [sub_resource type="Animation" id="Animation_2cnw3"]
 length = 0.001
 tracks/0/type = "value"
@@ -146,15 +160,35 @@ offset_top = 47.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.47843137, 0.1882353, 0.1882353, 1)
+theme_override_colors/font_shadow_color = Color(0.37, 0.37, 0.37, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/normal_font = SubResource("FontVariation_vq6ep")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "
-[shake]AND WE CALL IT
-[color=red][font_size=200]HELL"
+text = "[wave amp=50]
+[shake level=20]AND WE CALL IT
+[font_size=200]HELL"
 scroll_active = false
 horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=159101824]
+material = SubResource("CanvasItemMaterial_vq6ep")
+use_parent_material = true
+custom_minimum_size = Vector2(580, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -66.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vq6ep")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2017726193]
 libraries/ = SubResource("AnimationLibrary_rcghe")

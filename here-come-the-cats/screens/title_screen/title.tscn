@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://dqv4rba43cjqa"]
+
+[ext_resource type="Texture2D" uid="uid://dgujvouu42ew8" path="res://shared/sprites/Deltarune_logo.png" id="1_lv6o0"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_impej"]
+[ext_resource type="FontFile" uid="uid://ck6k41khiw0cu" path="res://shared/theme/fonts/HP-Voice-Crack-Regular.ttf" id="3_lkf8t"]
+[ext_resource type="PackedScene" uid="uid://4cqlbwcvu3uh" path="res://screens/title_screen/title_afterimage_pivot.tscn" id="4_46e0r"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="5_tovv2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("TitleSprite/SubViewport")
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("2_impej")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
+content_margin_left = 28.0
+content_margin_top = 15.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_405we"]
+viewport_path = NodePath("TitleSprite/SubViewport")
+
+[sub_resource type="Animation" id="Animation_405we"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wim8o"]
+resource_name = "title"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(-2.462289, -2.462289, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cxmk"]
+_data = {
+&"RESET": SubResource("Animation_405we"),
+&"title": SubResource("Animation_wim8o")
+}
+
+[node name="Title" type="Node2D" unique_id=1047512866]
+
+[node name="TitleSprite" type="Sprite2D" parent="." unique_id=901160749]
+texture = SubResource("ViewportTexture_g4v7s")
+
+[node name="SubViewport" type="SubViewport" parent="TitleSprite" unique_id=1010043844]
+transparent_bg = true
+size = Vector2i(580, 200)
+
+[node name="Logo" type="Sprite2D" parent="TitleSprite/SubViewport" unique_id=1658917434]
+texture = ExtResource("1_lv6o0")
+centered = false
+
+[node name="Pivot" type="Node2D" parent="TitleSprite/SubViewport/Logo" unique_id=1988597304]
+
+[node name="Title" type="RichTextLabel" parent="TitleSprite/SubViewport/Logo" unique_id=1520987570]
+modulate = Color(0.8326685, 0.8326685, 0.8326685, 1)
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 194.0
+offset_top = 100.0
+offset_right = -93.99994
+offset_bottom = -7.999939
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.58, 0.818)
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.9999997, 0.81365067, 0.4594519, 1)
+theme_override_colors/font_shadow_color = Color(0.54509807, 0.45882353, 1, 0.8862745)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("3_lkf8t")
+theme_override_font_sizes/normal_font_size = 86
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "[wave freq=2.0 amp=50.0 connected=0]HERE COME THE CATS"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Pivot1" parent="TitleSprite" unique_id=969240893 instance=ExtResource("4_46e0r")]
+show_behind_parent = true
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleSprite/Pivot1/PivotVert/PivotHor" parent_id_path=PackedInt32Array(969240893, 694134532) index="0" unique_id=912250917]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_405we")
+
+[node name="Pivot2" parent="TitleSprite" unique_id=1739229495 instance=ExtResource("4_46e0r")]
+show_behind_parent = true
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleSprite/Pivot2/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1739229495, 694134532) index="0" unique_id=864236577]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+scale = Vector2(4, 4)
+texture = SubResource("ViewportTexture_405we")
+
+[node name="Pivot3" parent="TitleSprite" unique_id=502867000 instance=ExtResource("4_46e0r")]
+show_behind_parent = true
+scale = Vector2(0.75, 0.75)
+
+[node name="PivotVert" parent="TitleSprite/Pivot3" index="0" unique_id=1398015358]
+position = Vector2(0, 9.966813)
+
+[node name="PivotHor" parent="TitleSprite/Pivot3/PivotVert" index="0" unique_id=694134532]
+position = Vector2(1.1189804, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleSprite/Pivot3/PivotVert/PivotHor" index="0" unique_id=2016627665]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+scale = Vector2(1.3333334, 1.3333334)
+texture = SubResource("ViewportTexture_405we")
+
+[node name="Pivot4" parent="TitleSprite" unique_id=1731470947 instance=ExtResource("4_46e0r")]
+show_behind_parent = true
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleSprite/Pivot4/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1731470947, 694134532) index="0" unique_id=695561527]
+modulate = Color(1, 0.83137256, 0.5137255, 0.20392157)
+texture = SubResource("ViewportTexture_405we")
+
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2144577495]
+libraries/ = SubResource("AnimationLibrary_5cxmk")
+autoplay = &"title"
+script = ExtResource("5_tovv2")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
+
+[editable path="TitleSprite/Pivot1"]
+[editable path="TitleSprite/Pivot2"]
+[editable path="TitleSprite/Pivot3"]
+[editable path="TitleSprite/Pivot4"]

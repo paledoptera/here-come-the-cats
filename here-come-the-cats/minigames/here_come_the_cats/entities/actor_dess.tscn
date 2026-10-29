@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cp27gsdf6cvac"]
 
 [ext_resource type="Script" uid="uid://85j0dtc7xet2" path="res://minigames/here_come_the_cats/entities/actor_dess.gd" id="1_fns6t"]
-[ext_resource type="Texture2D" uid="uid://chwlnfewit2ru" path="res://minigames/here_come_the_cats/res/dess.png" id="1_w6lyk"]
+[ext_resource type="SpriteFrames" uid="uid://gmmcnk6ql674" path="res://party/hero/dess/res/dess_frames.tres" id="2_p68qk"]
 
 [sub_resource type="Animation" id="Animation_fns6t"]
 length = 0.001
@@ -97,12 +97,14 @@ _data = {
 script = ExtResource("1_fns6t")
 id = &"dess"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=435877441]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=198891627]
 z_index = -1
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
-texture = ExtResource("1_w6lyk")
+sprite_frames = ExtResource("2_p68qk")
+animation = &"surfing"
+autoplay = "surfing"
 offset = Vector2(1.435, -0.993)
-hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=773095929]
 libraries/ = SubResource("AnimationLibrary_fns6t")

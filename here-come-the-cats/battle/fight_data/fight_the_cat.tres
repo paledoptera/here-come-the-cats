@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://b1olkw8f4kqlm" path="res://battle/enemies/enemy_friend.tres" id="2_8ujc3"]
 [ext_resource type="Script" uid="uid://eu75wsnnxg4b" path="res://battle/fight_data/_fight_data.gd" id="2_52i1q"]
 [ext_resource type="Resource" uid="uid://xcpu86gdep5b" path="res://party/hero/dess/hero_dess.tres" id="3_8ujc3"]
-[ext_resource type="Resource" uid="uid://bdb8ob1bwa78o" path="res://party/hero/dess/hero_you.tres" id="3_v8871"]
 [ext_resource type="PackedScene" uid="uid://diufc56tt4lmw" path="res://screens/cats_battle/cats_stage.tscn" id="4_8ujc3"]
 [ext_resource type="Script" uid="uid://kvjtkks4abvd" path="res://battle/fight_data/story_battle_controller.gd" id="5_v8871"]
 
@@ -18,6 +17,6 @@ enemies = Array[ExtResource("1_esmvr")]([ExtResource("2_8ujc3")])
 stage = ExtResource("4_8ujc3")
 story_controller = SubResource("Resource_myfl6")
 custom_party = true
-party = Array[ExtResource("1_esmvr")]([ExtResource("3_v8871"), ExtResource("3_8ujc3")])
+party = Array[ExtResource("1_esmvr")]([ExtResource("3_8ujc3")])
 soul_bearer = &"dess"
 metadata/_custom_type_script = "uid://eu75wsnnxg4b"

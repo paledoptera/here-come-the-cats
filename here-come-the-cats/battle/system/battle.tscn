@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://cqgqqn8on2o56" path="res://battle/system/components/event_queue.gd" id="4_t33rp"]
 [ext_resource type="Script" uid="uid://cq8b2sfdp7v82" path="res://battle/system/components/battle_data_manager.gd" id="5_uhooo"]
 [ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="6_gq06c"]
-[ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://battle/system/ui/tp_bar/tp_bar.tscn" id="10_d1p73"]
-[ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://battle/system/scenes/stats_tab.tscn" id="15_obv46"]
+[ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://entities/tp_bar/tp_bar.tscn" id="10_d1p73"]
+[ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://party/ui/stats_tab/stats_tab.tscn" id="15_obv46"]
 [ext_resource type="Script" uid="uid://cyrn1w378lyp6" path="res://battle/system/components/character_status_manager.gd" id="15_r6df0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrihj"]
@@ -124,6 +124,7 @@ _data = {
 }
 
 [node name="Battle" type="CanvasLayer" unique_id=1416402505]
+follow_viewport_enabled = true
 script = ExtResource("1_obv46")
 
 [node name="GimmickHandler" type="Node" parent="." unique_id=499076582]
@@ -196,6 +197,7 @@ effect_offset = Vector2(30, 15)
 metadata/_edit_use_anchors_ = true
 
 [node name="TPBarPivot" type="Node2D" parent="." unique_id=168803083]
+z_index = 4096
 position = Vector2(50, 137)
 
 [node name="TPBar" parent="TPBarPivot" unique_id=1921588265 instance=ExtResource("10_d1p73")]

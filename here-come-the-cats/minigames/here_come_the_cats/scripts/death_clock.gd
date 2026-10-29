@@ -76,6 +76,10 @@ func activate() -> void:
 	state = ClockState.BELL
 	$Actions.play("activate")
 
+func deactivate() -> void:
+	active = false
+	$Actions.play_backwards("activate")
+
 func _on_coin_collected() -> void:
 	state = ClockState.BELL
 	_on_beat()

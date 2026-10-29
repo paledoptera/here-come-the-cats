@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b4x8chidjotvc" path="res://screens/credits/credits.gd" id="1_53a3d"]
 [ext_resource type="Script" uid="uid://73hfbsawioju" path="res://screens/credits/talksound_effect.gd" id="2_8fl4l"]
+[ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="2_671fm"]
 [ext_resource type="AudioStream" uid="uid://chyocr2uvoh66" path="res://shared/music/mus_ending.ogg" id="3_d1b17"]
-[ext_resource type="Texture2D" uid="uid://cqncy6nphngcc" path="res://screens/credits/res/credits_dess_1.png" id="3_t8423"]
 [ext_resource type="AudioStream" uid="uid://bgg28hhigw6nj" path="res://shared/sound_effects/snd_txt_dess.wav" id="3_td06e"]
-[ext_resource type="Texture2D" uid="uid://dt7yofex1xgco" path="res://screens/credits/res/credits_cats.png" id="4_t8423"]
+[ext_resource type="Texture2D" uid="uid://d3xsx78rg5j6j" path="res://screens/credits/res/credits_friend.png" id="4_jfhbe"]
 [ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="5_22ray"]
+[ext_resource type="Texture2D" uid="uid://d02gr771vqbd3" path="res://screens/credits/res/credits_dess.png" id="6_671fm"]
+[ext_resource type="Texture2D" uid="uid://dmj1wtucrbfno" path="res://screens/credits/res/credits_background.png" id="6_jfhbe"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_671fm"]
+viewport_path = NodePath("TitleSprite/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jfhbe"]
+viewport_path = NodePath("TitleSprite/SubViewport")
 
 [sub_resource type="Animation" id="Animation_1h4sr"]
 length = 0.001
@@ -95,74 +103,110 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/path = NodePath("DessScene/Sprite2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(331, 81)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:position")
+tracks/7/path = NodePath("DessScene/Sprite2D:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(331, 81)]
+"update": 1,
+"values": [0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite2D:frame")
+tracks/8/path = NodePath("DessScene/Sprite2D2:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite2D2:modulate")
+tracks/9/path = NodePath("CatPartyLine:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(-100, 484)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("CatPartyLine:position")
+tracks/10/path = NodePath("CatPartyLine2:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-100, 484)]
+"values": [Vector2(734, 484)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("CatPartyLine2:position")
+tracks/11/path = NodePath("Title/Title:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(734, 484)]
+"values": [Vector2(0.5, 0.1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Title/Title/TitleSprite/SubViewport/Logo/Title:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.83137256, 0.83137256, 0.83137256, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("DessScene/Background:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 38)]
 }
 
 [sub_resource type="Animation" id="Animation_d1b17"]
@@ -187,7 +231,7 @@ tracks/1/path = NodePath("Text1:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.2000005, 3.466667),
+"times": PackedFloat32Array(5.7000003, 5.9666667),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -199,8 +243,8 @@ tracks/2/path = NodePath("Text1:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(4.5333333, 5.9666686, 11.175835, 16.466667, 21.634089, 22.420267, 23.022833, 26.924318, 32.233334, 42.533333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(4.5333333, 5.9666686, 8.6, 11.333333, 16.366667, 21.634089, 22.420267, 23.022833, 26.924318, 32.233334, 42.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
 
@@ -212,15 +256,30 @@ tracks/2/keys = {
 
 [shake]A Deltarune fangame", "
 
+[shake]
+Paledoptera
+[color=505050]Game designer, programmer, artist,
+and basically everything else
+
+[color=white]Kordacpz
+[color=505050]FRIEND Lipsyncing
+Dess portraits
+
+[color=white]Zeno
+[color=505050]Dess cover art
+Title screen art", "
 
 [shake]
-Game by Paledoptera
 
-Background sketches by Airplane
+[color=white]Erduardito
+[color=505050]Gaster's lab environment art
 
-FRIEND Lipsyncing by Norming
 
-Playtesting by x x x
+[color=white]Airplane
+[color=505050]Background sketches
+
+
+[color=white]Playtesting by x x x
 
 ", "[shake]
 A tribute to
@@ -230,12 +289,14 @@ A tribute to
 WAITRESS
 (the band, not the musical)
 
-Music used:
 
+Music used (in order)
+[color=505050]Everhood 2 OST  - Main Menu 
+Deltarune OST - findher.ogg
 Waitress - Here Come The Cats
+Waitress - The Great Forever
 Waitress - Rubio's Lament
-Everhood 2 OST  - Main Menu 
-Deltarune OST - findher.ogg", "[wave]
+", "[wave]
 Inspired by these two
 incredible animations:", "[wave]
 Inspired by these two
@@ -253,12 +314,18 @@ by Faz
 
 
 HERE COME THE CATS (DELTARUNE Animation)
-by marineflames", "[wave]
-Special thanks
+by marineflames", "
+[wave]
+Special thanks for the early support!
+
 
 Angelvision
+NausetJF
 Spoofymaru
-Visioncord
+tizielechicero
+Soup Taels
+Ectoplasm & Visioncord
+RazFraz
 ArtsyAria (my love <3)
 ", "[wave]", "
 
@@ -280,10 +347,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.43333322),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["
-
-
-[shake]HERE COME THE CATS"]
+"values": [""]
 }
 tracks/4/type = "audio"
 tracks/4/imported = false
@@ -328,74 +392,110 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:modulate")
+tracks/7/path = NodePath("DessScene/Sprite2D:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(32.2, 34.333336, 42.533333),
-"transitions": PackedFloat32Array(1, 0, 1),
+"times": PackedFloat32Array(32.233334, 36.866665, 38.133335),
+"transitions": PackedFloat32Array(0.5, -2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(331, 150), Vector2(331, 277), Vector2(331, 351.01)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite2D:position")
+tracks/8/path = NodePath("DessScene/Sprite2D:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(32.233334, 36.866665, 38.133335),
-"transitions": PackedFloat32Array(0.5, -2, 1),
-"update": 0,
-"values": [Vector2(331, 81), Vector2(331, 277), Vector2(331, 351.01)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite2D:frame")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(31.900002, 37.215588),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite2D2:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DessScene/Sprite2D2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(38.666668, 42.500004, 42.533333),
 "transitions": PackedFloat32Array(1, 0, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.25490198), Color(1, 1, 1, 0)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("CatPartyLine:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CatPartyLine:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(0, 3.3066728, 3.7, 21.633333, 21.8),
 "transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 0.5),
 "update": 0,
 "values": [Vector2(-100, 484), Vector2(-100, 484), Vector2(0, 484), Vector2(0, 484), Vector2(-100, 484)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("CatPartyLine2:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CatPartyLine2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0, 3.3, 3.7333333, 21.633333, 21.800001),
 "transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 0.5),
 "update": 0,
 "values": [Vector2(734, 484), Vector2(734, 484), Vector2(634, 484), Vector2(634, 484), Vector2(734, 484)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Title/Title:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.8, 1, 1.2, 1.5),
+"transitions": PackedFloat32Array(0.5, -2, -2, 1),
+"update": 0,
+"values": [Vector2(2, 0.1), Vector2(0.9, 1.3), Vector2(1.05, 0.95), Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Title/Title/TitleSprite/SubViewport/Logo/Title:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.1191392, 2.3000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.83137256, 0.83137256, 0.83137256, 0), Color(0.83137256, 0.83137256, 0.83137256, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ColorRect:color")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(32.2, 34.333336, 42.500004, 42.533337),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("DessScene/Background:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(32.233334, 36.86667, 38.133335),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(0, 38), Vector2(0, 112.36), Vector2(0, 160)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8423"]
@@ -406,6 +506,37 @@ _data = {
 
 [node name="Credits" type="Node" unique_id=1034015464]
 script = ExtResource("1_53a3d")
+
+[node name="DessScene" type="Node2D" parent="." unique_id=1418204588]
+
+[node name="Sprite2D2" type="Sprite2D" parent="DessScene" unique_id=689601410]
+modulate = Color(1, 1, 1, 0)
+z_index = -215
+position = Vector2(331, 223)
+scale = Vector2(2, 2)
+texture = ExtResource("4_jfhbe")
+
+[node name="Background" type="Sprite2D" parent="DessScene" unique_id=1407905304]
+z_index = -4
+position = Vector2(0, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("6_jfhbe")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="DessScene" unique_id=1677255594]
+z_index = -4
+position = Vector2(331, 81)
+scale = Vector2(2, 2)
+texture = ExtResource("6_671fm")
+hframes = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1739667206]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=1866067839]
 modulate = Color(1, 1, 1, 0)
@@ -424,6 +555,28 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
+
+[node name="Title" parent="Title" unique_id=1047512866 instance=ExtResource("2_671fm")]
+position = Vector2(345, 216)
+scale = Vector2(0.5, 0.1)
+
+[node name="TitleSprite" parent="Title/Title" index="0" unique_id=901160749]
+texture = SubResource("ViewportTexture_671fm")
+
+[node name="Title" parent="Title/Title/TitleSprite/SubViewport/Logo" parent_id_path=PackedInt32Array(1047512866, 1658917434) index="1" unique_id=1520987570]
+modulate = Color(0.83137256, 0.83137256, 0.83137256, 0)
+
+[node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot1/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 969240893, 694134532) index="0" unique_id=912250917]
+texture = SubResource("ViewportTexture_jfhbe")
+
+[node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot2/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1739229495, 694134532) index="0" unique_id=864236577]
+texture = SubResource("ViewportTexture_jfhbe")
+
+[node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot3/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 502867000, 694134532) index="0" unique_id=2016627665]
+texture = SubResource("ViewportTexture_jfhbe")
+
+[node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot4/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1731470947, 694134532) index="0" unique_id=695561527]
+texture = SubResource("ViewportTexture_jfhbe")
 
 [node name="Text1" type="RichTextLabel" parent="." unique_id=1514680285]
 anchors_preset = 15
@@ -452,10 +605,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 88.0
-offset_top = 318.0
-offset_bottom = 318.0
+offset_top = 394.0
+offset_bottom = 394.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.14027414, 0.055425853, 0.32077917, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Burn in hell, you damn pest."
@@ -476,18 +633,6 @@ autoplay = &"credits"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1246253023]
 volume_db = -6.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1677255594]
-position = Vector2(331, 81)
-scale = Vector2(2, 2)
-texture = ExtResource("3_t8423")
-hframes = 2
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=689601410]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(331, 223)
-scale = Vector2(2, 2)
-texture = ExtResource("4_t8423")
-
 [node name="CatPartyLine" parent="." unique_id=1995562823 instance=ExtResource("5_22ray")]
 position = Vector2(-100, 484)
 rotation = 1.5707964
@@ -503,5 +648,10 @@ scale = Vector2(1, -1)
 [node name="AnimationPlayer" parent="CatPartyLine2/Parallax2D" parent_id_path=PackedInt32Array(1832749229, 235455325) index="4" unique_id=159704715]
 speed_scale = 5.0
 
+[editable path="Title/Title"]
+[editable path="Title/Title/TitleSprite/Pivot1"]
+[editable path="Title/Title/TitleSprite/Pivot2"]
+[editable path="Title/Title/TitleSprite/Pivot3"]
+[editable path="Title/Title/TitleSprite/Pivot4"]
 [editable path="CatPartyLine"]
 [editable path="CatPartyLine2"]

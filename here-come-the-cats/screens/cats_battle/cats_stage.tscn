@@ -1,32 +1,294 @@
 [gd_scene format=3 uid="uid://diufc56tt4lmw"]
 
 [ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle.gd" id="1_kvlkf"]
+[ext_resource type="Texture2D" uid="uid://cisbk8ohx17ot" path="res://screens/cats_battle/res/stage_background.png" id="2_7rrju"]
 [ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="2_dir8a"]
 [ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="3_7rrju"]
+[ext_resource type="PackedScene" uid="uid://1jon8eqgonfy" path="res://battle/enemies/CONCATONATE/actor/actor_concatonate.tscn" id="3_kvlkf"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="4_qjuxq"]
 [ext_resource type="AudioStream" uid="uid://j7rc388kii2s" path="res://shared/music/mus_the_great_forever.ogg" id="5_awv02"]
-[ext_resource type="PackedScene" uid="uid://boxyth7xolqo5" path="res://minigames/here_come_the_cats/the_cat.tscn" id="6_htiug"]
-[ext_resource type="Texture2D" uid="uid://cumgik06v2dtj" path="res://screens/cats_battle/res/cat_evolved.png" id="7_4huyb"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="8_dir8a"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="8_kvlkf"]
+
+[sub_resource type="Curve" id="Curve_kvlkf"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.1723301, 0), 2.4819283, 2.4819283, 0, 0, Vector2(0.46601945, 0.58139527), 0.0, 0.0, 0, 0, Vector2(0.65533984, 1.9534882), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_kvlkf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SuckLine/Line2D:width_curve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Curve_kvlkf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SuckLine/Line2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SuckLine:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SoulWobble/Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(74, 200)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SuckLine:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SoulWobble/Sprite2D/Sprite2D2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SoulWobble/Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SuckLine/Line2D/Line2D2:width")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Curve" id="Curve_dir8a"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.38028172, 1.6395347), 2.4819283, 2.4819283, 0, 0, Vector2(0.63380283, 0.7093022), 0.0, 0.0, 0, 0, Vector2(0.7816902, 1.0232557), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_7rrju"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.20422536, 1.7093022), 2.4819283, 2.4819283, 0, 0, Vector2(0.5657277, 0.7093022), 0.0, 0.0, 0, 0, Vector2(0.7816902, 1.0232557), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_qjuxq"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.3380282, 1.6860464), 2.4819283, 2.4819283, 0, 0, Vector2(0.6830986, 0.46511614), 0.0, 0.0, 0, 0, Vector2(0.7816902, 1.0232557), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_awv02"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.46948355, 1.3139534), 2.4819283, 2.4819283, 0, 0, Vector2(0.5798122, 1.6976743), 0.0, 0.0, 0, 0, Vector2(0.7910798, 0.24418592), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_htiug"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.59638554), 0.0, 0.0, 0, 0, Vector2(0.286385, 0.58139527), 0.0, 0.0, 0, 0, Vector2(0.5093897, 1.0465115), 2.4819283, 2.4819283, 0, 0, Vector2(0.6314554, 1.7674417), 0.0, 0.0, 0, 0, Vector2(0.8004695, 0.76744175), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.8614451, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Animation" id="Animation_dir8a"]
+resource_name = "line"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SuckLine/Line2D:width_curve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.43333334, 0.6333333, 0.8666667, 1, 1.0999999, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [SubResource("Curve_kvlkf"), SubResource("Curve_dir8a"), SubResource("Curve_7rrju"), SubResource("Curve_qjuxq"), SubResource("Curve_awv02"), SubResource("Curve_htiug"), SubResource("Curve_kvlkf"), SubResource("Curve_kvlkf"), SubResource("Curve_kvlkf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SuckLine/Line2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [0.0, -0.03316125578789236, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SuckLine:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.43333337, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.95), Vector2(1, 1.01), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SoulWobble/Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(74, 200), Vector2(82, 200)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SuckLine:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.26666668, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.017453292519943295, -0.03490658503988659, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SoulWobble/Sprite2D/Sprite2D2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.475, 1.475)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SoulWobble/Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 1, 1), Color(1, 1, 1, 1), Color(1, 0.7672777, 0.9859356, 1), Color(1, 0, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SuckLine/Line2D/Line2D2:width")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 17.845, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rrju"]
+_data = {
+&"RESET": SubResource("Animation_kvlkf"),
+&"line": SubResource("Animation_dir8a")
+}
+
+[sub_resource type="Gradient" id="Gradient_kvlkf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.13636364, 0.30481285, 0.5213904, 0.7433155, 0.9171123, 0.98930484)
+colors = PackedColorArray(0.9657268, 0.28463838, 0.53220975, 1, 0.72630423, 0.00040362446, 0.7262992, 1, 0.89065, 0.18641195, 0.64068073, 1, 0.72204506, 0.1357489, 0.20464534, 1, 0.35773435, 0.056166947, 0.022004899, 1, 0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7rrju"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_dir8a"]
+colors = PackedColorArray(1, 0, 1, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_dir8a")
+fill_to = Vector2(0, 1)
 
 [node name="CatsBattle" type="Node" unique_id=46766806]
 script = ExtResource("1_kvlkf")
 
-[node name="CatPartyLine3" parent="." unique_id=1995562823 instance=ExtResource("2_dir8a")]
-modulate = Color(0.27387288, 0.2738727, 0.27387273, 1)
-z_index = -1
-position = Vector2(318.00003, 31)
-scale = Vector2(0.77, 0.77)
+[node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("2_dir8a")]
+modulate = Color(0.5946462, 0.23663053, 0.3547692, 1)
+z_index = -1132
+position = Vector2(0, 110)
 
-[node name="CatPartyLine2" parent="." unique_id=1715570439 instance=ExtResource("2_dir8a")]
-modulate = Color(0.5931336, 0.59313357, 0.59313357, 1)
-z_index = -1
-position = Vector2(318.00003, 67.999985)
+[node name="CatPartyLine2" parent="CatPartyLine" unique_id=1715570439 instance=ExtResource("2_dir8a")]
+modulate = Color(0.75831413, 0.545268, 0.25534034, 1)
+z_index = -1132
+position = Vector2(318.00003, -31)
 scale = Vector2(0.93, 0.93)
 
-[node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("2_dir8a")]
-z_index = -1
-position = Vector2(0, 111.999985)
+[node name="CatPartyLine3" parent="CatPartyLine/CatPartyLine2" unique_id=1995562823 instance=ExtResource("2_dir8a")]
+modulate = Color(0.7294731, 0.63389456, 0, 1)
+z_index = -1132
+position = Vector2(0, -26.881718)
+scale = Vector2(0.82795703, 0.82795703)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=938826604]
+z_index = -570
+position = Vector2(0, -44)
+scale = Vector2(2, 2)
+texture = ExtResource("2_7rrju")
+centered = false
+
+[node name="CONCATONATE" parent="." unique_id=868461602 instance=ExtResource("3_kvlkf")]
+position = Vector2(502, 172)
 
 [node name="Dess" parent="." unique_id=289208110 instance=ExtResource("3_7rrju")]
 position = Vector2(152, 187)
@@ -38,16 +300,57 @@ bpm = 155.0
 enable_rhythm_tracking = true
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
-[node name="CatBoss" parent="." unique_id=1194674963 instance=ExtResource("6_htiug")]
-position = Vector2(502, 204)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1367434129]
+libraries/ = SubResource("AnimationLibrary_7rrju")
+autoplay = &"line"
+script = ExtResource("8_dir8a")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
-[node name="Sprite2D" parent="CatBoss" index="1" unique_id=1668615500]
-position = Vector2(-20, -1)
-texture = ExtResource("7_4huyb")
+[node name="SuckLine" type="Node2D" parent="." unique_id=1543420619]
+position = Vector2(42, 201)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=679814416]
-modulate = Color(1, 0.59607846, 1, 1)
-position = Vector2(94, 200)
+[node name="Line2D" type="Line2D" parent="SuckLine" unique_id=1778055442]
+position = Vector2(-11.999998, -174.99998)
+rotation = -0.0418879
+points = PackedVector2Array(-67, 67, -33, 43, -12, 37, 7, 36, 27, 34, 47, 43, 62, 54, 76, 67, 80, 92, 81, 107, 74, 129, 69, 157, 69, 184, 74, 206, 80, 226, 96, 242, 129, 260, 148, 266, 168, 263, 202, 250, 212, 242, 227, 221, 238, 190, 258, 175, 280, 170, 293, 172, 310, 175, 328, 187, 350, 183, 374, 166)
+width = 4.745
+width_curve = SubResource("Curve_kvlkf")
+gradient = SubResource("Gradient_kvlkf")
+joint_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="SuckLine/Line2D" unique_id=853490696]
+modulate = Color(1.380357, 1.380357, 1.380357, 0.18039216)
+position = Vector2(-4.961445, 0)
+scale = Vector2(1.055, 1)
+points = PackedVector2Array(-67, 67, -33, 43, -12, 37, 7, 36, 27, 34, 47, 43, 62, 54, 76, 67, 80, 92, 81, 107, 74, 129, 69, 157, 69, 184, 74, 206, 80, 226, 96, 242, 129, 260, 148, 266, 168, 263, 202, 250, 212, 242, 227, 221, 238, 190, 258, 175, 280, 170, 293, 172, 310, 175, 328, 187, 350, 183, 374, 166)
+width = 0.0
+width_curve = SubResource("Curve_kvlkf")
+gradient = SubResource("Gradient_kvlkf")
+joint_mode = 2
+
+[node name="SoulWobble" type="Node2D" parent="." unique_id=903492963]
+position = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SoulWobble" unique_id=679814416]
+modulate = Color(1, 0, 1, 1)
+z_index = 1
+position = Vector2(74, 200)
 texture = ExtResource("8_kvlkf")
 
-[editable path="CatBoss"]
+[node name="Sprite2D2" type="Sprite2D" parent="SoulWobble/Sprite2D" unique_id=205270728]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 1, 1, 0.58431375)
+z_index = 1
+texture = ExtResource("8_kvlkf")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=241251123]
+modulate = Color(3.1672676, 3.1672676, 3.1672676, 1)
+material = SubResource("CanvasItemMaterial_7rrju")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")

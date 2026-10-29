@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://resources/battle/attack_data.gd" id="1_mqi1m"]
 [ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://party/character_stats/character_stats_enemy.gd" id="2_taf5p"]
 [ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://resources/battle/attack_block.gd" id="2_xm16v"]
-[ext_resource type="PackedScene" uid="uid://bu8lbl08doks1" path="res://battle/enemies/CONCATONATE/attacks/attack_01_hall_of_tails.tscn" id="2_yki47"]
+[ext_resource type="PackedScene" uid="uid://bu8lbl08doks1" path="res://battle/enemies/CONCATONATE/attacks/attack_02_hall_of_tails.tscn" id="2_yki47"]
 [ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="3_3qe3f"]
 [ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="4_yki47"]
 [ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="5_4t25r"]

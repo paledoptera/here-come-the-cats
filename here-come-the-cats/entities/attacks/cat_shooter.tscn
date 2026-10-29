@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://tgjgo8af01nh"]
+
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="1_hyqs7"]
+[ext_resource type="PackedScene" uid="uid://bovecdjgyv6ky" path="res://entities/bullets/generic/cat_shooter_bullet.tscn" id="2_hyqs7"]
+[ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="3_ru0p1"]
+
+[sub_resource type="GDScript" id="GDScript_5sbl7"]
+resource_name = "catspit"
+script/source = "extends Attack
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$BulletSpawner.spawn()
+"
+
+[node name="CatShooter" type="Node2D" unique_id=602485451]
+script = SubResource("GDScript_5sbl7")
+time = 15.0
+id = &"catshooter"
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=1947977135 node_paths=PackedStringArray("parent")]
+z_index = 4096
+script = ExtResource("1_hyqs7")
+bullet = ExtResource("2_hyqs7")
+spawn_amount_min = 0
+spawn_amount_max = 0
+speed_mult_min = 1.0
+speed_mult_max = 1.0
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Marker2D" type="Marker2D" parent="BulletSpawner" unique_id=1237492264]
+position = Vector2(-5, 35)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D" unique_id=294276397]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_ru0p1")
+
+[node name="Marker2D2" type="Marker2D" parent="BulletSpawner" unique_id=44165202]
+position = Vector2(-1, -50)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D2" unique_id=737374504]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_ru0p1")
+
+[node name="Marker2D3" type="Marker2D" parent="BulletSpawner" unique_id=410309829]
+position = Vector2(-1, 6)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D3" unique_id=1497581729]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_ru0p1")
+
+[node name="Marker2D4" type="Marker2D" parent="BulletSpawner" unique_id=1354387951]
+position = Vector2(-1, -23)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawner/Marker2D4" unique_id=334349282]
+rotation = -1.5707964
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_ru0p1")

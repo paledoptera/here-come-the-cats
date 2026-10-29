@@ -8,6 +8,11 @@ var effects: Array[RichTextPlacementEffect]
 var portrait: Sprite2D
 var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
 
+const MARGINS = {
+	"DEFAULT" = Vector2(34.0,28.0),
+	"PORTRAIT" = Vector2(150.0,28.0)
+	
+}
 
 func _ready() -> void:
 	visible = false
@@ -85,10 +90,12 @@ func start_dialogue() -> void:
 		portrait.scale = Dialogue.current.portrait_scale
 		portrait.z_index = 10
 		portrait.texture = Dialogue.current.portrait
-		offset_transform_enabled = true
-		offset_transform_position.x = 114.0
+		set_text_margin("PORTRAIT")
+		#
+		#offset_transform_enabled = true
+		#offset_transform_position.x = 114.0
 	else:
-		offset_transform_position.x = 0.0
+		set_text_margin("DEFAULT")
 	
 	if Dialogue.current.talksound:
 		talksound = Dialogue.current.talksound
@@ -134,3 +141,11 @@ static func is_letter_or_number(p_char: int) -> bool:
 	var is_letter := (p_char >= 65 and p_char <= 90) or (p_char >= 97 and p_char <= 122)
 	var is_number := p_char >= 48 and p_char <= 57
 	return is_letter or is_number
+
+func set_text_margin(string: String) -> void:
+	if string not in MARGINS.keys():
+		return
+	
+	var stylebox = get_theme_stylebox("normal")
+	stylebox.content_margin_left = MARGINS[string].x
+	stylebox.content_margin_top = MARGINS[string].y

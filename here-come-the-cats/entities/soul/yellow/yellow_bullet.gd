@@ -9,8 +9,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet and area.shootable or area is CatBoss:
+		
 		area.bullet_shot(damage, self)
-		destroy()
+		if damage < 10:
+			destroy()
 	if area is Switch:
 		area.trigger()
 		destroy()
@@ -21,3 +23,8 @@ func destroy() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is StaticBody2D:
+		destroy()
