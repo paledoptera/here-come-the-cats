@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://duiceukhldfat" path="res://battle/enemies/CONCATONATE/attacks/res/dotted_line2.png" id="5_86jjl"]
 [ext_resource type="Texture2D" uid="uid://dbkpf865glwr4" path="res://battle/enemies/CONCATONATE/attacks/res/dotted_line3.png" id="6_fo78e"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(94, 122)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0crfh"]
 resource_local_to_scene = true
 texture = ExtResource("3_rhwtl")
@@ -53,6 +56,70 @@ _data = {
 &"dotted_line": SubResource("Animation_0crfh")
 }
 
+[sub_resource type="Animation" id="Animation_bfoeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bullet/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_luslo"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bullet/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.23333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.3),
+"transitions": PackedFloat32Array(0.5, 1, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.21, 0.212), Vector2(2, 0.2), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfoeu"]
+_data = {
+&"RESET": SubResource("Animation_bfoeu"),
+&"attack": SubResource("Animation_luslo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(135, 135)
+
 [node name="BiteyZone" type="Area2D" unique_id=411048485]
 script = ExtResource("1_86jjl")
 
@@ -62,8 +129,14 @@ texture = ExtResource("4_luslo")
 
 [node name="Bullet" type="Area2D" parent="." unique_id=1704205616]
 script = ExtResource("1_0crfh")
+damage = 500
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=481167489]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g4v7s")
+disabled = true
 
 [node name="DottedLine" type="Panel" parent="." unique_id=1324047051]
 offset_left = -68.0
@@ -72,6 +145,17 @@ offset_right = 69.0
 offset_bottom = 63.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_0crfh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1815558952]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DottedLine" unique_id=1815558952]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_86jjl")
 autoplay = &"dotted_line"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=444240744]
+libraries/ = SubResource("AnimationLibrary_bfoeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341802391]
+position = Vector2(0.5, -5.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

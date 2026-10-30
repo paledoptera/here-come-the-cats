@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://clyt0hcde7icu"]
 
-[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle.gd" id="1_2cnw3"]
-[ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="1_d8rup"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="2_q4pqm"]
-[ext_resource type="AudioStream" uid="uid://j7rc388kii2s" path="res://shared/music/mus_the_great_forever.ogg" id="3_0qvdd"]
-[ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="4_0qvdd"]
-[ext_resource type="PackedScene" uid="uid://boxyth7xolqo5" path="res://minigames/here_come_the_cats/the_cat.tscn" id="5_suynh"]
-[ext_resource type="Texture2D" uid="uid://cumgik06v2dtj" path="res://screens/cats_battle/res/cat_evolved.png" id="7_rcghe"]
-[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="7_vq6ep"]
+[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle_cutscene.gd" id="1_s1uiw"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="2_87j7h"]
+[ext_resource type="AudioStream" uid="uid://j7rc388kii2s" path="res://shared/music/mus_the_great_forever.ogg" id="3_ekphj"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="4_ffltk"]
 
 [sub_resource type="FontVariation" id="FontVariation_vq6ep"]
 spacing_glyph = 7
@@ -98,45 +94,19 @@ _data = {
 &"song": SubResource("Animation_vq6ep")
 }
 
-[node name="CatsBattle" type="Node" unique_id=46766806]
-script = ExtResource("1_2cnw3")
-
-[node name="CatPartyLine3" parent="." unique_id=1995562823 instance=ExtResource("4_0qvdd")]
-modulate = Color(0.27387288, 0.2738727, 0.27387273, 1)
-z_index = -1
-position = Vector2(318.00003, 79.00001)
-scale = Vector2(0.77, 0.77)
-
-[node name="CatPartyLine2" parent="." unique_id=1715570439 instance=ExtResource("4_0qvdd")]
-modulate = Color(0.5931336, 0.59313357, 0.59313357, 1)
-z_index = -1
-position = Vector2(318.00003, 116)
-scale = Vector2(0.93, 0.93)
-
-[node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("4_0qvdd")]
-z_index = -1
-position = Vector2(0, 160)
-
-[node name="Dess" parent="." unique_id=289208110 instance=ExtResource("1_d8rup")]
-position = Vector2(132, 214)
+[node name="CatsBattleCutscene" type="Node" unique_id=46766806]
+script = ExtResource("1_s1uiw")
 
 [node name="StartMusic" type="Node" parent="." unique_id=1831962852]
-script = ExtResource("2_q4pqm")
-song = ExtResource("3_0qvdd")
+script = ExtResource("2_87j7h")
+song = ExtResource("3_ekphj")
 bpm = 155.0
 enable_rhythm_tracking = true
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
-[node name="CatBoss" parent="." unique_id=1194674963 instance=ExtResource("5_suynh")]
-position = Vector2(502, 204)
-
-[node name="Sprite2D" parent="CatBoss" index="1" unique_id=1668615500]
-position = Vector2(-20, -1)
-texture = ExtResource("7_rcghe")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2122876813]
 
-[node name="DialogueBox" parent="CanvasLayer" unique_id=151941393 instance=ExtResource("7_vq6ep")]
+[node name="DialogueBox" parent="CanvasLayer" unique_id=151941393 instance=ExtResource("4_ffltk")]
 unique_name_in_owner = true
 offset_left = 22.0
 offset_top = 325.0
@@ -193,5 +163,3 @@ texture = SubResource("GradientTexture2D_vq6ep")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2017726193]
 libraries/ = SubResource("AnimationLibrary_rcghe")
 autoplay = &"song"
-
-[editable path="CatBoss"]

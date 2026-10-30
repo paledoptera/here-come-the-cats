@@ -8,5 +8,6 @@ script = ExtResource("1_4863u")
 name = "FRIEND"
 hp_max = 2000
 hp = 2000
+defense = 100
 character_id = &"friend"
 metadata/_custom_type_script = "uid://doj56elw7dew4"

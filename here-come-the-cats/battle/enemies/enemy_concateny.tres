@@ -1,39 +1,70 @@
 [gd_resource type="Resource" script_class="CharacterStatsEnemy" format=4 uid="uid://b1olkw8f4kqlm"]
 
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="1_5ak36"]
-[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://resources/battle/attack_data.gd" id="1_mqi1m"]
-[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://party/character_stats/character_stats_enemy.gd" id="2_taf5p"]
-[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://resources/battle/attack_block.gd" id="2_xm16v"]
-[ext_resource type="PackedScene" uid="uid://bu8lbl08doks1" path="res://battle/enemies/CONCATONATE/attacks/attack_02_hall_of_tails.tscn" id="2_yki47"]
-[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="3_3qe3f"]
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="4_yki47"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="5_4t25r"]
-[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_phemu"]
-[ext_resource type="Texture2D" uid="uid://d2e24c2xqudtw" path="res://dialogue/entities/portraits/dess/dess_neutral.png" id="7_yki47"]
-[ext_resource type="AudioStream" uid="uid://bgg28hhigw6nj" path="res://shared/sound_effects/snd_txt_dess.wav" id="8_4t25r"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://resources/battle/attack_data.gd" id="1_q3aap"]
+[ext_resource type="PackedScene" uid="uid://dqxgydyeygqjr" path="res://battle/enemies/CONCATONATE/attacks/attack_01_biting_hall.tscn" id="2_37gjq"]
+[ext_resource type="PackedScene" uid="uid://bu8lbl08doks1" path="res://battle/enemies/CONCATONATE/attacks/attack_02_hall_of_tails.tscn" id="3_85k4s"]
+[ext_resource type="PackedScene" uid="uid://davt8xlcaupe7" path="res://battle/enemies/CONCATONATE/attacks/attack_03_giant_teeth.tscn" id="4_0pwyq"]
+[ext_resource type="PackedScene" uid="uid://dj40xhqhrsy61" path="res://battle/enemies/CONCATONATE/attacks/attack_04_teeth_and_tail.tscn" id="5_gom2u"]
+[ext_resource type="PackedScene" uid="uid://ddqtbd7p6sutr" path="res://battle/enemies/CONCATONATE/attacks/attack_05_biting_hall_neo.tscn" id="6_pmjda"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://resources/battle/attack_block.gd" id="7_4srr8"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="8_y3j1v"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="9_ywpt5"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="10_px7xn"]
+[ext_resource type="Texture2D" uid="uid://dw6enerkcdv5w" path="res://dialogue/entities/portraits/dess/dess_shock_1.png" id="11_q3aap"]
+[ext_resource type="AudioStream" uid="uid://bgg28hhigw6nj" path="res://shared/sound_effects/snd_txt_dess.wav" id="12_qrv5d"]
+[ext_resource type="Texture2D" uid="uid://bph4o3qkllkcb" path="res://dialogue/entities/portraits/dess/dess_shock_2.png" id="13_37gjq"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="13_pwb2q"]
+[ext_resource type="Texture2D" uid="uid://vrf7ob1c7bpq" path="res://dialogue/entities/portraits/dess/dess_fake_tough.png" id="14_85k4s"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://party/character_stats/character_stats_enemy.gd" id="14_rvt5c"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="15_aqj5p"]
+[ext_resource type="AudioStream" uid="uid://jhvm42bhw4js" path="res://shared/sound_effects/snd_concateny_hit.wav" id="17_0pwyq"]
+[ext_resource type="AudioStream" uid="uid://d1epw8l8augow" path="res://shared/sound_effects/snd_concateny_heavy_hit.wav" id="18_gom2u"]
+
+[sub_resource type="Resource" id="Resource_4ppe6"]
+script = ExtResource("1_q3aap")
+scene = ExtResource("2_37gjq")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
 
 [sub_resource type="Resource" id="Resource_405we"]
-script = ExtResource("1_mqi1m")
-scene = ExtResource("2_yki47")
+script = ExtResource("1_q3aap")
+scene = ExtResource("3_85k4s")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_8w1j4"]
+script = ExtResource("1_q3aap")
+scene = ExtResource("4_0pwyq")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_nwumm"]
+script = ExtResource("1_q3aap")
+scene = ExtResource("5_gom2u")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_qsam2"]
+script = ExtResource("1_q3aap")
+scene = ExtResource("6_pmjda")
+length = 0.0
 metadata/_custom_type_script = "uid://caqnjjh4u2r54"
 
 [sub_resource type="Resource" id="Resource_7ac34"]
-script = ExtResource("2_xm16v")
-attacks = Array[ExtResource("1_mqi1m")]([SubResource("Resource_405we")])
+script = ExtResource("7_4srr8")
+attack_order = 1
+attacks = Array[ExtResource("1_q3aap")]([SubResource("Resource_4ppe6"), SubResource("Resource_405we"), SubResource("Resource_8w1j4"), SubResource("Resource_nwumm"), SubResource("Resource_qsam2")])
 metadata/_custom_type_script = "uid://emdpqbj1xvm7"
 
 [sub_resource type="Resource" id="Resource_nuyli"]
-script = ExtResource("5_4t25r")
+script = ExtResource("9_ywpt5")
 text = "[shake]* That's CONCATENY...
-* For now, the biggest cat
-	in the hunting pack!!"
-talksound = ExtResource("8_4t25r")
-portrait = ExtResource("7_yki47")
+* The biggest cat in 
+	the hunting pack!!"
+talksound = ExtResource("12_qrv5d")
+portrait = ExtResource("11_q3aap")
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4t25r"]
-load_path = "res://.godot/imported/dess_neutral.png-da2666e6d55ae45cc818e23f80c7704d.ctex"
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_phemu"]
 data = PackedByteArray("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AJPONAoABFACgACgAAAAUAKAAKAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAACgAAAAAAAAAKAAAAAAAAAFAoAAAAAAAAUCgKKKIRRRRRRAooohFFFFFEEU40CiiiiigRTjQKKKKKKAoopxoFFFFECiinGgUUUUQRRRRRRRRRRBFFFFFFFFFEEUQiiiiiiigRRCKKKKKKKAooooooooooCiiiiiiiiigKKIAKKKKKKAoogAooooooCiiiiiiiiigKKKKKKKKKKAopxgAogFEACinGACiAUQAKIBRAKIBRAAogFEAogFEACiAUQCiAUQAKIBRAKIBRAAogFEAogFEACiAUQCiAUQAKIBRAKKKKKAogFEAoooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiig==")
@@ -44,16 +75,13 @@ tags = {
 }
 
 [sub_resource type="Resource" id="Resource_rxnr4"]
-script = ExtResource("5_4t25r")
-text = "[shake]* Damn!! It's got your SOUL 
-	on it's tongue..."
+script = ExtResource("9_ywpt5")
+text = "[shake]* Damn!! It entered its
+	feeding form..."
 talksound = SubResource("AudioStreamWAV_phemu")
-portrait = SubResource("CompressedTexture2D_4t25r")
+portrait = ExtResource("13_37gjq")
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_phemu"]
-load_path = "res://.godot/imported/dess_neutral.png-da2666e6d55ae45cc818e23f80c7704d.ctex"
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_rxnr4"]
 data = PackedByteArray("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AJPONAoABFACgACgAAAAUAKAAKAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAACgAAAAAAAAAKAAAAAAAAAFAoAAAAAAAAUCgKKKIRRRRRRAooohFFFFFEEU40CiiiiigRTjQKKKKKKAoopxoFFFFECiinGgUUUUQRRRRRRRRRRBFFFFFFFFFEEUQiiiiiiigRRCKKKKKKKAooooooooooCiiiiiiiiigKKIAKKKKKKAoogAooooooCiiiiiiiiigKKKKKKKKKKAopxgAogFEACinGACiAUQAKIBRAKIBRAAogFEAogFEACiAUQCiAUQAKIBRAKIBRAAogFEAogFEACiAUQCiAUQAKIBRAKKKKKAogFEAoooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiigKKKKKKKKKKAooooooooooCiiiiiiiiig==")
@@ -63,50 +91,52 @@ tags = {
 "encoder": "FL Studio 2026"
 }
 
-[sub_resource type="Resource" id="Resource_nwumm"]
-script = ExtResource("5_4t25r")
-text = "[shake]* We need to kill this thing!
-	and QUICK!"
+[sub_resource type="Resource" id="Resource_lvmsa"]
+script = ExtResource("9_ywpt5")
+text = "[shake]* We need to kill this thing
+	before it consumes
+	your SOUL!!!"
 talksound = SubResource("AudioStreamWAV_rxnr4")
-portrait = SubResource("CompressedTexture2D_phemu")
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_4t25r"]
-script = ExtResource("5_4t25r")
-text = "[shake]* (Dess will constantly attack!)
-* (Higher TP = higher damage!)"
+portrait = ExtResource("14_85k4s")
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_wgpi4"]
-script = ExtResource("1_5ak36")
-text = Array[ExtResource("5_4t25r")]([SubResource("Resource_nuyli"), SubResource("Resource_rxnr4"), SubResource("Resource_nwumm"), SubResource("Resource_4t25r")])
+script = ExtResource("8_y3j1v")
+text = Array[ExtResource("9_ywpt5")]([SubResource("Resource_nuyli"), SubResource("Resource_rxnr4"), SubResource("Resource_lvmsa")])
 metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
 
 [sub_resource type="Resource" id="Resource_w5hf4"]
-script = ExtResource("5_4t25r")
+script = ExtResource("9_ywpt5")
 text = "[shake]* An acrid smell assaults you.
 * The cats bare their teeth."
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_8ye7k"]
-script = ExtResource("1_5ak36")
-text = Array[ExtResource("5_4t25r")]([SubResource("Resource_w5hf4")])
+script = ExtResource("8_y3j1v")
+text = Array[ExtResource("9_ywpt5")]([SubResource("Resource_w5hf4")])
 metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
 
 [sub_resource type="Resource" id="Resource_1ofaw"]
-script = ExtResource("5_4t25r")
+script = ExtResource("9_ywpt5")
 text = "[shake]* The tail of hell takes crawl..."
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [resource]
-script = ExtResource("2_taf5p")
+script = ExtResource("14_rvt5c")
 attack_list = SubResource("Resource_7ac34")
 check_text = SubResource("Resource_wgpi4")
 opening_line_singular = SubResource("Resource_1ofaw")
 flavor_text = SubResource("Resource_8ye7k")
 name = "CONCATENY"
+hp_max = 2000
+hp = 2000
+defense = 100
+character_id = &"concateny"
+soundbank = Dictionary[StringName, AudioStream]({
+&"damaged": ExtResource("17_0pwyq"),
+&"hurt_hard": ExtResource("18_gom2u")
+})
 metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"

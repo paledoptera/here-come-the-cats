@@ -33,7 +33,7 @@ func _init() -> void:
 	Party.enemy.clear()
 	Party.hero.clear()
 	Party.hero = [preload("uid://xcpu86gdep5b")] # hero_dess
-	Party.enemy = [preload("uid://bwk0888uoya3f")] # enemy_friend
+	Party.enemy = [preload("uid://b1olkw8f4kqlm")] # enemy_concateny
 	
 
 func _ready() -> void:
@@ -53,9 +53,7 @@ func _ready() -> void:
 	#Dialogue.clear_text.emit()
 
 func _process(delta: float) -> void:
-	if Party.enemy[0].hp <= 0.0:
-		SceneLoader.change_scene(preload("uid://clyt0hcde7icu"))
-		pass
+	Party.enemy[0].hp = clamp(Party.enemy[0].hp,962,2000)
 
 func _on_beat() -> void:
 	print("BEAT, ", Music.last_beat)

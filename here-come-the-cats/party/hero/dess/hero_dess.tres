@@ -6,14 +6,60 @@
 [ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://shared/usables/spells/spell.gd" id="3_o2431"]
 [ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="4_ihjch"]
 [ext_resource type="Script" uid="uid://btrgo1tokswmg" path="res://shared/effects/_effect.gd" id="5_n4lmm"]
+[ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://shared/effects/spells/check_effect.gd" id="6_n3ghv"]
+[ext_resource type="Script" uid="uid://d1qlm3df6kj61" path="res://shared/effects/spells/home_run_effect.gd" id="7_vydok"]
+[ext_resource type="Script" uid="uid://wrd5a758xsyj" path="res://shared/effects/heal_effect.gd" id="8_vydok"]
+
+[sub_resource type="Resource" id="Resource_0qvdd"]
+script = ExtResource("6_n3ghv")
+metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
 
 [sub_resource type="Resource" id="Resource_mqi1m"]
+resource_name = "Check"
 script = ExtResource("3_o2431")
+tp_cost = 0
+name = &"Check"
+description = "Useless
+Analysis"
+effects = Array[ExtResource("5_n4lmm")]([SubResource("Resource_0qvdd")])
+target = 1
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_uxtub"]
+script = ExtResource("7_vydok")
+metadata/_custom_type_script = "uid://d1qlm3df6kj61"
+
+[sub_resource type="Resource" id="Resource_rtcyi"]
+resource_name = "X-Strike"
+script = ExtResource("3_o2431")
+tp_cost = 32
+handles_dialogue_box = true
+handles_actor_anim = true
+name = &"X-Strike"
+description = "Home
+Run!"
+effects = Array[ExtResource("5_n4lmm")]([SubResource("Resource_uxtub")])
+target = 1
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_56w50"]
+script = ExtResource("8_vydok")
+amount = 50
+metadata/_custom_type_script = "uid://wrd5a758xsyj"
+
+[sub_resource type="Resource" id="Resource_n3ghv"]
+resource_name = "BloodHeal"
+script = ExtResource("3_o2431")
+tp_cost = 32
+name = &"BloodHeal"
+description = "Heals
+50HP"
+effects = Array[ExtResource("5_n4lmm")]([SubResource("Resource_56w50")])
 metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
 [resource]
 script = ExtResource("2_f0g1o")
-spells = Array[ExtResource("3_o2431")]([SubResource("Resource_mqi1m")])
+spells = Array[ExtResource("3_o2431")]([SubResource("Resource_mqi1m"), SubResource("Resource_rtcyi"), SubResource("Resource_n3ghv")])
 icons = ExtResource("2_o2431")
 name = "Dess"
 color = Color(1, 0.41568628, 0, 1)

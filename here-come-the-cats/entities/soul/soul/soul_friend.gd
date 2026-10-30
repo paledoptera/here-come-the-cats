@@ -11,6 +11,7 @@ enum SoulState {YELLOW, PINK}
 @export var big_shot_needs_tp: bool = true
 @export var jaws: PathFollow2D
 @export var jaws_backwards: bool = false
+@export var get_tp_from_dashing: bool = true
 var shoot_state := ShootState.IDLE
 var charge_max: float = 16.0
 var charge_timer: float = 0.0
@@ -24,6 +25,7 @@ var dash_momentum: float = 0.0
 var dashing: bool = false
 var base_speed_mult: float = 1.0
 var constant_pink_offset: float = 0.0
+
 
 
 var pink_lines: Array[Node]
@@ -235,7 +237,11 @@ func handle_dash(delta: float) -> void:
 		momentum = 0.2
 		if target_velocity != Vector2.ZERO:
 			dashing = true
-			Party.tp += 1.0
+			
+			if get_tp_from_dashing:
+				Party.tp += 1.0
+			else:
+				Party.tp += 0.05
 
 		else:
 			dashing = false

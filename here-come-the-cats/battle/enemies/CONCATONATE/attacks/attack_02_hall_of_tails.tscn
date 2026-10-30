@@ -7,13 +7,15 @@
 [ext_resource type="Script" uid="uid://cc7uptlkk8ec0" path="res://battle/enemies/CONCATONATE/attacks/tongue_pink_line.gd" id="5_3rn1p"]
 [ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="6_4gbuh"]
 [ext_resource type="PackedScene" uid="uid://cqdht4528v8qf" path="res://battle/enemies/CONCATONATE/attacks/jaws.tscn" id="7_u52ys"]
+[ext_resource type="PackedScene" uid="uid://c2uxhjqxjdm84" path="res://battle/enemies/CONCATONATE/attacks/goal.tscn" id="8_k662a"]
+[ext_resource type="PackedScene" uid="uid://c1qletdi2ttfx" path="res://battle/enemies/CONCATONATE/attacks/tail_chomp.tscn" id="9_nxtvw"]
 
 [sub_resource type="Animation" id="Animation_1rxv2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Battlebox/Stabby/KnifeBullet:position")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Battlebox/Stabby/KnifeBullet2:position")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Battlebox/Stabby/KnifeBullet3:position")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,12 +51,12 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_oycta"]
 resource_name = "knives"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Battlebox/Stabby/KnifeBullet:position")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -66,7 +68,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Battlebox/Stabby/KnifeBullet2:position")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,7 +80,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Battlebox/Stabby/KnifeBullet3:position")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Battlebox/Stabby/KnifeBullet3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,7 +98,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_wn4gx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -500, 0, -37.255276, -0.56447387, 37.255276, 0.56447387, 846, -5, -33.30396, 1.6934216, 33.30396, -1.6934216, 844, 56, -85.800026, 0, 85.800026, 0, 1225, 62, -64.9145, 1.1289477, 64.9145, -1.1289477, 1225, -122, -47.980278, 0, 47.980278, 0, 1557, -122, -47.415806, 0, 47.415806, 0, 1550, -61, -84.67108, 1.1289477, 84.67108, -1.1289477, 1776, -61, -86.3645, -1.6934216, 86.3645, 1.6934216, 1771, 49, -104.427666, -1.1289477, 104.427666, 1.1289477, 2320, 52, -76.76845, -1.6934216, 76.76845, 1.6934216, 2311, -105, 0, 0, 0, 0, 2748, -105)
+"points": PackedVector2Array(0, 0, 0, 0, 90, 0, -37.255276, -0.56447387, 37.255276, 0.56447387, 846, -5, -33.30396, 1.6934216, 33.30396, -1.6934216, 844, 56, -85.800026, 0, 85.800026, 0, 1225, 62, -64.9145, 1.1289477, 64.9145, -1.1289477, 1225, -122, -47.980278, 0, 47.980278, 0, 1557, -122, -47.415806, 0, 47.415806, 0, 1550, -61, -84.67108, 1.1289477, 84.67108, -1.1289477, 1776, -61, -86.3645, -1.6934216, 86.3645, 1.6934216, 1771, 49, -104.427666, -1.1289477, 104.427666, 1.1289477, 2320, 52, -76.76845, -1.6934216, 76.76845, 1.6934216, 2311, -105, 0, 0, 0, 0, 2748, -105)
 }
 point_count = 12
 
@@ -127,54 +129,57 @@ handle_input_locally = false
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("1_u338y")]
-offset_left = 64.0
-offset_top = 161.0
-offset_right = 5064.0
-offset_bottom = 461.0
+[node name="Battlebox" parent="SubViewportContainer/SubViewport" unique_id=445257611 instance=ExtResource("1_u338y")]
+offset_left = -256.0
+offset_top = -79.0
+offset_right = 4744.0
+offset_bottom = 221.0
 
-[node name="Stabby" type="Node2D" parent="Battlebox" unique_id=549256138]
+[node name="Stabby" type="Node2D" parent="SubViewportContainer/SubViewport/Battlebox" unique_id=549256138]
 z_index = 100
 z_as_relative = false
-position = Vector2(1656, 356)
+position = Vector2(1656, 314)
 scale = Vector2(1, -1)
 
-[node name="KnifeBullet" parent="Battlebox/Stabby" unique_id=1534627113 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet" parent="SubViewportContainer/SubViewport/Battlebox/Stabby" unique_id=1534627113 instance=ExtResource("2_u52ys")]
 position = Vector2(242, 188)
 rotation = 1.5707964
 
-[node name="KnifeBullet2" parent="Battlebox/Stabby" unique_id=819485830 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet2" parent="SubViewportContainer/SubViewport/Battlebox/Stabby" unique_id=819485830 instance=ExtResource("2_u52ys")]
 position = Vector2(281, 128)
 rotation = 1.5707964
 
-[node name="KnifeBullet3" parent="Battlebox/Stabby" unique_id=699718896 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet3" parent="SubViewportContainer/SubViewport/Battlebox/Stabby" unique_id=699718896 instance=ExtResource("2_u52ys")]
 position = Vector2(320, 128)
 rotation = 1.5707964
 
-[node name="AnimationContraption" type="Node2D" parent="Battlebox/Stabby" unique_id=999335175]
+[node name="AnimationContraption" type="Node2D" parent="SubViewportContainer/SubViewport/Battlebox/Stabby" unique_id=999335175]
 script = ExtResource("3_k662a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Battlebox/Stabby/AnimationContraption" unique_id=1849075454]
-root_node = NodePath("../../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/Battlebox/Stabby/AnimationContraption" unique_id=1849075454]
+root_node = NodePath("../../../../../..")
 libraries/ = SubResource("AnimationLibrary_mxgiu")
 autoplay = &"knives"
 speed_scale = 0.5
 
-[node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("4_nxtvw")]
+[node name="SoulFriend" parent="SubViewportContainer/SubViewport" unique_id=443094051 node_paths=PackedStringArray("jaws") instance=ExtResource("4_nxtvw")]
 z_index = 4096
 position = Vector2(314, 261)
 constant_pink_speed = 1.0
 soul_state = 1
+jaws = NodePath("../TonguePinkLine/JAWS")
+jaws_backwards = true
+get_tp_from_dashing = false
 speed_mult = 2.0
 
-[node name="SwitchOutline" parent="SoulFriend" index="1" unique_id=1787105376]
+[node name="SwitchOutline" parent="SubViewportContainer/SubViewport/SoulFriend" index="1" unique_id=1787105376]
 visible = false
 
-[node name="Camera2D" type="Camera2D" parent="SoulFriend" unique_id=491353616]
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/SoulFriend" unique_id=491353616]
 limit_top = 0
 limit_bottom = 480
 
-[node name="TonguePinkLine" type="Path2D" parent="." unique_id=42622812 groups=["pink_lines"]]
+[node name="TonguePinkLine" type="Path2D" parent="SubViewportContainer/SubViewport" unique_id=42622812 groups=["pink_lines"]]
 z_index = 101
 position = Vector2(-1886, 210)
 curve = SubResource("Curve2D_wn4gx")
@@ -182,48 +187,64 @@ script = ExtResource("5_3rn1p")
 speed = 200.0
 loop = false
 
-[node name="PathFollow2D" type="PathFollow2D" parent="TonguePinkLine" unique_id=1384818225]
-position = Vector2(-500, 0)
-rotation = -0.004251739
+[node name="PathFollow2D" type="PathFollow2D" parent="SubViewportContainer/SubViewport/TonguePinkLine" unique_id=1384818225]
+position = Vector2(90, 0)
+rotation = -0.0077417786
 
-[node name="Sprite2D" type="Sprite2D" parent="TonguePinkLine/PathFollow2D" unique_id=1266114344]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/PathFollow2D" unique_id=1266114344]
 modulate = Color(1, 0.4117647, 0.7058824, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_4gbuh")
 
-[node name="JAWS" parent="TonguePinkLine" unique_id=605576767 node_paths=PackedStringArray("target") instance=ExtResource("7_u52ys")]
+[node name="JAWS" parent="SubViewportContainer/SubViewport/TonguePinkLine" unique_id=605576767 node_paths=PackedStringArray("target") instance=ExtResource("7_u52ys")]
 position = Vector2(2748.0002, -105.000015)
+speed = -200.0
 target = NodePath("../../SoulFriend")
 
-[node name="AnimatedSprite2D" parent="TonguePinkLine/JAWS" index="0" unique_id=945704979]
+[node name="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/JAWS" index="0" unique_id=945704979]
 scale = Vector2(1.5, 1.5)
 
-[node name="KnifeCarousel1" type="Node2D" parent="." unique_id=325140653]
+[node name="KnifeCarousel1" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=325140653]
 position = Vector2(-974, 187)
 script = SubResource("GDScript_qkyq2")
 
-[node name="KnifeContainer1" type="Node2D" parent="KnifeCarousel1" unique_id=1203750291]
+[node name="KnifeContainer1" type="Node2D" parent="SubViewportContainer/SubViewport/KnifeCarousel1" unique_id=1203750291]
 
-[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer1" unique_id=194047947 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet" parent="SubViewportContainer/SubViewport/KnifeCarousel1/KnifeContainer1" unique_id=2028793721 instance=ExtResource("2_u52ys")]
 position = Vector2(0, 44)
 rotation = 1.5707964
 scale = Vector2(1, 1)
 
-[node name="KnifeContainer2" type="Node2D" parent="KnifeCarousel1" unique_id=137767543]
+[node name="KnifeContainer2" type="Node2D" parent="SubViewportContainer/SubViewport/KnifeCarousel1" unique_id=137767543]
 rotation = 2.364921
 
-[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer2" unique_id=1325015115 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet" parent="SubViewportContainer/SubViewport/KnifeCarousel1/KnifeContainer2" unique_id=1325015115 instance=ExtResource("2_u52ys")]
 position = Vector2(0, 44)
 rotation = 1.5707964
 scale = Vector2(1, 1)
 
-[node name="KnifeContainer3" type="Node2D" parent="KnifeCarousel1" unique_id=1627036077]
+[node name="KnifeContainer3" type="Node2D" parent="SubViewportContainer/SubViewport/KnifeCarousel1" unique_id=1627036077]
 rotation = 4.2324233
 
-[node name="KnifeBullet" parent="KnifeCarousel1/KnifeContainer3" unique_id=473270988 instance=ExtResource("2_u52ys")]
+[node name="KnifeBullet" parent="SubViewportContainer/SubViewport/KnifeCarousel1/KnifeContainer3" unique_id=473270988 instance=ExtResource("2_u52ys")]
 position = Vector2(0, 44)
 rotation = 1.5707964
 scale = Vector2(1, 1)
 
-[editable path="SoulFriend"]
-[editable path="TonguePinkLine/JAWS"]
+[node name="Goal" parent="SubViewportContainer/SubViewport" unique_id=1788018638 instance=ExtResource("8_k662a")]
+position = Vector2(-1796, 210)
+
+[node name="TailChomp" parent="SubViewportContainer/SubViewport" unique_id=378200708 instance=ExtResource("9_nxtvw")]
+position = Vector2(-1398, 144)
+
+[node name="TailChomp4" parent="SubViewportContainer/SubViewport" unique_id=1530733539 instance=ExtResource("9_nxtvw")]
+position = Vector2(-1472, 144)
+
+[node name="TailChomp2" parent="SubViewportContainer/SubViewport" unique_id=910022381 instance=ExtResource("9_nxtvw")]
+position = Vector2(-34, 206)
+
+[node name="TailChomp3" parent="SubViewportContainer/SubViewport" unique_id=997053155 instance=ExtResource("9_nxtvw")]
+position = Vector2(350, 52)
+
+[editable path="SubViewportContainer/SubViewport/SoulFriend"]
+[editable path="SubViewportContainer/SubViewport/TonguePinkLine/JAWS"]

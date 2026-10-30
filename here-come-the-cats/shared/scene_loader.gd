@@ -12,3 +12,7 @@ func change_scene(scene: PackedScene) -> Node:
 
 func _restart_game():
 	change_scene(TITLE_SCREEN)
+
+func goto_title() -> void:
+	get_tree().unload_current_scene()
+	change_scene(TITLE_SCREEN)

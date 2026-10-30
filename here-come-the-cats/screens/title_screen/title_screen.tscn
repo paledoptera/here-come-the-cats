@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="8_v01p7"]
 [ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="11_yvje3"]
 [ext_resource type="AudioStream" uid="uid://5fnb0dxdfr2u" path="res://shared/music/mus_title.ogg" id="13_hjto8"]
+[ext_resource type="Texture2D" uid="uid://chk42ixrl6svl" path="res://shared/sprites/star.png" id="14_8ye7k"]
+[ext_resource type="Script" uid="uid://clk0p1i88jl1w" path="res://screens/title_screen/gold_star.gd" id="15_405we"]
 [ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="16_e6237"]
 [ext_resource type="Texture2D" uid="uid://m84awsagrpdc" path="res://minigames/here_come_the_cats/res/life_and_death.png" id="17_8ye7k"]
 [ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="17_81sk2"]
@@ -22,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="21_7cxjv"]
 [ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="22_uk48k"]
 [ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="23_pvcqs"]
+[ext_resource type="Texture2D" uid="uid://55ao838hkrk3" path="res://shared/sprites/select_box.png" id="25_wim8o"]
+[ext_resource type="Texture2D" uid="uid://b4sn2ol6gor11" path="res://shared/sprites/slider.png" id="26_5cxmk"]
 
 [sub_resource type="Resource" id="Resource_bgok2"]
 script = ExtResource("4_ijpes")
@@ -342,6 +346,47 @@ _data = {
 &"intro": SubResource("Animation_405we")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+expand_margin_top = 20.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvcqs"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cxmk"]
+bg_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 3
+anti_aliasing = false
+
 [node name="TitleScreen" type="Node" unique_id=2102249253]
 script = ExtResource("1_4rvf0")
 
@@ -434,6 +479,12 @@ text = "Start"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="GoldStar" type="Sprite2D" parent="Options/Start" unique_id=1946603485]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(130, 31)
+texture = ExtResource("14_8ye7k")
+script = ExtResource("15_405we")
+
 [node name="Options" type="Control" parent="Options" unique_id=1866516707 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
@@ -462,6 +513,8 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Extras" type="Control" parent="Options" unique_id=392565835 groups=["menu_option"]]
+unique_name_in_owner = true
+modulate = Color(0.42365062, 0.42365065, 0.42365062, 1)
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -471,7 +524,6 @@ disabled = true
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="Options/Extras" unique_id=774631724]
-modulate = Color(0.4506483, 0.4506483, 0.45064825, 1)
 custom_minimum_size = Vector2(228, 28)
 clip_contents = false
 layout_mode = 0
@@ -657,6 +709,521 @@ texture = SubResource("GradientTexture2D_hjto8")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=612639371]
 libraries/ = SubResource("AnimationLibrary_wim8o")
 autoplay = &"intro"
+
+[node name="OptionsMenu" type="Node2D" parent="." unique_id=1742877070]
+visible = false
+position = Vector2(320, 0)
+
+[node name="Panel" type="Panel" parent="OptionsMenu" unique_id=401381994]
+offset_top = 189.0
+offset_right = 349.5
+offset_bottom = 313.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
+
+[node name="Options" type="VBoxContainer" parent="OptionsMenu/Panel" unique_id=979112199 groups=["options_parent"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Godmode" type="Control" parent="OptionsMenu/Panel/Options" unique_id=603401473 groups=["menu_option"]]
+visible = false
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/Godmode" unique_id=1252503254]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Godmode"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="OptionsMenu/Panel/Options/Godmode" unique_id=784308913]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="NoHitMode" type="Control" parent="OptionsMenu/Panel/Options" unique_id=1183578774 groups=["menu_option"]]
+visible = false
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/NoHitMode" unique_id=33375850]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "No-Hit mode "
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="OptionsMenu/Panel/Options/NoHitMode" unique_id=281360063]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="Volume" type="Control" parent="OptionsMenu/Panel/Options" unique_id=596095856 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/Volume" unique_id=12018892]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "No-Hit mode "
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="OptionsMenu/Panel/Options/Volume" unique_id=325533508]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="BackToTitle" type="Control" parent="OptionsMenu/Panel/Options" unique_id=1821475143 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/BackToTitle" unique_id=11702730]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Back to title"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MasterVolume" type="HSlider" parent="OptionsMenu/Panel/Options" unique_id=147011783]
+custom_minimum_size = Vector2(100, 20)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.333, 0)
+theme_override_icons/grabber = ExtResource("26_5cxmk")
+theme_override_icons/grabber_highlight = ExtResource("26_5cxmk")
+theme_override_icons/grabber_disabled = ExtResource("26_5cxmk")
+theme_override_styles/slider = SubResource("StyleBoxFlat_pvcqs")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_5cxmk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_pvcqs")
+value = 100.0
+
+[node name="SoundsVolume" type="HSlider" parent="OptionsMenu/Panel/Options" unique_id=1830330330]
+custom_minimum_size = Vector2(100, 20)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.333, 0)
+theme_override_icons/grabber = ExtResource("26_5cxmk")
+theme_override_icons/grabber_highlight = ExtResource("26_5cxmk")
+theme_override_icons/grabber_disabled = ExtResource("26_5cxmk")
+theme_override_styles/slider = SubResource("StyleBoxFlat_pvcqs")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_5cxmk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_pvcqs")
+value = 100.0
+
+[node name="MusicVolume" type="HSlider" parent="OptionsMenu/Panel/Options" unique_id=44866824]
+custom_minimum_size = Vector2(100, 20)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.333, 0)
+theme_override_icons/grabber = ExtResource("26_5cxmk")
+theme_override_icons/grabber_highlight = ExtResource("26_5cxmk")
+theme_override_icons/grabber_disabled = ExtResource("26_5cxmk")
+theme_override_styles/slider = SubResource("StyleBoxFlat_pvcqs")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_5cxmk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_pvcqs")
+value = 100.0
+
+[node name="ExtrasMenu" type="Node2D" parent="." unique_id=998108532]
+visible = false
+position = Vector2(320, 0)
+
+[node name="LeftPanel" type="Panel" parent="ExtrasMenu" unique_id=1329670480]
+offset_left = -292.0
+offset_top = 189.0
+offset_right = -167.0
+offset_bottom = 313.0
+offset_transform_position_ratio = Vector2(-0.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
+
+[node name="Options" type="VBoxContainer" parent="ExtrasMenu/LeftPanel" unique_id=1784367489 groups=["options_parent"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -10.0
+offset_right = 39.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="ConceptArt" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=49602298 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.61, 1)
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/ConceptArt" unique_id=1117646509]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Concept Art"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/ConceptArt" unique_id=949585384]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="Lore" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=1898036864 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/Lore" unique_id=613776631]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Lore"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/Lore" unique_id=653938213]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="NoHitMode" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=2003343594 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/NoHitMode" unique_id=1055221417]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.595, 1)
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "No-Hit mode"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/NoHitMode" unique_id=692003593]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="BackToTitle" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=979795404 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/BackToTitle" unique_id=1471492539]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Back"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="RightPanel" type="Panel" parent="ExtrasMenu" unique_id=1840879433]
+offset_left = -163.0
+offset_top = 189.0
+offset_right = 290.0
+offset_bottom = 313.0
+offset_transform_position_ratio = Vector2(-0.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
+
+[node name="Options" type="VBoxContainer" parent="ExtrasMenu/RightPanel" unique_id=902732565 groups=["options_parent"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Godmode" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1333113270 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/Godmode" unique_id=375316239]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Godmode"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/Godmode" unique_id=501628459]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="NoHitMode" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1381651525 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/NoHitMode" unique_id=1955761465]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "No-Hit mode "
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/NoHitMode" unique_id=19763039]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="Volume" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1841978410 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/Volume" unique_id=625781200]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "No-Hit mode "
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/Volume" unique_id=1655136959]
+position = Vector2(288, 17)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="BackToTitle" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=84328361 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/BackToTitle" unique_id=718262792]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Back to title"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="ExtrasMenu/RightPanel/Options" unique_id=1951234814]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_yf5fn")
 
 [connection signal="selected" from="Options/Start" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Options" to="." method="_on_option_selected"]

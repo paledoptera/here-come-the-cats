@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://diufc56tt4lmw"]
 
-[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle.gd" id="1_kvlkf"]
+[ext_resource type="Script" uid="uid://qp27bpwqf1pm" path="res://screens/cats_battle/cats_battle_cutscene.gd" id="1_kvlkf"]
 [ext_resource type="Texture2D" uid="uid://cisbk8ohx17ot" path="res://screens/cats_battle/res/stage_background.png" id="2_7rrju"]
 [ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="2_dir8a"]
 [ext_resource type="PackedScene" uid="uid://cp27gsdf6cvac" path="res://minigames/here_come_the_cats/entities/actor_dess.tscn" id="3_7rrju"]
@@ -200,7 +200,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.10000001, 0.26666668, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.017453292519943295, -0.03490658503988659, 0.0]
+"values": [0.0, 0.01745329251994329, -0.03490658503988659, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -288,10 +288,10 @@ texture = ExtResource("2_7rrju")
 centered = false
 
 [node name="CONCATONATE" parent="." unique_id=868461602 instance=ExtResource("3_kvlkf")]
-position = Vector2(502, 172)
+position = Vector2(402, 172)
 
 [node name="Dess" parent="." unique_id=289208110 instance=ExtResource("3_7rrju")]
-position = Vector2(152, 187)
+position = Vector2(169, 187)
 
 [node name="StartMusic" type="Node" parent="." unique_id=1831962852]
 script = ExtResource("4_qjuxq")

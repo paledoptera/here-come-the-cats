@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://c1qletdi2ttfx"]
+
+[ext_resource type="Texture2D" uid="uid://beo5y2a0bgvxu" path="res://entities/attacks/res/cat_tail.png" id="1_8i6bt"]
+[ext_resource type="Script" uid="uid://b1giletq7m4gi" path="res://battle/enemies/CONCATONATE/attacks/tail_chomp.gd" id="1_tprrg"]
+[ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="2_y0div"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="4_y0div"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxtvw"]
+radius = 4.031129
+
+[sub_resource type="Animation" id="Animation_q551y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Tail2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Tail2/Tail3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Tail2/Tail3/Tail4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tprrg"]
+resource_name = "tail_chomp"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.43333337, 0.56666666, 0.7666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 7.45), Vector2(0, 7.45), Vector2(0, -100), Vector2(0, -100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Tail2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 0.56666666, 0.7666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 10), Vector2(0, 33.825), Vector2(0, 41.04), Vector2(0, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Tail2/Tail3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 0.5666667, 0.7666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 20), Vector2(0, 20), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Tail2/Tail3/Tail4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.56666666, 0.7666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 19.19), Vector2(0, 19.19), Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"randomize_rot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0div"]
+_data = {
+&"RESET": SubResource("Animation_q551y"),
+&"tail_chomp": SubResource("Animation_tprrg")
+}
+
+[node name="TailChomp" type="Node2D" unique_id=378200708]
+script = ExtResource("1_tprrg")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=301982200]
+
+[node name="Tail1" type="Sprite2D" parent="Node2D" unique_id=1491373123]
+z_index = 1
+texture = ExtResource("2_y0div")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1974184591]
+z_index = 1
+texture = ExtResource("1_8i6bt")
+
+[node name="Tail2" type="Sprite2D" parent="Node2D/Sprite2D" unique_id=1389866893]
+z_index = -1
+position = Vector2(0, 10)
+texture = ExtResource("2_y0div")
+
+[node name="Tail3" type="Sprite2D" parent="Node2D/Sprite2D/Tail2" unique_id=966318066]
+texture = ExtResource("2_y0div")
+
+[node name="Tail4" type="Sprite2D" parent="Node2D/Sprite2D/Tail2/Tail3" unique_id=1630958281]
+texture = ExtResource("2_y0div")
+
+[node name="TailBullet" type="Area2D" parent="Node2D/Sprite2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("4_y0div")
+damage = 9
+graze_points = 0
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/TailBullet" unique_id=1331419005]
+shape = SubResource("CircleShape2D_nxtvw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=2082594225]
+libraries/ = SubResource("AnimationLibrary_y0div")
+autoplay = &"tail_chomp"

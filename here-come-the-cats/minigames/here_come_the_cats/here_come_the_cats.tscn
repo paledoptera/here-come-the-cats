@@ -1898,6 +1898,7 @@ z_index = 105
 position = Vector2(144, 232)
 is_in_air = true
 switchable = true
+get_tp_from_dashing = true
 speed_mult = 2.0
 
 [node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]

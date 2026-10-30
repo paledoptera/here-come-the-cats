@@ -11,4 +11,6 @@ signal damage_player(amount: int)
 signal battle_ended
 signal coin_collected
 
+signal attack_area_end
+
 signal game_restarted

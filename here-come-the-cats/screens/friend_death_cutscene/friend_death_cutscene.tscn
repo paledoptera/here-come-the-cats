@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bnoydr27bs3on"]
+
+[ext_resource type="Script" uid="uid://ces4hrod7bf7c" path="res://screens/friend_death_cutscene/friend_death_cutscene.gd" id="1_0652f"]
+[ext_resource type="AudioStream" uid="uid://dwovhjw3i5qyr" path="res://shared/sound_effects/snd_crowd_laugh.wav" id="2_kes8s"]
+[ext_resource type="AudioStream" uid="uid://p1jt80jgkxpp" path="res://shared/sound_effects/snd_me_2.wav" id="2_xfxg3"]
+[ext_resource type="AudioStream" uid="uid://eqpcd0ocp6e4" path="res://shared/sound_effects/mus_sfx_gigapunch.wav" id="4_8c80o"]
+
+[sub_resource type="Animation" id="Animation_8c80o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FRIEND:pitch_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xfxg3"]
+resource_name = "death"
+length = 12.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FRIEND")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kes8s")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FRIEND:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 3.6),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [1.0, 1.5, 0.01]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Me")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.3399998,
+"start_offset": 0.0,
+"stream": ExtResource("2_xfxg3")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gigapunch")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_8c80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8c80o"]
+_data = {
+&"RESET": SubResource("Animation_8c80o"),
+&"death": SubResource("Animation_xfxg3")
+}
+
+[node name="Death" type="Node" unique_id=1636579723]
+script = ExtResource("1_0652f")
+
+[node name="Me" type="AudioStreamPlayer" parent="." unique_id=230707180]
+volume_db = -12.193
+pitch_scale = 0.59
+autoplay = true
+
+[node name="Gigapunch" type="AudioStreamPlayer" parent="." unique_id=956838253]
+volume_db = -6.0
+autoplay = true
+
+[node name="FRIEND" type="AudioStreamPlayer" parent="." unique_id=7690324]
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=194453890]
+libraries/ = SubResource("AnimationLibrary_8c80o")
+autoplay = &"death"

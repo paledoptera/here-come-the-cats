@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2uxhjqxjdm84"]
+
+[ext_resource type="Script" uid="uid://s1221xigb88" path="res://battle/enemies/CONCATONATE/attacks/goal.gd" id="1_ypw2o"]
+[ext_resource type="Texture2D" uid="uid://b6fty04mfpmmb" path="res://battle/enemies/CONCATONATE/attacks/res/goal.png" id="2_ipl0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Goal" type="Area2D" unique_id=1788018638]
+script = ExtResource("1_ypw2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825255575]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856546019]
+z_index = 511
+texture = ExtResource("2_ipl0s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

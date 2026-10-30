@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://85j0dtc7xet2" path="res://minigames/here_come_the_cats/entities/actor_dess.gd" id="1_fns6t"]
 [ext_resource type="SpriteFrames" uid="uid://gmmcnk6ql674" path="res://party/hero/dess/res/dess_frames.tres" id="2_p68qk"]
+[ext_resource type="AudioStream" uid="uid://dbtx8anuf0cyw" path="res://shared/sound_effects/snd_motor_upper_2.wav" id="3_ch160"]
+[ext_resource type="AudioStream" uid="uid://dahvh0ihaifr2" path="res://shared/sound_effects/snd_knight_cut2.wav" id="4_w6lyk"]
 
 [sub_resource type="Animation" id="Animation_fns6t"]
 length = 0.001
@@ -29,6 +31,29 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1.435, -0.993)]
 }
+
+[sub_resource type="Animation" id="Animation_p68qk"]
+resource_name = "home_run"
+length = 1.5
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.45997617,
+"start_offset": 0.0,
+"stream": ExtResource("3_ch160")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_w6lyk")
+}],
+"times": PackedFloat32Array(0, 0.43333334)
+}
+tracks/0/use_blend = true
 
 [sub_resource type="Animation" id="Animation_w8amn"]
 resource_name = "switch_to_pink"
@@ -89,6 +114,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fns6t"]
 _data = {
 &"RESET": SubResource("Animation_fns6t"),
+&"home_run": SubResource("Animation_p68qk"),
 &"switch_to_pink": SubResource("Animation_w8amn"),
 &"switch_to_yellow": SubResource("Animation_w6lyk")
 }
@@ -96,6 +122,9 @@ _data = {
 [node name="Dess" type="Node2D" unique_id=289208110]
 script = ExtResource("1_fns6t")
 id = &"dess"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=773095929]
+libraries/ = SubResource("AnimationLibrary_fns6t")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=198891627]
 z_index = -1
@@ -106,7 +135,7 @@ animation = &"surfing"
 autoplay = "surfing"
 offset = Vector2(1.435, -0.993)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=773095929]
-libraries/ = SubResource("AnimationLibrary_fns6t")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2104301238]
+pitch_scale = 0.82
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

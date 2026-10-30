@@ -3,16 +3,15 @@ extends RichTextLabel
 
 @export var identifier: StringName = ""
 @export var effect_offset := Vector2.ZERO
+@export var portrait_offset := Vector2(24.0,19.0)
+@export var MARGINS = {
+	"DEFAULT" = Vector2(34.0,28.0),
+	"PORTRAIT" = Vector2(150.0,28.0)
+}
 var markers: Array[DialogueMarker]
 var effects: Array[RichTextPlacementEffect]
 var portrait: Sprite2D
 var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
-
-const MARGINS = {
-	"DEFAULT" = Vector2(34.0,28.0),
-	"PORTRAIT" = Vector2(150.0,28.0)
-	
-}
 
 func _ready() -> void:
 	visible = false
@@ -86,7 +85,7 @@ func start_dialogue() -> void:
 		portrait.centered = false
 		add_child(portrait)
 		portrait.top_level = true
-		portrait.global_position = global_position+Vector2(24.0,19.0)
+		portrait.global_position = global_position+portrait_offset
 		portrait.scale = Dialogue.current.portrait_scale
 		portrait.z_index = 10
 		portrait.texture = Dialogue.current.portrait

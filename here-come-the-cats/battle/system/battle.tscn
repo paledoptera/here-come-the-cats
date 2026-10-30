@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cq8b2sfdp7v82" path="res://battle/system/components/battle_data_manager.gd" id="5_uhooo"]
 [ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="6_gq06c"]
 [ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://entities/tp_bar/tp_bar.tscn" id="10_d1p73"]
+[ext_resource type="Script" uid="uid://bedupxb65v6iu" path="res://battle/system/checker.gd" id="12_2la1o"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://party/ui/stats_tab/stats_tab.tscn" id="15_obv46"]
 [ext_resource type="Script" uid="uid://cyrn1w378lyp6" path="res://battle/system/components/character_status_manager.gd" id="15_r6df0"]
 
@@ -194,6 +195,11 @@ bbcode_enabled = true
 text = "* This is a sample texttt"
 tab_size = 2
 effect_offset = Vector2(30, 15)
+portrait_offset = Vector2(24, 4)
+MARGINS = {
+&"DEFAULT": Vector2(30, 12),
+&"PORTRAIT": Vector2(146, 12)
+}
 metadata/_edit_use_anchors_ = true
 
 [node name="TPBarPivot" type="Node2D" parent="." unique_id=168803083]
@@ -225,6 +231,9 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Checker" type="Node" parent="." unique_id=883240485]
+script = ExtResource("12_2la1o")
 
 [connection signal="turn_number_changed" from="." to="DataManager" method="_on_battle_turn_number_changed"]
 [connection signal="turn_finished" from="TurnQueue" to="ActionPanel/CharacterStatusManager" method="_on_turn_queue_turn_finished"]

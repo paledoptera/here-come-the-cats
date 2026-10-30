@@ -340,8 +340,7 @@ func hero_attack(event: AttackEvent):
 	
 	
 	Actors.trigger_damage_number(event.target.character_id,damage_number)
-		
-
+	
 	
 	
 	
