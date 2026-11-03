@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://c41u6n7akk2ry"]
 
+[ext_resource type="Script" uid="uid://vxpp0no56o83" path="res://entities/sections/sect_02_rain.gd" id="1_1gkpt"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="1_cab8o"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_xud30"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="3_a6uy5"]
 [ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="4_lnbrr"]
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="5_bg00e"]
+[ext_resource type="PackedScene" uid="uid://b48nqm16bhmk0" path="res://entities/bullets/generic/rain_bullet.tscn" id="6_v1l8j"]
 
 [sub_resource type="Curve2D" id="Curve2D_a6uy5"]
 _data = {
@@ -18,6 +21,7 @@ _data = {
 point_count = 4
 
 [node name="Rain" type="Node2D" unique_id=339688884]
+script = ExtResource("1_1gkpt")
 
 [node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("1_cab8o")]
 position = Vector2(-217, 96)
@@ -57,3 +61,74 @@ position = Vector2(-186, 98)
 
 [node name="FriendCoinMini2" parent="." unique_id=1056275415 instance=ExtResource("4_lnbrr")]
 position = Vector2(-250, 98)
+
+[node name="BulletSpawnerMega" type="Node2D" parent="." unique_id=743599926 node_paths=PackedStringArray("parent")]
+position = Vector2(0, -225)
+script = ExtResource("5_bg00e")
+bullet = ExtResource("6_v1l8j")
+spawn_amount_min = 0
+spawn_amount_max = 0
+speed_mult_min = 1.0
+speed_mult_max = 1.0
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Marker2D" type="Marker2D" parent="BulletSpawnerMega" unique_id=1556552590]
+position = Vector2(0, -150)
+
+[node name="Marker2D2" type="Marker2D" parent="BulletSpawnerMega" unique_id=909072410]
+position = Vector2(57, -150)
+
+[node name="Marker2D3" type="Marker2D" parent="BulletSpawnerMega" unique_id=912474621]
+position = Vector2(113, -150)
+
+[node name="Marker2D4" type="Marker2D" parent="BulletSpawnerMega" unique_id=1214077711]
+position = Vector2(171, -150)
+
+[node name="Marker2D5" type="Marker2D" parent="BulletSpawnerMega" unique_id=1605526037]
+position = Vector2(228, -150)
+
+[node name="Marker2D6" type="Marker2D" parent="BulletSpawnerMega" unique_id=1588316303]
+position = Vector2(284, -150)
+
+[node name="Marker2D7" type="Marker2D" parent="BulletSpawnerMega" unique_id=529110762]
+position = Vector2(336, -150)
+
+[node name="Marker2D8" type="Marker2D" parent="BulletSpawnerMega" unique_id=1261406951]
+position = Vector2(393, -150)
+
+[node name="Marker2D9" type="Marker2D" parent="BulletSpawnerMega" unique_id=1855219740]
+position = Vector2(449, -150)
+
+[node name="Marker2D10" type="Marker2D" parent="BulletSpawnerMega" unique_id=1093838984]
+position = Vector2(507, -150)
+
+[node name="Marker2D11" type="Marker2D" parent="BulletSpawnerMega" unique_id=755914920]
+position = Vector2(564, -150)
+
+[node name="Marker2D12" type="Marker2D" parent="BulletSpawnerMega" unique_id=638559760]
+position = Vector2(620, -150)
+
+[node name="Marker2D13" type="Marker2D" parent="BulletSpawnerMega" unique_id=2113278536]
+position = Vector2(678, -150)
+
+[node name="Marker2D14" type="Marker2D" parent="BulletSpawnerMega" unique_id=680217522]
+position = Vector2(735, -150)
+
+[node name="Marker2D15" type="Marker2D" parent="BulletSpawnerMega" unique_id=169499618]
+position = Vector2(791, -150)
+
+[node name="Marker2D16" type="Marker2D" parent="BulletSpawnerMega" unique_id=927496344]
+position = Vector2(843, -150)
+
+[node name="Marker2D17" type="Marker2D" parent="BulletSpawnerMega" unique_id=270153138]
+position = Vector2(900, -150)
+
+[node name="Marker2D18" type="Marker2D" parent="BulletSpawnerMega" unique_id=1268582194]
+position = Vector2(956, -150)
+
+[node name="Timer" type="Timer" parent="." unique_id=4333523]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

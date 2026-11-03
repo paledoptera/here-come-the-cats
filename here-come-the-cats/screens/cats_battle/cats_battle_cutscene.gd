@@ -3,16 +3,13 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await $AnimationPlayer.animation_finished
-	var dialogue = DialogueString.new("[shake]* The tail of hell takes crawl.")
-	dialogue.is_skippable = false
-	Dialogue.display_text(dialogue)
-	pass # Replace with function body.
-
+	
+	if Party.hero:
+		Flags.story.phase2_dess_start_hp = Party.hero[0].hp
+	if Party.enemy:
+		Party.enemy[0].hp = min(Party.enemy[0].hp,1200)
+		Flags.story.phase2_friend_start_hp = Party.enemy[0].hp
+	SceneLoader.game_state = SceneLoader.GameState.PHASE2
 
 func start_battle() -> void:
-	Battle.start(preload("uid://bpxsuw7g4pshc"))
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	SceneLoader.goto_phase2()

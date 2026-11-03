@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b48nqm16bhmk0"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_2epw0"]
+[ext_resource type="Texture2D" uid="uid://bkcctxyradhk8" path="res://entities/bullets/generic/res/raindrop.png" id="2_2epw0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2epw0"]
+radius = 4.0
+
+[node name="RainBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+script = ExtResource("1_2epw0")
+damage = 13
+graze_points = 0
+destructible = true
+velocity = Vector2(-50, 200)
+life_time = 4.0
+rotate_sprite = true
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+rotation = 1.5707964
+texture = ExtResource("2_2epw0")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_2epw0")

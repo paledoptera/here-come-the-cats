@@ -243,7 +243,8 @@ format = 3
 
 [sub_resource type="Resource" id="Resource_aqj5p"]
 script = ExtResource("9_ywpt5")
-text = "[wave]WEAKEN THE BEAST."
+text = "[wave]WEAKEN THE BEAST.
+WITHIN AN INCH OF ITS LIFE."
 talksound = SubResource("AudioStreamWAV_qrv5d")
 talksound_oneshot = true
 flag_value = null
@@ -256,7 +257,7 @@ format = 3
 
 [sub_resource type="Resource" id="Resource_7fuvy"]
 script = ExtResource("9_ywpt5")
-text = "[wave]THEN, WHEN ITS EYES GO DARK..."
+text = "[wave]THEN, WHEN ITS EYES GO RED..."
 talksound = SubResource("AudioStreamWAV_pwb2q")
 talksound_oneshot = true
 flag_value = null
@@ -423,8 +424,8 @@ dialogue_order = 1
 dialogue = Array[ExtResource("8_y3j1v")]([SubResource("Resource_2kqm3"), SubResource("Resource_fns6t"), SubResource("Resource_y3j1v"), SubResource("Resource_rcxur")])
 name = "CONCATENY"
 hp_max = 2000
-hp = 1000
-defense = 100
+hp = 2000
+defense = 0
 character_id = &"concateny"
 soundbank = Dictionary[StringName, AudioStream]({
 &"damaged": ExtResource("17_0pwyq"),

@@ -4,6 +4,7 @@ extends Node
 const TITLE_SCREEN = preload("uid://bo0085uf4akr6")
 const GAME_OVER = preload("uid://coe5g12bxe24k")
 const PHASE1 = preload("uid://ddmjcvocbt7r1")
+const END_CUTSCENE = preload("uid://bnoydr27bs3on")
 
 enum GameState { TITLE, PROLOGUE, PHASE1, PHASE2, END}
 
@@ -29,12 +30,18 @@ func goto_phase1() -> void:
 	get_tree().unload_current_scene()
 	change_scene(PHASE1)
 
-func goto_gameover() -> void:
-	var soul = get_tree().get_first_node_in_group("soul")
-	var center_pos = soul.get_viewport().get_camera_2d().get_screen_center_position()
-	soul_screen_pos = soul.global_position - (center_pos - Vector2(320.0,240.0))
+func goto_phase2() -> void:
 	get_tree().unload_current_scene()
+	Battle.start(preload("uid://bpxsuw7g4pshc"))
+
+
+func goto_gameover() -> void:
+	get_soul_pos()
 	change_scene(GAME_OVER)
+
+func goto_end_cutscene() -> void:
+	get_soul_pos()
+	change_scene(END_CUTSCENE)
 
 func goto_last_gamestate() -> void:
 	match game_state:
@@ -42,3 +49,10 @@ func goto_last_gamestate() -> void:
 			goto_title()
 		GameState.PHASE1:
 			goto_phase1()
+		GameState.PHASE2:
+			goto_phase2()
+
+func get_soul_pos() -> void:
+	var soul = get_tree().get_first_node_in_group("soul")
+	var center_pos = soul.get_viewport().get_camera_2d().get_screen_center_position()
+	soul_screen_pos = soul.global_position - (center_pos - Vector2(320.0,240.0))

@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dk6vcqwrllei5" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_2.png" id="10_66ub5"]
 [ext_resource type="PackedScene" uid="uid://c3g6e8a6mvxyh" path="res://entities/attacks/cat_paw.tscn" id="10_hesta"]
 [ext_resource type="Texture2D" uid="uid://c5fl84mv66ny2" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_3.png" id="11_cj4nw"]
-[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="11_odm7m"]
 [ext_resource type="Texture2D" uid="uid://dpvj1el26425o" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_4.png" id="12_hy7bp"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="12_wfeub"]
 [ext_resource type="Texture2D" uid="uid://so0jdhb0nhcr" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_5.png" id="13_h2fht"]
@@ -1344,10 +1343,10 @@ tracks/13/path = NodePath("../..:event")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 6.7999997, 7.233333, 10.333333, 137.96666, 151.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 6.7999997, 7.233333, 10.333333, 41.133335, 109.96667, 137.96666, 151.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 2, 50, 666]
+"values": [0, 0, 1, 2, 3, 10, 50, 666]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -2293,11 +2292,9 @@ z_index = -1
 [node name="PinkLine" parent="Attacks" unique_id=42622812 instance=ExtResource("9_lij5d")]
 position = Vector2(0, 240)
 
-[node name="FriendCoin" parent="Attacks/PinkLine" unique_id=1685877794 instance=ExtResource("11_odm7m")]
-position = Vector2(4109.188, 12)
-
-[node name="FriendCoin2" parent="Attacks/PinkLine" unique_id=910287764 instance=ExtResource("11_odm7m")]
-position = Vector2(4618.188, -37)
+[node name="PathFollow2D" type="PathFollow2D" parent="Attacks/PinkLine" unique_id=673920750]
+position = Vector2(-1000, 0)
+rotation = 5.746985e-05
 
 [node name="CatPaws" type="Node2D" parent="Attacks" unique_id=525588304]
 
@@ -2668,6 +2665,8 @@ scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_hciib")
 
 [connection signal="impending_doom" from="Clock/UpperPanel/DeathClock" to="Clock" method="_on_death_clock_impending_doom"]
+[connection signal="soul_entered_bite_area" from="Cat" to="." method="_on_cat_soul_entered_bite_area"]
+[connection signal="soul_exited_bite_area" from="Cat" to="." method="_on_cat_soul_exited_bite_area"]
 
 [editable path="Attacks/CatPaws/CatPaw1"]
 [editable path="Attacks/CatPaws/CatPaw2"]

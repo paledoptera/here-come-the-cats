@@ -1,5 +1,8 @@
 class_name CatBoss extends Area2D
 
+signal soul_entered_bite_area
+signal soul_exited_bite_area
+
 func bullet_shot(damage: int, other_bullet: Area2D) -> void:
 	var final_damage: int = 0
 	if damage < 10.0:
@@ -16,3 +19,12 @@ func bullet_shot(damage: int, other_bullet: Area2D) -> void:
 	print("NEW HP: ", target.hp)
 	var damage_number = FloatingText.initialize_text(str(final_damage),Color.WHITE)
 	Actors.trigger_damage_number(target.character_id,damage_number,other_bullet.global_position,true)
+
+
+func _on_bite_zone_body_entered(body: Node2D) -> void:
+	if body is Soul:
+		soul_entered_bite_area.emit()
+
+func _on_bite_zone_body_exited(body: Node2D) -> void:
+	if body is Soul:
+		soul_exited_bite_area.emit()

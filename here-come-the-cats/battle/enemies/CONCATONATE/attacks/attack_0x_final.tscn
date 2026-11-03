@@ -8,11 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bq6kmy1qahs28" path="res://battle/enemies/CONCATONATE/attacks/res/mouth_bullet.png" id="6_sbjtm"]
 [ext_resource type="Texture2D" uid="uid://q8qr1yi6tsyh" path="res://battle/enemies/CONCATONATE/actor/res/catny_particle.png" id="7_0d624"]
 [ext_resource type="Script" uid="uid://by4tt6dkfvfff" path="res://battle/enemies/CONCATONATE/attacks/zone.gd" id="7_sbjtm"]
-[ext_resource type="PackedScene" uid="uid://c2uxhjqxjdm84" path="res://battle/enemies/CONCATONATE/attacks/goal.tscn" id="9_eeb4c"]
 
 [sub_resource type="Curve2D" id="Curve2D_sbjtm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2691, -51, 0, 0, 0, 0, 1741, -51)
+"points": PackedVector2Array(0, 0, 0, 0, 3511, -48, 0, 0, 0, 0, 2054, -48)
 }
 point_count = 2
 
@@ -85,29 +84,13 @@ handle_input_locally = false
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("1_sbjtm")]
-offset_left = 64.0
-offset_top = 161.0
-offset_right = 5064.0
-offset_bottom = 461.0
+[node name="Battlebox" parent="SubViewportContainer/SubViewport" unique_id=445257611 instance=ExtResource("1_sbjtm")]
+offset_left = -256.0
+offset_top = -79.0
+offset_right = 4744.0
+offset_bottom = 221.0
 
-[node name="SoulFriend" parent="." unique_id=443094051 node_paths=PackedStringArray("jaws") instance=ExtResource("2_0d624")]
-z_index = 4096
-position = Vector2(-42, 159)
-constant_pink_speed = -1.0
-soul_state = 1
-jaws = NodePath("../TonguePinkLine/JAWS")
-get_tp_from_dashing = false
-speed_mult = 2.0
-
-[node name="SwitchOutline" parent="SoulFriend" index="1" unique_id=1787105376]
-visible = false
-
-[node name="Camera2D" type="Camera2D" parent="SoulFriend" unique_id=491353616]
-limit_top = 0
-limit_bottom = 480
-
-[node name="TonguePinkLine" type="Path2D" parent="." unique_id=42622812 groups=["pink_lines"]]
+[node name="TonguePinkLine" type="Path2D" parent="SubViewportContainer/SubViewport" unique_id=42622812 groups=["pink_lines"]]
 z_index = 101
 position = Vector2(-2046, 210)
 curve = SubResource("Curve2D_sbjtm")
@@ -115,39 +98,39 @@ script = ExtResource("3_nvqo6")
 speed = -200.0
 loop = false
 
-[node name="PathFollow2D" type="PathFollow2D" parent="TonguePinkLine" unique_id=1384818225]
-position = Vector2(2691, -51)
+[node name="PathFollow2D" type="PathFollow2D" parent="SubViewportContainer/SubViewport/TonguePinkLine" unique_id=1384818225]
+position = Vector2(3511, -48)
 rotation = 3.1415927
 
-[node name="Sprite2D" type="Sprite2D" parent="TonguePinkLine/PathFollow2D" unique_id=1266114344]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/PathFollow2D" unique_id=1266114344]
 modulate = Color(1, 0.4117647, 0.7058824, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_4j75f")
 
-[node name="JAWS" type="PathFollow2D" parent="TonguePinkLine" unique_id=605576767 node_paths=PackedStringArray("target")]
-position = Vector2(2691, -51)
+[node name="JAWS" type="PathFollow2D" parent="SubViewportContainer/SubViewport/TonguePinkLine" unique_id=605576767 node_paths=PackedStringArray("target")]
+position = Vector2(3511, -48)
 rotation = 3.1415927
 loop = false
 script = ExtResource("5_1if3k")
 speed = 500.0
 target = NodePath("../../SoulFriend")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TonguePinkLine/JAWS" unique_id=945704979]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/JAWS" unique_id=945704979]
 z_index = 4096
 position = Vector2(21.499973, -0.117525846)
 scale = Vector2(-1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_3pgiq")
 autoplay = "default"
 
-[node name="Zone" type="Area2D" parent="TonguePinkLine/JAWS" unique_id=1719509707]
+[node name="Zone" type="Area2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/JAWS" unique_id=1719509707]
 position = Vector2(-19.500305, 1.7026009e-06)
 rotation = 3.1381083
 script = ExtResource("7_sbjtm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TonguePinkLine/JAWS/Zone" unique_id=1237741888]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/JAWS/Zone" unique_id=1237741888]
 shape = SubResource("CircleShape2D_mve3e")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="TonguePinkLine/JAWS" unique_id=1509880594]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SubViewportContainer/SubViewport/TonguePinkLine/JAWS" unique_id=1509880594]
 z_index = 1842
 position = Vector2(1.5001869, -0.21154332)
 scale = Vector2(0.795, 0.795)
@@ -165,9 +148,22 @@ scale_amount_min = 0.1
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_k8345")
 
-[node name="Goal" parent="." unique_id=1788018638 instance=ExtResource("9_eeb4c")]
-position = Vector2(-1805, 104)
+[node name="SoulFriend" parent="SubViewportContainer/SubViewport" unique_id=443094051 node_paths=PackedStringArray("jaws") instance=ExtResource("2_0d624")]
+z_index = 4096
+position = Vector2(320, 159)
+constant_pink_speed = -1.0
+soul_state = 1
+jaws = NodePath("../TonguePinkLine/JAWS")
+get_tp_from_dashing = false
+speed_mult = 2.0
 
-[connection signal="body_entered" from="TonguePinkLine/JAWS/Zone" to="TonguePinkLine/JAWS/Zone" method="_on_body_entered"]
+[node name="SwitchOutline" parent="SubViewportContainer/SubViewport/SoulFriend" index="1" unique_id=1787105376]
+visible = false
 
-[editable path="SoulFriend"]
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/SoulFriend" unique_id=1137282938]
+limit_left = 0
+limit_top = 0
+
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/TonguePinkLine/JAWS/Zone" to="SubViewportContainer/SubViewport/TonguePinkLine/JAWS/Zone" method="_on_body_entered"]
+
+[editable path="SubViewportContainer/SubViewport/SoulFriend"]

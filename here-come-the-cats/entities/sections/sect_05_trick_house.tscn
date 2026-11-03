@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_limfy"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="6_gbrxg"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_yg45a"]
+[ext_resource type="PackedScene" uid="uid://cmshuy1vufwt" path="res://entities/misc/candy/candy.tscn" id="7_gbrxg"]
+[ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="8_7lqsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -267,3 +269,24 @@ rotates = false
 script = SubResource("GDScript_g4v7s")
 
 [node name="FriendCoin" parent="PinkLine/PathFollow2D3" unique_id=791791619 instance=ExtResource("6_yg45a")]
+
+[node name="Candy" parent="." unique_id=2044944211 instance=ExtResource("7_gbrxg")]
+position = Vector2(236, 266)
+
+[node name="FriendCoinMini" parent="." unique_id=513557724 instance=ExtResource("8_7lqsh")]
+position = Vector2(275, 268)
+
+[node name="FriendCoinMini2" parent="." unique_id=157360133 instance=ExtResource("8_7lqsh")]
+position = Vector2(200, 268)
+
+[node name="FriendCoinMini3" parent="." unique_id=667853506 instance=ExtResource("8_7lqsh")]
+position = Vector2(178, 268)
+
+[node name="FriendCoinMini4" parent="." unique_id=785258164 instance=ExtResource("8_7lqsh")]
+position = Vector2(297, 268)
+
+[node name="FriendCoinMini5" parent="." unique_id=1435028160 instance=ExtResource("8_7lqsh")]
+position = Vector2(318, 268)
+
+[node name="FriendCoinMini6" parent="." unique_id=1598987600 instance=ExtResource("8_7lqsh")]
+position = Vector2(156, 268)

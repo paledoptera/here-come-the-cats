@@ -6,23 +6,23 @@ const CAT_COLLECTIBLE = preload("uid://c4xirgxvxcybl")
 const DESS = preload("uid://xcpu86gdep5b")
 const FRIEND = preload("uid://b1olkw8f4kqlm")
 
-const CAT_ATTACKS_2_BEAT = [
-	preload("uid://dd5aewx0bpt22"), # cat spit
-	preload("uid://tgjgo8af01nh"), # cat shooter
+const CAT_ATTACKS = {
+	"spit" = preload("uid://dd5aewx0bpt22"),
+	"shooter" = preload("uid://tgjgo8af01nh"),
+	"tail" = preload("uid://clib1tg1p531h"),
+	"jaws" = preload("uid://bqpe6h8uay2lv"),
+	"rats" = preload("uid://dayvcwnrmkmrw"),
 	
-]
-
-const CAT_ATTACKS_4_BEAT = [
-	preload("uid://clib1tg1p531h"), # cat tail
-	preload("uid://bqpe6h8uay2lv"), # cat jaws
-]
+}
 
 enum SoulType {YELLOW, PINK}
 
+var attack_progression: CatAttackProgression
 
-
+var last_attack: StringName = "spit"
 var repeating_attack_name: StringName = ""
 var repeating_attack_amount: int = 0
+var soul_in_biting_area: bool = false
 
 var sound: int = 0
 var soul: Soul
@@ -60,6 +60,10 @@ func _process(delta: float) -> void:
 	Party.enemy[0].hp = clamp(Party.enemy[0].hp,962,2000)
 
 func _on_beat() -> void:
+	
+	
+	
+	
 	print("BEAT, ", Music.last_beat)
 	beat += 1.0
 	
@@ -71,29 +75,24 @@ func _on_beat() -> void:
 	if attacking == false:
 		return
 	
-	if fmod(beat,8.0) == 0.0:
-		start_attack(CAT_ATTACKS_4_BEAT.pick_random())
-	elif fmod(beat,4.0) == 0.0:
-		start_attack(CAT_ATTACKS_2_BEAT.pick_random())
-
-		
-		pass
+	
+	if soul_in_biting_area:
+		Actors.do_action("friend","chomp")
+	else:
+		Actors.do_action("friend","idle")
 	
 	
 	
-		
-	#
-	#if beat >= 4.0:
-		#beat -= 4.0
-		#var chance = [false, false, true].pick_random()
-		#if not chance:
-			#return
-		#
-		#
-		#var cat = CAT_COLLECTIBLE.instantiate()
-		#add_child(cat)
-		#cat.global_position.x = 700.0
-		#cat.global_position.y = randf_range(0.0,480.0)
+	var attack: CatAttack = attack_progression.attacks.pop_front()
+	
+	if attack is CatAttackWait:
+		return
+	elif attack is CatAttackSingle:
+		start_attack(attack.attack)
+	elif attack is CatAttackRandom:
+		start_attack(attack.attack.pick_random())
+	elif attack is CatAttackRepeat:
+		start_attack(last_attack)
 
 
 func _damage_player(value: int) -> void:
@@ -124,33 +123,50 @@ func _on_event_changed(value: int) -> void:
 			%DeathClock.activate()
 		1: # cat anim
 			$Background/TV/PerspectiveQuad2D/SubViewport/AnimatedSprite2D.play("default")
+		3:
+			attack_progression = preload("uid://da22bft76kvvq").duplicate(true)
+		10: 
+			attack_progression = preload("uid://ddou2lx2pflxc").duplicate(true)
 		50:
 			%DeathClock.deactivate()
 		666:
 			Sound.play(preload("uid://dvms0telejmfp"))
 
-func start_attack(attack: PackedScene):
+func start_attack(attack: StringName):
 	var pos = %Cat.global_position
-	var inst = attack.instantiate()
 	
-	match inst.id.to_lower():
-		"catjaws":
+	var inst = CAT_ATTACKS[attack].instantiate()
+	
+	match attack:
+		"jaws":
 			pos = $SoulFriend.global_position
 			pos.y = 0.0
 			pos.x += randf_range(-100.0,100.0)
-		"cattail":
+		"tail":
 			pos.x = 700.0
 			pos.y = randf_range(150.0,300.0)
-		"catshooter":
+		"shooter":
 			pos.x = 700.0
+		"rats":
+			pos.x = 700.0
+	
+	last_attack = attack
 		
 	add_child(inst)
 		
 	inst.global_position = pos
 
-	match inst.id.to_lower():
-		"cattail":
+	match attack:
+		"tail":
 			inst.look_at($SoulFriend.global_position)
 
 func _on_song_ended() -> void:
 	SceneLoader.change_scene(preload("uid://clyt0hcde7icu"))
+
+
+func _on_cat_soul_entered_bite_area() -> void:
+	soul_in_biting_area = true
+
+
+func _on_cat_soul_exited_bite_area() -> void:
+	soul_in_biting_area = false

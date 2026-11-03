@@ -24,10 +24,10 @@ gradient = SubResource("Gradient_jfhbe")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_84urc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1kr2c"]
 viewport_path = NodePath("TitleSprite/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b8vs0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vq66b"]
 viewport_path = NodePath("TitleSprite/SubViewport")
 
 [sub_resource type="Animation" id="Animation_1h4sr"]
@@ -539,7 +539,7 @@ tracks/7/path = NodePath("DessScene/Sprite2D:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(32.233334, 36.866665, 38.133335),
+"times": PackedFloat32Array(32.233334, 40.299995, 41.566666),
 "transitions": PackedFloat32Array(0.5, -2, 1),
 "update": 0,
 "values": [Vector2(331, 150), Vector2(331, 277), Vector2(331, 400)]
@@ -635,7 +635,7 @@ tracks/15/path = NodePath("DessScene/Background:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(32.233334, 36.86667, 38.133335),
+"times": PackedFloat32Array(32.233334, 40.3, 41.566666),
 "transitions": PackedFloat32Array(0.5, -2, 1),
 "update": 0,
 "values": [Vector2(0, 38), Vector2(0, 112.36), Vector2(0, 250)]
@@ -671,7 +671,7 @@ tracks/18/path = NodePath("DessScene/Friends:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(36.866665, 38.133335),
+"times": PackedFloat32Array(40.299995, 41.566666),
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 168)]
@@ -904,22 +904,22 @@ position = Vector2(345, 216)
 scale = Vector2(0.5, 0.1)
 
 [node name="TitleSprite" parent="Title/Title" index="0" unique_id=901160749]
-texture = SubResource("ViewportTexture_84urc")
+texture = SubResource("ViewportTexture_1kr2c")
 
 [node name="Title" parent="Title/Title/TitleSprite/SubViewport/Logo" parent_id_path=PackedInt32Array(1047512866, 1658917434) index="1" unique_id=1520987570]
 modulate = Color(0.83137256, 0.83137256, 0.83137256, 0)
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot1/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 969240893, 694134532) index="0" unique_id=912250917]
-texture = SubResource("ViewportTexture_b8vs0")
+texture = SubResource("ViewportTexture_vq66b")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot2/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1739229495, 694134532) index="0" unique_id=864236577]
-texture = SubResource("ViewportTexture_b8vs0")
+texture = SubResource("ViewportTexture_vq66b")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot3/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 502867000, 694134532) index="0" unique_id=2016627665]
-texture = SubResource("ViewportTexture_b8vs0")
+texture = SubResource("ViewportTexture_vq66b")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot4/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1731470947, 694134532) index="0" unique_id=695561527]
-texture = SubResource("ViewportTexture_b8vs0")
+texture = SubResource("ViewportTexture_vq66b")
 
 [node name="Text1" type="RichTextLabel" parent="." unique_id=1514680285]
 anchors_preset = 15
@@ -991,6 +991,12 @@ scale = Vector2(1, -1)
 [node name="AnimationPlayer" parent="CatPartyLine2/Parallax2D" parent_id_path=PackedInt32Array(1832749229, 235455325) index="4" unique_id=159704715]
 speed_scale = 5.0
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1956878641]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(199, 273)
+texture = ExtResource("10_ly7rp")
+
 [node name="Fader" type="ColorRect" parent="." unique_id=283606933]
 anchors_preset = 15
 anchor_right = 1.0
@@ -998,12 +1004,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1956878641]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(199, 273)
-texture = ExtResource("10_ly7rp")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

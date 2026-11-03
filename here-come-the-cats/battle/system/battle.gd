@@ -34,14 +34,18 @@ static func start(fight_data: FightData) -> Node:
 	var scene = SCENE.instantiate()
 	stage.add_child(scene)
 	scene.gimmicks = fight_data.gimmicks
-
 	
-	Party.enemy.clear()
-	Party.enemy = fight_data.enemies
-	
-	if fight_data.custom_party and fight_data.party:
+	## below is hardcoded terribleness
+	if not Party.hero:
 		Party.hero.clear()
-		Party.hero = fight_data.party
+		Party.hero.append(preload("uid://xcpu86gdep5b").duplicate(true))
+	Party.hero[0].hp = Flags.story.phase2_dess_start_hp
+	
+	if not Party.enemy:
+		Party.enemy.clear()
+		Party.enemy.append(preload("uid://b1olkw8f4kqlm").duplicate(true))
+	Party.enemy[0].hp = Flags.story.phase2_friend_start_hp
+	Party.enemy[0].turn = 0
 	
 	scene.soul_bearer = fight_data.soul_bearer
 	

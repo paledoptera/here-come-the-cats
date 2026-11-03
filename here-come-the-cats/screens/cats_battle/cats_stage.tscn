@@ -261,7 +261,7 @@ colors = PackedColorArray(1, 0, 1, 1, 1, 1, 0, 0)
 gradient = SubResource("Gradient_dir8a")
 fill_to = Vector2(0, 1)
 
-[node name="CatsBattle" type="Node" unique_id=46766806]
+[node name="CatsStage" type="Node" unique_id=46766806]
 script = ExtResource("1_kvlkf")
 
 [node name="CatPartyLine" parent="." unique_id=354105943 instance=ExtResource("2_dir8a")]
@@ -306,6 +306,7 @@ identifier = &"gaster"
 script = ExtResource("4_qjuxq")
 song = ExtResource("5_awv02")
 bpm = 155.0
+start_position = 17.04
 enable_rhythm_tracking = true
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 

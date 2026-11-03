@@ -1,0 +1,164 @@
+[gd_resource type="Resource" script_class="CatAttackProgression" format=3 uid="uid://ddou2lx2pflxc"]
+
+[ext_resource type="Script" uid="uid://d1qjw0ymdujyf" path="res://entities/attacks/cat_attack.gd" id="1_2tm1l"]
+[ext_resource type="Script" uid="uid://cskeh1doepthx" path="res://entities/attacks/cat_attack_single.gd" id="2_x4nji"]
+[ext_resource type="Script" uid="uid://dauua4hd16kfr" path="res://entities/attacks/cat_attack_wait.gd" id="3_saash"]
+[ext_resource type="Script" uid="uid://kccfa5xqlami" path="res://entities/attacks/cat_attack_repeat.gd" id="4_li0ij"]
+[ext_resource type="Script" uid="uid://bnufxddkq5btn" path="res://entities/attacks/cat_attack_random.gd" id="5_kymd1"]
+[ext_resource type="Script" uid="uid://iwxb57qcf6dj" path="res://entities/attacks/cat_attack_progression.gd" id="6_ym2pn"]
+
+[sub_resource type="Resource" id="Resource_gm1nw"]
+resource_name = "SPIT"
+script = ExtResource("2_x4nji")
+attack = &"spit"
+metadata/_custom_type_script = "uid://cskeh1doepthx"
+
+[sub_resource type="Resource" id="Resource_sqbhf"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_20tlp"]
+resource_name = "TAIL"
+script = ExtResource("2_x4nji")
+attack = &"tail"
+metadata/_custom_type_script = "uid://cskeh1doepthx"
+
+[sub_resource type="Resource" id="Resource_nmfxc"]
+resource_name = "JAWS"
+script = ExtResource("2_x4nji")
+attack = &"jaws"
+metadata/_custom_type_script = "uid://cskeh1doepthx"
+
+[sub_resource type="Resource" id="Resource_ohdsy"]
+resource_name = "repeat"
+script = ExtResource("4_li0ij")
+metadata/_custom_type_script = "uid://kccfa5xqlami"
+
+[sub_resource type="Resource" id="Resource_d0kh5"]
+resource_name = "SPITorSHOOTER"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"shooter"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_jspvn"]
+resource_name = "RATS"
+script = ExtResource("2_x4nji")
+attack = &"rats"
+metadata/_custom_type_script = "uid://cskeh1doepthx"
+
+[sub_resource type="Resource" id="Resource_68wid"]
+resource_name = "SPITorSHOOTERorJAWS"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"shooter", &"jaws"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_fxk6c"]
+resource_name = "SPITorRATS"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"rats"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_n474k"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_psprj"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_4p0nh"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_cc71c"]
+resource_name = "SPITorRATS"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"rats"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_rb3ln"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_hbn4o"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_87822"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_2k50h"]
+resource_name = "SPITorRATS"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"rats"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_bw113"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_anlkt"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_vdt6h"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_k6ofx"]
+resource_name = "SPITorRATS"
+script = ExtResource("5_kymd1")
+attack = Array[StringName]([&"spit", &"rats"])
+metadata/_custom_type_script = "uid://bnufxddkq5btn"
+
+[sub_resource type="Resource" id="Resource_lqxvc"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_1oxbg"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_y0usj"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_8sntx"]
+resource_name = "TAIL"
+script = ExtResource("2_x4nji")
+attack = &"tail"
+metadata/_custom_type_script = "uid://cskeh1doepthx"
+
+[sub_resource type="Resource" id="Resource_wqxfa"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_a2o3e"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[sub_resource type="Resource" id="Resource_pwne8"]
+resource_name = "wait"
+script = ExtResource("3_saash")
+metadata/_custom_type_script = "uid://dauua4hd16kfr"
+
+[resource]
+script = ExtResource("6_ym2pn")
+attacks = Array[ExtResource("1_2tm1l")]([SubResource("Resource_gm1nw"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_gm1nw"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_20tlp"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_nmfxc"), SubResource("Resource_ohdsy"), SubResource("Resource_ohdsy"), SubResource("Resource_sqbhf"), SubResource("Resource_d0kh5"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_jspvn"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_68wid"), SubResource("Resource_sqbhf"), SubResource("Resource_ohdsy"), SubResource("Resource_sqbhf"), SubResource("Resource_ohdsy"), SubResource("Resource_sqbhf"), SubResource("Resource_68wid"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_gm1nw"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_gm1nw"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_sqbhf"), SubResource("Resource_fxk6c"), SubResource("Resource_n474k"), SubResource("Resource_psprj"), SubResource("Resource_4p0nh"), SubResource("Resource_cc71c"), SubResource("Resource_rb3ln"), SubResource("Resource_hbn4o"), SubResource("Resource_87822"), SubResource("Resource_2k50h"), SubResource("Resource_bw113"), SubResource("Resource_anlkt"), SubResource("Resource_vdt6h"), SubResource("Resource_k6ofx"), SubResource("Resource_lqxvc"), SubResource("Resource_1oxbg"), SubResource("Resource_y0usj"), SubResource("Resource_8sntx"), SubResource("Resource_wqxfa"), SubResource("Resource_a2o3e"), SubResource("Resource_pwne8")])
+metadata/_custom_type_script = "uid://iwxb57qcf6dj"

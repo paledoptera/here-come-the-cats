@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dayvcwnrmkmrw"]
+
+[ext_resource type="Script" uid="uid://c1budb0chnh6p" path="res://entities/attacks/cat_rats.gd" id="1_ifupn"]
+
+[node name="CatRats" type="Node2D" unique_id=602485451]
+script = ExtResource("1_ifupn")
+wait_for_bullets = true
+id = &"rats"
+
+[node name="Timer" type="Timer" parent="." unique_id=1569966434]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

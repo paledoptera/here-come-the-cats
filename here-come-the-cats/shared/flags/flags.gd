@@ -18,6 +18,8 @@ class BattleFlags:
 	var attack_tp: int = DEFAULT_ATTACK_TP
 
 class StoryFlags:
+	var phase2_dess_start_hp: int = 266
+	var phase2_friend_start_hp: int = 1200
 	var dream_warden_phase: int = 0
 
 

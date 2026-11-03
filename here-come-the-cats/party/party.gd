@@ -10,12 +10,12 @@ var tp: float = 0.0:
 		tp_changed.emit(tp)
 
 
-var hero: Array[CharacterStats] = [preload("uid://xcpu86gdep5b")]:
+var hero: Array[CharacterStats]:
 	set(value):
 		hero = value
 		hero_updated.emit()
 
-var enemy: Array[CharacterStats] = [preload("uid://bwk0888uoya3f")]:
+var enemy: Array[CharacterStats]:
 	set(value):
 		enemy = value
 		enemy_updated.emit()

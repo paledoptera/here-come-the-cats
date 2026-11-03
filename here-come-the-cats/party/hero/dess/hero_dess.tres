@@ -44,7 +44,7 @@ metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
 [sub_resource type="Resource" id="Resource_56w50"]
 script = ExtResource("8_vydok")
-amount = 50
+amount = 80
 metadata/_custom_type_script = "uid://wrd5a758xsyj"
 
 [sub_resource type="Resource" id="Resource_n3ghv"]
@@ -53,7 +53,7 @@ script = ExtResource("3_o2431")
 tp_cost = 32
 name = &"BloodHeal"
 description = "Heals
-50HP"
+80HP"
 effects = Array[ExtResource("5_n4lmm")]([SubResource("Resource_56w50")])
 metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
@@ -65,7 +65,7 @@ name = "Dess"
 color = Color(1, 0.41568628, 0, 1)
 hp_max = 500
 hp = 500
-attack = 60
+attack = 10
 defense = 2
 magic = 5
 character_id = &"dess"
