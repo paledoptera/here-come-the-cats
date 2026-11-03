@@ -12,11 +12,11 @@ enum SoulState {YELLOW, PINK, OUT_OF_BOUNDS}
 @export var jaws: PathFollow2D
 @export var jaws_backwards: bool = false
 @export var get_tp_from_dashing: bool = true
-@export var surfing_animation: bool = false
 @export var recover_when_offscreen: bool = false
 
 var current_anim: String
 
+@export var switching: bool = false
 var shoot_state := ShootState.IDLE
 var charge_max: float = 16.0
 var charge_timer: float = 0.0
@@ -89,9 +89,9 @@ func _physics_process(delta: float) -> void:
 	
 	match soul_state:
 		SoulState.YELLOW:
-			global_rotation = lerp(global_rotation,0.0,0.3)
+			global_rotation = lerp_angle(global_rotation,0.0,0.3)
 		SoulState.PINK:
-			global_rotation = lerp(global_rotation,pink_angle,0.3)
+			global_rotation = lerp_angle(global_rotation,pink_angle,0.3)
 	
 	
 	if not taking_input or is_recovering:
@@ -182,9 +182,6 @@ func _physics_process(delta: float) -> void:
 	
 
 func _process(delta: float) -> void:
-	
-	if surfing_animation:
-		do_animations()
 
 	if not taking_input:
 		return
@@ -267,17 +264,16 @@ func switch_soul_mode() -> void:
 	
 
 	soul_state = wrapi(soul_state+1,0,2)
-	
 	play_switch_animation()
+	EventBus.soul_mode_switched.emit(soul_state)
 
 
 func play_switch_animation():
 	if soul_state == SoulState.YELLOW:
-		Actors.do_action("dess","switch_to_yellow")
+		
 		$AnimationPlayer.play("switch_to_yellow")
 		charge_timer = 0.0
 	else:
-		Actors.do_action("dess","switch_to_pink")
 		$AnimationPlayer.play("switch_to_pink")
 		charge_timer = 0.0
 
@@ -351,23 +347,4 @@ func process_pink_switcher() -> void:
 		
 		pink_outline.reparent(nearest_follower,false)
 		
-
-func do_animations() -> void:
-	
-	var input = Input.get_vector("left","right","up","down")
-	
-	var last_anim = current_anim
-	
-	var new_anim = last_anim
-	
-	if input == Vector2.ZERO:
-		new_anim = "surfing"
-	else:
-		if input.x < 0.0 or input.y > 0.0:
-			new_anim = "surfing_left"
-		elif input.x > 0.0 or input.y < 0.0:
-			new_anim = "surfing_right"
-	
-	if last_anim != new_anim:
-		Actors.do_action("dess",new_anim)
 	

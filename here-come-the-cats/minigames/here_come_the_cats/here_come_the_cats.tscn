@@ -46,11 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://ciy8snuv5vm8m" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_16.png" id="24_i5rva"]
 [ext_resource type="Texture2D" uid="uid://b6mxa7qi1ly5i" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_17.png" id="25_uturu"]
 [ext_resource type="Texture2D" uid="uid://lb622uqkl6bd" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_18.png" id="26_kavji"]
-[ext_resource type="Texture2D" uid="uid://g1gd8pt8m7sg" path="res://entities/bullets/generic/rat.png" id="26_wtedt"]
-[ext_resource type="PackedScene" uid="uid://cmp4abyqiue4l" path="res://entities/misc/tail_effect/tail_effect.tscn" id="27_0luxh"]
 [ext_resource type="Texture2D" uid="uid://gi37a8c6sryv" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_19.png" id="27_4jk11"]
 [ext_resource type="Texture2D" uid="uid://bhfktw7j2w410" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_20.png" id="28_bxtn4"]
-[ext_resource type="Texture2D" uid="uid://cnyt60ecuoid6" path="res://minigames/here_come_the_cats/res/rat_tail.png" id="28_ygebw"]
 [ext_resource type="Texture2D" uid="uid://bbsqxuox7kx81" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_21.png" id="29_naq35"]
 [ext_resource type="Texture2D" uid="uid://8rrs0uhou0yf" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_22.png" id="30_j36ht"]
 [ext_resource type="Texture2D" uid="uid://bh8wookgcrfhl" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_23.png" id="31_53v86"]
@@ -117,7 +114,6 @@
 [ext_resource type="PackedScene" uid="uid://bx8s468x0tsp" path="res://entities/effects/cats/cat_playing_with_phone.tscn" id="92_hy7bp"]
 [ext_resource type="Texture2D" uid="uid://bcu7i6aoj6cqf" path="res://entities/effects/cats/res/cat_balloon.png" id="93_h2fht"]
 [ext_resource type="Texture2D" uid="uid://i2ksspyyog55" path="res://entities/effects/tongue_stab/tongue_stab.png" id="112_66ub5"]
-[ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="112_gm1nw"]
 [ext_resource type="Texture2D" uid="uid://d0xfvjkn0aa7p" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_01.png" id="120_5v56g"]
 [ext_resource type="Texture2D" uid="uid://cbh8pml5a02u8" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_02.png" id="121_hciib"]
 [ext_resource type="Texture2D" uid="uid://j43un0tp12jw" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_03.png" id="122_7oixr"]
@@ -1740,20 +1736,6 @@ func _process(delta: float) -> void:
 	other_box.text = text
 "
 
-[sub_resource type="Animation" id="Animation_kfws3"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_7d2pb"]
-resource_name = "tail"
-length = 0.8
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlini"]
-_data = {
-&"RESET": SubResource("Animation_kfws3"),
-&"tail": SubResource("Animation_7d2pb")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hy7bp"]
 atlas = ExtResource("91_cj4nw")
 region = Rect2(0, 0, 76, 64)
@@ -2502,51 +2484,17 @@ z_index = 105
 position = Vector2(144, 232)
 is_in_air = true
 switchable = true
-surfing_animation = true
 recover_when_offscreen = true
 speed_mult = 2.0
 
 [node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]
+position = Vector2(0, -4)
+surfing = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="SoulFriend/Dess" unique_id=1229738276]
 remote_path = NodePath("../../../SpeechBubbleParent")
 update_rotation = false
 update_scale = false
-
-[node name="Rat" type="Sprite2D" parent="SoulFriend/Dess" unique_id=1295525588]
-show_behind_parent = true
-z_index = -1
-position = Vector2(3, 19.5)
-scale = Vector2(2, 2)
-texture = ExtResource("26_wtedt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SoulFriend/Dess/Rat" unique_id=1763017370]
-libraries/ = SubResource("AnimationLibrary_hlini")
-autoplay = &"tail"
-speed_scale = 0.5
-
-[node name="TailEffect" parent="SoulFriend/Dess/Rat" unique_id=1027478356 instance=ExtResource("27_0luxh")]
-z_index = 0
-position = Vector2(-17, 1)
-
-[node name="1" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=188306289]
-texture = ExtResource("28_ygebw")
-
-[node name="2" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=450678847]
-texture = ExtResource("28_ygebw")
-
-[node name="3" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=166029469]
-texture = ExtResource("28_ygebw")
-
-[node name="4" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=2100404851]
-texture = ExtResource("28_ygebw")
-
-[node name="5" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=452331893]
-texture = ExtResource("28_ygebw")
-
-[node name="9" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=61911270]
-scale = Vector2(-1, 1)
-texture = ExtResource("112_gm1nw")
 
 [node name="TailStab" type="Sprite2D" parent="SoulFriend" unique_id=175926338]
 visible = false
@@ -2566,7 +2514,7 @@ scale = Vector2(1, -1)
 
 [node name="SpeechBubbleParent" type="Node2D" parent="." unique_id=926743467]
 z_index = 105
-position = Vector2(144, 232)
+position = Vector2(144, 228)
 
 [node name="SpeechBubble" parent="SpeechBubbleParent" unique_id=525169759 instance=ExtResource("18_v4cn4")]
 offset_left = 120.0

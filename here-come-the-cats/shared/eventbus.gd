@@ -15,3 +15,5 @@ signal large_coin_collected
 signal attack_area_end
 
 signal game_restarted
+
+signal soul_mode_switched(state: SoulFriend.SoulState)

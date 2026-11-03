@@ -388,7 +388,7 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0, 0.96666664, 1.1666666, 2),
 "transitions": PackedFloat32Array(0.5, -2, -2, 1),
 "update": 0,
-"values": [0.0, 0.09250245035569941, -0.16057029118347838, 0.0]
+"values": [0.0, 0.0925024503556994, -0.16057029118347838, 0.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -530,7 +530,7 @@ z_index = -1
 scale = Vector2(2, 2)
 texture = ExtResource("1_qnem6")
 script = ExtResource("3_npub8")
-id = &"friend"
+id = &"concateny"
 
 [node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Offset/Body" unique_id=227232330]
 unique_name_in_owner = true

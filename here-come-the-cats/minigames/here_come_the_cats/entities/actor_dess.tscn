@@ -5,7 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://dbtx8anuf0cyw" path="res://shared/sound_effects/snd_motor_upper_2.wav" id="3_ch160"]
 [ext_resource type="AudioStream" uid="uid://dahvh0ihaifr2" path="res://shared/sound_effects/snd_knight_cut2.wav" id="4_w6lyk"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="5_fns6t"]
+[ext_resource type="Texture2D" uid="uid://g1gd8pt8m7sg" path="res://entities/bullets/generic/rat.png" id="5_spag6"]
 [ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://dialogue/entities/speech_bubble/bubble_tail_left.tscn" id="6_w8amn"]
+[ext_resource type="Texture2D" uid="uid://c5q0e066vdif6" path="res://entities/bullets/generic/rat_board.png" id="7_tpveb"]
+[ext_resource type="PackedScene" uid="uid://cmp4abyqiue4l" path="res://entities/misc/tail_effect/tail_effect.tscn" id="8_spag6"]
+[ext_resource type="Texture2D" uid="uid://cnyt60ecuoid6" path="res://minigames/here_come_the_cats/res/rat_tail.png" id="9_tva6e"]
+[ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="10_t7j11"]
 
 [sub_resource type="Animation" id="Animation_fns6t"]
 length = 0.001
@@ -44,6 +49,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"surfing"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rat:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 47)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rat:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_tpveb")]
 }
 
 [sub_resource type="Animation" id="Animation_p68qk"]
@@ -127,6 +156,47 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_t7j11"]
+resource_name = "surfing"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"surfing_pink"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.435, -6)]
+}
+
 [sub_resource type="Animation" id="Animation_tpveb"]
 resource_name = "surfing"
 length = 0.2667
@@ -158,7 +228,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w8amn"]
 resource_name = "switch_to_pink"
-length = 0.2
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,10 +236,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [1, 0, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -178,15 +248,51 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
+"times": PackedFloat32Array(0, 0.09999999),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(1.435, -0.993), Vector2(1.435, -14)]
+"values": [Vector2(1.435, -0.993), Vector2(1.435, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"surfing", &"surfing_switch", &"surfing_pink"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rat:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 47), Vector2(-2, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rat:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 1,
+"values": [ExtResource("7_tpveb"), ExtResource("5_spag6")]
 }
 
 [sub_resource type="Animation" id="Animation_w6lyk"]
 resource_name = "switch_to_pink"
-length = 0.2
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -194,10 +300,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666666, 0.13333334),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [2, 1, 0]
+"values": [1, 0, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -206,10 +312,46 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(1.435, -10.343), Vector2(1.435, -0.993)]
+"values": [Vector2(1.435, -10), Vector2(1.435, -0.993)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333343, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"surfing_pink", &"surfing_switch", &"surfing"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rat:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 0), Vector2(-2, 47)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rat:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03333334),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 1,
+"values": [ExtResource("5_spag6"), ExtResource("7_tpveb")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fns6t"]
@@ -218,6 +360,7 @@ _data = {
 &"home_run": SubResource("Animation_p68qk"),
 &"surfing": SubResource("Animation_b5ue3"),
 &"surfing_left": SubResource("Animation_y6my7"),
+&"surfing_pink": SubResource("Animation_t7j11"),
 &"surfing_right": SubResource("Animation_tpveb"),
 &"switch_to_pink": SubResource("Animation_w8amn"),
 &"switch_to_yellow": SubResource("Animation_w6lyk")
@@ -308,6 +451,44 @@ _data = {
 &"damage": SubResource("Animation_spag6")
 }
 
+[sub_resource type="Animation" id="Animation_plk1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.95, 2.05)]
+}
+
+[sub_resource type="Animation" id="Animation_p7mgc"]
+resource_name = "rat"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(2.05, 1.95), Vector2(1.9, 2.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17lft"]
+_data = {
+&"RESET": SubResource("Animation_plk1l"),
+&"rat": SubResource("Animation_p7mgc")
+}
+
 [node name="Dess" type="Node2D" unique_id=289208110]
 script = ExtResource("1_fns6t")
 id = &"dess"
@@ -340,5 +521,39 @@ layout_mode = 1
 
 [node name="Damage" type="AnimationPlayer" parent="." unique_id=1032006147]
 libraries/ = SubResource("AnimationLibrary_tva6e")
+
+[node name="Rat" type="Sprite2D" parent="." unique_id=144464882]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-2, 47)
+scale = Vector2(1.95, 2.05)
+texture = ExtResource("7_tpveb")
+
+[node name="TailEffect" parent="Rat" unique_id=1027478356 instance=ExtResource("8_spag6")]
+z_index = 0
+position = Vector2(-17, 1)
+
+[node name="1" type="Sprite2D" parent="Rat/TailEffect" unique_id=2114475996]
+texture = ExtResource("9_tva6e")
+
+[node name="2" type="Sprite2D" parent="Rat/TailEffect" unique_id=1744881823]
+texture = ExtResource("9_tva6e")
+
+[node name="3" type="Sprite2D" parent="Rat/TailEffect" unique_id=1641401535]
+texture = ExtResource("9_tva6e")
+
+[node name="4" type="Sprite2D" parent="Rat/TailEffect" unique_id=1042260199]
+texture = ExtResource("9_tva6e")
+
+[node name="5" type="Sprite2D" parent="Rat/TailEffect" unique_id=1631121044]
+texture = ExtResource("9_tva6e")
+
+[node name="9" type="Sprite2D" parent="Rat/TailEffect" unique_id=305124507]
+scale = Vector2(-1, 1)
+texture = ExtResource("10_t7j11")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rat" unique_id=1115568247]
+libraries/ = SubResource("AnimationLibrary_17lft")
+autoplay = &"rat"
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
