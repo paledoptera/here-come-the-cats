@@ -20,4 +20,6 @@ func _on_option_selected(index: int) -> void:
 				SceneLoader.change_scene(preload("uid://ddmjcvocbt7r1"))
 			else:
 				SceneLoader.change_scene(preload("uid://wfktweg8on8i"))
+		3: # Quit
+			get_tree().quit()
 	pass # Replace with function body.

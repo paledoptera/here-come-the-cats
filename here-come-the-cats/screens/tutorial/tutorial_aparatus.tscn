@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="5_1guvq"]
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="6_5uf4i"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="7_4r7sq"]
+[ext_resource type="Script" uid="uid://dclkmjmu684x0" path="res://screens/tutorial/hint_area.gd" id="8_tcom0"]
 [ext_resource type="PackedScene" uid="uid://dbb2pgub0top3" path="res://entities/bullets/yellow/yellow_pipe_blocker_bullet.tscn" id="8_wu4yr"]
 
 [sub_resource type="Gradient" id="Gradient_f5cco"]
@@ -235,24 +236,28 @@ text = "Shoot switches to open doors"
 position = Vector2(-8.5, 127.5)
 shape = SubResource("RectangleShape2D_5uf4i")
 
-[node name="HintArea4" parent="." unique_id=694330886 instance=ExtResource("4_0k72b")]
+[node name="HintArea4" type="Area2D" parent="." unique_id=694330886]
 position = Vector2(500, -48)
+script = ExtResource("8_tcom0")
 
-[node name="Hint" parent="HintArea4" index="0" unique_id=1274833682]
-offset_left = -124.0
-offset_top = 180.0
-offset_right = -12.0
-offset_bottom = 196.0
-text = ""
-
-[node name="Subhint" parent="HintArea4/Hint" index="0" unique_id=1997185165]
-modulate = Color(1, 1, 1, 1)
+[node name="Hint" type="Label" parent="HintArea4" unique_id=138426972]
 self_modulate = Color(1, 1, 0, 1)
-offset_left = 18.0
-offset_top = 4.5
-offset_right = 221.0
-offset_bottom = 39.5
+offset_left = -159.0
+offset_top = 180.0
+offset_right = -5.0
+offset_bottom = 196.0
+scale = Vector2(2, 2)
 text = "Hold Z for a BIG SHOT!"
+
+[node name="Subhint" type="RichTextLabel" parent="HintArea4/Hint" unique_id=526396836]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 16.5
+offset_right = 371.5
+offset_bottom = 51.5
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[color=white]CATS[color=darkgray] and [color=white]RATS[color=darkgray] can be [color=yellow]shot [color=darkgray]AND [color=pink]dashed [color=darkgray]into."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea4" unique_id=434145611]
 position = Vector2(-14.5, 127.5)
@@ -411,9 +416,10 @@ graze_points = 0.0
 
 [connection signal="body_entered" from="PinkArea" to="PinkArea" method="_on_body_entered"]
 [connection signal="body_entered" from="YellowArea" to="YellowArea" method="_on_body_entered"]
+[connection signal="body_entered" from="HintArea4" to="HintArea4" method="_on_body_entered"]
+[connection signal="body_exited" from="HintArea4" to="HintArea4" method="_on_body_exited"]
 
 [editable path="SoulFriend"]
 [editable path="HintArea1"]
 [editable path="HintArea2"]
 [editable path="HintArea3"]
-[editable path="HintArea4"]

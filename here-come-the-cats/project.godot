@@ -61,6 +61,7 @@ actors=""
 aqua_lilypad=""
 player=""
 pink_lines=""
+recover_position=""
 
 [gui]
 

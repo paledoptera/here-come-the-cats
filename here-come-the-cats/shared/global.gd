@@ -1,7 +1,7 @@
 extends Node
 
 enum Order { RANDOM, SEQUENTIAL }
-enum GameState { SCREEN, OVERWORLD, CUTSCENE, BATTLE }
+
 
 signal game_restarted
 
@@ -10,7 +10,8 @@ var options:= CatsOptions.new()
 var save_file:= SaveData.new()
 
 var backtraces: Array
-var game_state: GameState = GameState.SCREEN
+
+
 
 var reset_timer: float = 0.0
 

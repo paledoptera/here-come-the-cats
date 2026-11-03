@@ -1,7 +1,7 @@
 class_name SoulFriend extends Soul
 
 enum ShootState {IDLE, CHARGING, SHOOT}
-enum SoulState {YELLOW, PINK}
+enum SoulState {YELLOW, PINK, OUT_OF_BOUNDS}
 
 @export var constant_pink_speed: float = 0.0
 @export var soul_state := SoulState.YELLOW
@@ -12,6 +12,11 @@ enum SoulState {YELLOW, PINK}
 @export var jaws: PathFollow2D
 @export var jaws_backwards: bool = false
 @export var get_tp_from_dashing: bool = true
+@export var surfing_animation: bool = false
+@export var recover_when_offscreen: bool = false
+
+var current_anim: String
+
 var shoot_state := ShootState.IDLE
 var charge_max: float = 16.0
 var charge_timer: float = 0.0
@@ -36,12 +41,18 @@ var pink_follower: PathFollow2D
 var pink_percent: float = 0.0
 var can_flip_to_pink: bool = false
 var shoot_buffer: float = 0.0
+var is_recovering: bool = false
+var recovering: float = 0.0
+var recovering_start_pos:= Vector2.ZERO
+var recover_node: Node
 
 @onready var pink_outline: Sprite2D = $SwitchOutline
 var active: bool = true
 
 func _ready() -> void:
 	super()
+	
+	recover_node = get_tree().get_first_node_in_group("recover_position")
 	
 	base_speed_mult = speed_mult
 	
@@ -54,13 +65,43 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not taking_input:
+	
+	if Party.hero[0].hp <= 0.0:
+		SceneLoader.goto_gameover()
+		return
+	
+	if soul_state == SoulState.OUT_OF_BOUNDS:
+		taking_input = false
+		is_recovering = true
+		soul_state = SoulState.YELLOW
+		play_switch_animation()
+	
+	if is_recovering:
+		recovering += delta
+		recovering = min(recovering,1.0)
+		global_position.x = max(global_position.x,0.0)
+		global_position.x += 5.0-(recovering*3.0)
+		if recovering >= 0.3:
+			taking_input = true
+		if recovering == 1.0:
+			is_recovering = false
+	
+	match soul_state:
+		SoulState.YELLOW:
+			global_rotation = lerp(global_rotation,0.0,0.3)
+		SoulState.PINK:
+			global_rotation = lerp(global_rotation,pink_angle,0.3)
+	
+	
+	if not taking_input or is_recovering:
 		set_collision_mask_value(1,0)
 		set_collision_layer_value(1,0)
-		return
 	else:
 		set_collision_mask_value(1,1)
 		set_collision_layer_value(1,1)
+	
+	if not taking_input:
+		return
 	
 	var h_input = Input.get_axis("left","right")
 	if h_input != 0.0:
@@ -71,8 +112,9 @@ func _physics_process(delta: float) -> void:
 	if pink_follower:
 		pink_angle = pink_follower.rotation
 		pink_follower.get_child(0).global_rotation = 0.0
-
-		
+	
+	
+	
 	
 	match soul_state:
 		SoulState.YELLOW:
@@ -89,6 +131,7 @@ func _physics_process(delta: float) -> void:
 		
 		SoulState.PINK:
 			$Sprite2D/HeartbeatEffect/HeartbeatAnim.speed_scale = 0.7
+			
 			
 			shoot_state = ShootState.IDLE
 			pink_percent = move_toward(pink_percent,1.0,delta * 2.0)
@@ -111,7 +154,10 @@ func _physics_process(delta: float) -> void:
 			pink_follower.force_update_transform()
 			speed_mult = base_speed_mult
 			handle_dash(delta)
-
+		
+		SoulState.OUT_OF_BOUNDS:
+			return
+	
 	
 	if soul_state == SoulState.PINK:
 		global_position = global_position.lerp(pink_follower.global_position,pink_percent)
@@ -135,6 +181,10 @@ func _physics_process(delta: float) -> void:
 	
 
 func _process(delta: float) -> void:
+	
+	if surfing_animation:
+		do_animations()
+
 	if not taking_input:
 		return
 	
@@ -267,7 +317,14 @@ func setup_pink() -> void:
 	
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	pass # Replace with function body.
+	if not recover_when_offscreen:
+		return
+	
+	soul_state = SoulState.OUT_OF_BOUNDS
+	Party.hero[0].hp -= 10.0
+	taking_input = false
+	recovering = 0.0
+	recovering_start_pos = global_position
 
 func process_pink_switcher() -> void:
 	
@@ -293,3 +350,23 @@ func process_pink_switcher() -> void:
 		
 		pink_outline.reparent(nearest_follower,false)
 		
+
+func do_animations() -> void:
+	
+	var input = Input.get_vector("left","right","up","down")
+	
+	var last_anim = current_anim
+	
+	var new_anim = last_anim
+	
+	if input == Vector2.ZERO:
+		new_anim = "surfing"
+	else:
+		if input.x < 0.0 or input.y > 0.0:
+			new_anim = "surfing_left"
+		elif input.x > 0.0 or input.y < 0.0:
+			new_anim = "surfing_right"
+	
+	if last_anim != new_anim:
+		Actors.do_action("dess",new_anim)
+	

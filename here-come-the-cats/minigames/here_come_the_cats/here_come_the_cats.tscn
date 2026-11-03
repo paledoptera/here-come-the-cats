@@ -31,7 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://d07g7exi8rl0c" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_8.png" id="16_h2a86"]
 [ext_resource type="Texture2D" uid="uid://du1nbmbilljqj" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_9.png" id="17_ekej1"]
 [ext_resource type="PackedScene" uid="uid://b4pby4bifr6bi" path="res://minigames/here_come_the_cats/entities/clock.tscn" id="17_hesta"]
-[ext_resource type="Script" uid="uid://1cqg21n7qomg" path="res://minigames/here_come_the_cats/ui.gd" id="17_hrecn"]
 [ext_resource type="Texture2D" uid="uid://pno83o85j6xl" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_10.png" id="18_fi0xs"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="18_v4cn4"]
 [ext_resource type="Texture2D" uid="uid://coyouo45y5t1p" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_11.png" id="19_2abcd"]
@@ -115,7 +114,105 @@
 [ext_resource type="Texture2D" uid="uid://dlc0y0d5yf766" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_80.png" id="88_w8vht"]
 [ext_resource type="Texture2D" uid="uid://cxdhb0bkw1sjv" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_81.png" id="89_5rvtd"]
 [ext_resource type="Texture2D" uid="uid://bks6bpm61e57m" path="res://minigames/here_come_the_cats/res/cat_talking_1/res/finalpass_82.png" id="90_n37j5"]
+[ext_resource type="Texture2D" uid="uid://dpklcuu1svxlo" path="res://entities/effects/cats/res/laughing_cat.png" id="91_cj4nw"]
+[ext_resource type="PackedScene" uid="uid://bx8s468x0tsp" path="res://entities/effects/cats/cat_playing_with_phone.tscn" id="92_hy7bp"]
+[ext_resource type="Texture2D" uid="uid://bcu7i6aoj6cqf" path="res://entities/effects/cats/res/cat_balloon.png" id="93_h2fht"]
 [ext_resource type="Texture2D" uid="uid://i2ksspyyog55" path="res://entities/effects/tongue_stab/tongue_stab.png" id="112_66ub5"]
+[ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="112_gm1nw"]
+[ext_resource type="Texture2D" uid="uid://d0xfvjkn0aa7p" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_01.png" id="120_5v56g"]
+[ext_resource type="Texture2D" uid="uid://cbh8pml5a02u8" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_02.png" id="121_hciib"]
+[ext_resource type="Texture2D" uid="uid://j43un0tp12jw" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_03.png" id="122_7oixr"]
+[ext_resource type="Texture2D" uid="uid://jeapwbraxw1w" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_04.png" id="123_bc02x"]
+[ext_resource type="Texture2D" uid="uid://clfsy2tsn2ab7" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_05.png" id="124_soy7g"]
+[ext_resource type="Texture2D" uid="uid://dxooj13elmnrb" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_06.png" id="125_efuc2"]
+[ext_resource type="Texture2D" uid="uid://cl4axkf8k7l4t" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_07.png" id="126_inxym"]
+[ext_resource type="Texture2D" uid="uid://0sot58byw4yf" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_08.png" id="127_6uaae"]
+[ext_resource type="Texture2D" uid="uid://cd0vdt8pbpl2l" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_09.png" id="128_ryfux"]
+[ext_resource type="Texture2D" uid="uid://dp3a8460tpfn1" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_10.png" id="129_8687g"]
+[ext_resource type="Texture2D" uid="uid://xgcwjrjvtx4r" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_11.png" id="130_0hoet"]
+[ext_resource type="Texture2D" uid="uid://bunejl2kjxsit" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_12.png" id="131_jqxst"]
+[ext_resource type="Texture2D" uid="uid://dd3yd8pchwmkx" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_13.png" id="132_rc2vt"]
+[ext_resource type="Texture2D" uid="uid://bjgqdt7h8mq20" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_14.png" id="133_5c5q4"]
+[ext_resource type="Texture2D" uid="uid://3axvb68gsr8o" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_15.png" id="134_2rest"]
+[ext_resource type="Texture2D" uid="uid://hoixue6xeina" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_16.png" id="135_n64f5"]
+[ext_resource type="Texture2D" uid="uid://b2en3xs72w8tn" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_17.png" id="136_rg5ib"]
+[ext_resource type="Texture2D" uid="uid://ckjena7meisle" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_18.png" id="137_xv3fi"]
+[ext_resource type="Texture2D" uid="uid://dkpyg32y8wc8v" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_19.png" id="138_14ake"]
+[ext_resource type="Texture2D" uid="uid://di3hl12jvgqdl" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_20.png" id="139_rpdla"]
+[ext_resource type="Texture2D" uid="uid://lcudemtcbn2x" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_21.png" id="140_8jvlt"]
+[ext_resource type="Texture2D" uid="uid://c0e1wd6t22513" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_22.png" id="141_w8vht"]
+[ext_resource type="Texture2D" uid="uid://d333jx1kwp2ir" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_23.png" id="142_5rvtd"]
+[ext_resource type="Texture2D" uid="uid://chqjkd20lh4y" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_24.png" id="143_n37j5"]
+[ext_resource type="Texture2D" uid="uid://ddy7lmnqxidcn" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_25.png" id="144_rcplb"]
+[ext_resource type="Texture2D" uid="uid://cje42h3j64583" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_26.png" id="145_086i1"]
+[ext_resource type="Texture2D" uid="uid://pxyuyxklw8xs" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_27.png" id="146_q13xm"]
+[ext_resource type="Texture2D" uid="uid://b65dva5gsrvbh" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_28.png" id="147_cmkpa"]
+[ext_resource type="Texture2D" uid="uid://dowmfytfitjjh" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_29.png" id="148_tpbid"]
+[ext_resource type="Texture2D" uid="uid://c1ipd2shqobho" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_30.png" id="149_sdxwa"]
+[ext_resource type="Texture2D" uid="uid://dsjl1kgu8uhde" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_31.png" id="150_c78rc"]
+[ext_resource type="Texture2D" uid="uid://spd6jd11aabk" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_32.png" id="151_tvk10"]
+[ext_resource type="Texture2D" uid="uid://5ttulfej3nw7" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_33.png" id="152_y3oe7"]
+[ext_resource type="Texture2D" uid="uid://botdxk60tyk55" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_34.png" id="153_uywld"]
+[ext_resource type="Texture2D" uid="uid://dyatelrxn2tkb" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_35.png" id="154_0okv1"]
+[ext_resource type="Texture2D" uid="uid://dio8tqjxc62t7" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_36.png" id="155_8akph"]
+[ext_resource type="Texture2D" uid="uid://bpec3t830kwop" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_37.png" id="156_moq7w"]
+[ext_resource type="Texture2D" uid="uid://cyacc78cdvceh" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_38.png" id="157_y5esi"]
+[ext_resource type="Texture2D" uid="uid://ddriocbm6bpr5" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_39.png" id="158_kily0"]
+[ext_resource type="Texture2D" uid="uid://b56inrdao4lf0" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_40.png" id="159_wjdcf"]
+[ext_resource type="Texture2D" uid="uid://dwtg42248uu38" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_41.png" id="160_qf6ju"]
+[ext_resource type="Texture2D" uid="uid://dnsmvx5cr5tib" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_42.png" id="161_gm1nw"]
+[ext_resource type="Texture2D" uid="uid://bcmh6a0ou2ma4" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_43.png" id="162_sqbhf"]
+[ext_resource type="Texture2D" uid="uid://burhtgjs68u0s" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_44.png" id="163_7gyda"]
+[ext_resource type="Texture2D" uid="uid://durgq1swlabxt" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_45.png" id="164_nmfxc"]
+[ext_resource type="Texture2D" uid="uid://6cyfwkujmn6f" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_46.png" id="165_ohdsy"]
+[ext_resource type="Texture2D" uid="uid://raaicxcj0x10" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_47.png" id="166_20tlp"]
+[ext_resource type="Texture2D" uid="uid://bn62r5rfk8okm" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_48.png" id="167_d0kh5"]
+[ext_resource type="Texture2D" uid="uid://3egw74303fux" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_49.png" id="168_jspvn"]
+[ext_resource type="Texture2D" uid="uid://ngqrdbu058b7" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_50.png" id="169_68wid"]
+[ext_resource type="Texture2D" uid="uid://dmsduiue0rtg" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_51.png" id="170_ip4vs"]
+[ext_resource type="Texture2D" uid="uid://bo78kkj3lq0cq" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_52.png" id="171_ncdf2"]
+[ext_resource type="Texture2D" uid="uid://davurao8yyoqc" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_53.png" id="172_see48"]
+[ext_resource type="Texture2D" uid="uid://bilsu4htexidx" path="res://minigames/here_come_the_cats/res/cat_talking_2/cat_talking_2_54.png" id="173_bi4vy"]
+[ext_resource type="Texture2D" uid="uid://drncgksckbuug" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_01.png" id="174_qf6ju"]
+[ext_resource type="Texture2D" uid="uid://o4cn8v1mj7re" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_02.png" id="175_gm1nw"]
+[ext_resource type="Texture2D" uid="uid://c8m64bpr7f14p" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_03.png" id="176_sqbhf"]
+[ext_resource type="Texture2D" uid="uid://bt5qwr5t28ce5" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_04.png" id="177_7gyda"]
+[ext_resource type="Texture2D" uid="uid://dpfjknelka7fa" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_05.png" id="178_nmfxc"]
+[ext_resource type="Texture2D" uid="uid://c60mi5tvsad1l" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_06.png" id="179_ohdsy"]
+[ext_resource type="Texture2D" uid="uid://dj8dve087id6d" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_07.png" id="180_20tlp"]
+[ext_resource type="Texture2D" uid="uid://bxg01mqmyvy2g" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_08.png" id="181_d0kh5"]
+[ext_resource type="Texture2D" uid="uid://dn0tvsjm7mqby" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_09.png" id="182_jspvn"]
+[ext_resource type="Texture2D" uid="uid://bff7gvc2est60" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_10.png" id="183_68wid"]
+[ext_resource type="Texture2D" uid="uid://mh5eug0qykb" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_11.png" id="184_ip4vs"]
+[ext_resource type="Texture2D" uid="uid://cfrdeuivx0luh" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_12.png" id="185_ncdf2"]
+[ext_resource type="Texture2D" uid="uid://bkbq2vgxyxuve" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_13.png" id="186_see48"]
+[ext_resource type="Texture2D" uid="uid://dq1orgx6u37ve" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_14.png" id="187_bi4vy"]
+[ext_resource type="Texture2D" uid="uid://bsecp0bsimms1" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_15.png" id="188_8o26q"]
+[ext_resource type="Texture2D" uid="uid://c2beeoqab3g40" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_16.png" id="189_dxgo2"]
+[ext_resource type="Texture2D" uid="uid://b3ie027ri4vek" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_17.png" id="190_qjy46"]
+[ext_resource type="Texture2D" uid="uid://buvvnfpm5ufy4" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_18.png" id="191_rbx7h"]
+[ext_resource type="Texture2D" uid="uid://ddam4ol1mv0bg" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_19.png" id="192_tyfat"]
+[ext_resource type="Texture2D" uid="uid://clvslto8w80yn" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_20.png" id="193_32pl3"]
+[ext_resource type="Texture2D" uid="uid://de3fkc4tj1mpk" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_21.png" id="194_jehfo"]
+[ext_resource type="Texture2D" uid="uid://ka4c8crw0ahm" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_22.png" id="195_apxxg"]
+[ext_resource type="Texture2D" uid="uid://bq0um5h0ib853" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_23.png" id="196_30fdi"]
+[ext_resource type="Texture2D" uid="uid://cpoxj2onkmd0e" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_24.png" id="197_3rav5"]
+[ext_resource type="Texture2D" uid="uid://bdlc281m166u7" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_25.png" id="198_ydw6i"]
+[ext_resource type="Texture2D" uid="uid://bh7rxddh4jebn" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_26.png" id="199_aq5u6"]
+[ext_resource type="Texture2D" uid="uid://coiguhuncs8su" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_27.png" id="200_1hy8u"]
+[ext_resource type="Texture2D" uid="uid://cu6hyuqos63fe" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_28.png" id="201_wvh5m"]
+[ext_resource type="Texture2D" uid="uid://0841mv6ha6j1" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_29.png" id="202_ajl0s"]
+[ext_resource type="Texture2D" uid="uid://cyg4wgs55wfd5" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_30.png" id="203_2k7xd"]
+[ext_resource type="Texture2D" uid="uid://ct1nnvwpiltv2" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_31.png" id="204_ws4xq"]
+[ext_resource type="Texture2D" uid="uid://dhyyj0r5d7bxo" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_32.png" id="205_pllop"]
+[ext_resource type="Texture2D" uid="uid://bvtgu10pudfj6" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_33.png" id="206_gvtoa"]
+[ext_resource type="Texture2D" uid="uid://ntqe4d12t26i" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_34.png" id="207_snl1f"]
+[ext_resource type="Texture2D" uid="uid://8ucqw0rpwavt" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_35.png" id="208_lj1i1"]
+[ext_resource type="Texture2D" uid="uid://81uvabpmaaqa" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_36.png" id="209_atfqu"]
+[ext_resource type="Texture2D" uid="uid://ceee0ppjdncpt" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_37.png" id="210_5g8el"]
+[ext_resource type="Texture2D" uid="uid://c80hr8uktjpmg" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_38.png" id="211_2u45c"]
+[ext_resource type="Texture2D" uid="uid://bkupbeq5rkyxn" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_39.png" id="212_sgv2u"]
+[ext_resource type="Texture2D" uid="uid://q6wqd4trud3l" path="res://minigames/here_come_the_cats/res/cat_talking_3/cat_talking_3_40.png" id="213_rbrse"]
 
 [sub_resource type="Resource" id="Resource_is6xv"]
 resource_local_to_scene = true
@@ -542,26 +639,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/DeathClock/Cat:scale")
+tracks/2/path = NodePath("Clock/UpperPanel/DeathClock:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, 2)]
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Clock/UpperPanel/DeathClock:position")
+tracks/3/path = NodePath("UI/LowerPanel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 441)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/TPBar:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47, 221)]
 }
 
 [sub_resource type="Animation" id="Animation_wfeub"]
@@ -593,26 +702,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/DeathClock/Cat:scale")
+tracks/2/path = NodePath("Clock/UpperPanel/DeathClock:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.03333334, 0.13333336, 0.20000002, 0.56666666),
-"transitions": PackedFloat32Array(1, 1, 0.5, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(1.5, 3), Vector2(3, 1.5), Vector2(2, 2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Clock/UpperPanel/DeathClock:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.10000001, 0.26666668, 0.43333337, 0.6666667),
 "transitions": PackedFloat32Array(0.5, 2, -2, 1),
 "update": 0,
 "values": [Vector2(0, -120), Vector2(0, 32), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/LowerPanel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.10000001, 1),
+"transitions": PackedFloat32Array(0.153, 1),
+"update": 0,
+"values": [Vector2(0, 487), Vector2(0, 441)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/TPBar:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(0.153, 1),
+"update": 0,
+"values": [Vector2(-27, 221), Vector2(47, 221)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v4cn4"]
@@ -1007,6 +1128,52 @@ tracks/31/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("../../EndingCats/LaughingCat:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(407, 514)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../../EndingCats:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../../EndingCats/CatBalloon:frame")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/35/type = "animation"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../../EndingCats/CatPlayingWithPhone/AnimationPlayerRing")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"clips": PackedStringArray(),
+"times": PackedFloat32Array()
+}
 
 [sub_resource type="Animation" id="Animation_p8yqf"]
 resource_name = "lyrics"
@@ -1069,10 +1236,10 @@ tracks/4/path = NodePath("../../Cat:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(41.000004, 41.233334, 41.466667, 68.76667, 69.4, 110.36588, 110.59921, 110.83255, 138.13255, 138.76588),
-"transitions": PackedFloat32Array(-2, -2, 1, -2, 1, -2, -2, 1, -2, 1),
+"times": PackedFloat32Array(40.5, 41.000004, 41.233334, 41.466667, 68.76667, 69.4, 110.36588, 110.59921, 110.83255, 138.13255, 138.76588),
+"transitions": PackedFloat32Array(1, -2, -2, 1, -2, 1, -2, -2, 1, -2, 1),
 "update": 0,
-"values": [Vector2(811.63, 232), Vector2(511.63, 232), Vector2(533.065, 232), Vector2(511.63, 232), Vector2(811.63, 232), Vector2(811.63, 232), Vector2(511.63, 232), Vector2(533.065, 232), Vector2(511.63, 232), Vector2(811.63, 232)]
+"values": [Vector2(1529, 232), Vector2(811.63, 232), Vector2(511.63, 232), Vector2(533.065, 232), Vector2(511.63, 232), Vector2(811.63, 232), Vector2(811.63, 232), Vector2(511.63, 232), Vector2(533.065, 232), Vector2(511.63, 232), Vector2(811.63, 232)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1189,7 +1356,7 @@ tracks/14/path = NodePath("../../CatPartyLine:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 41.133335, 41.366665, 41.566666, 41.766666, 42, 68.9, 69.166664, 110.200005, 110.433334, 110.63333, 110.833336, 111.066666, 137.96667, 138.23334),
+"times": PackedFloat32Array(0, 41.133335, 41.366665, 41.566666, 41.766666, 42, 68.9, 69.166664, 110.200005, 110.433334, 110.63333, 110.833336, 111.066666, 151.13333, 151.4),
 "transitions": PackedFloat32Array(1, 0.5, -2, -2, -2, 0, 2, 1, 0.5, -2, -2, -2, 0, 2, 1),
 "update": 0,
 "values": [Vector2(0, 572), Vector2(0, 572), Vector2(0, 387), Vector2(0, 451), Vector2(0, 421.349), Vector2(0, 428), Vector2(0, 428), Vector2(0, 572), Vector2(0, 572), Vector2(0, 387), Vector2(0, 451), Vector2(0, 421.349), Vector2(0, 428), Vector2(0, 428), Vector2(0, 572)]
@@ -1201,7 +1368,7 @@ tracks/15/path = NodePath("../../CatPartyLine2:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 41.166668, 41.4, 41.6, 41.8, 42.033337, 68.93334, 69.200005, 110.23334, 110.466675, 110.66667, 110.86667, 111.100006, 138.00002, 138.26668),
+"times": PackedFloat32Array(0, 41.166668, 41.4, 41.6, 41.8, 42.033337, 68.93334, 69.200005, 110.23334, 110.466675, 110.66667, 110.86667, 111.100006, 151.16667, 151.43333),
 "transitions": PackedFloat32Array(1, 0.5, -2, -2, -2, 0, 2, 1, 0.5, -2, -2, -2, 0, 2, 1),
 "update": 0,
 "values": [Vector2(67, -116), Vector2(67, -116), Vector2(67, 57), Vector2(67, 26.342), Vector2(67, 41.293), Vector2(67, 35), Vector2(67, 35), Vector2(67, -116), Vector2(67, -116), Vector2(67, 57), Vector2(67, 26.342), Vector2(67, 41.293), Vector2(67, 35), Vector2(67, 35), Vector2(67, -116)]
@@ -1450,12 +1617,96 @@ tracks/36/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../../EndingCats/LaughingCat:position")
+tracks/37/interp = 2
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(138.97055, 139.9, 141.50021),
+"transitions": PackedFloat32Array(0.5176324, 1.5691684, 1),
+"update": 0,
+"values": [Vector2(407, 514), Vector2(394, 391), Vector2(339, 520)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../../EndingCats:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(137.1, 138.33334, 151.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(500, 0), Vector2(0, 0), Vector2(-1469, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../../EndingCats/CatBalloon:frame")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(143.63333, 143.7, 143.76666, 143.83333, 143.90001, 143.96667, 144.03334, 144.1, 144.16667, 144.23334, 144.3, 144.36667, 144.43333, 144.5, 144.56667, 144.63333, 144.7, 144.76666, 144.83333, 144.90001, 144.96667, 145.03334, 145.1, 145.16667, 145.23334, 145.3, 145.36667, 145.43333, 145.5, 145.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 3, 2, 1, 0]
+}
+tracks/40/type = "method"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../../EndingCats/TV/PerspectiveQuad2D/SubViewport/AnySecondNow")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(143.63333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/41/type = "method"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("../../EndingCats/TV2/PerspectiveQuad2D/SubViewport/AlmostDead")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(149.13333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/42/type = "animation"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("../../EndingCats/CatPlayingWithPhone/AnimationPlayerRing")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"clips": PackedStringArray("ring", "ring"),
+"times": PackedFloat32Array(141.93333, 142.56667)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hesta"]
 _data = {
 &"RESET": SubResource("Animation_0uhk3"),
 &"lyrics": SubResource("Animation_p8yqf")
 }
+
+[sub_resource type="GDScript" id="GDScript_qf6ju"]
+resource_name = "reference"
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	volume_linear = 0.0
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ppo"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
@@ -1503,6 +1754,355 @@ _data = {
 &"RESET": SubResource("Animation_kfws3"),
 &"tail": SubResource("Animation_7d2pb")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy7bp"]
+atlas = ExtResource("91_cj4nw")
+region = Rect2(0, 0, 76, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2fht"]
+atlas = ExtResource("91_cj4nw")
+region = Rect2(76, 0, 76, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2v1d"]
+atlas = ExtResource("91_cj4nw")
+region = Rect2(152, 0, 76, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy7bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2fht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2v1d")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Resource" id="Resource_h2fht"]
+resource_local_to_scene = true
+script = ExtResource("5_bg4j1")
+_corners = PackedVector2Array(0.37009084, 0.41354033, 0.59020257, 0.43718868, 0.5920217, 0.592419, 0.3731227, 0.5790789)
+_perspective_matrix = Basis(0.25905156, 0.004894395, 0.37009084, 0.052492786, 0.16842921, 0.41354033, 0.06597708, 0.004991777, 1)
+_perspective_matrix_inv = Basis(4.270359, -0.078211896, -1.5480771, -0.6470702, 6.022734, -2.2511687, -0.2785158, -0.024903951, 1.113375)
+_dirty = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2fht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("120_5v56g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_hciib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_7oixr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_bc02x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_soy7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_efuc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_inxym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_6uaae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_ryfux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_8687g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_0hoet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_jqxst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_rc2vt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_5c5q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_2rest")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_n64f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_rg5ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_xv3fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_14ake")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_rpdla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_8jvlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_w8vht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_5rvtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_n37j5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_rcplb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_086i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_q13xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_cmkpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_tpbid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_sdxwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_c78rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_tvk10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_y3oe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_uywld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_0okv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_8akph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_moq7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_y5esi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_kily0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_wjdcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_qf6ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_gm1nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_sqbhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_7gyda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_nmfxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_ohdsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_20tlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_d0kh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_jspvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_68wid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_ip4vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_ncdf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_see48")
+}, {
+"duration": 99999.0,
+"texture": ExtResource("173_bi4vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_see48")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Resource" id="Resource_5v56g"]
+resource_local_to_scene = true
+script = ExtResource("5_bg4j1")
+_corners = PackedVector2Array(0.40724325, 0.40780154, 0.62553585, 0.4199289, 0.6278146, 0.58314633, 0.4059503, 0.5667457)
+_perspective_matrix = Basis(0.20291118, -0.007725624, 0.40724325, 0.0018016652, 0.14996351, 0.40780154, -0.024589173, -0.015845979, 1)
+_perspective_matrix_inv = Basis(4.694369, 0.03818673, -1.9273226, -0.35499626, 6.3899307, -2.4612536, 0.10980538, 0.10219369, 0.9136078)
+_dirty = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hciib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("174_qf6ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_gm1nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_sqbhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_7gyda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_nmfxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_ohdsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_20tlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_d0kh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_jspvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_68wid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_ip4vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_ncdf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_see48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_bi4vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_8o26q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_dxgo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_qjy46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_rbx7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_tyfat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_32pl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_jehfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_apxxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_30fdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_3rav5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_ydw6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_aq5u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_1hy8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_wvh5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_ajl0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_2k7xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ws4xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_pllop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_gvtoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_snl1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_lj1i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_atfqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_5g8el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_2u45c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_sgv2u")
+}, {
+"duration": 99999.0,
+"texture": ExtResource("213_rbrse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_sgv2u")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 30.0
+}]
 
 [node name="HereComeTheCats" type="Node2D" unique_id=175424421]
 script = ExtResource("1_wfeub")
@@ -1684,7 +2284,8 @@ autoplay = &"lyrics"
 script = ExtResource("15_odm7m")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SongSyncedAnimationPlayer" unique_id=1262929793]
-volume_db = -80.0
+volume_db = -18.0
+script = SubResource("GDScript_qf6ju")
 
 [node name="Attacks" type="Node2D" parent="." unique_id=1643777401]
 z_index = -1
@@ -1728,19 +2329,24 @@ volume = 0.9
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
 [node name="Clock" type="CanvasLayer" parent="." unique_id=1547504540]
-follow_viewport_enabled = true
-script = ExtResource("17_hrecn")
 
 [node name="UpperPanel" type="ColorRect" parent="Clock" unique_id=204006526]
 z_index = 20
-offset_right = 640.0
+anchors_preset = -1
+anchor_left = 0.390625
+anchor_right = 0.5546875
+offset_left = -250.0
+offset_right = 390.0
 offset_bottom = 39.0
+offset_transform_position = Vector2(-250, 0)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="BottomDivider" type="Panel" parent="Clock/UpperPanel" unique_id=670886750]
 custom_minimum_size = Vector2(640, 3)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.578534
 offset_top = 36.0
 offset_right = 640.0
 offset_bottom = 39.0
@@ -1749,7 +2355,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TopDivider" type="Panel" parent="Clock/UpperPanel" unique_id=891980289]
 custom_minimum_size = Vector2(640, 2)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.578534
 offset_right = 640.0
 offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
@@ -1759,7 +2367,6 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2086374293]
-script = ExtResource("17_hrecn")
 
 [node name="Hints" type="Node2D" parent="UI" unique_id=684797222]
 z_index = 465
@@ -1831,7 +2438,7 @@ self_modulate = Color(1, 1, 1, 0.5058824)
 z_index = -2
 offset_top = -60.0
 offset_right = 640.0
-offset_bottom = 104.00049
+offset_bottom = 104.00046
 texture = SubResource("GradientTexture2D_g4v7s")
 
 [node name="DialogueBox3" type="RichTextLabel" parent="UI/CustomLyrics" unique_id=1445375659]
@@ -1898,7 +2505,8 @@ z_index = 105
 position = Vector2(144, 232)
 is_in_air = true
 switchable = true
-get_tp_from_dashing = true
+surfing_animation = true
+recover_when_offscreen = true
 speed_mult = 2.0
 
 [node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]
@@ -1921,6 +2529,7 @@ autoplay = &"tail"
 speed_scale = 0.5
 
 [node name="TailEffect" parent="SoulFriend/Dess/Rat" unique_id=1027478356 instance=ExtResource("27_0luxh")]
+z_index = 0
 position = Vector2(-17, 1)
 
 [node name="1" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=188306289]
@@ -1938,14 +2547,9 @@ texture = ExtResource("28_ygebw")
 [node name="5" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=452331893]
 texture = ExtResource("28_ygebw")
 
-[node name="6" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=246618518]
-texture = ExtResource("28_ygebw")
-
-[node name="7" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=1148426429]
-texture = ExtResource("28_ygebw")
-
-[node name="8" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=189143203]
-texture = ExtResource("28_ygebw")
+[node name="9" type="Sprite2D" parent="SoulFriend/Dess/Rat/TailEffect" unique_id=61911270]
+scale = Vector2(-1, 1)
+texture = ExtResource("112_gm1nw")
 
 [node name="TailStab" type="Sprite2D" parent="SoulFriend" unique_id=175926338]
 visible = false
@@ -1997,9 +2601,76 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="EndingCats" type="Node2D" parent="." unique_id=729434707]
+
+[node name="LaughingCat" type="AnimatedSprite2D" parent="EndingCats" unique_id=787922610]
+position = Vector2(407, 514)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+autoplay = "default"
+frame_progress = 0.8621676
+
+[node name="CatPlayingWithPhone" parent="EndingCats" unique_id=672865496 instance=ExtResource("92_hy7bp")]
+position = Vector2(772, 351)
+
+[node name="CatBalloon" type="Sprite2D" parent="EndingCats" unique_id=1151318489]
+position = Vector2(1075.3296, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("93_h2fht")
+offset = Vector2(0, 15)
+flip_v = true
+hframes = 7
+
+[node name="TV" type="Sprite2D" parent="EndingCats" unique_id=705073372]
+position = Vector2(1080.749, 113)
+scale = Vector2(2, 2)
+texture = ExtResource("3_pr80w")
+flip_h = true
+
+[node name="PerspectiveQuad2D" type="Node2D" parent="EndingCats/TV" unique_id=28557194]
+script = ExtResource("4_n0lwv")
+corner_top_left = Vector2(inf, inf)
+corner_top_right = Vector2(inf, inf)
+use_shape_resources = true
+shapes = Array[ExtResource("5_bg4j1")]([SubResource("Resource_h2fht")])
+metadata/_custom_type_script = "uid://clyovkxg4cj4f"
+
+[node name="SubViewport" type="SubViewport" parent="EndingCats/TV/PerspectiveQuad2D" unique_id=1967321155]
+
+[node name="AnySecondNow" type="AnimatedSprite2D" parent="EndingCats/TV/PerspectiveQuad2D/SubViewport" unique_id=1259833813]
+texture_filter = 1
+position = Vector2(266.305, 286.305)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_h2fht")
+
+[node name="TV2" type="Sprite2D" parent="EndingCats" unique_id=1626584973]
+position = Vector2(1685.7064, 370)
+scale = Vector2(2, 2)
+texture = ExtResource("3_pr80w")
+flip_v = true
+
+[node name="PerspectiveQuad2D" type="Node2D" parent="EndingCats/TV2" unique_id=2029228629]
+script = ExtResource("4_n0lwv")
+corner_top_left = Vector2(inf, inf)
+corner_top_right = Vector2(inf, inf)
+use_shape_resources = true
+shapes = Array[ExtResource("5_bg4j1")]([SubResource("Resource_5v56g")])
+metadata/_custom_type_script = "uid://clyovkxg4cj4f"
+
+[node name="SubViewport" type="SubViewport" parent="EndingCats/TV2/PerspectiveQuad2D" unique_id=1392734976]
+size_2d_override = Vector2i(128, 128)
+
+[node name="AlmostDead" type="AnimatedSprite2D" parent="EndingCats/TV2/PerspectiveQuad2D/SubViewport" unique_id=1271943014]
+texture_filter = 1
+position = Vector2(238, 269.74)
+rotation = 0.059341196
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_hciib")
+
 [connection signal="impending_doom" from="Clock/UpperPanel/DeathClock" to="Clock" method="_on_death_clock_impending_doom"]
 
 [editable path="Attacks/CatPaws/CatPaw1"]
 [editable path="Attacks/CatPaws/CatPaw2"]
 [editable path="Attacks/CatPaws/CatPaw3"]
 [editable path="Attacks/CatPaws/CatPaw4"]
+[editable path="EndingCats/CatPlayingWithPhone"]

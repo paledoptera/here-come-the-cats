@@ -4,6 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://gmmcnk6ql674" path="res://party/hero/dess/res/dess_frames.tres" id="2_p68qk"]
 [ext_resource type="AudioStream" uid="uid://dbtx8anuf0cyw" path="res://shared/sound_effects/snd_motor_upper_2.wav" id="3_ch160"]
 [ext_resource type="AudioStream" uid="uid://dahvh0ihaifr2" path="res://shared/sound_effects/snd_knight_cut2.wav" id="4_w6lyk"]
+[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="5_fns6t"]
+[ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://dialogue/entities/speech_bubble/bubble_tail_left.tscn" id="6_w8amn"]
 
 [sub_resource type="Animation" id="Animation_fns6t"]
 length = 0.001
@@ -31,6 +33,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1.435, -0.993)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"surfing"]
+}
 
 [sub_resource type="Animation" id="Animation_p68qk"]
 resource_name = "home_run"
@@ -54,6 +68,93 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.43333334)
 }
 tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_b5ue3"]
+resource_name = "surfing"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"surfing"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_y6my7"]
+resource_name = "surfing"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"surfing_left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_tpveb"]
+resource_name = "surfing"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"surfing_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="Animation" id="Animation_w8amn"]
 resource_name = "switch_to_pink"
@@ -115,8 +216,96 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_fns6t"),
 &"home_run": SubResource("Animation_p68qk"),
+&"surfing": SubResource("Animation_b5ue3"),
+&"surfing_left": SubResource("Animation_y6my7"),
+&"surfing_right": SubResource("Animation_tpveb"),
 &"switch_to_pink": SubResource("Animation_w8amn"),
 &"switch_to_yellow": SubResource("Animation_w6lyk")
+}
+
+[sub_resource type="Animation" id="Animation_tva6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_spag6"]
+resource_name = "damage"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.20000002, 0.26666668, 0.36666667, 0.46666667, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 0), Vector2(-5, 0), Vector2(3, 0), Vector2(-5, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(1, 0), Vector2(-1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.10000001, 0.13333334, 0.23333335, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 0.15686275), Color(1, 1, 1, 0.15686275), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.56666666),
+"transitions": PackedFloat32Array(0.5, -2, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.5, 1.5), Vector2(1.75, 2), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tva6e"]
+_data = {
+&"RESET": SubResource("Animation_tva6e"),
+&"damage": SubResource("Animation_spag6")
 }
 
 [node name="Dess" type="Node2D" unique_id=289208110]
@@ -132,10 +321,24 @@ position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_p68qk")
 animation = &"surfing"
-autoplay = "surfing"
 offset = Vector2(1.435, -0.993)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2104301238]
 pitch_scale = 0.82
+
+[node name="SpeechBubble" parent="." unique_id=151941393 instance=ExtResource("5_fns6t")]
+visible = false
+offset_left = 43.0
+offset_top = -17.0
+offset_right = 143.0
+offset_bottom = 23.0
+offset_transform_position_ratio = Vector2(0, -0.5)
+identifier = &"dess"
+
+[node name="Tail" parent="SpeechBubble" unique_id=719384932 instance=ExtResource("6_w8amn")]
+layout_mode = 1
+
+[node name="Damage" type="AnimationPlayer" parent="." unique_id=1032006147]
+libraries/ = SubResource("AnimationLibrary_tva6e")
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

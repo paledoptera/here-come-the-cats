@@ -1,5 +1,6 @@
 class_name StoryBattleController extends Resource
 
+var battle: Battle
 signal finished
 
 func player_turn_start() -> void:

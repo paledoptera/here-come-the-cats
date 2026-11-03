@@ -54,7 +54,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Soul:
 		
 		if body.dashing and dashable:
-			destroy()
+			destroyed_by_dash()
+			
 		else:
 		
 			body.hurt(damage,ignore_iframes)
@@ -62,13 +63,19 @@ func _on_body_entered(body: Node2D) -> void:
 		if destructible:
 			destroy()
 
+func destroyed_by_dash() -> void:
+	destroy()
+
+func destroyed_by_shoot() -> void:
+	destroy()
+
 func destroy() -> void:
 	queue_free()
 
 func bullet_shot(bullet_damage:int, other_bullet: Area2D) -> void:
 	shootable_hp -= bullet_damage
 	if shootable_hp <= 0:
-		destroy()
+		destroyed_by_shoot()
 	
 
 #func check_dash() -> bool:

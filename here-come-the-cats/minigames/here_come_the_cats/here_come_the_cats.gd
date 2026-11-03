@@ -3,6 +3,8 @@ extends Node2D
 
 const CAT_COLLECTIBLE = preload("uid://c4xirgxvxcybl")
 
+const DESS = preload("uid://xcpu86gdep5b")
+const FRIEND = preload("uid://b1olkw8f4kqlm")
 
 const CAT_ATTACKS_2_BEAT = [
 	preload("uid://dd5aewx0bpt22"), # cat spit
@@ -32,11 +34,13 @@ var beat: float = 0.0
 func _init() -> void:
 	Party.enemy.clear()
 	Party.hero.clear()
-	Party.hero = [preload("uid://xcpu86gdep5b")] # hero_dess
-	Party.enemy = [preload("uid://b1olkw8f4kqlm")] # enemy_concateny
+	Party.hero = [DESS.duplicate(true)] # hero_dess
+	Party.enemy = [FRIEND.duplicate(true)] # enemy_concateny
 	
 
 func _ready() -> void:
+	Party.tp = 0.0
+	SceneLoader.game_state = SceneLoader.GameState.PHASE1
 	Music.beat.connect(_on_beat)
 	Music.song_ended.connect(_on_song_ended)
 	EventBus.damage_player.connect(_damage_player)

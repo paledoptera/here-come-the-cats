@@ -711,6 +711,9 @@ is_in_air = false
 switchable = false
 big_shot_needs_tp = true
 jaws_backwards = false
+get_tp_from_dashing = true
+surfing_animation = false
+recover_when_offscreen = false
 
 [node name="Sprite2D" parent="." index="0" unique_id=135992417]
 modulate = Color(0.9882353, 1, 0, 1)

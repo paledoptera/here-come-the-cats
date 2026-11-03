@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_pia8t"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_et73e"]
 [ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="5_1rxv2"]
+[ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="6_qycop"]
 [ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="7_pia8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
@@ -63,7 +64,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_oycta"]
 resource_name = "knives"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -279,3 +280,21 @@ scale = Vector2(1, 1)
 [node name="Switch" parent="." unique_id=501395368 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_oycta")]
 position = Vector2(612, 244)
 linked_contraptions = [NodePath("../Door")]
+
+[node name="FriendCoinMini" parent="." unique_id=1685877794 instance=ExtResource("6_qycop")]
+position = Vector2(45, 101)
+
+[node name="FriendCoinMini2" parent="." unique_id=1193360011 instance=ExtResource("6_qycop")]
+position = Vector2(45, 211)
+
+[node name="FriendCoinMini3" parent="." unique_id=1732389093 instance=ExtResource("6_qycop")]
+position = Vector2(45, 154)
+
+[node name="FriendCoinMini4" parent="." unique_id=1082523404 instance=ExtResource("6_qycop")]
+position = Vector2(567, 243)
+
+[node name="FriendCoinMini5" parent="." unique_id=1212400077 instance=ExtResource("6_qycop")]
+position = Vector2(506, 120)
+
+[node name="FriendCoinMini6" parent="." unique_id=1575353625 instance=ExtResource("6_qycop")]
+position = Vector2(438, 215)

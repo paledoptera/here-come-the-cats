@@ -95,7 +95,8 @@ progress = 2615.7
 position = Vector2(-670, 105)
 
 [node name="BiteyZone2" parent="SubViewportContainer/SubViewport" unique_id=1086194721 instance=ExtResource("6_einka")]
-position = Vector2(-1544, 232)
+position = Vector2(-1714, 104)
+scale = Vector2(0.68, 0.68)
 
 [node name="BiteyZone3" parent="SubViewportContainer/SubViewport" unique_id=305339801 instance=ExtResource("6_einka")]
 position = Vector2(-1342, 175)

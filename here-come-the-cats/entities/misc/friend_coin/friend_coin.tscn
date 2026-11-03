@@ -72,6 +72,7 @@ radius = 13.0
 height = 44.0
 
 [node name="FriendCoin" type="Node2D" unique_id=1685877794]
+z_index = 500
 script = ExtResource("1_fcq2e")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=144636966]

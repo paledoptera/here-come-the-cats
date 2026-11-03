@@ -1,0 +1,636 @@
+[gd_scene format=3 uid="uid://bx8s468x0tsp"]
+
+[ext_resource type="Texture2D" uid="uid://datxlckaba7u1" path="res://entities/effects/cats/res/cat_play_body.png" id="1_xdsb0"]
+[ext_resource type="Texture2D" uid="uid://1a8ym30q4ulq" path="res://entities/effects/cats/res/cat_play_head.png" id="2_5ibgd"]
+[ext_resource type="Texture2D" uid="uid://c16fyqlf1021v" path="res://entities/effects/cats/res/cat_play_back_leg.png" id="2_vdn1q"]
+[ext_resource type="Texture2D" uid="uid://d0i1adbe621o5" path="res://entities/effects/cats/res/cat_play_tail.png" id="3_i18c5"]
+[ext_resource type="Texture2D" uid="uid://b5ejoelphon7s" path="res://entities/effects/cats/res/cat_play_back_arm.png" id="4_ic24r"]
+[ext_resource type="Texture2D" uid="uid://81a5c0egyxic" path="res://entities/effects/cats/res/cat_play_front_arm.png" id="6_l5pf7"]
+[ext_resource type="Texture2D" uid="uid://dl8rke0gtccqa" path="res://entities/effects/cats/res/cat_play_front_leg.png" id="7_hg44e"]
+[ext_resource type="Texture2D" uid="uid://cn2h5psnt3h3v" path="res://entities/effects/telephone/telephone.png" id="8_mitv2"]
+[ext_resource type="Texture2D" uid="uid://bg6q8utiwkh2" path="res://entities/effects/telephone/telephone_cord.png" id="8_qs7hb"]
+
+[sub_resource type="Animation" id="Animation_qs7hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cat/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cat/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cat/FrontArmOffset/FrontArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cat/BackArm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cat/FrontArmOffset/FrontArm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cat/FrontLegOffset/FrontLeg:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cat/FrontLegOffset/FrontLeg:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cat/BackLegOffset/BackLeg:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cat/BackLegOffset/BackLeg:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, -127.5)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.06632251]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TelephoneBounce/TelephoneBkg:skew")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:skew")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TelephoneBounce:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TelephoneBounce:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0yxua"]
+resource_name = "play"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, -4.5), Vector2(-4, -4.5), Vector2(-5.5, -1.5), Vector2(-5, 3.5), Vector2(-1.5, 3), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cat/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.26666668, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2.5), Vector2(2.5, 2), Vector2(-0.4500003, 1.1666665), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cat/Head:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.16666667, 0.2, 0.26666668, 0.36666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4.5, 0.5), Vector2(-3.5, -0.50000054), Vector2(-1, -1.9999998), Vector2(0, 0), Vector2(3.0499997, 1.1500001), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cat/FrontArmOffset/FrontArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10.718518, 0.066666365), Vector2(5.5, 0.05416642), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cat/BackArm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.2, 0.26666665, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(9.781482, -4.4333334), Vector2(7.883333, -2.8500004), Vector2(0, 0), Vector2(4.9999995, 8.5), Vector2(4.5, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cat/FrontArmOffset/FrontArm:rotation")
+tracks/5/interp = 4
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.23333335, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3926991, -0.60039324, 0.52185345, 0.567232]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cat/FrontLegOffset/FrontLeg:rotation")
+tracks/6/interp = 4
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333335, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.45553094, -0.28448868, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cat/FrontLegOffset/FrontLeg:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.20000002, 0.26666668, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8.57), Vector2(0, 0), Vector2(0, -8.57), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cat/BackLegOffset/BackLeg:rotation")
+tracks/8/interp = 4
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.19024089, 0.24783675]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cat/BackLegOffset/BackLeg:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 11.15), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:position")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.2, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.3, -111), Vector2(2.6, -127.5), Vector2(3.8, -135.444), Vector2(1.6, -137), Vector2(-1.2, -129.444)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:rotation")
+tracks/12/interp = 4
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.16666667, 0.26666668, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.05410520681182461, -0.03316125578789186, 0.0, -0.03316125578789186, 0.05410520681182461]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.20000002, 0.26666668, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.906, 1.156), Vector2(1.127, 0.933), Vector2(1, 1), Vector2(0.906, 1.156), Vector2(1.127, 0.933)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:rotation")
+tracks/14/interp = 4
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.20000002, 0.26666668, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.06632251, 0.81332344, -0.17453292519943295, 0.17453292519943295, -0.02268928027592648]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TelephoneBounce/TelephoneBkg:skew")
+tracks/15/interp = 4
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.16231562, 0.18675023, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.20000002, 0.26666668, 0.33333334, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.142, 0.8), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1.142, 0.8), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:skew")
+tracks/17/interp = 4
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.16666667, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.20943952, -0.08552113, 0.0, 0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TelephoneBounce:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4),
+"transitions": PackedFloat32Array(-2, 2, 1),
+"update": 0,
+"values": [0.0, -0.6091199089460206, 0.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TelephoneBounce:position")
+tracks/19/interp = 2
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.10000001, 0.13333334, 0.20000002, 0.23333335, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.3, -6.1), Vector2(-3.2, -5.5), Vector2(-3.9, -2.4), Vector2(-2.2, 1.8), Vector2(2.1, -1.5), Vector2(3.9, -1.9), Vector2(4.6, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_34h3l"]
+_data = {
+&"RESET": SubResource("Animation_qs7hb"),
+&"play": SubResource("Animation_0yxua")
+}
+
+[sub_resource type="Animation" id="Animation_a06uq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.961551, 64.51727)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_34h3l"]
+resource_name = "ring"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.2, 0.26666668, 0.33333337, 0.40000004, 0.43333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8.961551, 64.51727), Vector2(3.962, 64.517), Vector2(13.962, 64.517), Vector2(3.962, 64.517), Vector2(13.962, 64.517), Vector2(3.962, 64.517), Vector2(13.962, 64.517), Vector2(10.962, 64.517), Vector2(13.962, 64.517), Vector2(7.962, 64.517), Vector2(8.961551, 64.51727)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord/Telephone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.8989718, 1.8989718, 1.8989718, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a06uq"]
+_data = {
+&"RESET": SubResource("Animation_a06uq"),
+&"ring": SubResource("Animation_34h3l")
+}
+
+[node name="CatPlayingWithPhone" type="Node2D" unique_id=672865496]
+scale = Vector2(2, 2)
+
+[node name="Cat" type="Node2D" parent="." unique_id=1534961022]
+
+[node name="Tail" type="Sprite2D" parent="Cat" unique_id=1860432248]
+z_index = -1
+texture = ExtResource("3_i18c5")
+
+[node name="BackLegOffset" type="Node2D" parent="Cat" unique_id=491424352]
+z_index = -1
+position = Vector2(-27, 11)
+
+[node name="BackLeg" type="Sprite2D" parent="Cat/BackLegOffset" unique_id=2067445007]
+z_index = -1
+texture = ExtResource("2_vdn1q")
+offset = Vector2(27, -11)
+
+[node name="Body" type="Sprite2D" parent="Cat" unique_id=305232874]
+z_index = -1
+texture = ExtResource("1_xdsb0")
+
+[node name="BackArm" type="Sprite2D" parent="Cat" unique_id=893131159]
+z_index = -1
+texture = ExtResource("4_ic24r")
+
+[node name="Head" type="Sprite2D" parent="Cat" unique_id=1075556437]
+z_index = -1
+texture = ExtResource("2_5ibgd")
+
+[node name="FrontArmOffset" type="Node2D" parent="Cat" unique_id=97238116]
+position = Vector2(30, 15)
+
+[node name="FrontArm" type="Sprite2D" parent="Cat/FrontArmOffset" unique_id=334255151]
+texture = ExtResource("6_l5pf7")
+offset = Vector2(-30, -15)
+
+[node name="FrontLegOffset" type="Node2D" parent="Cat" unique_id=1330780505]
+position = Vector2(-10, 24)
+
+[node name="FrontLeg" type="Sprite2D" parent="Cat/FrontLegOffset" unique_id=439289758]
+texture = ExtResource("7_hg44e")
+offset = Vector2(10, -24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1712563162]
+libraries/ = SubResource("AnimationLibrary_34h3l")
+autoplay = &"play"
+speed_scale = 0.5
+
+[node name="TelephoneBounce" type="Node2D" parent="." unique_id=903469701]
+
+[node name="TelephoneBkg" type="Node2D" parent="TelephoneBounce" unique_id=2009096626]
+z_index = -1
+position = Vector2(32.9169, -24.181213)
+
+[node name="TelephoneOffset" type="Node2D" parent="TelephoneBounce/TelephoneBkg" unique_id=1229861969]
+
+[node name="TelephoneCord" type="Sprite2D" parent="TelephoneBounce/TelephoneBkg/TelephoneOffset" unique_id=2111283269]
+position = Vector2(13, -127.5)
+texture = ExtResource("8_qs7hb")
+offset = Vector2(15.315, 32)
+
+[node name="Telephone" type="Sprite2D" parent="TelephoneBounce/TelephoneBkg/TelephoneOffset/TelephoneCord" unique_id=1556482155]
+position = Vector2(8.961551, 64.51727)
+rotation = -0.06632251
+texture = ExtResource("8_mitv2")
+
+[node name="AnimationPlayerRing" type="AnimationPlayer" parent="." unique_id=2022655219]
+libraries/ = SubResource("AnimationLibrary_a06uq")

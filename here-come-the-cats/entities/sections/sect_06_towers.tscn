@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="1_4kdyj"]
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_qum7t"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="3_fmkj0"]
+[ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="4_dr8v4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6vb"]
 bg_color = Color(0, 0, 0, 1)
@@ -257,3 +258,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 [node name="Switch" parent="Tower3" unique_id=475317117 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_qum7t")]
 position = Vector2(58, 157)
 linked_contraptions = [NodePath("../Door")]
+
+[node name="FriendCoin" parent="Tower3" unique_id=1685877794 instance=ExtResource("4_dr8v4")]
+position = Vector2(-847, 239)

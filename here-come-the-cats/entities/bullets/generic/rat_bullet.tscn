@@ -1,27 +1,58 @@
 [gd_scene format=3 uid="uid://dleaep2u7jhkw"]
 
-[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_fku8u"]
+[ext_resource type="Script" uid="uid://cfuyds4ffxhte" path="res://entities/bullets/generic/rat_bullet.gd" id="1_jeawm"]
 [ext_resource type="Texture2D" uid="uid://g1gd8pt8m7sg" path="res://entities/bullets/generic/rat.png" id="2_fku8u"]
 [ext_resource type="PackedScene" uid="uid://cmp4abyqiue4l" path="res://entities/misc/tail_effect/tail_effect.tscn" id="3_1fd6h"]
 [ext_resource type="Texture2D" uid="uid://cnyt60ecuoid6" path="res://minigames/here_come_the_cats/res/rat_tail.png" id="4_jeawm"]
-
-[sub_resource type="GDScript" id="GDScript_x5dwq"]
-resource_name = "darkshapesprite"
-script/source = "extends Sprite2D
-
-func _on_timer_timeout() -> void:
-	frame = wrapi(frame+1,0,3)
-"
+[ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="5_bflkc"]
+[ext_resource type="Script" uid="uid://r0kamkh5cguk" path="res://entities/misc/tail_effect/tail_tip.gd" id="6_c6m7c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lj2tg"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_c6m7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bflkc"]
+resource_name = "run"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 0.8), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6m7c"]
+_data = {
+&"RESET": SubResource("Animation_c6m7c"),
+&"run": SubResource("Animation_bflkc")
+}
+
 [node name="RatBullet" type="Area2D" unique_id=194047947]
 scale = Vector2(2, 2)
 collision_layer = 2
-script = ExtResource("1_fku8u")
+script = ExtResource("1_jeawm")
 damage = 9
-graze_points = 0
 shootable = true
 dashable = true
 life_time = -1.0
@@ -30,47 +61,49 @@ metadata/_custom_type_script = "uid://bisu8d38by8b5"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
 texture = ExtResource("2_fku8u")
 offset = Vector2(0, 0.5)
-script = SubResource("GDScript_x5dwq")
-
-[node name="TailEffect" parent="Sprite2D" unique_id=1027478356 instance=ExtResource("3_1fd6h")]
-position = Vector2(-12, 0)
-range = 30.0
-clamp = 5.0
-lerp = 0.5
-offset = Vector2(0, 0)
-constant_offset = Vector2(0, 0)
-
-[node name="1" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=1583947593]
-z_index = 4096
-texture = ExtResource("4_jeawm")
-
-[node name="2" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=841115813]
-z_index = 4096
-texture = ExtResource("4_jeawm")
-
-[node name="3" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=2106673103]
-z_index = 4096
-texture = ExtResource("4_jeawm")
-
-[node name="4" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=265955977]
-z_index = 4096
-texture = ExtResource("4_jeawm")
-
-[node name="5" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=742776618]
-z_index = 4096
-texture = ExtResource("4_jeawm")
-
-[node name="6" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=360048909]
-z_index = 4096
-texture = ExtResource("4_jeawm")
 
 [node name="Timer" type="Timer" parent="Sprite2D" unique_id=991396953]
 wait_time = 0.1
 autostart = true
 
+[node name="TailEffect" parent="Sprite2D" unique_id=1027478356 instance=ExtResource("3_1fd6h")]
+z_index = 0
+z_as_relative = false
+position = Vector2(-17, 1)
+range = 20.0
+sine = 2.0
+constant_offset = Vector2(0, 0)
+
+[node name="1" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=1351752153]
+z_index = 250
+z_as_relative = false
+texture = ExtResource("4_jeawm")
+
+[node name="2" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=2123064643]
+z_index = 250
+z_as_relative = false
+texture = ExtResource("4_jeawm")
+
+[node name="3" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=769850783]
+z_index = 250
+z_as_relative = false
+texture = ExtResource("4_jeawm")
+
+[node name="tip" type="Sprite2D" parent="Sprite2D/TailEffect" unique_id=645138586 node_paths=PackedStringArray("target")]
+z_index = 250
+z_as_relative = false
+scale = Vector2(-1, -1)
+texture = ExtResource("5_bflkc")
+script = ExtResource("6_c6m7c")
+target = NodePath("../3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
 position = Vector2(5, 0.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lj2tg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1794268680]
+libraries/ = SubResource("AnimationLibrary_c6m7c")
+autoplay = &"run"
 
 [connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]

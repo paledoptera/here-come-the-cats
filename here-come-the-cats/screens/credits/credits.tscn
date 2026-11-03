@@ -3,12 +3,17 @@
 [ext_resource type="Script" uid="uid://b4x8chidjotvc" path="res://screens/credits/credits.gd" id="1_53a3d"]
 [ext_resource type="Script" uid="uid://73hfbsawioju" path="res://screens/credits/talksound_effect.gd" id="2_8fl4l"]
 [ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="2_671fm"]
+[ext_resource type="Texture2D" uid="uid://cravsl0rb2h1u" path="res://screens/credits/res/credits_friend_0.png" id="2_b8vs0"]
+[ext_resource type="Texture2D" uid="uid://m16r87ev2vd0" path="res://screens/credits/res/credits_friend_1.png" id="3_1kr2c"]
 [ext_resource type="AudioStream" uid="uid://chyocr2uvoh66" path="res://shared/music/mus_ending.ogg" id="3_d1b17"]
 [ext_resource type="AudioStream" uid="uid://bgg28hhigw6nj" path="res://shared/sound_effects/snd_txt_dess.wav" id="3_td06e"]
+[ext_resource type="Texture2D" uid="uid://bdcex4aqdbeaf" path="res://screens/credits/res/credits_friend_2.png" id="4_1kr2c"]
 [ext_resource type="Texture2D" uid="uid://d3xsx78rg5j6j" path="res://screens/credits/res/credits_friend.png" id="4_jfhbe"]
 [ext_resource type="PackedScene" uid="uid://bi0habvuufnby" path="res://minigames/here_come_the_cats/entities/cat_party_line.tscn" id="5_22ray"]
+[ext_resource type="Texture2D" uid="uid://cexuvqt34njp2" path="res://screens/credits/res/credits_friend_3.png" id="5_vq66b"]
 [ext_resource type="Texture2D" uid="uid://d02gr771vqbd3" path="res://screens/credits/res/credits_dess.png" id="6_671fm"]
 [ext_resource type="Texture2D" uid="uid://dmj1wtucrbfno" path="res://screens/credits/res/credits_background.png" id="6_jfhbe"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="10_ly7rp"]
 
 [sub_resource type="Gradient" id="Gradient_jfhbe"]
 offsets = PackedFloat32Array(0, 0.05479452, 0.25)
@@ -19,10 +24,10 @@ gradient = SubResource("Gradient_jfhbe")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jfhbe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_84urc"]
 viewport_path = NodePath("TitleSprite/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ly7rp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b8vs0"]
 viewport_path = NodePath("TitleSprite/SubViewport")
 
 [sub_resource type="Animation" id="Animation_1h4sr"]
@@ -229,6 +234,150 @@ tracks/15/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Sprite2D:self_modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("DessScene/Friends:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("DessScene/Friends:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("DessScene/Friends/4:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 6)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("DessScene/Friends/1:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(156, 16.5)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("DessScene/Friends/2offset/2:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("DessScene/Friends/2offset/2:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 19)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("DessScene/Friends/2offset:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("DessScene/Friends/2offset/2:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("DessScene/Friends/1:scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("DessScene/Friends/3:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(116, 1.5)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("DessScene/Friends/5:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.5, -38.5)]
+}
 
 [sub_resource type="Animation" id="Animation_d1b17"]
 resource_name = "credits"
@@ -393,7 +542,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(32.233334, 36.866665, 38.133335),
 "transitions": PackedFloat32Array(0.5, -2, 1),
 "update": 0,
-"values": [Vector2(331, 150), Vector2(331, 277), Vector2(331, 351.01)]
+"values": [Vector2(331, 150), Vector2(331, 277), Vector2(331, 400)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -489,7 +638,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(32.233334, 36.86667, 38.133335),
 "transitions": PackedFloat32Array(0.5, -2, 1),
 "update": 0,
-"values": [Vector2(0, 38), Vector2(0, 112.36), Vector2(0, 160)]
+"values": [Vector2(0, 38), Vector2(0, 112.36), Vector2(0, 250)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -503,6 +652,150 @@ tracks/16/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprite2D:self_modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(44.666668, 45.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("DessScene/Friends:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(36.866665, 38.133335),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 168)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("DessScene/Friends:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(38.666668, 42.15666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("DessScene/Friends/4:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(41.366665, 41.93333, 42.63333),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(160, 153), Vector2(160, 6), Vector2(160, 19.5)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("DessScene/Friends/1:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(40.6, 41.333332, 42.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(156, 187.5), Vector2(156, 15.815), Vector2(156, 8.41)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("DessScene/Friends/2offset/2:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(41.033337, 42.366665),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("DessScene/Friends/2offset/2:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(40.800003, 41.233334, 41.7, 42.13333, 42.600002, 43.033333, 43.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(160, 10), Vector2(160, 15), Vector2(160, 10), Vector2(160, 15), Vector2(160, 10), Vector2(160, 15), Vector2(160, 10)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("DessScene/Friends/2offset:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(41.033337, 41.5, 41.966667, 42.43333, 42.899998),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("DessScene/Friends/2offset/2:scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(41.033337, 42.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("DessScene/Friends/1:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(40.7, 42.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.08, 1.08)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("DessScene/Friends/3:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(41, 41.733337, 42.2, 42.300003),
+"transitions": PackedFloat32Array(0.5, -2, 1, 1),
+"update": 0,
+"values": [Vector2(116, 158), Vector2(116, 7.63), Vector2(116, 13.9), Vector2(116, 7.63)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("DessScene/Friends/5:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(41.533337, 41.86667, 42.100002),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(168.5, -38.5), Vector2(168.5, 0), Vector2(168.5, -2.5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8423"]
 _data = {
@@ -515,7 +808,40 @@ script = ExtResource("1_53a3d")
 
 [node name="DessScene" type="Node2D" parent="." unique_id=1418204588]
 
+[node name="Friends" type="Node2D" parent="DessScene" unique_id=522551932]
+modulate = Color(1, 1, 1, 0)
+z_index = -65
+scale = Vector2(2, 2)
+
+[node name="1" type="Sprite2D" parent="DessScene/Friends" unique_id=1532115868]
+position = Vector2(156, 16.5)
+texture = ExtResource("2_b8vs0")
+
+[node name="2offset" type="Node2D" parent="DessScene/Friends" unique_id=1404553852]
+
+[node name="2" type="Sprite2D" parent="DessScene/Friends/2offset" unique_id=978850404]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 19)
+texture = ExtResource("3_1kr2c")
+
+[node name="3" type="Sprite2D" parent="DessScene/Friends" unique_id=807007638]
+position = Vector2(116, 1.5)
+texture = ExtResource("4_1kr2c")
+region_enabled = true
+region_rect = Rect2(0, 0, 86.87628, 171)
+
+[node name="4" type="Sprite2D" parent="DessScene/Friends" unique_id=1036910010]
+position = Vector2(160, 6)
+texture = ExtResource("5_vq66b")
+
+[node name="5" type="Sprite2D" parent="DessScene/Friends" unique_id=1986928614]
+position = Vector2(168.5, -38.5)
+texture = ExtResource("4_1kr2c")
+region_enabled = true
+region_rect = Rect2(79.743774, 0, 64.256226, 171)
+
 [node name="Sprite2D2" type="Sprite2D" parent="DessScene" unique_id=689601410]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -215
 position = Vector2(331, 223)
@@ -578,22 +904,22 @@ position = Vector2(345, 216)
 scale = Vector2(0.5, 0.1)
 
 [node name="TitleSprite" parent="Title/Title" index="0" unique_id=901160749]
-texture = SubResource("ViewportTexture_jfhbe")
+texture = SubResource("ViewportTexture_84urc")
 
 [node name="Title" parent="Title/Title/TitleSprite/SubViewport/Logo" parent_id_path=PackedInt32Array(1047512866, 1658917434) index="1" unique_id=1520987570]
 modulate = Color(0.83137256, 0.83137256, 0.83137256, 0)
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot1/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 969240893, 694134532) index="0" unique_id=912250917]
-texture = SubResource("ViewportTexture_ly7rp")
+texture = SubResource("ViewportTexture_b8vs0")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot2/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1739229495, 694134532) index="0" unique_id=864236577]
-texture = SubResource("ViewportTexture_ly7rp")
+texture = SubResource("ViewportTexture_b8vs0")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot3/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 502867000, 694134532) index="0" unique_id=2016627665]
-texture = SubResource("ViewportTexture_ly7rp")
+texture = SubResource("ViewportTexture_b8vs0")
 
 [node name="Sprite2D" parent="Title/Title/TitleSprite/Pivot4/PivotVert/PivotHor" parent_id_path=PackedInt32Array(1047512866, 1731470947, 694134532) index="0" unique_id=695561527]
-texture = SubResource("ViewportTexture_ly7rp")
+texture = SubResource("ViewportTexture_b8vs0")
 
 [node name="Text1" type="RichTextLabel" parent="." unique_id=1514680285]
 anchors_preset = 15
@@ -672,6 +998,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1956878641]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(199, 273)
+texture = ExtResource("10_ly7rp")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

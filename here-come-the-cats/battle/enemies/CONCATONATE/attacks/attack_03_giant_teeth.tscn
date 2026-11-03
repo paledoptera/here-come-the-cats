@@ -101,13 +101,15 @@ rotation = -1.7859069
 progress = 2615.7
 
 [node name="BiteyZone" parent="SubViewportContainer/SubViewport" unique_id=411048485 instance=ExtResource("7_tf088")]
-position = Vector2(-453, 154)
+position = Vector2(-729, 154)
 
 [node name="BiteyZone2" parent="SubViewportContainer/SubViewport" unique_id=1086194721 instance=ExtResource("7_tf088")]
-position = Vector2(-167, 257)
+position = Vector2(-245, 284)
 
 [node name="BiteyZone3" parent="SubViewportContainer/SubViewport" unique_id=305339801 instance=ExtResource("7_tf088")]
-position = Vector2(162, 254)
+position = Vector2(200, 182.99998)
+rotation = -1.5707964
+scale = Vector2(0.785, 0.785)
 
 [node name="Goal" parent="SubViewportContainer/SubViewport" unique_id=1788018638 instance=ExtResource("9_1n34d")]
 position = Vector2(-913, 152)

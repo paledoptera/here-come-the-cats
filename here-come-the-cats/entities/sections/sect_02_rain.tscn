@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="1_cab8o"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_xud30"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="3_a6uy5"]
+[ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="4_lnbrr"]
 
 [sub_resource type="Curve2D" id="Curve2D_a6uy5"]
 _data = {
@@ -50,3 +51,9 @@ z_index = 101
 position = Vector2(-1354.7462, 103)
 curve = SubResource("Curve2D_wfeub")
 script = ExtResource("2_xud30")
+
+[node name="FriendCoinMini" parent="." unique_id=974818674 instance=ExtResource("4_lnbrr")]
+position = Vector2(-186, 98)
+
+[node name="FriendCoinMini2" parent="." unique_id=1056275415 instance=ExtResource("4_lnbrr")]
+position = Vector2(-250, 98)

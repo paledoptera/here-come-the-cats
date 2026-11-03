@@ -3,6 +3,11 @@ extends Actor
 var angle: float = 0.0
 var pink: bool = false
 
+func _ready() -> void:
+	super()
+	Party.hero[0].hp_changed.connect(_on_damage)
+	EventBus.damage_player.connect(_on_damage)
+
 func _process(delta: float) -> void:
 	pass
 	#if pink:
@@ -19,3 +24,6 @@ func do_action(action: StringName):
 			pink = false
 		"switch_to_pink":
 			pink = true
+
+func _on_damage(new_hp: int) -> void:
+	$Damage.play("damage")

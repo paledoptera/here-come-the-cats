@@ -8,11 +8,6 @@ signal story_updated
 
 const SCENE = preload("uid://cxu6vtdp70cut")
 
-const STAGE = {
-	"dream_scape" = preload("uid://c0r0lc0kwmgif"),
-	"ice_palace" = preload("uid://ux5c4buxxlkh"),
-	"variks_pluto" = preload("uid://bqwcxd83vpeni")
-}
 
 enum TurnState {PLAYER, ACTION, ENEMY}
 
@@ -56,6 +51,8 @@ static func start(fight_data: FightData) -> Node:
 	return scene
 
 func _ready() -> void:
+	story_battle_controller.battle = self
+	Party.tp = 0.0
 	Flags.battle = Flags.BattleFlags.new()
 	
 	if soul_bearer == "":

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6tbpsp808hlq"]
+
+[ext_resource type="Script" uid="uid://bp0cdjttbne6q" path="res://entities/misc/falling_object/falling_object.gd" id="1_v8bkf"]
+
+[node name="FallingObject" type="Node2D" unique_id=1801699463]
+top_level = true
+z_index = 100
+script = ExtResource("1_v8bkf")

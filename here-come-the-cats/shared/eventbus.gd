@@ -10,6 +10,7 @@ signal play_animation(anim_name: StringName)
 signal damage_player(amount: int)
 signal battle_ended
 signal coin_collected
+signal large_coin_collected
 
 signal attack_area_end
 

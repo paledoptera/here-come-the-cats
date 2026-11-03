@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_a6wu7"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_p5dj7"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_j14t6"]
+[ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="7_p6xv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -152,18 +153,6 @@ position = Vector2(666, 240)
 curve = SubResource("Curve2D_hesta")
 script = ExtResource("5_p5dj7")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PinkLine" unique_id=374889910]
-position = Vector2(-500, -150)
-rotation = 1.5707964
-rotates = false
-script = SubResource("GDScript_g4v7s")
-
-[node name="EyeballBullet7" parent="PinkLine/PathFollow2D" unique_id=739223144 instance=ExtResource("2_0t5vy")]
-modulate = Color(1, 0, 1, 1)
-rotation = -1.5707964
-scale = Vector2(3, 3)
-shootable_hp = 20
-
 [node name="PathFollow2D2" type="PathFollow2D" parent="PinkLine" unique_id=1757552322]
 position = Vector2(-649.69543, -155.32452)
 progress = 214.5
@@ -171,3 +160,9 @@ rotates = false
 script = SubResource("GDScript_g4v7s")
 
 [node name="FriendCoin" parent="PinkLine/PathFollow2D2" unique_id=1685877794 instance=ExtResource("6_j14t6")]
+
+[node name="Rat1" parent="PinkLine" unique_id=936060058 instance=ExtResource("7_p6xv2")]
+position = Vector2(-500, -150)
+rotation = 1.5707964
+scale = Vector2(-1, 1)
+speed = -150.0

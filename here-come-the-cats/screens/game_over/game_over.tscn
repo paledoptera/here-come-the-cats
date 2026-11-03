@@ -1,0 +1,348 @@
+[gd_scene format=3 uid="uid://coe5g12bxe24k"]
+
+[ext_resource type="Script" uid="uid://dllcrfm66sh53" path="res://screens/game_over/game_over.gd" id="1_6vjeb"]
+[ext_resource type="Texture2D" uid="uid://bgne00kluxgg3" path="res://shared/sprites/soul_shatter.png" id="1_oabwu"]
+[ext_resource type="AudioStream" uid="uid://b2asscyml5jh5" path="res://shared/sound_effects/snd_break1.wav" id="2_syxe8"]
+[ext_resource type="AudioStream" uid="uid://ccmys76n3sj17" path="res://shared/sound_effects/snd_break2.wav" id="3_mwt7t"]
+[ext_resource type="Texture2D" uid="uid://dt4uar4a4giy5" path="res://shared/sprites/soul_shatter_pieces_1.png" id="4_iwiab"]
+[ext_resource type="Texture2D" uid="uid://1rfbbc28a4eb" path="res://shared/sprites/soul_shatter_pieces_2.png" id="5_tmuew"]
+[ext_resource type="Texture2D" uid="uid://47vujydbqo1o" path="res://shared/sprites/soul_shatter_pieces_3.png" id="6_6vjeb"]
+[ext_resource type="Texture2D" uid="uid://bmqr6ekmi0xol" path="res://shared/sprites/soul_shatter_pieces_4.png" id="7_6fchp"]
+[ext_resource type="Texture2D" uid="uid://cnk6joyipknvi" path="res://screens/game_over/res/gameover.png" id="8_tmuew"]
+[ext_resource type="AudioStream" uid="uid://c2ga30yp20mpb" path="res://shared/sound_effects/AUDIO_INTRONOISE.ogg" id="9_w8u05"]
+[ext_resource type="Texture2D" uid="uid://csyfgd2ey6o1w" path="res://shared/sprites/soul_blurry.png" id="10_6fchp"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_g4v7s"]
+frames = 4
+frame_0/texture = ExtResource("4_iwiab")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("5_tmuew")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("6_6vjeb")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("7_6fchp")
+frame_3/duration = 0.16
+
+[sub_resource type="Gradient" id="Gradient_iwiab"]
+offsets = PackedFloat32Array(0, 0.7118056, 0.8541667)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_jw6jr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameoverTitle:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oabwu"]
+resource_name = "gameover"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 1]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_syxe8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_mwt7t")
+}],
+"times": PackedFloat32Array(0.6, 2)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 2.0333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 2.0333333),
+"transitions": PackedFloat32Array(1, 0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameoverTitle:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4, 4.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menu:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.766667, 4.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6fchp"]
+resource_name = "leave"
+length = 3.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameoverTitle:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 7.400758,
+"start_offset": 0.0,
+"stream": ExtResource("9_w8u05")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1, 3.4666667),
+"transitions": PackedFloat32Array(0.5, 25.992073, 1),
+"update": 0,
+"values": [-80.0, -6.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1eo8e"]
+_data = {
+&"RESET": SubResource("Animation_jw6jr"),
+&"gameover": SubResource("Animation_oabwu"),
+&"leave": SubResource("Animation_6fchp")
+}
+
+[node name="Gameover" type="Node" unique_id=441753125]
+script = ExtResource("1_6vjeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=517635216]
+position = Vector2(323, 193)
+texture = ExtResource("1_oabwu")
+hframes = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=819786851]
+scale = Vector2(10, 10)
+emitting = false
+amount = 5
+texture = SubResource("AnimatedTexture_g4v7s")
+lifetime = 2.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.5
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 36.82
+gravity = Vector2(0, 392)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+damping_min = 0.3
+damping_max = 0.3
+color_ramp = SubResource("Gradient_iwiab")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1750487658]
+libraries/ = SubResource("AnimationLibrary_1eo8e")
+autoplay = &"gameover"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=565443230]
+
+[node name="GameoverTitle" type="Sprite2D" parent="." unique_id=1428914796]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(320, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("8_tmuew")
+
+[node name="Menu" type="Node2D" parent="." unique_id=422335318]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Selector" type="Sprite2D" parent="Menu" unique_id=959497165]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5058824)
+position = Vector2(307, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("10_6fchp")
+
+[node name="CONTINUE" type="Label" parent="Menu" unique_id=55189869]
+unique_name_in_owner = true
+offset_left = 140.0
+offset_top = 340.0
+offset_right = 196.0
+offset_bottom = 380.0
+scale = Vector2(2, 2)
+text = "CONTINUE"
+
+[node name="GIVEUP" type="Label" parent="Menu" unique_id=1749833091]
+unique_name_in_owner = true
+offset_left = 360.0
+offset_top = 340.0
+offset_right = 451.0
+offset_bottom = 380.0
+scale = Vector2(2, 2)
+text = "GIVE UP"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1921558432]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

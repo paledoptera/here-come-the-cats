@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AttackList" format=3 uid="uid://i4lghp42u6ys"]
+
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://resources/battle/attack_data.gd" id="1_aivco"]
+[ext_resource type="PackedScene" uid="uid://b1ae4vrq40qyi" path="res://battle/enemies/CONCATONATE/attacks/attack_0x_final.tscn" id="2_uofcp"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://resources/battle/attack_block.gd" id="6_bged7"]
+
+[sub_resource type="Resource" id="Resource_quai1"]
+script = ExtResource("1_aivco")
+scene = ExtResource("2_uofcp")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[resource]
+script = ExtResource("6_bged7")
+attack_order = 1
+attacks = Array[ExtResource("1_aivco")]([SubResource("Resource_quai1")])
+metadata/_custom_type_script = "uid://emdpqbj1xvm7"

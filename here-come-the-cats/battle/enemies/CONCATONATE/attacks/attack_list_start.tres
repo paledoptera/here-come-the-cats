@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="AttackList" format=3 uid="uid://bfd6w1gvoplgv"]
+
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://resources/battle/attack_data.gd" id="1_ee525"]
+[ext_resource type="PackedScene" uid="uid://dqxgydyeygqjr" path="res://battle/enemies/CONCATONATE/attacks/attack_01_biting_hall.tscn" id="2_hld04"]
+[ext_resource type="PackedScene" uid="uid://bu8lbl08doks1" path="res://battle/enemies/CONCATONATE/attacks/attack_02_hall_of_tails.tscn" id="3_bsius"]
+[ext_resource type="PackedScene" uid="uid://davt8xlcaupe7" path="res://battle/enemies/CONCATONATE/attacks/attack_03_giant_teeth.tscn" id="4_63l2t"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://resources/battle/attack_block.gd" id="7_ykd4j"]
+
+[sub_resource type="Resource" id="Resource_4ppe6"]
+script = ExtResource("1_ee525")
+scene = ExtResource("2_hld04")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_405we"]
+script = ExtResource("1_ee525")
+scene = ExtResource("3_bsius")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_8w1j4"]
+script = ExtResource("1_ee525")
+scene = ExtResource("4_63l2t")
+length = 0.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[resource]
+script = ExtResource("7_ykd4j")
+attack_order = 1
+attacks = Array[ExtResource("1_ee525")]([SubResource("Resource_4ppe6"), SubResource("Resource_405we"), SubResource("Resource_8w1j4")])
+metadata/_custom_type_script = "uid://emdpqbj1xvm7"
