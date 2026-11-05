@@ -85,3 +85,12 @@ func stop():
 
 func _on_song_finished() -> void:
 	song_ended.emit()
+
+func fade_out(time: float = 1.0):
+	if current_song:
+		if music[current_song]:
+			var tween = create_tween()
+			tween.tween_property(music[current_song],"volume_linear",0.0,time)
+			await tween.finished
+			stop()
+		

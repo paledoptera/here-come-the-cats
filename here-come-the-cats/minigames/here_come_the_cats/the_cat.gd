@@ -8,7 +8,7 @@ func bullet_shot(damage: int, other_bullet: Area2D) -> void:
 	if damage < 10.0:
 		final_damage = [1,1,2].pick_random()
 	else:
-		final_damage = PartyAttackFormula.calculate(damage,Party.hero[0],Party.enemy[0])
+		final_damage = PartyAttackFormula.calculate(damage*3,Party.hero[0],Party.enemy[0])
 	
 		final_damage += randi_range(-15,15)
 	

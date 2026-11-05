@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bo0085uf4akr6"]
 
 [ext_resource type="Script" uid="uid://bxlyfvptktigk" path="res://screens/title_screen/title_screen.gd" id="1_4rvf0"]
-[ext_resource type="Texture2D" uid="uid://brl5dhq873ijb" path="res://screens/title_screen/wet fat mike belly.png" id="2_alfmu"]
 [ext_resource type="Script" uid="uid://clqvwknmd31e5" path="res://shared/scripts/menu/menu_input_manager.gd" id="2_jrv5w"]
 [ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://shared/scripts/menu/buttons/soul_selectable_button.gd" id="3_8eykq"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="3_fjwv1"]
@@ -10,22 +9,21 @@
 [ext_resource type="Script" uid="uid://bqfyrxl6u2sc6" path="res://shared/scripts/menu/menu_sounds.gd" id="4_ijpes"]
 [ext_resource type="AudioStream" uid="uid://dbxc1pv4kqsht" path="res://shared/sound_effects/snd_select.wav" id="5_hjto8"]
 [ext_resource type="Script" uid="uid://c1qllnsyyxqjy" path="res://shared/scripts/menu/menu_config.gd" id="6_yvje3"]
+[ext_resource type="Texture2D" uid="uid://by35jmlf82bf" path="res://screens/title_screen/res/image3.png" id="7_uk48k"]
+[ext_resource type="Texture2D" uid="uid://bc38vcdiay8qq" path="res://screens/title_screen/res/image2.png" id="8_pvcqs"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="8_v01p7"]
+[ext_resource type="Texture2D" uid="uid://n63x804gcv80" path="res://screens/title_screen/res/image4.png" id="10_pvcqs"]
+[ext_resource type="Texture2D" uid="uid://bqeb402bg1ubt" path="res://screens/title_screen/res/image5.png" id="11_lnnji"]
 [ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="11_yvje3"]
+[ext_resource type="Texture2D" uid="uid://d3tddhta2hgsr" path="res://screens/title_screen/res/image6.png" id="12_2o0wg"]
+[ext_resource type="Texture2D" uid="uid://b8wvajnk6sfba" path="res://screens/title_screen/res/image7.png" id="13_g8j20"]
 [ext_resource type="AudioStream" uid="uid://5fnb0dxdfr2u" path="res://shared/music/mus_title.ogg" id="13_hjto8"]
 [ext_resource type="Texture2D" uid="uid://chk42ixrl6svl" path="res://shared/sprites/star.png" id="14_8ye7k"]
 [ext_resource type="Script" uid="uid://clk0p1i88jl1w" path="res://screens/title_screen/gold_star.gd" id="15_405we"]
-[ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="16_e6237"]
-[ext_resource type="Texture2D" uid="uid://m84awsagrpdc" path="res://minigames/here_come_the_cats/res/life_and_death.png" id="17_8ye7k"]
 [ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="17_81sk2"]
-[ext_resource type="Texture2D" uid="uid://xm17fnbg34j5" path="res://minigames/here_come_the_cats/res/death_clock.png" id="18_405we"]
-[ext_resource type="Texture2D" uid="uid://cfgrtxp4lli60" path="res://minigames/here_come_the_cats/res/death_clock_cover.png" id="19_wim8o"]
-[ext_resource type="Texture2D" uid="uid://4jx6i0o7j328" path="res://minigames/here_come_the_cats/res/death_clock_hand.png" id="20_5cxmk"]
-[ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="21_7cxjv"]
-[ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="22_uk48k"]
-[ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="23_pvcqs"]
 [ext_resource type="Texture2D" uid="uid://55ao838hkrk3" path="res://shared/sprites/select_box.png" id="25_wim8o"]
 [ext_resource type="Texture2D" uid="uid://b4sn2ol6gor11" path="res://shared/sprites/slider.png" id="26_5cxmk"]
+[ext_resource type="Texture2D" uid="uid://c6i3ctqxin38r" path="res://screens/title_screen/res/image1.png" id="27_7cxjv"]
 
 [sub_resource type="Resource" id="Resource_bgok2"]
 script = ExtResource("4_ijpes")
@@ -36,6 +34,115 @@ script = ExtResource("6_yvje3")
 menu_sounds = SubResource("Resource_bgok2")
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
+[sub_resource type="Gradient" id="Gradient_405we"]
+colors = PackedColorArray(0.78892565, 8.374751e-06, 0.5227781, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_405we")
+fill = 1
+fill_from = Vector2(0.7008547, 1)
+fill_to = Vector2(0.13675214, 0.37606838)
+
+[sub_resource type="Animation" id="Animation_wim8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eyes:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.0799994, -50.52)]
+}
+
+[sub_resource type="Animation" id="Animation_5cxmk"]
+resource_name = "beat"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.4666667, 1, 1.0666667, 1.2, 1.4666667),
+"transitions": PackedFloat32Array(0.5, -2, -2, 1, 0.5, -2, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.05, 1.95), Vector2(1.975, 2.025), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(1.975, 2.025), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eyes:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.0799994, -50.52)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cxjv"]
+_data = {
+&"RESET": SubResource("Animation_wim8o"),
+&"beat": SubResource("Animation_5cxmk")
+}
+
+[sub_resource type="Animation" id="Animation_uk48k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7cxjv"]
+resource_name = "circle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 4),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 1.02), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uk48k"]
+_data = {
+&"RESET": SubResource("Animation_uk48k"),
+&"circle": SubResource("Animation_7cxjv")
+}
+
 [sub_resource type="Theme" id="Theme_7rakj"]
 default_font = ExtResource("4_bgok2")
 default_font_size = 32
@@ -43,212 +150,6 @@ default_font_size = 32
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
 content_margin_left = 28.0
 content_margin_top = 15.0
-
-[sub_resource type="Animation" id="Animation_yl35i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -12)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSpriteWhite:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("UI/UpperPanel/Clock/ClockContainer:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(320, 14)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Offset/Cat/Eyes:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.5000007, -12)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Offset/Cat/EyeSprite:flip_h")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Offset/Cat:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_8ye7k"]
-resource_name = "clock"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Offset/Cat/Tail:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659, 0.3490658503988659, 0.3490658503988659, -0.3490658503988659, -0.3490658503988659]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Offset/Cat/EyeSpriteWhite:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 0.96666664, 1, 1.4333334, 1.9666668, 2, 2.4333334, 2.9666667, 3, 3.4333334, 3.9666667, 4),
-"transitions": PackedFloat32Array(1.8025012, 1, 0, 1.8025012, 1, 0, 1, 1, 0, 1.8025012, 1, 0, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Offset/ClockContainer:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.56666666, 1, 1.4333334, 1.9666667, 2, 2.5666666, 3, 3.4333334, 3.9666667),
-"transitions": PackedFloat32Array(-2, -2, 1, -2, 1, -2, -2, 1, -2, 1),
-"update": 0,
-"values": [Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14), Vector2(0, 14), Vector2(0, 16.7), Vector2(0, 15), Vector2(0, 16.7), Vector2(0, 14)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Offset/Cat/Eyes:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12), Vector2(-2.4999993, -12), Vector2(-2.4999993, -12), Vector2(2.5000007, -12), Vector2(2.5000007, -12)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Offset/Cat/EyeSprite:flip_h")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Offset/Cat:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.93333334, 1, 1.2, 1.9333334, 1.9666668, 2.1666667, 2.9, 2.9333334, 3.1333334, 3.8666668),
-"transitions": PackedFloat32Array(2, -2, 1, 0.5, -2, 1, 2, -2, 1, 2, -2, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2), Vector2(2, 2), Vector2(2.05, 1.95), Vector2(2, 2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qd2g0"]
-_data = {
-&"RESET": SubResource("Animation_yl35i"),
-&"titleclock": SubResource("Animation_8ye7k")
-}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hjto8"]
 blend_mode = 3
@@ -278,26 +179,42 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Clock:modulate")
+tracks/1/path = NodePath("Options:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Options:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(66, 203)]
+}
+
+[sub_resource type="Animation" id="Animation_pvcqs"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.33333334, 1.5),
+"transitions": PackedFloat32Array(-4.438277, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(0.26794344, 1),
+"update": 0,
+"values": [Vector2(66, 203), Vector2(-191, 203)]
 }
 
 [sub_resource type="Animation" id="Animation_405we"]
@@ -318,22 +235,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Clock:modulate")
+tracks/1/path = NodePath("Options:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 1, 1.5333334, 1.6333334, 2.0333333, 2.6666667, 2.766667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.21230483, 0.21230483, 0.21230483, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.21230483, 0.21230483, 0.21230483, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Options:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 3.4, 3.5666668, 3.7000003),
 "transitions": PackedFloat32Array(1, -2, -2, 1),
 "update": 0,
@@ -343,6 +248,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wim8o"]
 _data = {
 &"RESET": SubResource("Animation_81sk2"),
+&"fade_out": SubResource("Animation_pvcqs"),
 &"intro": SubResource("Animation_405we")
 }
 
@@ -397,10 +303,61 @@ NodePath("../Options"): SubResource("Resource_8eykq")
 }
 metadata/_custom_type_script = "uid://clqvwknmd31e5"
 
-[node name="Background" type="Sprite2D" parent="." unique_id=2001027072]
-modulate = Color(1, 1, 1, 0.16078432)
-texture = ExtResource("2_alfmu")
-centered = false
+[node name="TextureRect" type="TextureRect" parent="." unique_id=876159667]
+modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Background" type="Node2D" parent="." unique_id=1089795135]
+position = Vector2(320, 240)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=1004043128]
+position = Vector2(0, 86)
+scale = Vector2(2, 2)
+texture = ExtResource("7_uk48k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1496225288]
+position = Vector2(124, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("8_pvcqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=144255314]
+position = Vector2(1, 133)
+scale = Vector2(2, 2)
+texture = ExtResource("27_7cxjv")
+
+[node name="Cat" type="Sprite2D" parent="Background" unique_id=1107787926]
+position = Vector2(134, 87.7926)
+scale = Vector2(2, 2)
+texture = ExtResource("10_pvcqs")
+
+[node name="Eyes" type="Sprite2D" parent="Background/Cat" unique_id=1493910770]
+position = Vector2(7.0799994, -50.52)
+texture = ExtResource("11_lnnji")
+
+[node name="Eyes2" type="Sprite2D" parent="Background/Cat" unique_id=414733847]
+position = Vector2(-5, -6.5)
+texture = ExtResource("12_2o0wg")
+
+[node name="Eyes3" type="Sprite2D" parent="Background/Cat" unique_id=765278436]
+position = Vector2(-2.5, 2)
+texture = ExtResource("13_g8j20")
+
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Background/Cat" unique_id=1341404163]
+libraries/ = SubResource("AnimationLibrary_7cxjv")
+autoplay = &"beat"
+script = ExtResource("11_yvje3")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
+
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Background" unique_id=1555196642]
+libraries/ = SubResource("AnimationLibrary_uk48k")
+autoplay = &"circle"
+script = ExtResource("11_yvje3")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
 [node name="Title" parent="." unique_id=1047512866 instance=ExtResource("17_81sk2")]
 position = Vector2(340, 83)
@@ -577,98 +534,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Clock" type="Node2D" parent="." unique_id=28078535]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(400.00006, 263)
-rotation = -0.10471974
-scale = Vector2(2.53, 2.53)
-skew = 0.2705258
-
-[node name="Sprite2D" type="Sprite2D" parent="Clock" unique_id=305897107]
-position = Vector2(19.154137, 115.416466)
-texture = ExtResource("16_e6237")
-
-[node name="Offset" type="Node2D" parent="Clock/Sprite2D" unique_id=388264478]
-position = Vector2(0, -150)
-
-[node name="LifeAndDeath" type="Sprite2D" parent="Clock/Sprite2D/Offset" unique_id=1310666995]
-visible = false
-position = Vector2(0, 65)
-scale = Vector2(2, 2)
-texture = ExtResource("17_8ye7k")
-
-[node name="ClockContainer" type="Node2D" parent="Clock/Sprite2D/Offset" unique_id=1282721782]
-position = Vector2(0, 14)
-scale = Vector2(2, 1.2)
-
-[node name="Clock" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=893941858]
-unique_name_in_owner = true
-position = Vector2(0, 43.56704)
-texture = ExtResource("18_405we")
-
-[node name="Cover" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=1621279707]
-position = Vector2(0, 24.677687)
-scale = Vector2(1, 1.171)
-texture = ExtResource("19_wim8o")
-
-[node name="HandContainer" type="Node2D" parent="Clock/Sprite2D/Offset/ClockContainer" unique_id=129244382]
-position = Vector2(0, 43.86428)
-
-[node name="Hand" type="Sprite2D" parent="Clock/Sprite2D/Offset/ClockContainer/HandContainer" unique_id=740795398]
-unique_name_in_owner = true
-rotation = -3.1415927
-scale = Vector2(1.0000002, 1.5000004)
-texture = ExtResource("20_5cxmk")
-offset = Vector2(0, 3.5)
-
-[node name="Cat" type="Sprite2D" parent="Clock/Sprite2D/Offset" unique_id=1582620852]
-position = Vector2(0, 43)
-scale = Vector2(2, 2)
-texture = ExtResource("16_e6237")
-
-[node name="EyeSprite" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=342052340]
-position = Vector2(0, -14)
-texture = ExtResource("21_7cxjv")
-
-[node name="EyeSpriteWhite" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=517071566]
-self_modulate = Color(1, 1, 1, 0.73333335)
-position = Vector2(0, -13.999998)
-texture = ExtResource("22_uk48k")
-
-[node name="Eyes" type="Node2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=936174061]
-position = Vector2(2.5000007, -12)
-scale = Vector2(0.5, 0.5)
-
-[node name="Left" type="ColorRect" parent="Clock/Sprite2D/Offset/Cat/Eyes" unique_id=1124946941]
-offset_left = -16.994385
-offset_top = -10.0
-offset_right = -8.994385
-offset_bottom = 2.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Right" type="ColorRect" parent="Clock/Sprite2D/Offset/Cat/Eyes" unique_id=2057953890]
-offset_left = 9.005615
-offset_top = -10.0
-offset_right = 17.005615
-offset_bottom = 2.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Tail" type="Sprite2D" parent="Clock/Sprite2D/Offset/Cat" unique_id=493023124]
-z_index = -1
-position = Vector2(0, 11)
-rotation = 5.9341197
-texture = ExtResource("23_pvcqs")
-offset = Vector2(0, 24)
-flip_v = true
-
-[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Clock/Sprite2D" unique_id=1512433140]
-libraries/ = SubResource("AnimationLibrary_qd2g0")
-autoplay = &"titleclock"
-script = ExtResource("11_yvje3")
-metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
 [node name="Overlay" type="Parallax2D" parent="." unique_id=1279667498]
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)

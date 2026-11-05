@@ -1,6 +1,7 @@
 class_name Switch extends Area2D
 
 
+signal switched
 
 @export var linked_contraptions: Array[Node2D]
 @export var one_shot: bool = false
@@ -9,6 +10,7 @@ var on: bool = false
 var triggered: bool = false
 
 func trigger():
+	switched.emit()
 	if one_shot and triggered:
 		return
 	triggered = true

@@ -17,9 +17,7 @@ func _process(delta: float) -> void:
 		return
 	
 	
-	if Input.is_action_pressed("restart_game"):
-		command = Command.RESTART
-	elif Input.is_action_pressed("quit_game"):
+	if Input.is_action_pressed("quit_game"):
 		command = Command.QUIT
 	else:
 		command = Command.NONE

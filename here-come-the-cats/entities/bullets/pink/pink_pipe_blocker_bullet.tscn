@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvmfhtsa3g6hk"]
 
 [ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_pweeu"]
+[ext_resource type="AudioStream" uid="uid://c7mxyxqoixr48" path="res://shared/sound_effects/snd_paperbreak.wav" id="2_fs0ah"]
 [ext_resource type="Texture2D" uid="uid://dp55gp0pmee2n" path="res://entities/bullets/pink/res/pink_pipe_blocker.png" id="2_pweeu"]
 [ext_resource type="Script" uid="uid://4eqy0mlc36f7" path="res://entities/bullets/pink/pink_hitbox.gd" id="3_bbn82"]
 
@@ -21,6 +22,7 @@ collision_layer = 2
 script = ExtResource("1_pweeu")
 damage = 0
 dashable = true
+dash_sound = ExtResource("2_fs0ah")
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 

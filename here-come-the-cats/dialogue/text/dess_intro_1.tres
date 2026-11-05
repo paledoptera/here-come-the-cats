@@ -44,11 +44,13 @@ tags = {
 [sub_resource type="Resource" id="Resource_pqi7s"]
 script = ExtResource("2_1m6px")
 text = "* The next time that creep
-	makes me risk my life for
-	a damn cat-coin again..."
+	makes me risk my life 
+	for a damn cat-coin..."
 talksound = SubResource("AudioStreamWAV_t4me5")
 portrait = ExtResource("7_hmxgt")
 flag_value = null
+actor = &"dess"
+action = &"pull_out_coin"
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_087mp"]

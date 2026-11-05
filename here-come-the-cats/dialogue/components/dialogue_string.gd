@@ -19,6 +19,10 @@ extends Resource
 @export var flag_value: Variant
 @export_group("Identifier")
 @export var identifier: StringName = ""
+@export_group("Animation")
+@export var actor: StringName = ""
+@export var action: StringName = ""
+@export var after_action: StringName = ""
 
 func _init(dialogue_text: String = "") -> void:
 	text = dialogue_text

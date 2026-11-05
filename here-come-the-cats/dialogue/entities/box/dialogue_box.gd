@@ -98,6 +98,9 @@ func start_dialogue() -> void:
 	
 	if Dialogue.current.talksound:
 		talksound = Dialogue.current.talksound
+	
+	if Dialogue.current.actor != "" and Dialogue.current.action != "":
+		Actors.do_action(Dialogue.current.actor,Dialogue.current.action)
 
 	visible_characters = 1
 

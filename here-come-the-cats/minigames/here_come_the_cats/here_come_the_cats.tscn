@@ -667,6 +667,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(47, 221)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/ColorRect2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wfeub"]
 resource_name = "start"
@@ -729,6 +741,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.153, 1),
 "update": 0,
 "values": [Vector2(-27, 221), Vector2(47, 221)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/ColorRect2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v4cn4"]
@@ -2376,7 +2400,7 @@ position = Vector2(47, 221)
 z_index = 20
 offset_top = 441.0
 offset_right = 640.0
-offset_bottom = 479.99976
+offset_bottom = 479.9996
 color = Color(0, 0, 0, 1)
 
 [node name="BottomDivider" type="Panel" parent="UI/LowerPanel" unique_id=685231546]
@@ -2478,6 +2502,16 @@ visible_characters = 0
 visible_ratio = 0.0
 script = SubResource("GDScript_v4cn4")
 other_box = NodePath("../CustomLyrics/DialogueBox3")
+
+[node name="ColorRect2" type="ColorRect" parent="UI" unique_id=614965318]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="SoulFriend" parent="." unique_id=443094051 instance=ExtResource("21_odm7m")]
 z_index = 105

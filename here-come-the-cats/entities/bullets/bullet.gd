@@ -15,6 +15,7 @@ class_name Bullet extends Area2D
 @export var shootable_hp: int = 1
 ##If the pellet can be destroyed by pink soul
 @export var dashable: bool = false
+@export var dash_sound: AudioStream
 
 @export_group("Movement")
 @export var velocity := Vector2.ZERO
@@ -64,6 +65,8 @@ func _on_body_entered(body: Node2D) -> void:
 			destroy()
 
 func destroyed_by_dash() -> void:
+	if dash_sound:
+		Sound.play(dash_sound)
 	destroy()
 
 func destroyed_by_shoot() -> void:

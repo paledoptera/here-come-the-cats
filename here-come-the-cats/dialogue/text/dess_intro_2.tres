@@ -28,11 +28,14 @@ tags = {
 
 [sub_resource type="Resource" id="Resource_x58sl"]
 script = ExtResource("2_x58sl")
-text = "* ...I guess, gold is the only
-	metal we can get down here."
+text = "* ...I guess, gold is the 
+	only metal we can 
+	get down here."
 talksound = SubResource("AudioStreamWAV_wklk0")
 portrait = ExtResource("4_kr71f")
 flag_value = null
+actor = &"dess"
+action = &"idle_right"
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_t4me5"]
@@ -45,12 +48,14 @@ tags = {
 
 [sub_resource type="Resource" id="Resource_66wem"]
 script = ExtResource("2_x58sl")
-text = "* If there's anything those
-	damn cats are good for,
-	it's that at least."
+text = "* If there's anything 
+	those damn cats are 
+	good for, it's that."
 talksound = SubResource("AudioStreamWAV_t4me5")
 portrait = ExtResource("7_66wem")
 flag_value = null
+actor = &"dess"
+action = &"idle_forward"
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_087mp"]
