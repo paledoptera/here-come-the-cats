@@ -21,6 +21,7 @@ func apply(user: int, target: int) -> void:
 	if buster_timer:
 		if buster_timer.time_left > 0.0:
 			await buster_timer.timeout
+	Actors.do_action("dess","battle_idle")
 	enemy.hp -= damage
 	effect_applied.emit()
 

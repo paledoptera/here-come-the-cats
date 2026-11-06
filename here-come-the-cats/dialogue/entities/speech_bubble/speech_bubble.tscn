@@ -40,3 +40,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("4_aamsi")
+MARGINS = {
+&"DEFAULT": Vector2(15, 15),
+&"PORTRAIT": Vector2(75, 28)
+}

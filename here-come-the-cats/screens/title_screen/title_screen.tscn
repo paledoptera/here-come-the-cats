@@ -442,33 +442,6 @@ position = Vector2(130, 31)
 texture = ExtResource("14_8ye7k")
 script = ExtResource("15_405we")
 
-[node name="Options" type="Control" parent="Options" unique_id=1866516707 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/Options" unique_id=1637784595]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Options"
-scroll_active = false
-autowrap_mode = 0
-
 [node name="Extras" type="Control" parent="Options" unique_id=392565835 groups=["menu_option"]]
 unique_name_in_owner = true
 modulate = Color(0.42365062, 0.42365065, 0.42365062, 1)
@@ -1099,6 +1072,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="selected" from="Options/Start" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/Options" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Extras" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Quit" to="." method="_on_option_selected"]

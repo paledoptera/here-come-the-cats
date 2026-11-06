@@ -117,4 +117,4 @@ func get_hit_accuracy() -> void:
 
 func finished() -> void:
 	var party_member = Party.hero[index]
-	Actors.do_action(party_member.character_id, "idle")
+	Actors.do_action(party_member.character_id, "battle_idle")

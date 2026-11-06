@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="1_cab8o"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="2_xud30"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="3_a6uy5"]
-[ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="4_lnbrr"]
 [ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="5_bg00e"]
 [ext_resource type="PackedScene" uid="uid://b48nqm16bhmk0" path="res://entities/bullets/generic/rain_bullet.tscn" id="6_v1l8j"]
 
@@ -23,11 +22,8 @@ point_count = 4
 [node name="Rain" type="Node2D" unique_id=339688884]
 script = ExtResource("1_1gkpt")
 
-[node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("1_cab8o")]
-position = Vector2(-217, 96)
-
 [node name="FriendCoin2" parent="." unique_id=1190232249 instance=ExtResource("1_cab8o")]
-position = Vector2(651, -31)
+position = Vector2(437, -79)
 
 [node name="Line1" type="Path2D" parent="." unique_id=792918810 groups=["pink_lines"]]
 z_index = 101
@@ -56,14 +52,8 @@ position = Vector2(-1354.7462, 103)
 curve = SubResource("Curve2D_wfeub")
 script = ExtResource("2_xud30")
 
-[node name="FriendCoinMini" parent="." unique_id=974818674 instance=ExtResource("4_lnbrr")]
-position = Vector2(-186, 98)
-
-[node name="FriendCoinMini2" parent="." unique_id=1056275415 instance=ExtResource("4_lnbrr")]
-position = Vector2(-250, 98)
-
 [node name="BulletSpawnerMega" type="Node2D" parent="." unique_id=743599926 node_paths=PackedStringArray("parent")]
-position = Vector2(0, -225)
+position = Vector2(-31, -225)
 script = ExtResource("5_bg00e")
 bullet = ExtResource("6_v1l8j")
 spawn_amount_min = 0
@@ -117,15 +107,6 @@ position = Vector2(735, -150)
 
 [node name="Marker2D15" type="Marker2D" parent="BulletSpawnerMega" unique_id=169499618]
 position = Vector2(791, -150)
-
-[node name="Marker2D16" type="Marker2D" parent="BulletSpawnerMega" unique_id=927496344]
-position = Vector2(843, -150)
-
-[node name="Marker2D17" type="Marker2D" parent="BulletSpawnerMega" unique_id=270153138]
-position = Vector2(900, -150)
-
-[node name="Marker2D18" type="Marker2D" parent="BulletSpawnerMega" unique_id=1268582194]
-position = Vector2(956, -150)
 
 [node name="Timer" type="Timer" parent="." unique_id=4333523]
 wait_time = 0.5

@@ -32,14 +32,12 @@ func animate_soul_transition(end: bool = false) -> void:
 	if soul:
 		end_point = soul.position
 		print("SOUL")
-	
-	var battlebox_inst = Tools.find_child_in_group(attack_scene,"battlebox")
-	if battlebox_inst:
-		battlebox.size = battlebox_inst.size
-		battlebox.position = battlebox_inst.position
+	#
+	#var battlebox_inst = Tools.find_child_in_group(attack_scene,"battlebox")
+	#if battlebox_inst:
+		#battlebox.size = battlebox_inst.size
+		#battlebox.position = battlebox_inst.position
 		
-	
-	$Shockwave1.position = start_point
 	
 	if end:
 		start_point = end_point
@@ -47,7 +45,6 @@ func animate_soul_transition(end: bool = false) -> void:
 		anim = "out"
 		time = 0.4
 		attack_scene.call_deferred("queue_free")
-		$Shockwave1.position = end_point
 	
 	
 	$AnimationPlayer.play(anim)
@@ -64,7 +61,6 @@ func animate_soul_transition(end: bool = false) -> void:
 
 func _process(delta: float) -> void:
 	progress = move_toward(progress,8.0,1.0)
-	$Soul.position = start_point.lerp(end_point,progress/8)
 	
 	if progress < 1.0:
 		return
@@ -74,7 +70,6 @@ func _process(delta: float) -> void:
 	if full_frame >= 0.033:
 		full_frame -= 0.033
 		var outline_new = outline.duplicate()
-		$BattleboxPivot/Afterimages.add_child(outline_new)
 		outline_new.size = battlebox.size
 		outline_new.scale = battlebox.scale
 		outline_new.rotation = battlebox.rotation
@@ -84,7 +79,7 @@ func _process(delta: float) -> void:
 		outline_new.offset_transform_enabled = true
 		outline_new.offset_transform_position_ratio = Vector2(-0.5,-0.5)
 		outline_new.z_index = 1
-		outline_new.modulate = Color("ffffff80")
+		outline_new.modulate = Color("ffffff")
 		var outline_tween = create_tween()
 		outline_tween.tween_property(outline_new,"modulate",Color("ffffff00"),0.267)
 

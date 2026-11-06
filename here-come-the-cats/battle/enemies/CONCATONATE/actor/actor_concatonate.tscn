@@ -2,22 +2,214 @@
 
 [ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://shared/actors/actor.gd" id="1_44eyw"]
 [ext_resource type="Texture2D" uid="uid://c4fnuti3v1dl8" path="res://battle/enemies/CONCATONATE/actor/res/cat_evolve.png" id="2_aoukt"]
+[ext_resource type="PackedScene" uid="uid://bjho8f8gw78rd" path="res://entities/effects/rat_exploding/rat_exploding_particle.tscn" id="2_gof6c"]
 [ext_resource type="Texture2D" uid="uid://d0x0orhntof8i" path="res://battle/enemies/CONCATONATE/actor/res/catny_head.png" id="2_pu3v0"]
+[ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="3_mrdfo"]
+[ext_resource type="Texture2D" uid="uid://baoaeir7mw0q0" path="res://battle/enemies/CONCATONATE/actor/res/catny_minor_jaw_bottom.png" id="4_12cjq"]
 [ext_resource type="Texture2D" uid="uid://bxhdfj63guu0x" path="res://battle/enemies/CONCATONATE/actor/res/catny_jaw_bottom.png" id="4_jje5d"]
 [ext_resource type="Texture2D" uid="uid://bbj6fqdgcvu1l" path="res://battle/enemies/CONCATONATE/actor/res/catny_jaw_top.png" id="4_pu3v0"]
 [ext_resource type="Texture2D" uid="uid://v1w2j26weslq" path="res://battle/enemies/CONCATONATE/actor/res/catny_jaw_strings.png" id="5_75p6v"]
+[ext_resource type="Texture2D" uid="uid://cvol5vb1mvvum" path="res://battle/enemies/CONCATONATE/actor/res/catny_minor_jaw_small.png" id="5_m7g7t"]
+[ext_resource type="Texture2D" uid="uid://btoj4dl32rt6k" path="res://battle/enemies/CONCATONATE/actor/res/catny_minor_jaw_top.png" id="5_r45tv"]
 [ext_resource type="Texture2D" uid="uid://bk0ltdt171mf5" path="res://battle/enemies/CONCATONATE/actor/res/catny_jaw_tongue.png" id="6_0en8f"]
+[ext_resource type="Texture2D" uid="uid://csrrrop32rl8g" path="res://battle/enemies/CONCATONATE/actor/res/catny_leg_left.png" id="6_b6fo8"]
+[ext_resource type="Texture2D" uid="uid://cxlawy635o6h8" path="res://battle/enemies/CONCATONATE/actor/res/catny_leg_right.png" id="7_pnr1w"]
 [ext_resource type="Texture2D" uid="uid://j2y1poqnu3d6" path="res://battle/enemies/CONCATONATE/actor/res/catny_body.png" id="9_lymfg"]
+[ext_resource type="Texture2D" uid="uid://eiu7kw5v1ij2" path="res://battle/enemies/CONCATONATE/actor/res/catny_leg_far_left.png" id="9_pnr1w"]
 [ext_resource type="Texture2D" uid="uid://4pv8n0jewqck" path="res://battle/enemies/CONCATONATE/actor/res/catny_head_eye_1.png" id="9_ri4sa"]
 [ext_resource type="Texture2D" uid="uid://dlhu55ab7ipiy" path="res://battle/enemies/CONCATONATE/actor/res/catny_head_eye_2.png" id="10_wmnjs"]
 [ext_resource type="Texture2D" uid="uid://cx0agy53twq71" path="res://battle/enemies/CONCATONATE/actor/res/catny_head_eye_3.png" id="11_tubn2"]
+
+[sub_resource type="Animation" id="Animation_m1uuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActorContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ActorContainer/TheCat/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ActorContainer:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActorContainer:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActorContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pnr1w"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActorContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.43333337),
+"transitions": PackedFloat32Array(1, 0.3186401, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.7254514, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ActorContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.23333333, 0.3, 0.36666667, 0.43333337, 0.53333336, 0.6333334, 0.7333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-2, 0), Vector2(1, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ActorContainer/TheCat/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActorContainer:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gof6c"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActorContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.1, 0.2, 0.6666667),
+"transitions": PackedFloat32Array(1, 0.63728005, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 0, 0, 1), Color(6.751566, 1.3271252, 2.0003266, 1), Color(2.423616, 0.73775464, 0.7138474, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ActorContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.23333333, 0.3, 0.36666667, 0.43333337, 0.53333336, 0.6333334, 0.7333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-2, 0), Vector2(1, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ActorContainer/TheCat/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ActorContainer:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.23333333, 0.4, 0.6333333, 0.76666665),
+"transitions": PackedFloat32Array(-2, 0.5, -2, -2, 1, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 0.8), Vector2(0.9, 1.2), Vector2(1.1, 0.95), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActorContainer:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.43333337, 1),
+"transitions": PackedFloat32Array(1, 0.5, -2, -2, 1),
+"update": 0,
+"values": [0.0, 0.42062434973063334, -0.09075712110370518, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1uuf"]
+_data = {
+&"RESET": SubResource("Animation_m1uuf"),
+&"hurt": SubResource("Animation_pnr1w"),
+&"hurt_hard": SubResource("Animation_gof6c")
+}
 
 [sub_resource type="Animation" id="Animation_0en8f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TheCat/HeadOffset/Head:position")
+tracks/0/path = NodePath("ActorContainer/TheCat/HeadOffset/Head:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +221,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw:position")
+tracks/1/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -41,7 +233,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:position")
+tracks/2/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +245,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:scale")
+tracks/3/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -65,7 +257,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:skew")
+tracks/4/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:skew")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -77,7 +269,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset:position")
+tracks/5/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -89,7 +281,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:scale")
+tracks/6/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -101,7 +293,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:skew")
+tracks/7/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -113,7 +305,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:scale")
+tracks/8/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -125,7 +317,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:skew")
+tracks/9/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:skew")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -137,7 +329,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("TheCat/HeadOffset/Head/JawOffset:position")
+tracks/10/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -149,7 +341,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("TheCat/Body:position")
+tracks/11/path = NodePath("ActorContainer/TheCat/Body:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -161,7 +353,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("TheCat/HeadOffset:position")
+tracks/12/path = NodePath("ActorContainer/TheCat/HeadOffset:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -173,7 +365,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:position")
+tracks/13/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -185,7 +377,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:position")
+tracks/14/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -197,7 +389,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:scale")
+tracks/15/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:scale")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -209,7 +401,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:scale")
+tracks/16/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:scale")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -221,7 +413,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:skew")
+tracks/17/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:skew")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -233,7 +425,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:position")
+tracks/18/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -245,7 +437,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:rotation")
+tracks/19/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:rotation")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -257,7 +449,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:scale")
+tracks/20/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:scale")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -269,7 +461,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:position")
+tracks/21/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -281,7 +473,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:skew")
+tracks/22/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:skew")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -293,7 +485,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("TheCat/HeadOffset/Head:scale")
+tracks/23/path = NodePath("ActorContainer/TheCat/HeadOffset/Head:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -305,7 +497,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:scale")
+tracks/24/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -317,7 +509,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:skew")
+tracks/25/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:skew")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -329,7 +521,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:rotation")
+tracks/26/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:rotation")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -341,7 +533,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:modulate")
+tracks/27/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:modulate")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -353,10 +545,190 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:modulate")
+tracks/28/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:modulate")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawBottom:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8.09375, 13.573318)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawTop:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8.09375, -0.6064892)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawTop:skew")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.14835298]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("ActorContainer/TheCat/Body/MinorJawSmall:skew")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.11519173]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset/LegLeft:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8.094, 20.982)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset/LegLeft:rotation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11.425, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset/LegRight:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2807083, 2.1692314)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset/LegRight:skew")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-31.166664, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("ActorContainer/TheCat/Body/MoreMoreOffset/LegFarLeftOffset/LegFarLeft:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11.005, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("ActorContainer/TheCat/Body/MoreMoreOffset/LegFarLeftOffset:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.304, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("ActorContainer/TheCat:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(95, -14)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("ActorContainer/TheCat:scale")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.01, 1)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("ActorContainer/TheCat:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -369,7 +741,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TheCat/HeadOffset/Head:position")
+tracks/0/path = NodePath("ActorContainer/TheCat/HeadOffset/Head:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -381,7 +753,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw:position")
+tracks/1/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -393,7 +765,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:position")
+tracks/2/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -405,7 +777,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:scale")
+tracks/3/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:scale")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -417,7 +789,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:skew")
+tracks/4/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset/Top:skew")
 tracks/4/interp = 4
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -429,7 +801,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset:position")
+tracks/5/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset:position")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -441,7 +813,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:scale")
+tracks/6/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:scale")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -453,7 +825,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:skew")
+tracks/7/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset/Bottom:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -465,7 +837,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:scale")
+tracks/8/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -477,7 +849,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:skew")
+tracks/9/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:skew")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -489,7 +861,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("TheCat/HeadOffset/Head/JawOffset:position")
+tracks/10/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset:position")
 tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -501,7 +873,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("TheCat/Body:position")
+tracks/11/path = NodePath("ActorContainer/TheCat/Body:position")
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -513,7 +885,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("TheCat/HeadOffset:position")
+tracks/12/path = NodePath("ActorContainer/TheCat/HeadOffset:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -525,7 +897,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:position")
+tracks/13/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Strings:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -537,7 +909,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:position")
+tracks/14/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -549,7 +921,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:scale")
+tracks/15/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/Tongue:scale")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -561,7 +933,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:scale")
+tracks/16/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:scale")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -573,7 +945,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:skew")
+tracks/17/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:skew")
 tracks/17/interp = 2
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -585,7 +957,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:position")
+tracks/18/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:position")
 tracks/18/interp = 2
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -597,7 +969,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:rotation")
+tracks/19/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:rotation")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -609,7 +981,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:scale")
+tracks/20/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:scale")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -621,7 +993,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:position")
+tracks/21/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -633,7 +1005,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:skew")
+tracks/22/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:skew")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -645,7 +1017,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("TheCat/HeadOffset/Head:scale")
+tracks/23/path = NodePath("ActorContainer/TheCat/HeadOffset/Head:scale")
 tracks/23/interp = 2
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -657,7 +1029,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:scale")
+tracks/24/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:scale")
 tracks/24/interp = 2
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -669,7 +1041,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:skew")
+tracks/25/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:skew")
 tracks/25/interp = 4
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -681,7 +1053,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye3:rotation")
+tracks/26/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye3:rotation")
 tracks/26/interp = 4
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -693,7 +1065,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye1:modulate")
+tracks/27/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye1:modulate")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -705,7 +1077,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:modulate")
+tracks/28/path = NodePath("ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset/Eye2:modulate")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -713,6 +1085,186 @@ tracks/28/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1.4954206, 1.4954206, 1.0343719, 1), Color(0.972549, 0.57254905, 1, 1), Color(1.4954206, 1.4954206, 1.0343719, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawBottom:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-8.09375, 5.946554), Vector2(-8.09375, 13.573318), Vector2(-8.09375, 5.946554)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawTop:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-8.09375, 5.946554), Vector2(-8.09375, -0.6064892), Vector2(-8.09375, 5.946554)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("ActorContainer/TheCat/Body/MinorJaw/MinorJawTop:skew")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.9666667),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, 0.14835298, 0.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("ActorContainer/TheCat/Body/MinorJawSmall:skew")
+tracks/32/interp = 4
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.11519173, 0.14486232, 0.0]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset/LegLeft:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(0.5, -2, -2),
+"update": 0,
+"values": [Vector2(-8.09375, 5.946554), Vector2(-8.094, 20.982), Vector2(-8.09375, 5.946554)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset/LegLeft:rotation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.76666665),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0715585, 0.0, 0.0715585]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("ActorContainer/TheCat/Body/LegLeftOffset:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.6666667),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5, 5), Vector2(5, -5)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset/LegRight:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.73333347),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0.2807083, 39), Vector2(0.281, 20), Vector2(0.2807083, 5.676924), Vector2(0.2807083, 37.125404)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("ActorContainer/TheCat/Body/MoreOffset/LegRightOffset/LegRight:skew")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.73333335),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("ActorContainer/TheCat/Body/MoreMoreOffset/LegFarLeftOffset/LegFarLeft:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.6, 0.8666667),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.981, 4.85), Vector2(-5.848, -16.189), Vector2(-11.005, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("ActorContainer/TheCat/Body/MoreMoreOffset/LegFarLeftOffset:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.6257477, 0), Vector2(19.304, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("ActorContainer/TheCat:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0, 0.4666667, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(95, 0), Vector2(95, -14), Vector2(95, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("ActorContainer/TheCat:scale")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.43333334, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.01, 0.99), Vector2(0.99, 1.05), Vector2(1, 1)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("ActorContainer/TheCat:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667, 0.5, 0.73333335, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.129, 0.98890895, 1.1275344, 1), Color(1.564, 1.2682894, 1.3217834, 1), Color(1, 1, 0.83137256, 1), Color(1, 1, 0.7529412, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0en8f"]
@@ -726,67 +1278,129 @@ script = ExtResource("1_44eyw")
 id = &"concateny"
 metadata/_custom_type_script = "uid://c0eum5nfaksrs"
 
-[node name="TheCat" type="Node2D" parent="." unique_id=835257845]
-position = Vector2(95, 0)
+[node name="ActorContainer" type="Node2D" parent="." unique_id=508693787]
 
-[node name="Ref" type="Sprite2D" parent="TheCat" unique_id=1209072348]
+[node name="TheCat" type="Node2D" parent="ActorContainer" unique_id=835257845]
+self_modulate = Color(0.011764706, 0.011764706, 0.011764706, 1)
+position = Vector2(95, -14)
+scale = Vector2(1.01, 1)
+
+[node name="Ref" type="Sprite2D" parent="ActorContainer/TheCat" unique_id=1209072348]
 visible = false
 z_index = -1
 texture = ExtResource("2_aoukt")
 
-[node name="Body" type="Sprite2D" parent="TheCat" unique_id=102494186]
+[node name="CPUParticles2D" parent="ActorContainer/TheCat" unique_id=722183301 instance=ExtResource("2_gof6c")]
+position = Vector2(-73.29166, 5.186205)
+scale = Vector2(1.5059929, 0.9804909)
+amount = 40
+texture = ExtResource("3_mrdfo")
+local_coords = true
+gravity = Vector2(0, -500)
+scale_amount_max = 5.0
+color = Color(0.37254903, 0.17254902, 0.14901961, 1)
+
+[node name="Body" type="Sprite2D" parent="ActorContainer/TheCat" unique_id=102494186]
 z_index = -1
 texture = ExtResource("9_lymfg")
 
-[node name="HeadOffset" type="Node2D" parent="TheCat" unique_id=1723392751]
+[node name="MinorJawSmall" type="Sprite2D" parent="ActorContainer/TheCat/Body" unique_id=101297493]
+position = Vector2(-8.09375, 5.946554)
+skew = -0.11519173
+texture = ExtResource("5_m7g7t")
 
-[node name="Head" type="Node2D" parent="TheCat/HeadOffset" unique_id=1903978248]
+[node name="LegLeftOffset" type="Node2D" parent="ActorContainer/TheCat/Body" unique_id=2021550722]
+position = Vector2(-11.425, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="TheCat/HeadOffset/Head" unique_id=37936774]
+[node name="LegLeft" type="Sprite2D" parent="ActorContainer/TheCat/Body/LegLeftOffset" unique_id=607154809]
+position = Vector2(-8.094, 20.982)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_b6fo8")
+
+[node name="MoreMoreOffset" type="Node2D" parent="ActorContainer/TheCat/Body" unique_id=781996266]
+position = Vector2(-43.2847, 0)
+
+[node name="LegFarLeftOffset" type="Node2D" parent="ActorContainer/TheCat/Body/MoreMoreOffset" unique_id=1240606939]
+position = Vector2(19.304, 0)
+
+[node name="LegFarLeft" type="Sprite2D" parent="ActorContainer/TheCat/Body/MoreMoreOffset/LegFarLeftOffset" unique_id=2083521299]
+position = Vector2(-11.005, 0)
+texture = ExtResource("9_pnr1w")
+
+[node name="MoreOffset" type="Node2D" parent="ActorContainer/TheCat/Body" unique_id=1954646857]
+position = Vector2(-50.69335, 0)
+
+[node name="LegRightOffset" type="Node2D" parent="ActorContainer/TheCat/Body/MoreOffset" unique_id=2089938750]
+position = Vector2(-31.166664, 0)
+
+[node name="LegRight" type="Sprite2D" parent="ActorContainer/TheCat/Body/MoreOffset/LegRightOffset" unique_id=23905275]
+position = Vector2(0.2807083, 2.1692314)
+texture = ExtResource("7_pnr1w")
+
+[node name="MinorJaw" type="Node2D" parent="ActorContainer/TheCat/Body" unique_id=851561637]
+position = Vector2(0, -17)
+
+[node name="MinorJawBottom" type="Sprite2D" parent="ActorContainer/TheCat/Body/MinorJaw" unique_id=640601608]
+position = Vector2(-8.09375, 13.573318)
+texture = ExtResource("4_12cjq")
+
+[node name="MinorJawTop" type="Sprite2D" parent="ActorContainer/TheCat/Body/MinorJaw" unique_id=825258560]
+position = Vector2(-8.09375, -0.6064892)
+skew = 0.14835298
+texture = ExtResource("5_r45tv")
+
+[node name="HeadOffset" type="Node2D" parent="ActorContainer/TheCat" unique_id=1723392751]
+
+[node name="Head" type="Node2D" parent="ActorContainer/TheCat/HeadOffset" unique_id=1903978248]
+
+[node name="Sprite2D" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head" unique_id=37936774]
 texture = ExtResource("2_pu3v0")
 
-[node name="JawOffset" type="Node2D" parent="TheCat/HeadOffset/Head" unique_id=1967462649]
+[node name="JawOffset" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head" unique_id=1967462649]
 
-[node name="Jaw" type="Node2D" parent="TheCat/HeadOffset/Head/JawOffset" unique_id=31471356]
+[node name="Jaw" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset" unique_id=31471356]
 
-[node name="Tongue" type="Sprite2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=2103737467]
+[node name="Tongue" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=2103737467]
 texture = ExtResource("6_0en8f")
 
-[node name="Strings" type="Sprite2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=104795426]
+[node name="Strings" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=104795426]
 position = Vector2(0, 21.61)
 skew = 0.08726646
 texture = ExtResource("5_75p6v")
 offset = Vector2(0, -21.61)
 
-[node name="TopOffset" type="Node2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=1017431961]
+[node name="TopOffset" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=1017431961]
 position = Vector2(-90, 37.74)
 
-[node name="Top" type="Sprite2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset" unique_id=1546677612]
+[node name="Top" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/TopOffset" unique_id=1546677612]
 texture = ExtResource("4_pu3v0")
 offset = Vector2(90, -37.74)
 
-[node name="BottomOffset" type="Node2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=1372602181]
+[node name="BottomOffset" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw" unique_id=1372602181]
 position = Vector2(-78.03, 0)
 
-[node name="Bottom" type="Sprite2D" parent="TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset" unique_id=1654665045]
+[node name="Bottom" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/JawOffset/Jaw/BottomOffset" unique_id=1654665045]
 texture = ExtResource("4_jje5d")
 offset = Vector2(78.03, 0)
 
-[node name="Eyes" type="Node2D" parent="TheCat/HeadOffset/Head" unique_id=1908632328]
+[node name="Eyes" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head" unique_id=1908632328]
 
-[node name="Eye1" type="Sprite2D" parent="TheCat/HeadOffset/Head/Eyes" unique_id=900618475]
+[node name="Eye1" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/Eyes" unique_id=900618475]
 texture = ExtResource("9_ri4sa")
 
-[node name="Eye2Offset" type="Node2D" parent="TheCat/HeadOffset/Head/Eyes" unique_id=612449043]
+[node name="Eye2Offset" type="Node2D" parent="ActorContainer/TheCat/HeadOffset/Head/Eyes" unique_id=612449043]
 position = Vector2(-80.34, -107.82)
 
-[node name="Eye2" type="Sprite2D" parent="TheCat/HeadOffset/Head/Eyes/Eye2Offset" unique_id=212752350]
+[node name="Eye2" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/Eyes/Eye2Offset" unique_id=212752350]
 texture = ExtResource("10_wmnjs")
 offset = Vector2(80.34, 107.82)
 
-[node name="Eye3" type="Sprite2D" parent="TheCat/HeadOffset/Head/Eyes" unique_id=1749160025]
+[node name="Eye3" type="Sprite2D" parent="ActorContainer/TheCat/HeadOffset/Head/Eyes" unique_id=1749160025]
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("11_tubn2")
+
+[node name="Actions" type="AnimationPlayer" parent="." unique_id=794678174]
+libraries/ = SubResource("AnimationLibrary_m1uuf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1632736951]
 libraries/ = SubResource("AnimationLibrary_0en8f")

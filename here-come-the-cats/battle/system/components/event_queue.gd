@@ -127,7 +127,7 @@ func execute_events():
 				item.use(event.character, event.target)
 				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].name, "!"))
 				await Dialogue.text_finished
-				Actors.do_action(hero_id,"idle")
+				Actors.do_action(hero_id,"battle_idle")
 				continue
 			
 			BattleEvent.Type.MERCY:
@@ -138,7 +138,7 @@ func execute_events():
 					print("ENEMY IS NOT SPAREABLE")
 					Dialogue.display_text(enemy.mercy_fail_text)
 				await Dialogue.text_finished
-				Actors.do_action(hero_id,"idle")
+				Actors.do_action(hero_id,"battle_idle")
 				continue
 	
 	# Executing FIGHT
@@ -181,7 +181,7 @@ func find_same_event(event:BattleEvent) -> BattleEvent:
 func do_actor_animation(event: BattleEvent, undo: bool) -> void:
 	
 	var party_member = Party.get_target_hero(event.character)
-	var action_name: StringName = "idle"
+	var action_name: StringName = "battle_idle"
 	
 	if not undo:
 		match event.action_type:

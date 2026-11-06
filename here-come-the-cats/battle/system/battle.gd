@@ -411,7 +411,7 @@ func start_flavor_text() -> void:
 
 func _reset_actor_anims() -> void:
 	for i in Party.hero:
-		Actors.do_action(i.character_id, "idle")
+		Actors.do_action(i.character_id, "battle_idle")
 
 
 func _damage_player(value: int) -> void:

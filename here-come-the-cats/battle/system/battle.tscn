@@ -211,7 +211,6 @@ unique_name_in_owner = true
 [node name="Helpers" type="Node2D" parent="." unique_id=1926037317]
 
 [node name="AttackPos" type="Marker2D" parent="Helpers" unique_id=110304123]
-position = Vector2(320, 163)
 
 [node name="UIAnimations" type="AnimationPlayer" parent="." unique_id=327431266]
 unique_name_in_owner = true

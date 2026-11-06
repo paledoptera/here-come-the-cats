@@ -17,9 +17,11 @@ func damage(target: int) -> void:
 				i.hp -= amount
 		
 		Enums.Target.ENEMY:
+			
 			var hero = Party.get_target_hero(0)
 			var enemy = Party.get_target_enemy(target)
 			var final_damage = (float(hero.attack) * 11) + (5 * hero.magic) - (3 * enemy.defense)
+			Actors.do_action(hero,"mega_fight")
 			show_damage_number(final_damage, enemy)
 			enemy.hp -= damage
 

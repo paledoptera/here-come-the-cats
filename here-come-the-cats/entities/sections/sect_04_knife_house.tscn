@@ -297,4 +297,4 @@ position = Vector2(567, 243)
 position = Vector2(506, 120)
 
 [node name="FriendCoinMini6" parent="." unique_id=1575353625 instance=ExtResource("6_qycop")]
-position = Vector2(438, 215)
+position = Vector2(438, 243)

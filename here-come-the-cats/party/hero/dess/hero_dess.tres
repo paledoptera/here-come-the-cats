@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterStatsHero" format=3 uid="uid://xcpu86gdep5b"]
 
 [ext_resource type="Script" uid="uid://bibh1w77wdf3s" path="res://shared/usables/items/equippables/_item_equippable.gd" id="1_1mjja"]
+[ext_resource type="PackedScene" uid="uid://ugw2au5jfv6v" path="res://entities/effects/dess_hit_effect.tscn" id="2_56w50"]
 [ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://party/hero/character_stats_hero.gd" id="2_f0g1o"]
 [ext_resource type="Texture2D" uid="uid://d2pff4hydm2e5" path="res://party/hero/dess/res/dess_action_icons.png" id="2_o2431"]
 [ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://shared/usables/spells/spell.gd" id="3_o2431"]
@@ -18,6 +19,7 @@ metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
 resource_name = "Check"
 script = ExtResource("3_o2431")
 tp_cost = 0
+handles_dialogue_box = true
 name = &"Check"
 description = "Useless
 Analysis"
@@ -50,7 +52,6 @@ metadata/_custom_type_script = "uid://wrd5a758xsyj"
 [sub_resource type="Resource" id="Resource_n3ghv"]
 resource_name = "BloodHeal"
 script = ExtResource("3_o2431")
-tp_cost = 32
 name = &"BloodHeal"
 description = "Heals
 80HP"
@@ -61,11 +62,12 @@ metadata/_custom_type_script = "uid://cto2fxwpogr36"
 script = ExtResource("2_f0g1o")
 spells = Array[ExtResource("3_o2431")]([SubResource("Resource_mqi1m"), SubResource("Resource_rtcyi"), SubResource("Resource_n3ghv")])
 icons = ExtResource("2_o2431")
+attack_effect = ExtResource("2_56w50")
 name = "Dess"
 color = Color(1, 0.41568628, 0, 1)
 hp_max = 500
 hp = 500
-attack = 15
+attack = 20
 defense = 2
 magic = 5
 character_id = &"dess"

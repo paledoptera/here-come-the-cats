@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="2_yw5p2"]
 [ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="3_2jfx4"]
 [ext_resource type="PackedScene" uid="uid://cid2axpbkqulk" path="res://entities/soul/soul/soul_friend.tscn" id="4_grtfm"]
+[ext_resource type="PackedScene" uid="uid://b1j0tue2i5trr" path="res://entities/effects/speedlines.tscn" id="4_yw5p2"]
 [ext_resource type="Script" uid="uid://cc7uptlkk8ec0" path="res://battle/enemies/CONCATONATE/attacks/tongue_pink_line.gd" id="5_0de5v"]
 [ext_resource type="Texture2D" uid="uid://0snp47oexvq2" path="res://entities/bullets/generic/res/circle.png" id="6_mo6cc"]
 [ext_resource type="PackedScene" uid="uid://cqdht4528v8qf" path="res://battle/enemies/CONCATONATE/attacks/jaws.tscn" id="7_4sfi3"]
@@ -97,6 +98,18 @@ _data = {
 &"knives": SubResource("Animation_oycta")
 }
 
+[sub_resource type="Curve" id="Curve_2jfx4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_grtfm"]
+_data = [Vector2(0.006369427, 0.07438016), 0.0, 0.0, 0, 0, Vector2(0.21019107, 0.45454538), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_0de5v"]
+offsets = PackedFloat32Array(0, 0.43055555, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
 [sub_resource type="Curve2D" id="Curve2D_wn4gx"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 90, 0, -37.255276, -0.56447387, 37.255276, 0.56447387, 846, -5, -33.30396, 1.6934216, 33.30396, -1.6934216, 844, 56, -85.800026, 0, 85.800026, 0, 1225, 62, -64.9145, 1.1289477, 64.9145, -1.1289477, 1225, -122, -47.980278, 0, 47.980278, 0, 1557, -122, -47.415806, 0, 47.415806, 0, 1550, -61, -84.67108, 1.1289477, 84.67108, -1.1289477, 1776, -61, -86.3645, -1.6934216, 86.3645, 1.6934216, 1771, 49, -104.427666, -1.1289477, 104.427666, 1.1289477, 2320, 52, -76.76845, -1.6934216, 76.76845, 1.6934216, 2311, -105, 0, 0, 0, 0, 2748, -105)
@@ -127,6 +140,7 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1170440326]
 transparent_bg = true
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
@@ -161,7 +175,30 @@ script = ExtResource("3_2jfx4")
 root_node = NodePath("../../../../../..")
 libraries/ = SubResource("AnimationLibrary_mxgiu")
 autoplay = &"knives"
-speed_scale = 0.5
+speed_scale = 0.3
+
+[node name="Speedlines" type="Node2D" parent="SubViewportContainer/SubViewport/Battlebox" unique_id=124756337]
+position = Vector2(2750, 250)
+
+[node name="CPUParticles2D" parent="SubViewportContainer/SubViewport/Battlebox/Speedlines" unique_id=1357018259 instance=ExtResource("4_yw5p2")]
+modulate = Color(0.15568733, 3.999064e-05, 0.17871502, 1)
+position = Vector2(-598, 0)
+amount = 100
+lifetime = 2.0
+preprocess = 5.0
+fixed_fps = 15
+emission_shape = 3
+emission_rect_extents = Vector2(1, 300)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 1000.0
+scale_amount_min = 0.05
+scale_amount_max = 5.0
+split_scale = true
+scale_curve_x = SubResource("Curve_2jfx4")
+scale_curve_y = SubResource("Curve_grtfm")
+color_ramp = SubResource("Gradient_0de5v")
 
 [node name="SoulFriend" parent="SubViewportContainer/SubViewport" unique_id=443094051 node_paths=PackedStringArray("jaws") instance=ExtResource("4_grtfm")]
 z_index = 4096
@@ -179,6 +216,11 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/SoulFriend" unique_id=491353616]
 limit_top = 0
 limit_bottom = 480
+
+[node name="SpeedlinesTrasnform" type="RemoteTransform2D" parent="SubViewportContainer/SubViewport/SoulFriend" unique_id=1030006100]
+remote_path = NodePath("../../Battlebox/Speedlines")
+update_rotation = false
+update_scale = false
 
 [node name="TonguePinkLine" type="Path2D" parent="SubViewportContainer/SubViewport" unique_id=42622812 groups=["pink_lines"]]
 z_index = 101
@@ -263,10 +305,10 @@ scale = Vector2(1, 1)
 position = Vector2(-1796, 210)
 
 [node name="TailChomp" parent="SubViewportContainer/SubViewport" unique_id=378200708 instance=ExtResource("9_p3s6u")]
-position = Vector2(-380, 110)
+position = Vector2(-406, 131)
 
 [node name="TailChomp4" parent="SubViewportContainer/SubViewport" unique_id=1530733539 instance=ExtResource("9_p3s6u")]
-position = Vector2(-147, 170)
+position = Vector2(-183, 193)
 
 [node name="BiteyZone" parent="SubViewportContainer/SubViewport" unique_id=411048485 instance=ExtResource("10_3g73k")]
 position = Vector2(-514, 89)

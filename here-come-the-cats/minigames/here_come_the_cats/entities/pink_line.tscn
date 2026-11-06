@@ -32,6 +32,34 @@ position = Vector2(690, -152)
 [node name="Rain" parent="." unique_id=339688884 instance=ExtResource("4_4h1k2")]
 position = Vector2(1403.7462, 0)
 
+[node name="FriendCoin" parent="Rain" unique_id=1685877794 instance=ExtResource("9_d4gsd")]
+position = Vector2(-209.74622, 52)
+
+[node name="FriendCoinMini" parent="Rain" unique_id=884019193 instance=ExtResource("10_4cpn8")]
+position = Vector2(-178.74622, 54)
+
+[node name="FriendCoinMini2" parent="Rain" unique_id=659876095 instance=ExtResource("10_4cpn8")]
+position = Vector2(-242.74622, 54)
+
+[node name="FriendCoinMini3" parent="Rain" unique_id=1408256797 instance=ExtResource("10_4cpn8")]
+position = Vector2(1493.2538, 157)
+
+[node name="FriendCoinMini4" parent="Rain" unique_id=2043344043 instance=ExtResource("10_4cpn8")]
+position = Vector2(1518.0565, 156.82608)
+metadata/_scene_painted = true
+
+[node name="FriendCoinMini5" parent="Rain" unique_id=739582145 instance=ExtResource("10_4cpn8")]
+position = Vector2(1545.6893, 156.49905)
+metadata/_scene_painted = true
+
+[node name="FriendCoinMini6" parent="Rain" unique_id=1018447043 instance=ExtResource("10_4cpn8")]
+position = Vector2(1573.1586, 156.66255)
+metadata/_scene_painted = true
+
+[node name="FriendCoinMini7" parent="Rain" unique_id=1854469238 instance=ExtResource("10_4cpn8")]
+position = Vector2(1598.9928, 157.15308)
+metadata/_scene_painted = true
+
 [node name="MouthTower" parent="." unique_id=1013303839 instance=ExtResource("5_guhno")]
 position = Vector2(2334.0002, -250)
 
@@ -46,7 +74,7 @@ position = Vector2(6728, -136)
 [node name="Towers" parent="." unique_id=337379690 instance=ExtResource("9_guhno")]
 position = Vector2(7668, -105)
 
-[node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("9_d4gsd")]
+[node name="FriendCoin" parent="." unique_id=1683274400 instance=ExtResource("9_d4gsd")]
 position = Vector2(9890, -12)
 
 [node name="FriendCoinMini" parent="." unique_id=2093681555 instance=ExtResource("10_4cpn8")]
@@ -68,7 +96,22 @@ position = Vector2(10728, 55)
 position = Vector2(11220, 148)
 
 [node name="FriendCoin3" parent="." unique_id=1260627760 instance=ExtResource("9_d4gsd")]
-position = Vector2(4109.188, 12)
+position = Vector2(3670, -105)
 
 [node name="FriendCoin4" parent="." unique_id=281754575 instance=ExtResource("9_d4gsd")]
 position = Vector2(4618.188, -37)
+
+[node name="FriendCoinMini6" parent="." unique_id=2011032981 instance=ExtResource("10_4cpn8")]
+position = Vector2(1147, -99)
+
+[node name="FriendCoinMini7" parent="." unique_id=1420878110 instance=ExtResource("10_4cpn8")]
+position = Vector2(1173, -99)
+
+[node name="FriendCoinMini8" parent="." unique_id=763774358 instance=ExtResource("10_4cpn8")]
+position = Vector2(1197, -99)
+
+[node name="FriendCoinMini9" parent="." unique_id=1380232711 instance=ExtResource("10_4cpn8")]
+position = Vector2(1222, -99)
+
+[node name="FriendCoinMini10" parent="." unique_id=335426172 instance=ExtResource("10_4cpn8")]
+position = Vector2(1246, -99)

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bujqje3nbhkbh"]
 
-[ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://battle/heroes/susie/res/action_icons.png" id="1_re8ua"]
 [ext_resource type="Script" uid="uid://c6jkqmgmodqwf" path="res://battle/system/ui/action_panel/fight_minigame/fight_quicktime_event.gd" id="1_tm7xa"]
 [ext_resource type="Texture2D" uid="uid://dc3hn1ovehqiv" path="res://battle/system/ui/action_panel/fight_minigame/hit_mark.png" id="2_21im4"]
 [ext_resource type="Texture2D" uid="uid://7dlq57bryuej" path="res://battle/system/ui/action_panel/fight_minigame/press.png" id="2_r7idt"]
+[ext_resource type="Texture2D" uid="uid://d2pff4hydm2e5" path="res://battle/heroes/dess/res/action_icons.png" id="2_tm7xa"]
 [ext_resource type="Texture2D" uid="uid://dpou4phsm4qfi" path="res://battle/system/ui/action_panel/fight_minigame/hit_target.png" id="3_r7idt"]
 
 [sub_resource type="Animation" id="Animation_nyxgj"]
@@ -171,7 +171,7 @@ script = ExtResource("1_tm7xa")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1517451945]
 position = Vector2(24, 24)
-texture = ExtResource("1_re8ua")
+texture = ExtResource("2_tm7xa")
 offset = Vector2(0, 0.5)
 hframes = 11
 frame = 1

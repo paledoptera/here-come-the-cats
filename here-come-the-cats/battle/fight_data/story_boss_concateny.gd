@@ -9,10 +9,11 @@ func player_turn_end() -> void:
 	if battle.turn >= 4:
 		Party.enemy[0].dialogue.clear()
 	
-	if Party.enemy[0].hp <= 200:
-		Party.enemy[0].dialogue.clear()
-		Party.enemy[0].dialogue.append(preload("uid://d1h2u1mju8bf6"))
-		Party.enemy[0].attack_list = preload("uid://i4lghp42u6ys")
+	
+		if Party.enemy[0].hp <= 200:
+			Party.enemy[0].dialogue.clear()
+			Party.enemy[0].dialogue.append(preload("uid://d1h2u1mju8bf6"))
+			Party.enemy[0].attack_list = preload("uid://i4lghp42u6ys")
 	
 	await Party.get_tree().physics_frame
 	finished.emit()

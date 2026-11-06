@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1j0tue2i5trr"]
+
+[ext_resource type="Texture2D" uid="uid://wmsc1vpy1etm" path="res://entities/effects/speedline.png" id="1_8uv1r"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1357018259]
+texture = ExtResource("1_8uv1r")

@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_0t5vy"]
 [ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="2_0t5vy"]
-[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_3lpb0"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_a6wu7"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_p5dj7"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_j14t6"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="7_p6xv2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+[ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="8_rtvji"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jv2"]
 bg_color = Color(0, 0, 0, 1)
@@ -23,6 +21,9 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6xv2"]
+size = Vector2(9.5, 48)
 
 [sub_resource type="Curve2D" id="Curve2D_hesta"]
 _data = {
@@ -40,12 +41,25 @@ func _process(delta: float) -> void:
 	progress += 5.0
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtvji"]
+size = Vector2(20, 213.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjeqg"]
+size = Vector2(20, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(417, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc1a3"]
+size = Vector2(257, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfcoj"]
+size = Vector2(154.5, 16)
+
 [node name="Node2D" type="Node2D" unique_id=709242782]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168786282]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165847083]
-shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="OldHouse" type="Panel" parent="." unique_id=1635334405]
 anchors_preset = 15
@@ -66,6 +80,32 @@ offset_left = -17.0
 offset_top = -7.0
 offset_right = -7.5
 offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse6" type="Panel" parent="." unique_id=1301122387]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -7.0
+offset_right = 191.5
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse7" type="Panel" parent="." unique_id=318167871]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 298.0
+offset_right = 191.5
+offset_bottom = 304.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -109,12 +149,35 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
 
+[node name="OldHouse8" type="Panel" parent="." unique_id=388520901]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 380.0
+offset_top = 77.0
+offset_right = 389.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse9" type="Panel" parent="." unique_id=2097179742]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 380.0
+offset_top = -7.0
+offset_right = 389.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
 [node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_0t5vy")]
 position = Vector2(-17, 141)
 linked_contraptions = [NodePath("../Door")]
-
-[node name="PinkWallBullet" parent="." unique_id=42666868 instance=ExtResource("2_3lpb0")]
-position = Vector2(386, 60)
 
 [node name="EyeballBullet4" parent="." unique_id=194047947 instance=ExtResource("2_0t5vy")]
 position = Vector2(140, 222.00002)
@@ -147,6 +210,12 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Door/OldHouse5" unique_id=774786947]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/OldHouse5/StaticBody2D" unique_id=330896578]
+position = Vector2(4.75, 24)
+shape = SubResource("RectangleShape2D_p6xv2")
+
 [node name="PinkLine" type="Path2D" parent="." unique_id=2092716446 groups=["pink_lines"]]
 z_index = 101
 position = Vector2(666, 240)
@@ -166,3 +235,37 @@ position = Vector2(-500, -150)
 rotation = 1.5707964
 scale = Vector2(-1, 1)
 speed = -150.0
+
+[node name="PipeBlockerBullet" parent="." unique_id=1188741690 instance=ExtResource("8_rtvji")]
+position = Vector2(390, 52)
+damage = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168786282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165847083]
+position = Vector2(-7, 97.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1819722592]
+position = Vector2(390, 190.75)
+shape = SubResource("RectangleShape2D_rtvji")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=2029744551]
+position = Vector2(390, 6.5)
+shape = SubResource("RectangleShape2D_sjeqg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1645299787]
+position = Vector2(191.5, -2)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=114798096]
+position = Vector2(111.5, 193)
+shape = SubResource("RectangleShape2D_bc1a3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=2016831276]
+position = Vector2(321.75, 117)
+shape = SubResource("RectangleShape2D_nfcoj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1254176589]
+position = Vector2(191.5, 306)
+shape = SubResource("RectangleShape2D_yf5fn")

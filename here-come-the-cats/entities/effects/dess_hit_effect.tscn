@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ugw2au5jfv6v"]
+
+[ext_resource type="Texture2D" uid="uid://bj2xjsqitnbte" path="res://entities/effects/susie_strike.png" id="1_k3j3m"]
+[ext_resource type="Texture2D" uid="uid://c3uf1j7kdcakx" path="res://entities/effects/dess_strike.png" id="2_4h4mv"]
+[ext_resource type="Script" uid="uid://gftp3lqcm20t" path="res://entities/effects/dess_hit_effect.gd" id="3_4h4mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjh0j"]
+atlas = ExtResource("1_k3j3m")
+region = Rect2(0, 0, 43, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq0xj"]
+atlas = ExtResource("2_4h4mv")
+region = Rect2(0, 0, 44, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt4xh"]
+atlas = ExtResource("2_4h4mv")
+region = Rect2(44, 0, 44, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uunrf"]
+atlas = ExtResource("2_4h4mv")
+region = Rect2(88, 0, 44, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnmyp"]
+atlas = ExtResource("2_4h4mv")
+region = Rect2(132, 0, 44, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjh0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq0xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt4xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uunrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnmyp")
+}],
+"loop": 0,
+"name": &"hit",
+"speed": 15.0
+}]
+
+[node name="DessHitEffect" type="AnimatedSprite2D" unique_id=140616563]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"hit"
+autoplay = "hit"
+script = ExtResource("3_4h4mv")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

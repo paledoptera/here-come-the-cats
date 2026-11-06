@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq58iyttw433e" path="res://battle/enemies/CONCATONATE/attacks/res/teeth_crunch.png" id="4_luslo"]
 [ext_resource type="Texture2D" uid="uid://duiceukhldfat" path="res://battle/enemies/CONCATONATE/attacks/res/dotted_line2.png" id="5_86jjl"]
 [ext_resource type="Texture2D" uid="uid://dbkpf865glwr4" path="res://battle/enemies/CONCATONATE/attacks/res/dotted_line3.png" id="6_fo78e"]
+[ext_resource type="AudioStream" uid="uid://dahvh0ihaifr2" path="res://shared/sound_effects/snd_knight_cut2.wav" id="7_luslo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(94, 122)
@@ -73,7 +74,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("TeethTop:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,10 +83,46 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TeethTop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TeethBottom:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeethBottom:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_luslo"]
 resource_name = "attack"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,15 +138,66 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("TeethTop:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.3),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.3),
 "transitions": PackedFloat32Array(0.5, 1, -2, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(2.21, 0.212), Vector2(2, 0.2), Vector2(2, 2)]
+"values": [Vector2(2, 2), Vector2(2.21, 1), Vector2(2, 1.2), Vector2(2, 2)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TeethTop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 18), Vector2(0, 18), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TeethBottom:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, -2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.21, 1), Vector2(2, 1.2), Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeethBottom:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, -2, -2, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3.985, -19), Vector2(3.985, -19), Vector2(-1, -13.656), Vector2(0, 0)]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.5236005,
+"start_offset": 0.0,
+"stream": ExtResource("7_luslo")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bfoeu"]
 _data = {
@@ -123,9 +211,14 @@ size = Vector2(135, 135)
 [node name="BiteyZone" type="Area2D" unique_id=411048485]
 script = ExtResource("1_86jjl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1752586829]
+[node name="TeethTop" type="Sprite2D" parent="." unique_id=1752586829]
 scale = Vector2(2, 2)
 texture = ExtResource("4_luslo")
+
+[node name="TeethBottom" type="Sprite2D" parent="." unique_id=856882823]
+scale = Vector2(2, 2)
+texture = ExtResource("4_luslo")
+flip_v = true
 
 [node name="Bullet" type="Area2D" parent="." unique_id=1704205616]
 script = ExtResource("1_0crfh")
@@ -156,6 +249,9 @@ libraries/ = SubResource("AnimationLibrary_bfoeu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341802391]
 position = Vector2(0.5, -5.5)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1570430941]
+pitch_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

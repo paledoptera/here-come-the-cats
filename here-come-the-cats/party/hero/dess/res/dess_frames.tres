@@ -3,9 +3,37 @@
 [ext_resource type="Texture2D" uid="uid://chwlnfewit2ru" path="res://party/hero/dess/res/dess.png" id="1_50uo0"]
 [ext_resource type="Texture2D" uid="uid://rm16w25alglv" path="res://minigames/here_come_the_cats/res/dess.png" id="2_jq8lq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1brt"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(0, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ti1g"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(64, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuexs"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(128, 896, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqewn"]
 atlas = ExtResource("2_jq8lq")
 region = Rect2(0, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wby7"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(0, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67i7q"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(64, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_346fp"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(128, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itjqe"]
+atlas = ExtResource("2_jq8lq")
+region = Rect2(192, 960, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvsrh"]
 atlas = ExtResource("1_50uo0")
@@ -243,11 +271,42 @@ region = Rect2(0, 64, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t1brt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ti1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuexs")
+}],
+"loop": 0,
+"name": &"battle_idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sqewn")
 }],
 "loop": 0,
 "name": &"compassion",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wby7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67i7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_346fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itjqe")
+}],
+"loop": 0,
+"name": &"fight",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
