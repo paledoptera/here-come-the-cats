@@ -7,28 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bph4o3qkllkcb" path="res://dialogue/entities/portraits/dess/dess_shock_2.png" id="5_wkqiw"]
 [ext_resource type="Texture2D" uid="uid://bl25aceun64rk" path="res://dialogue/entities/portraits/dess/dess_shudder.png" id="6_cwsoh"]
 [ext_resource type="AudioStream" uid="uid://p1jt80jgkxpp" path="res://shared/sound_effects/snd_me_2.wav" id="7_bt5sq"]
-[ext_resource type="Texture2D" uid="uid://c4yrd3gjfr388" path="res://dialogue/entities/portraits/dess/dess_nervous_smile.png" id="7_h6tu8"]
 [ext_resource type="Texture2D" uid="uid://vrf7ob1c7bpq" path="res://dialogue/entities/portraits/dess/dess_fake_tough.png" id="8_foufm"]
-
-[sub_resource type="Resource" id="Resource_y2u61"]
-script = ExtResource("2_bt5sq")
-text = "* Hey!
-* Is anyone... uh, 
-	\"connected\"?"
-talksound = ExtResource("5_bt5sq")
-portrait = ExtResource("7_h6tu8")
-flag_value = null
-actor = &"dess"
-action = &"idle_forward"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_1m7m3"]
-script = ExtResource("2_bt5sq")
-text = "(pretend there's a \"yes\" \"no\"
-choicer here)"
-talksound = ExtResource("5_bt5sq")
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_dgad0"]
 script = ExtResource("2_bt5sq")
@@ -69,5 +48,5 @@ metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [resource]
 script = ExtResource("1_n2ajj")
-text = Array[ExtResource("2_bt5sq")]([SubResource("Resource_y2u61"), SubResource("Resource_1m7m3"), SubResource("Resource_dgad0"), SubResource("Resource_xnt85"), SubResource("Resource_aew2b"), SubResource("Resource_u1lij")])
+text = Array[ExtResource("2_bt5sq")]([SubResource("Resource_dgad0"), SubResource("Resource_xnt85"), SubResource("Resource_aew2b"), SubResource("Resource_u1lij")])
 metadata/_custom_type_script = "uid://bq7mxvnbwq8of"

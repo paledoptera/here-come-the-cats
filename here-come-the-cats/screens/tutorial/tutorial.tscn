@@ -32,8 +32,11 @@
 [ext_resource type="Texture2D" uid="uid://wmnja05kyeq6" path="res://screens/tutorial/res/props/door_piece.png" id="18_xmpw7"]
 [ext_resource type="AudioStream" uid="uid://jesl427qc1c4" path="res://shared/sound_effects/snd_wobble.wav" id="19_l6lk5"]
 [ext_resource type="AudioStream" uid="uid://byk74fk3rbqty" path="res://shared/sound_effects/snd_splat.wav" id="19_yjilp"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="21_u8tlx"]
+[ext_resource type="Script" uid="uid://6wsmyeq8q50c" path="res://screens/tutorial/choicer.gd" id="22_5n751"]
 [ext_resource type="AudioStream" uid="uid://g551awfssjqn" path="res://shared/sound_effects/snd_grab.wav" id="22_ch71n"]
 [ext_resource type="AudioStream" uid="uid://c7mxyxqoixr48" path="res://shared/sound_effects/snd_paperbreak.wav" id="23_d74mb"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/soul/soul/res/soul.png" id="23_ek8fm"]
 [ext_resource type="AudioStream" uid="uid://ccmys76n3sj17" path="res://shared/sound_effects/snd_break2.wav" id="23_n0g4d"]
 [ext_resource type="AudioStream" uid="uid://dcb8nqrhdqwrn" path="res://shared/sound_effects/snd_dess_scared.wav" id="23_yiwot"]
 [ext_resource type="AudioStream" uid="uid://cpo81emadro0k" path="res://shared/sound_effects/snd_hurt1.wav" id="24_vd6as"]
@@ -145,6 +148,10 @@ texture = ExtResource("6_i3p7n")
 blend_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_pp0ii"]
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("21_u8tlx")
+default_font_size = 32
 
 [sub_resource type="Animation" id="Animation_h7x3i"]
 length = 0.001
@@ -2245,6 +2252,34 @@ custom_minimum_size = Vector2(640, 480)
 offset_right = 640.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 0)
+
+[node name="Choicer" type="Node2D" parent="UI" unique_id=1199390509]
+unique_name_in_owner = true
+script = ExtResource("22_5n751")
+
+[node name="ChoicerBkg" type="RichTextLabel" parent="UI/Choicer" unique_id=1691772485]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 23.0
+offset_right = 616.0
+offset_bottom = 167.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("21_u8tlx")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_mvsrh")
+bbcode_enabled = true
+text = "	
+			Yes										No"
+scroll_active = false
+tab_size = 2
+
+[node name="Heart" type="Sprite2D" parent="UI/Choicer" unique_id=1766473339]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(105, 81)
+texture = ExtResource("23_ek8fm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678890847]
 libraries/ = SubResource("AnimationLibrary_i3p7n")

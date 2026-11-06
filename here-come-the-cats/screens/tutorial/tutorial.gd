@@ -93,6 +93,11 @@ func _on_tutorial_aparatus_event_3() -> void:
 	await $AnimationPlayer.animation_finished
 	await display_dialogue(preload("uid://d2p33mim41gpo"))
 	await get_tree().create_timer(0.5).timeout
+	await display_dialogue(preload("uid://tisl3yl3ysfs"))
+	await get_tree().create_timer(0.5).timeout
+	%Choicer.active = true
+	await %Choicer.choice_made
+	await get_tree().create_timer(0.2).timeout
 	await display_dialogue(preload("uid://dlm22t7sy3781"))
 	$AnimationPlayer.play("soul_look")
 	await $AnimationPlayer.animation_finished
