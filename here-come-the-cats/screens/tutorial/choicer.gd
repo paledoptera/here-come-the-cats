@@ -22,6 +22,11 @@ func _process(delta: float) -> void:
 	
 	var last_choice = choice
 	
+	if choice == 0:
+		$Heart.position = Vector2(105.0,81.0)
+	else:
+		$Heart.position = Vector2(459.0,81.0)
+	
 	if Input.is_action_just_pressed("left"):
 		choice = 0
 	elif Input.is_action_just_pressed("right"):

@@ -153,6 +153,14 @@ blend_mode = 2
 default_font = ExtResource("21_u8tlx")
 default_font_size = 32
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5n751"]
+load_path = "res://.godot/imported/dialogue_box.png-ae954fcd19d5977674b83f576097dfad.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oaehx"]
+content_margin_top = 28.0
+texture = SubResource("CompressedTexture2D_5n751")
+texture_margin_left = 94.0
+
 [sub_resource type="Animation" id="Animation_h7x3i"]
 length = 0.001
 tracks/0/type = "value"
@@ -522,6 +530,18 @@ tracks/30/path = NodePath("AudioStreamPlayer:volume_db")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -910,12 +930,8 @@ tracks/4/path = NodePath("AudioStreamPlayer2")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("23_yiwot")
-}],
-"times": PackedFloat32Array(0.06666668)
+"clips": [],
+"times": PackedFloat32Array()
 }
 tracks/4/use_blend = true
 tracks/5/type = "value"
@@ -1036,9 +1052,13 @@ tracks/14/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource("23_yiwot")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource("23_d74mb")
 }],
-"times": PackedFloat32Array(0.1)
+"times": PackedFloat32Array(0.06666667, 0.1)
 }
 tracks/14/use_blend = true
 tracks/15/type = "value"
@@ -1090,6 +1110,18 @@ tracks/18/keys = {
 "args": [&"surfing", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
 }
 
 [sub_resource type="Animation" id="Animation_n0g4d"]
@@ -2085,6 +2117,9 @@ position = Vector2(1617, 67)
 [node name="SoulFriend" parent="TutorialAparatus" index="0" unique_id=443094051]
 modulate = Color(1, 1, 1, 0)
 
+[node name="Flash" parent="TutorialAparatus/SoulFriend" index="7" unique_id=1076581337]
+rotation = -1.5707964
+
 [node name="Camera2D" parent="TutorialAparatus/SoulFriend" index="10" unique_id=8599560]
 enabled = false
 limit_top = 16
@@ -2269,16 +2304,16 @@ theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_mvsrh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oaehx")
 bbcode_enabled = true
-text = "	
-			Yes										No"
+text = "
+Yes										No"
 scroll_active = false
 tab_size = 2
 
 [node name="Heart" type="Sprite2D" parent="UI/Choicer" unique_id=1766473339]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(105, 81)
+position = Vector2(459, 81)
 texture = ExtResource("23_ek8fm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678890847]

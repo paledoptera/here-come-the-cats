@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://chk42ixrl6svl" path="res://shared/sprites/star.png" id="14_8ye7k"]
 [ext_resource type="Script" uid="uid://clk0p1i88jl1w" path="res://screens/title_screen/gold_star.gd" id="15_405we"]
 [ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="17_81sk2"]
+[ext_resource type="Script" uid="uid://bydqdwj3rxfwo" path="res://screens/title_screen/pink_star.gd" id="23_5cxmk"]
 [ext_resource type="Texture2D" uid="uid://cbjxgwfxbe1v5" path="res://temp/phase2_mockup_attacks_questionmark.png" id="25_5cxmk"]
 [ext_resource type="Texture2D" uid="uid://55ao838hkrk3" path="res://shared/sprites/select_box.png" id="25_wim8o"]
 [ext_resource type="Texture2D" uid="uid://b4sn2ol6gor11" path="res://shared/sprites/slider.png" id="26_5cxmk"]
@@ -37,6 +38,11 @@ keep_selected = true
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
 [sub_resource type="Resource" id="Resource_405we"]
+script = ExtResource("6_yvje3")
+keep_open = true
+metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
+
+[sub_resource type="Resource" id="Resource_wim8o"]
 script = ExtResource("6_yvje3")
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
@@ -249,7 +255,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 3.4, 3.5666668, 3.7000003),
 "transitions": PackedFloat32Array(1, -2, -2, 1),
 "update": 0,
-"values": [Vector2(66, 203), Vector2(-164, 203), Vector2(80, 203), Vector2(66, 203)]
+"values": [Vector2(66, 203), Vector2(-300, 203), Vector2(80, 203), Vector2(66, 203)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -311,7 +317,7 @@ script/source = "extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	visible = %ExtrasOptions.visible
+	visible = %Gameplay.visible
 "
 
 [node name="TitleScreen" type="Node" unique_id=2102249253]
@@ -321,7 +327,8 @@ script = ExtResource("1_4rvf0")
 script = ExtResource("2_jrv5w")
 menus = {
 NodePath("../Options"): SubResource("Resource_8eykq"),
-NodePath("../ExtrasMenu/LeftPanel/ExtrasOptions"): SubResource("Resource_405we")
+NodePath("../ExtrasMenu/LeftPanel/ExtrasOptions"): SubResource("Resource_405we"),
+NodePath("../ExtrasMenu/RightPanel/Gameplay"): SubResource("Resource_wim8o")
 }
 metadata/_custom_type_script = "uid://clqvwknmd31e5"
 
@@ -465,6 +472,12 @@ modulate = Color(1, 1, 0, 1)
 position = Vector2(130, 31)
 texture = ExtResource("14_8ye7k")
 script = ExtResource("15_405we")
+
+[node name="PinkStar" type="Sprite2D" parent="Options/Start" unique_id=1898188033]
+modulate = Color(0.8909603, 0.5300809, 0.9719792, 1)
+position = Vector2(161, 31)
+texture = ExtResource("14_8ye7k")
+script = ExtResource("23_5cxmk")
 
 [node name="Extras" type="Control" parent="Options" unique_id=392565835 groups=["menu_option"]]
 unique_name_in_owner = true
@@ -777,6 +790,7 @@ position = Vector2(320, 0)
 script = SubResource("GDScript_405we")
 
 [node name="LeftPanel" type="Panel" parent="ExtrasMenu" unique_id=1329670480]
+visible = false
 offset_left = -292.0
 offset_top = 189.0
 offset_right = -167.0
@@ -786,7 +800,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
 
 [node name="ExtrasOptions" type="VBoxContainer" parent="ExtrasMenu/LeftPanel" unique_id=1784367489 groups=["options_parent"]]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -799,48 +812,12 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 
-[node name="ConceptArt" type="Control" parent="ExtrasMenu/LeftPanel/ExtrasOptions" unique_id=49602298 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_scale = Vector2(0.61, 1)
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" unique_id=1117646509]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-bbcode_enabled = true
-text = "Concept Art"
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" unique_id=949585384]
-position = Vector2(288, 17)
-texture = ExtResource("25_wim8o")
-hframes = 2
-
 [node name="Gameplay" type="Control" parent="ExtrasMenu/LeftPanel/ExtrasOptions" unique_id=2003343594 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(-999, 50)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" unique_id=1055221417]
@@ -876,7 +853,7 @@ custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(-999, 50)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" unique_id=1471492539]
@@ -885,8 +862,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 171.0
-offset_bottom = 171.0
+offset_top = 201.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_7rakj")
@@ -903,9 +880,9 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="RightPanel" type="Panel" parent="ExtrasMenu" unique_id=1840879433]
-offset_left = -163.0
+offset_left = -224.0
 offset_top = 189.0
-offset_right = 290.0
+offset_right = 229.0
 offset_bottom = 414.0
 offset_transform_position_ratio = Vector2(-0.5, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
@@ -961,6 +938,7 @@ offset_bottom = 16.0
 text = ">"
 
 [node name="Gameplay" type="VBoxContainer" parent="ExtrasMenu/RightPanel" unique_id=902732565 groups=["options_parent"]]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1142,9 +1120,13 @@ color = Color(0, 0, 0, 0)
 [connection signal="selected" from="Options/Start" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Extras" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Quit" to="." method="_on_option_selected"]
-[connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" to="." method="_on_extras_options_hovered"]
-[connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" to="." method="_on_extras_option_selected"]
 [connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" to="." method="_on_extras_options_hovered"]
 [connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" to="." method="_on_extras_option_selected"]
 [connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" to="." method="_on_extras_options_hovered"]
 [connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" to="." method="_on_extras_option_selected"]
+[connection signal="hovered" from="ExtrasMenu/RightPanel/Gameplay/Godmode" to="." method="_on_gameplay_option_hovered"]
+[connection signal="selected" from="ExtrasMenu/RightPanel/Gameplay/Godmode" to="." method="_on_gameplay_options_selected"]
+[connection signal="hovered" from="ExtrasMenu/RightPanel/Gameplay/NoHitMode" to="." method="_on_gameplay_option_hovered"]
+[connection signal="selected" from="ExtrasMenu/RightPanel/Gameplay/NoHitMode" to="." method="_on_gameplay_options_selected"]
+[connection signal="hovered" from="ExtrasMenu/RightPanel/Gameplay/SkipPrologue" to="." method="_on_gameplay_option_hovered"]
+[connection signal="selected" from="ExtrasMenu/RightPanel/Gameplay/SkipPrologue" to="." method="_on_gameplay_options_selected"]

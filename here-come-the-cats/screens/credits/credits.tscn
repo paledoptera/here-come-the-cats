@@ -413,8 +413,8 @@ tracks/2/path = NodePath("Text1:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.9666686, 11.333333, 16.366667, 21.634089, 26.924318, 32.233334, 42.533333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(5.9666686, 11.333333, 11.866667, 12.507253, 13.966667, 16.466667, 21.634089, 26.924318, 32.233334, 42.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["[shake]
 A game by Paledoptera
@@ -429,6 +429,9 @@ Title screen art
 
 [color=white]EduaRRdo_Cuvano
 [color=505050]Gaster's lab environment art", "[shake]
+A tribute to", "[shake]
+A tribute to
+WAITRESS", "[shake]
 A tribute to
 WAITRESS
 (the band, not the musical)", "[shake]
@@ -436,15 +439,21 @@ A tribute to
 WAITRESS
 (the band, not the musical)
 
+WE LOVE YOU!!! <3", "[shake]
+A tribute to
+WAITRESS
+(the band, not the musical)
+
+WE LOVE YOU!!! <3
 
 Music used (in order)
 [color=505050]Everhood 2 OST  - Main Menu 
 Deltarune OST - findher.ogg
 Waitress - Here Come The Cats
+Deltarune OST - Faint Courage
 Waitress - The Great Forever
 Waitress - Rubio's Lament
-", "
-[wave]
+", "[wave]
 Inspired by:
 [color=505050]
 - Two incredible animations
@@ -454,19 +463,23 @@ by Faz and marineflames
 [color=WHITE]
 Thank you to:
 Airplane
-[color=505050]for the Background sketches", "[wave]
-Special thanks to our playtesters:
-[color=505050]Soup Taels
-tizielechicero
-Humanhaker9 H9
-Angelvision
-Lunarluned
-Karma
+[color=505050]for the Background sketches
 
-[color=WHITE]
-And our early supporters!
+[color=white]HighPoweredKeyz
+[color=505050]for the logo font", "[wave]
+Special thanks to our playtesters:
+[color=505050]Interstellar
+Humanhaker9 H9
+LunarLuned
+EmeraldExpress
+Karma
+kassheart
+reative
+[color=WHITE]And our early supporters!
 [color=505050]Spoofymaru
+Angelvision
 Ectoplasm & Visioncord
+Soup Taels
 ArtsyAria (my love <3)
 
 ", "[wave]", "
@@ -610,10 +623,10 @@ tracks/13/path = NodePath("Title/Title/TitleSprite/SubViewport/Logo/Title:modula
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(2.1191392, 2.3000002),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.100000024),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.83137256, 0.83137256, 0.83137256, 0), Color(0.83137256, 0.83137256, 0.83137256, 1)]
+"values": [Color(0.83137256, 0.83137256, 0.83137256, 1)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false

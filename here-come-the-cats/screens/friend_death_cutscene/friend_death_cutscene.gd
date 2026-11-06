@@ -1,7 +1,12 @@
 extends Node
 
 func _ready() -> void:
+	
 	Global.save_file.completed = true
+	
+	if Global.options.no_hit_mode:
+		Global.save_file.no_hitted = true
+	
 	Global.save_file.save_data()
 	Music.stop()
 	%SOUL.position = SceneLoader.soul_screen_pos

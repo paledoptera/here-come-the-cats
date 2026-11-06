@@ -1291,6 +1291,7 @@ z_index = -1
 texture = ExtResource("2_aoukt")
 
 [node name="CPUParticles2D" parent="ActorContainer/TheCat" unique_id=722183301 instance=ExtResource("2_gof6c")]
+z_index = 0
 position = Vector2(-73.29166, 5.186205)
 scale = Vector2(1.5059929, 0.9804909)
 amount = 40
