@@ -20,6 +20,7 @@ time = 15.0
 id = &"catspit"
 
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=1947977135 node_paths=PackedStringArray("parent")]
+visible = false
 z_index = 4096
 script = ExtResource("1_wm4rk")
 bullet = ExtResource("2_u8g27")

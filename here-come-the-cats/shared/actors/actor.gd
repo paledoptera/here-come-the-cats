@@ -4,6 +4,7 @@ class_name Actor extends Node2D
 var animated_element: Variant
 var target: Node2D ## This is for animations like enemy targetting etc
 var action_queue: Array[StringName]
+var current_action: StringName
 
 func _ready() -> void:
 	for i in get_children():
@@ -22,6 +23,7 @@ func _enter_tree() -> void:
 func do_action(action: StringName):
 	if animated_element:
 		animated_element.play(action)
+		current_action = action
 
 
 func queue_action(action: StringName):

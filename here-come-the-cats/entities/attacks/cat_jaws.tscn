@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://bqpe6h8uay2lv"]
 
-[ext_resource type="PackedScene" uid="uid://bwkuilratplt7" path="res://entities/bullets/generic/teeth_bullet.tscn" id="1_00jav"]
 [ext_resource type="Texture2D" uid="uid://ci5peb5h0s3f3" path="res://entities/attacks/res/biter.png" id="1_0vlm6"]
 [ext_resource type="Script" uid="uid://biowbche1ulj0" path="res://entities/attacks/attack.gd" id="1_y3wqw"]
+[ext_resource type="Texture2D" uid="uid://diyrxe0j8cm0g" path="res://entities/bullets/generic/res/tooth.png" id="3_vg3h2"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="4_tytqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
 atlas = ExtResource("1_0vlm6")
 region = Rect2(0, 63.220146, 100, 6.779854)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wdhh"]
+size = Vector2(94.5, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wctii"]
+size = Vector2(94.5, 13.5)
 
 [sub_resource type="Animation" id="Animation_8a0bl"]
 length = 0.001
@@ -81,6 +88,54 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Teeth/TeethTop/TeethBullet/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Teeth/TeethBottom/TeethBullet/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Teeth/TeethTop:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Teeth/TeethBottom:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_j1mux"]
@@ -158,6 +213,54 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Teeth/TeethTop/TeethBullet/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1.3000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Teeth/TeethBottom/TeethBullet/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1.3000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Teeth/TeethTop:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.6666667, 1.1666667, 1.3666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Teeth/TeethBottom:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.6666667, 1.1666667, 1.3666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_swdlb"]
 _data = {
@@ -194,101 +297,187 @@ stretch_mode = 1
 scale = Vector2(0.6, 1)
 
 [node name="TeethTop" type="Node2D" parent="Teeth" unique_id=2033621908]
+modulate = Color(0, 0, 0, 0)
 position = Vector2(-89, 16)
 scale = Vector2(1, -1)
 
-[node name="RightHalf" type="Node2D" parent="Teeth/TeethTop" unique_id=1570761349]
+[node name="Sprites" type="Node2D" parent="Teeth/TeethTop" unique_id=1971797586]
 
-[node name="TeethBullet2" parent="Teeth/TeethTop/RightHalf" unique_id=194047947 instance=ExtResource("1_00jav")]
+[node name="Sprite2D" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1357657083]
 position = Vector2(171, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="TeethBullet3" parent="Teeth/TeethTop/RightHalf" unique_id=913903990 instance=ExtResource("1_00jav")]
+[node name="Sprite2D2" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1915770044]
 position = Vector2(153, 83)
 scale = Vector2(2.411, 2.411)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="TeethBullet4" parent="Teeth/TeethTop/RightHalf" unique_id=692163624 instance=ExtResource("1_00jav")]
+[node name="Sprite2D3" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1259356983]
 position = Vector2(136, 78)
 scale = Vector2(1.5, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="TeethBullet5" parent="Teeth/TeethTop/RightHalf" unique_id=207901800 instance=ExtResource("1_00jav")]
+[node name="Sprite2D4" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1291851722]
 position = Vector2(118, 83)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(2, -1.5)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="TeethBullet6" parent="Teeth/TeethTop/RightHalf" unique_id=1602651157 instance=ExtResource("1_00jav")]
+[node name="Sprite2D5" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1351374435]
 position = Vector2(101, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="LeftHalf" type="Node2D" parent="Teeth/TeethTop" unique_id=1996506459]
-position = Vector2(178, 0)
-rotation = 3.1415927
-scale = Vector2(1, -1)
+[node name="Sprite2D6" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=567264157]
+position = Vector2(7, 76.999985)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
 
-[node name="TeethBullet2" parent="Teeth/TeethTop/LeftHalf" unique_id=923714407 instance=ExtResource("1_00jav")]
+[node name="Sprite2D7" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=2088518890]
+position = Vector2(25, 82.999985)
+rotation = -3.1415925
+scale = Vector2(2.411, -2.411)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1186794356]
+position = Vector2(42, 77.999985)
+rotation = -3.1415925
+scale = Vector2(1.5, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=467575417]
+position = Vector2(59.999992, 83)
+scale = Vector2(2, 1.5)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Teeth/TeethTop/Sprites" unique_id=1484905211]
+position = Vector2(76.99999, 85)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+
+[node name="TeethBullet" type="Area2D" parent="Teeth/TeethTop" unique_id=600684473]
 position = Vector2(171, 77)
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("4_tytqi")
+damage = 9
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
 
-[node name="TeethBullet3" parent="Teeth/TeethTop/LeftHalf" unique_id=19187194 instance=ExtResource("1_00jav")]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-
-[node name="TeethBullet4" parent="Teeth/TeethTop/LeftHalf" unique_id=1604740110 instance=ExtResource("1_00jav")]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-
-[node name="TeethBullet5" parent="Teeth/TeethTop/LeftHalf" unique_id=486411322 instance=ExtResource("1_00jav")]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-
-[node name="TeethBullet6" parent="Teeth/TeethTop/LeftHalf" unique_id=2143205514 instance=ExtResource("1_00jav")]
-position = Vector2(101, 85)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teeth/TeethTop/TeethBullet" unique_id=1382909167]
+position = Vector2(-41.25, 9.75)
+shape = SubResource("RectangleShape2D_8wdhh")
+disabled = true
 
 [node name="TeethBottom" type="Node2D" parent="Teeth" unique_id=1758298114]
+modulate = Color(0, 0, 0, 0)
 position = Vector2(-89, 449)
 
-[node name="RightHalf" type="Node2D" parent="Teeth/TeethBottom" unique_id=186242710]
-
-[node name="TeethBullet2" parent="Teeth/TeethBottom/RightHalf" unique_id=83090971 instance=ExtResource("1_00jav")]
-position = Vector2(171, 77)
-
-[node name="TeethBullet3" parent="Teeth/TeethBottom/RightHalf" unique_id=1632372513 instance=ExtResource("1_00jav")]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-
-[node name="TeethBullet4" parent="Teeth/TeethBottom/RightHalf" unique_id=760619079 instance=ExtResource("1_00jav")]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-
-[node name="TeethBullet5" parent="Teeth/TeethBottom/RightHalf" unique_id=1526336846 instance=ExtResource("1_00jav")]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-
-[node name="TeethBullet6" parent="Teeth/TeethBottom/RightHalf" unique_id=2072705503 instance=ExtResource("1_00jav")]
-position = Vector2(101, 85)
-
-[node name="LeftHalf" type="Node2D" parent="Teeth/TeethBottom" unique_id=2095055826]
-position = Vector2(178, 0)
-rotation = 3.1415927
+[node name="Sprites" type="Node2D" parent="Teeth/TeethBottom" unique_id=419379166]
+position = Vector2(0, 182.55814)
 scale = Vector2(1, -1)
 
-[node name="TeethBullet2" parent="Teeth/TeethBottom/LeftHalf" unique_id=1925228535 instance=ExtResource("1_00jav")]
+[node name="Sprite2D" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=1816629855]
 position = Vector2(171, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
 
-[node name="TeethBullet3" parent="Teeth/TeethBottom/LeftHalf" unique_id=1001218316 instance=ExtResource("1_00jav")]
+[node name="Sprite2D2" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=2116356909]
 position = Vector2(153, 83)
 scale = Vector2(2.411, 2.411)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
 
-[node name="TeethBullet4" parent="Teeth/TeethBottom/LeftHalf" unique_id=1190638989 instance=ExtResource("1_00jav")]
+[node name="Sprite2D3" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=752544230]
 position = Vector2(136, 78)
 scale = Vector2(1.5, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
 
-[node name="TeethBullet5" parent="Teeth/TeethBottom/LeftHalf" unique_id=287404354 instance=ExtResource("1_00jav")]
+[node name="Sprite2D4" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=1641067837]
 position = Vector2(118, 83)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(2, -1.5)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
 
-[node name="TeethBullet6" parent="Teeth/TeethBottom/LeftHalf" unique_id=1002414970 instance=ExtResource("1_00jav")]
+[node name="Sprite2D5" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=1568115801]
 position = Vector2(101, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=551411268]
+position = Vector2(7, 76.999985)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=134053921]
+position = Vector2(25, 82.999985)
+rotation = -3.1415925
+scale = Vector2(2.411, -2.411)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=1836636985]
+position = Vector2(42, 77.999985)
+rotation = -3.1415925
+scale = Vector2(1.5, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=1438996292]
+position = Vector2(59.999992, 83)
+scale = Vector2(2, 1.5)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Teeth/TeethBottom/Sprites" unique_id=222515081]
+position = Vector2(76.99999, 85)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("3_vg3h2")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="TeethBullet" type="Area2D" parent="Teeth/TeethBottom" unique_id=1174728797]
+position = Vector2(171, 88.372086)
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("4_tytqi")
+damage = 9
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teeth/TeethBottom/TeethBullet" unique_id=863693819]
+position = Vector2(-41.25, 9.75)
+shape = SubResource("RectangleShape2D_wctii")
+disabled = true
 
 [node name="CatPawAnim" type="AnimationPlayer" parent="." unique_id=1531989924]
 libraries/ = SubResource("AnimationLibrary_swdlb")

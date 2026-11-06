@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_et73e"]
 [ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="5_1rxv2"]
 [ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="6_qycop"]
+[ext_resource type="Texture2D" uid="uid://c2m2o5wpcepix" path="res://minigames/here_come_the_cats/res/house_props/house_props_2.png" id="7_fyr0h"]
 [ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="7_j6ja6"]
 [ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="7_pia8t"]
 
@@ -428,3 +429,9 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="PipeBlockerBullet" parent="." unique_id=125706683 instance=ExtResource("7_j6ja6")]
 position = Vector2(47, 8)
 rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=232502745]
+modulate = Color(0.51673955, 0.1845552, 0.36255714, 1)
+position = Vector2(192, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("7_fyr0h")

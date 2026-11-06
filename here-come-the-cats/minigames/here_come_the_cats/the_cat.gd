@@ -7,12 +7,16 @@ func bullet_shot(damage: int, other_bullet: Area2D) -> void:
 	var final_damage: int = 0
 	if damage < 10.0:
 		final_damage = [1,1,2].pick_random()
+		Sound.play(preload("uid://d08c3mqmqumij"),0.6,randf_range(0.9,1.1))
+		other_bullet.queue_free()
 	else:
 		final_damage = PartyAttackFormula.calculate(damage*3,Party.hero[0],Party.enemy[0])
-	
+		Sound.play(preload("uid://dvuvxfskkh7fn"),0.8,randf_range(0.9,1.1))
+		$Damage.play("hurt")
 		final_damage += randi_range(-15,15)
+		other_bullet.queue_free()
 	
-	Sound.play(preload("uid://dvuvxfskkh7fn"))
+	
 	var target = Party.enemy.pick_random()
 	
 	target.hp -= final_damage

@@ -12,6 +12,8 @@ func _ready() -> void:
 	else:
 		%Extras.modulate = Color("6c6c6c")
 		%Extras.disabled = true
+	
+	$ExtrasMenu.visible = false
 
 
 func _on_option_selected(index: int) -> void:
@@ -19,6 +21,7 @@ func _on_option_selected(index: int) -> void:
 		0: # Start
 			Music.fade_out(2.0)
 			started = true
+			$Soul.visible = false
 			$MenuInputManager.close_all_menus()
 			$AnimationPlayer.play("fade_out")
 			await get_tree().create_timer(3.0).timeout
@@ -26,6 +29,25 @@ func _on_option_selected(index: int) -> void:
 				SceneLoader.change_scene(preload("uid://ddmjcvocbt7r1"))
 			else:
 				SceneLoader.change_scene(preload("uid://wfktweg8on8i"))
+		1: # Extras
+			$ExtrasMenu.visible = true
+			$MenuInputManager.open_menu(%ExtrasOptions)
 		2: # Quit
 			get_tree().quit()
 	pass # Replace with function body.
+
+func _on_extras_options_hovered(index: int) -> void:
+	for i in %ExtrasOptions.get_children():
+		i.modulate = Color.WHITE
+		if i.get_index() == index:
+			i.modulate = Color.YELLOW
+		
+
+func _on_extras_option_selected(index: int) -> void:
+	match index:
+		0: # Concept art
+			pass
+		1: # Gameplay
+			pass
+		2: # Back to title
+			$MenuInputManager.close_menu()

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://rqcwv0u2ltx8"]
 
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_0t5vy"]
-[ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="2_0t5vy"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_a6wu7"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_p5dj7"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_j14t6"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="7_p6xv2"]
+[ext_resource type="Texture2D" uid="uid://do6a7xqgkwxsa" path="res://minigames/here_come_the_cats/res/house_props/house_props_1.png" id="7_rtvji"]
 [ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="8_rtvji"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jv2"]
@@ -227,19 +227,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
 position = Vector2(-17, 141)
 linked_contraptions = [NodePath("../Door")]
 
-[node name="EyeballBullet4" parent="." unique_id=194047947 instance=ExtResource("2_0t5vy")]
-position = Vector2(140, 222.00002)
-scale = Vector2(1.5, 1.5)
-
-[node name="EyeballBullet5" parent="." unique_id=1120900300 instance=ExtResource("2_0t5vy")]
-position = Vector2(241, 278)
-scale = Vector2(1.5, 1.5)
-
-[node name="EyeballBullet6" parent="." unique_id=680171823 instance=ExtResource("2_0t5vy")]
-position = Vector2(188, 249)
-scale = Vector2(3, 3)
-shootable_hp = 20
-
 [node name="Door" type="Node2D" parent="." unique_id=102478406]
 position = Vector2(0, 201)
 script = ExtResource("4_a6wu7")
@@ -329,3 +316,9 @@ shape = SubResource("RectangleShape2D_nfcoj")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1254176589]
 position = Vector2(191.5, 306)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1753774135]
+modulate = Color(0.51673955, 0.1845552, 0.36255714, 1)
+position = Vector2(192, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rtvji")

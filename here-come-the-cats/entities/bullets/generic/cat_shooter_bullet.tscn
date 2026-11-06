@@ -5,6 +5,21 @@
 [ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="3_xvsls"]
 [ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="4_dvgqs"]
 [ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/hairball_bullet.tscn" id="4_xvsls"]
+[ext_resource type="Script" uid="uid://dqtl2ska6v1q5" path="res://tail.gd" id="6_e5atc"]
+[ext_resource type="Texture2D" uid="uid://2ha41wuc6njg" path="res://entities/bullets/generic/res/cat_shooter_body.png" id="7_4gaj8"]
+[ext_resource type="Texture2D" uid="uid://beo5y2a0bgvxu" path="res://entities/attacks/res/cat_tail.png" id="8_0orau"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "tail"
+script/source = "extends Node2D
+
+@export var target: Node2D
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	look_at(target.global_position)
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvgqs"]
 radius = 27.518175
@@ -137,11 +152,11 @@ z_index = 3916
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_xvsls")
-damage = 9
+damage = 6
 destructible = true
 shootable = true
 shootable_hp = 5
-velocity = Vector2(150, 0)
+velocity = Vector2(130, 0)
 life_time = 4.0
 linear_acceleration = -0.01
 rotate_sprite = true
@@ -164,8 +179,8 @@ script = ExtResource("3_xvsls")
 bullet = ExtResource("4_xvsls")
 spawn_amount_min = 2
 spawn_amount_max = 2
-speed_mult_min = -3.0
-speed_mult_max = -3.0
+speed_mult_min = -2.0
+speed_mult_max = -2.0
 speed_mult = -1.0
 metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
 
@@ -195,6 +210,30 @@ rotation = -2.094395
 rotation = -1.5707964
 scale = Vector2(0.29, 0.29)
 texture = ExtResource("4_dvgqs")
+
+[node name="TailEffect" type="Node2D" parent="Sprite2D/Sprite2D" unique_id=1027478356]
+z_index = 4096
+script = ExtResource("6_e5atc")
+range = 80.0
+clamp = 80.0
+offset = Vector2(0, 2)
+constant_offset = Vector2(-5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/TailEffect" unique_id=1745099567]
+z_index = 3915
+scale = Vector2(2, 2)
+texture = ExtResource("7_4gaj8")
+
+[node name="Node2D" type="Node2D" parent="Sprite2D/Sprite2D/TailEffect" unique_id=2059888965 node_paths=PackedStringArray("target")]
+script = SubResource("GDScript_g4v7s")
+target = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/TailEffect/Node2D" unique_id=1251157739]
+z_index = 3915
+rotation = 1.5707964
+texture = ExtResource("8_0orau")
+offset = Vector2(0, 23.8)
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
 position = Vector2(0, 7.5)

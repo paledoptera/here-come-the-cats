@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://chk42ixrl6svl" path="res://shared/sprites/star.png" id="14_8ye7k"]
 [ext_resource type="Script" uid="uid://clk0p1i88jl1w" path="res://screens/title_screen/gold_star.gd" id="15_405we"]
 [ext_resource type="PackedScene" uid="uid://dqv4rba43cjqa" path="res://screens/title_screen/title.tscn" id="17_81sk2"]
+[ext_resource type="Texture2D" uid="uid://cbjxgwfxbe1v5" path="res://temp/phase2_mockup_attacks_questionmark.png" id="25_5cxmk"]
 [ext_resource type="Texture2D" uid="uid://55ao838hkrk3" path="res://shared/sprites/select_box.png" id="25_wim8o"]
 [ext_resource type="Texture2D" uid="uid://b4sn2ol6gor11" path="res://shared/sprites/slider.png" id="26_5cxmk"]
 [ext_resource type="Texture2D" uid="uid://c6i3ctqxin38r" path="res://screens/title_screen/res/image1.png" id="27_7cxjv"]
@@ -32,6 +33,11 @@ metadata/_custom_type_script = "uid://bqfyrxl6u2sc6"
 [sub_resource type="Resource" id="Resource_8eykq"]
 script = ExtResource("6_yvje3")
 menu_sounds = SubResource("Resource_bgok2")
+keep_selected = true
+metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
+
+[sub_resource type="Resource" id="Resource_405we"]
+script = ExtResource("6_yvje3")
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
 [sub_resource type="Gradient" id="Gradient_405we"]
@@ -57,18 +63,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Eyes:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7.0799994, -50.52)]
 }
 
 [sub_resource type="Animation" id="Animation_5cxmk"]
@@ -175,7 +169,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -188,6 +182,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(66, 203)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Soul:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_pvcqs"]
@@ -245,6 +251,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(66, 203), Vector2(-164, 203), Vector2(80, 203), Vector2(66, 203)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Soul:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.966667, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wim8o"]
 _data = {
@@ -286,13 +304,15 @@ expand_margin_top = 10.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 3
-anti_aliasing = false
+[sub_resource type="GDScript" id="GDScript_405we"]
+resource_name = "extras"
+script/source = "extends Node2D
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	visible = %ExtrasOptions.visible
+"
 
 [node name="TitleScreen" type="Node" unique_id=2102249253]
 script = ExtResource("1_4rvf0")
@@ -300,7 +320,8 @@ script = ExtResource("1_4rvf0")
 [node name="MenuInputManager" type="Node" parent="." unique_id=525626993 node_paths=PackedStringArray("menus")]
 script = ExtResource("2_jrv5w")
 menus = {
-NodePath("../Options"): SubResource("Resource_8eykq")
+NodePath("../Options"): SubResource("Resource_8eykq"),
+NodePath("../ExtrasMenu/LeftPanel/ExtrasOptions"): SubResource("Resource_405we")
 }
 metadata/_custom_type_script = "uid://clqvwknmd31e5"
 
@@ -337,7 +358,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_pvcqs")
 
 [node name="Eyes" type="Sprite2D" parent="Background/Cat" unique_id=1493910770]
-position = Vector2(7.0799994, -50.52)
+position = Vector2(7.0799994, -47.396297)
 texture = ExtResource("11_lnnji")
 
 [node name="Eyes2" type="Sprite2D" parent="Background/Cat" unique_id=414733847]
@@ -395,8 +416,9 @@ enable_rhythm_tracking = true
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
 
 [node name="Soul" type="Sprite2D" parent="." unique_id=1608488927 groups=["soul"]]
+visible = false
 modulate = Color(1, 0, 0, 1)
-position = Vector2(64, 65)
+position = Vector2(81, 236)
 texture = ExtResource("8_v01p7")
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=1668206618 groups=["options_parent"]]
@@ -413,6 +435,7 @@ grow_vertical = 2
 [node name="Start" type="Control" parent="Options" unique_id=947396992 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
 focus_mode = 2
 script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
@@ -476,6 +499,7 @@ autowrap_mode = 0
 [node name="Quit" type="Control" parent="Options" unique_id=294885714 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
 focus_mode = 2
 script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
@@ -507,7 +531,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Overlay" type="Parallax2D" parent="." unique_id=1279667498]
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
@@ -576,7 +600,7 @@ custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(55, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/Godmode" unique_id=1252503254]
@@ -611,7 +635,7 @@ custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(55, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/NoHitMode" unique_id=33375850]
@@ -645,7 +669,7 @@ custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(55, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/Volume" unique_id=12018892]
@@ -679,7 +703,7 @@ custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
+offset = Vector2(55, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
 [node name="Label" type="RichTextLabel" parent="OptionsMenu/Panel/Options/BackToTitle" unique_id=11702730]
@@ -750,16 +774,19 @@ value = 100.0
 [node name="ExtrasMenu" type="Node2D" parent="." unique_id=998108532]
 visible = false
 position = Vector2(320, 0)
+script = SubResource("GDScript_405we")
 
 [node name="LeftPanel" type="Panel" parent="ExtrasMenu" unique_id=1329670480]
 offset_left = -292.0
 offset_top = 189.0
 offset_right = -167.0
-offset_bottom = 313.0
+offset_bottom = 414.0
 offset_transform_position_ratio = Vector2(-0.5, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
 
-[node name="Options" type="VBoxContainer" parent="ExtrasMenu/LeftPanel" unique_id=1784367489 groups=["options_parent"]]
+[node name="ExtrasOptions" type="VBoxContainer" parent="ExtrasMenu/LeftPanel" unique_id=1784367489 groups=["options_parent"]]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -772,7 +799,7 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 
-[node name="ConceptArt" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=49602298 groups=["menu_option"]]
+[node name="ConceptArt" type="Control" parent="ExtrasMenu/LeftPanel/ExtrasOptions" unique_id=49602298 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 offset_transform_enabled = true
@@ -782,7 +809,7 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/ConceptArt" unique_id=1117646509]
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" unique_id=1117646509]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
@@ -803,12 +830,12 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/ConceptArt" unique_id=949585384]
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" unique_id=949585384]
 position = Vector2(288, 17)
 texture = ExtResource("25_wim8o")
 hframes = 2
 
-[node name="Lore" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=1898036864 groups=["menu_option"]]
+[node name="Gameplay" type="Control" parent="ExtrasMenu/LeftPanel/ExtrasOptions" unique_id=2003343594 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -816,7 +843,7 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/Lore" unique_id=613776631]
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" unique_id=1055221417]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
@@ -825,6 +852,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
+offset_transform_scale = Vector2(0.805, 1)
 theme = SubResource("Theme_7rakj")
 theme_override_fonts/normal_font = ExtResource("4_bgok2")
 theme_override_font_sizes/normal_font_size = 32
@@ -833,17 +861,17 @@ theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 bbcode_enabled = true
-text = "Lore"
+text = "Gameplay"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/Lore" unique_id=653938213]
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" unique_id=692003593]
 position = Vector2(288, 17)
 texture = ExtResource("25_wim8o")
 hframes = 2
 
-[node name="NoHitMode" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=2003343594 groups=["menu_option"]]
+[node name="BackToTitle" type="Control" parent="ExtrasMenu/LeftPanel/ExtrasOptions" unique_id=979795404 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -851,50 +879,14 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/NoHitMode" unique_id=1055221417]
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" unique_id=1471492539]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-offset_transform_scale = Vector2(0.595, 1)
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-bbcode_enabled = true
-text = "No-Hit mode"
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/LeftPanel/Options/NoHitMode" unique_id=692003593]
-position = Vector2(288, 17)
-texture = ExtResource("25_wim8o")
-hframes = 2
-
-[node name="BackToTitle" type="Control" parent="ExtrasMenu/LeftPanel/Options" unique_id=979795404 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/LeftPanel/Options/BackToTitle" unique_id=1471492539]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 41.0
-offset_bottom = 41.0
+offset_top = 171.0
+offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_7rakj")
@@ -914,11 +906,12 @@ horizontal_alignment = 1
 offset_left = -163.0
 offset_top = 189.0
 offset_right = 290.0
-offset_bottom = 313.0
+offset_bottom = 414.0
 offset_transform_position_ratio = Vector2(-0.5, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_57qmd")
 
-[node name="Options" type="VBoxContainer" parent="ExtrasMenu/RightPanel" unique_id=902732565 groups=["options_parent"]]
+[node name="ConceptArt" type="HBoxContainer" parent="ExtrasMenu/RightPanel" unique_id=428230844 groups=["options_parent"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -927,7 +920,27 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 
-[node name="Godmode" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1333113270 groups=["menu_option"]]
+[node name="Left" type="Control" parent="ExtrasMenu/RightPanel/ConceptArt" unique_id=636247845 groups=["menu_option"]]
+custom_minimum_size = Vector2(20, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/ConceptArt/Left" unique_id=2019900493]
+position = Vector2(33, 8)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="Label" type="Label" parent="ExtrasMenu/RightPanel/ConceptArt/Left" unique_id=1661973089]
+layout_mode = 0
+offset_left = 29.0
+offset_right = 69.0
+offset_bottom = 16.0
+text = "<"
+
+[node name="Right" type="Control" parent="ExtrasMenu/RightPanel/ConceptArt" unique_id=1401021060 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -935,12 +948,44 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/Godmode" unique_id=375316239]
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/ConceptArt/Right" unique_id=850364941]
+position = Vector2(33, 8)
+texture = ExtResource("25_wim8o")
+hframes = 2
+
+[node name="Label" type="Label" parent="ExtrasMenu/RightPanel/ConceptArt/Right" unique_id=292729663]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 16.0
+text = ">"
+
+[node name="Gameplay" type="VBoxContainer" parent="ExtrasMenu/RightPanel" unique_id=902732565 groups=["options_parent"]]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Godmode" type="Control" parent="ExtrasMenu/RightPanel/Gameplay" unique_id=1333113270 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Gameplay/Godmode" unique_id=375316239]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 101.0
+offset_right = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_7rakj")
@@ -956,12 +1001,12 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/Godmode" unique_id=501628459]
-position = Vector2(288, 17)
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Gameplay/Godmode" unique_id=501628459]
+position = Vector2(405, 17)
 texture = ExtResource("25_wim8o")
 hframes = 2
 
-[node name="NoHitMode" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1381651525 groups=["menu_option"]]
+[node name="NoHitMode" type="Control" parent="ExtrasMenu/RightPanel/Gameplay" unique_id=1381651525 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -969,12 +1014,14 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/NoHitMode" unique_id=1955761465]
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Gameplay/NoHitMode" unique_id=1955761465]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 77.0
+offset_right = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_7rakj")
@@ -990,12 +1037,12 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/NoHitMode" unique_id=19763039]
-position = Vector2(288, 17)
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Gameplay/NoHitMode" unique_id=19763039]
+position = Vector2(405, 17)
 texture = ExtResource("25_wim8o")
 hframes = 2
 
-[node name="Volume" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=1841978410 groups=["menu_option"]]
+[node name="SkipPrologue" type="Control" parent="ExtrasMenu/RightPanel/Gameplay" unique_id=1841978410 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
 focus_mode = 2
@@ -1003,12 +1050,14 @@ script = ExtResource("3_8eykq")
 offset = Vector2(16, 33)
 metadata/_custom_type_script = "uid://cc5k140pvhkn2"
 
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/Volume" unique_id=625781200]
+[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Gameplay/SkipPrologue" unique_id=625781200]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 53.0
+offset_right = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_7rakj")
@@ -1019,50 +1068,68 @@ theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 bbcode_enabled = true
-text = "No-Hit mode "
+text = "Skip Prologue"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Options/Volume" unique_id=1655136959]
-position = Vector2(288, 17)
+[node name="Checkbox" type="Sprite2D" parent="ExtrasMenu/RightPanel/Gameplay/SkipPrologue" unique_id=1655136959]
+position = Vector2(405, 17)
 texture = ExtResource("25_wim8o")
 hframes = 2
 
-[node name="BackToTitle" type="Control" parent="ExtrasMenu/RightPanel/Options" unique_id=84328361 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="ExtrasMenu/RightPanel/Options/BackToTitle" unique_id=718262792]
-clip_contents = false
+[node name="ConceptArtPages" type="TabContainer" parent="ExtrasMenu/RightPanel" unique_id=1781292691]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="0" type="Container" parent="ExtrasMenu/RightPanel/ConceptArtPages" unique_id=746497856]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Page" type="Node2D" parent="ExtrasMenu/RightPanel/ConceptArtPages/0" unique_id=416643558]
+position = Vector2(141, -33)
+
+[node name="Title" type="RichTextLabel" parent="ExtrasMenu/RightPanel/ConceptArtPages/0/Page" unique_id=1113639963]
+custom_minimum_size = Vector2(300, 0)
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Dess"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
+
+[node name="Blurb" type="RichTextLabel" parent="ExtrasMenu/RightPanel/ConceptArtPages/0/Page" unique_id=400339353]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 107.0
+offset_top = 42.0
+offset_right = 407.0
+offset_bottom = 105.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Dess is very skrunkly.
+I love her so much
+Lmao"
+fit_content = true
+scroll_active = false
+
+[node name="Texture" type="TextureRect" parent="ExtrasMenu/RightPanel/ConceptArtPages/0/Page" unique_id=932717801]
+offset_left = -126.0
 offset_top = 41.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-bbcode_enabled = true
-text = "Back to title"
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
+offset_right = 94.0
+offset_bottom = 174.0
+scale = Vector2(0.346, 0.421)
+texture = ExtResource("25_5cxmk")
 
-[node name="HSlider" type="HSlider" parent="ExtrasMenu/RightPanel/Options" unique_id=1951234814]
+[node name="1" type="Container" parent="ExtrasMenu/RightPanel/ConceptArtPages" unique_id=1335365204]
+visible = false
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxFlat_yf5fn")
+metadata/_tab_index = 1
 
 [node name="Fader" type="ColorRect" parent="." unique_id=474982030]
 anchors_preset = 15
@@ -1075,3 +1142,9 @@ color = Color(0, 0, 0, 0)
 [connection signal="selected" from="Options/Start" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Extras" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Quit" to="." method="_on_option_selected"]
+[connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" to="." method="_on_extras_options_hovered"]
+[connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/ConceptArt" to="." method="_on_extras_option_selected"]
+[connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" to="." method="_on_extras_options_hovered"]
+[connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/Gameplay" to="." method="_on_extras_option_selected"]
+[connection signal="hovered" from="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" to="." method="_on_extras_options_hovered"]
+[connection signal="selected" from="ExtrasMenu/LeftPanel/ExtrasOptions/BackToTitle" to="." method="_on_extras_option_selected"]

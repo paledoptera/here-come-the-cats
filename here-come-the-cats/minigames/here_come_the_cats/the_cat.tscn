@@ -7,9 +7,14 @@
 [ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="4_gchgw"]
 [ext_resource type="Texture2D" uid="uid://t81hv7dpxkav" path="res://minigames/here_come_the_cats/res/large_cat/large_cat_mouth_whole.png" id="6_h1qxe"]
 [ext_resource type="Texture2D" uid="uid://1gd0po0sk5sc" path="res://minigames/here_come_the_cats/res/large_cat/large_cat_mouth_seperated.png" id="7_gn1d5"]
+[ext_resource type="Script" uid="uid://d1e5ufdbyxi2p" path="res://minigames/here_come_the_cats/actor.gd" id="8_te15y"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="9_4ga61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 89.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn1d5"]
+size = Vector2(141, 254)
 
 [sub_resource type="Animation" id="Animation_gchgw"]
 length = 0.001
@@ -76,7 +81,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Face/Mouth/TeethWhole:scale")
+tracks/5/path = NodePath("Face/Mouth/Offset/TeethWhole:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -112,7 +117,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Face/Mouth/TeethTop:visible")
+tracks/8/path = NodePath("Face/Mouth/Offset/TeethTop:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -124,7 +129,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Face/Mouth/TeethBottom:visible")
+tracks/9/path = NodePath("Face/Mouth/Offset/TeethBottom:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -136,7 +141,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Face/Mouth/TeethWhole:visible")
+tracks/10/path = NodePath("Face/Mouth/Offset/TeethWhole:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -148,58 +153,34 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Face/Mouth/TeethTop:position")
+tracks/11/path = NodePath("Face/Eyes:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4.01, -29.517)]
+"values": [Vector2(-18.40909, -2.6211495)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Face/Mouth/TeethBottom:position")
+tracks/12/path = NodePath(".:skew")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.0096283, 13.948199)]
+"values": [0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Face/Eyes:position")
+tracks/13/path = NodePath("Face:skew")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-18.40909, -2.6211495)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath(".:skew")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Face:skew")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -309,7 +290,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Face/Mouth/TeethWhole:visible")
+tracks/8/path = NodePath("Face/Mouth/Offset/TeethWhole:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -321,7 +302,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Face/Mouth/TeethTop:visible")
+tracks/9/path = NodePath("Face/Mouth/Offset/TeethTop:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -333,7 +314,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Face/Mouth/TeethBottom:visible")
+tracks/10/path = NodePath("Face/Mouth/Offset/TeethBottom:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -345,7 +326,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Face/Mouth/TeethTop:position")
+tracks/11/path = NodePath("Face/Mouth/Offset/TeethTop:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -357,7 +338,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Face/Mouth/TeethBottom:position")
+tracks/12/path = NodePath("Face/Mouth/Offset/TeethBottom:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -511,10 +492,697 @@ _data = {
 &"idle": SubResource("Animation_bs5gy")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn1d5"]
-size = Vector2(141, 254)
+[sub_resource type="Animation" id="Animation_te15y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethWhole:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OffsetOffset/Offset:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OffsetOffset/Offset:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.0096264, -0.9565239)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.0096283, -0.9565239)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OffsetOffset:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:region_rect")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 90, 50)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:region_rect")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48.40752, 90, 49.59248)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.604836, -22.60116)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18.40909, -2.6211495)]
+}
+
+[sub_resource type="Animation" id="Animation_7d0xb"]
+resource_name = "laugh"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethWhole:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OffsetOffset:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(-2, -2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OffsetOffset/Offset:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.16, 0.858), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.270828, -22.802523)]
+}
+
+[sub_resource type="Animation" id="Animation_4ga61"]
+resource_name = "idle"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethWhole:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OffsetOffset/Offset:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OffsetOffset:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.750113, -25.629456)]
+}
+
+[sub_resource type="Animation" id="Animation_gm3tb"]
+resource_name = "laugh"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethWhole:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333333, 0.36666667, 0.5, 0.6333333, 0.76666665),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(4.0096264, -6.7892494), Vector2(4.0096264, -13.085957), Vector2(4.0096264, -6.7892494), Vector2(4.0096264, -13.085957), Vector2(4.0096264, -6.7892494), Vector2(4.0096264, -13.085957), Vector2(4.0096264, -6.7892494)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333335, 0.36666667, 0.5, 0.6333333, 0.76666665),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(2.0096283, 2.4360821), Vector2(2.0096283, 11.023541), Vector2(2.0096283, 2.4360821), Vector2(2.0096283, 11.023541), Vector2(2.0096283, 2.4360821), Vector2(2.0096283, 11.023541), Vector2(2.0096283, 2.4360821)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OffsetOffset/Offset:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OffsetOffset/Offset:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.7113533, 0.9235046)]
+}
+
+[sub_resource type="Animation" id="Animation_5u51x"]
+resource_name = "laugh"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethWhole:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03333334, 0.20000002),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(4.0096264, -13.085957), Vector2(4.0096264, -6.7892494)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.03333334, 0.20000002),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(2.0096283, 11.023541), Vector2(2.0096283, 2.4360821)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OffsetOffset:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OffsetOffset/Offset:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethTop:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.16666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(90, 0, 90, 50), Rect2(0, 0, 90, 50)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset/TeethBottom:region_rect")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.16666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(90, 48.408, 90, 49.592), Rect2(0, 48.40752, 90, 49.59248)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OffsetOffset/Offset/Body/Face/Mouth/Offset:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.725, 0.725), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.26666668),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-18.40909, -2.6211495), Vector2(-21.233, -6), Vector2(-18.40909, -2.6211495)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4fs2"]
+_data = {
+&"RESET": SubResource("Animation_te15y"),
+&"aim": SubResource("Animation_7d0xb"),
+&"idle": SubResource("Animation_4ga61"),
+&"laugh": SubResource("Animation_gm3tb"),
+&"spit": SubResource("Animation_5u51x")
+}
+
+[sub_resource type="Animation" id="Animation_kn1f6"]
+resource_name = "hurt"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetOffset/Offset/Body/Face/Eyes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OffsetOffset/Offset:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.97), Vector2(0.98, 1.05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OffsetOffset/Offset:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7545692, 0.4216609, 0.46244502, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OffsetOffset:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 0), Vector2(9, 0), Vector2(-8, 0), Vector2(7, 0), Vector2(-4, 0), Vector2(3, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esj6a"]
+_data = {
+&"hurt": SubResource("Animation_kn1f6")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 93.0
+height = 416.0
 
 [node name="CatBoss" type="Area2D" unique_id=1194674963]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_x5ve8")
@@ -523,50 +1191,6 @@ script = ExtResource("2_x5ve8")
 position = Vector2(21, 0)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="Offset" type="Node2D" parent="." unique_id=1236814599]
-
-[node name="Body" type="Sprite2D" parent="Offset" unique_id=1668615500]
-z_index = -1
-scale = Vector2(2, 2)
-texture = ExtResource("1_qnem6")
-script = ExtResource("3_npub8")
-id = &"concateny"
-
-[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="Offset/Body" unique_id=227232330]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_gchgw")
-autoplay = &"idle"
-speed_scale = 2.0
-script = ExtResource("4_gchgw")
-metadata/_custom_type_script = "uid://lmwp8k10f2p4"
-
-[node name="Face" type="Node2D" parent="Offset/Body" unique_id=662975384]
-
-[node name="Eyes" type="Sprite2D" parent="Offset/Body/Face" unique_id=551331620]
-position = Vector2(-18.40909, -2.6211495)
-texture = ExtResource("4_bs5gy")
-hframes = 2
-
-[node name="Mouth" type="Node2D" parent="Offset/Body/Face" unique_id=225823657]
-position = Vector2(-17.5, 24.456524)
-
-[node name="TeethWhole" type="Sprite2D" parent="Offset/Body/Face/Mouth" unique_id=1953580120]
-texture = ExtResource("6_h1qxe")
-
-[node name="TeethTop" type="Sprite2D" parent="Offset/Body/Face/Mouth" unique_id=1282403043]
-visible = false
-position = Vector2(4.01, -29.517)
-texture = ExtResource("7_gn1d5")
-region_enabled = true
-region_rect = Rect2(0, 0, 90, 50)
-
-[node name="TeethBottom" type="Sprite2D" parent="Offset/Body/Face/Mouth" unique_id=741513001]
-visible = false
-position = Vector2(2.0096283, 13.948199)
-texture = ExtResource("7_gn1d5")
-region_enabled = true
-region_rect = Rect2(0, 48.40752, 90, 49.59248)
-
 [node name="BiteZone" type="Area2D" parent="." unique_id=1113003936]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BiteZone" unique_id=2098319782]
@@ -574,6 +1198,84 @@ position = Vector2(-60.5, 117)
 shape = SubResource("RectangleShape2D_gn1d5")
 debug_color = Color(0.41895303, 0.46242452, 1, 0.41960785)
 
-[connection signal="animation_finished" from="Offset/Body/BeatSyncedAnimationPlayer" to="." method="_on_beat_synced_animation_player_animation_finished"]
+[node name="OffsetOffset" type="Node2D" parent="." unique_id=211840493]
+z_index = 250
+
+[node name="Offset" type="Node2D" parent="OffsetOffset" unique_id=1236814599]
+
+[node name="Body" type="Sprite2D" parent="OffsetOffset/Offset" unique_id=1668615500]
+z_index = -1
+scale = Vector2(2, 2)
+texture = ExtResource("1_qnem6")
+script = ExtResource("3_npub8")
+id = &"concateny"
+
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="OffsetOffset/Offset/Body" unique_id=227232330]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_gchgw")
+autoplay = &"idle"
+speed_scale = 2.0
+script = ExtResource("4_gchgw")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
+
+[node name="Face" type="Node2D" parent="OffsetOffset/Offset/Body" unique_id=662975384]
+
+[node name="Eyes" type="Sprite2D" parent="OffsetOffset/Offset/Body/Face" unique_id=551331620]
+position = Vector2(-18.40909, -2.6211495)
+texture = ExtResource("4_bs5gy")
+hframes = 3
+
+[node name="Mouth" type="Node2D" parent="OffsetOffset/Offset/Body/Face" unique_id=225823657]
+position = Vector2(-17.5, 24.456524)
+scale = Vector2(0.9999686, 1.0000262)
+
+[node name="Offset" type="Node2D" parent="OffsetOffset/Offset/Body/Face/Mouth" unique_id=1256087927]
+position = Vector2(15.604836, -22.60116)
+
+[node name="TeethWhole" type="Sprite2D" parent="OffsetOffset/Offset/Body/Face/Mouth/Offset" unique_id=1953580120]
+position = Vector2(-17.499998, 24.456522)
+texture = ExtResource("6_h1qxe")
+
+[node name="TeethTop" type="Sprite2D" parent="OffsetOffset/Offset/Body/Face/Mouth/Offset" unique_id=1282403043]
+visible = false
+position = Vector2(4.0096264, -0.9565239)
+scale = Vector2(0.88604313, 1.0949638)
+texture = ExtResource("7_gn1d5")
+region_enabled = true
+region_rect = Rect2(0, 0, 90, 50)
+
+[node name="TeethBottom" type="Sprite2D" parent="OffsetOffset/Offset/Body/Face/Mouth/Offset" unique_id=741513001]
+visible = false
+position = Vector2(2.0096283, -0.9565239)
+scale = Vector2(0.88604313, 1.0949638)
+texture = ExtResource("7_gn1d5")
+region_enabled = true
+region_rect = Rect2(0, 48.40752, 90, 49.59248)
+
+[node name="Actor" type="Node2D" parent="." unique_id=690577788]
+script = ExtResource("8_te15y")
+id = &"friend"
+
+[node name="Actions" type="AnimationPlayer" parent="Actor" unique_id=1303225956]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_y4fs2")
+autoplay = &"idle"
+
+[node name="Damage" type="AnimationPlayer" parent="." unique_id=647771346]
+libraries/ = SubResource("AnimationLibrary_esj6a")
+
+[node name="Bullet" type="Area2D" parent="." unique_id=1993209772]
+position = Vector2(30, 56)
+script = ExtResource("9_4ga61")
+damage = 5
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1932665574]
+position = Vector2(47, 63)
+shape = SubResource("CapsuleShape2D_g4v7s")
+debug_color = Color(0.9572608, 0, 0.5361344, 0.41960785)
+
 [connection signal="body_entered" from="BiteZone" to="." method="_on_bite_zone_body_entered"]
 [connection signal="body_exited" from="BiteZone" to="." method="_on_bite_zone_body_exited"]
+[connection signal="animation_finished" from="OffsetOffset/Offset/Body/BeatSyncedAnimationPlayer" to="." method="_on_beat_synced_animation_player_animation_finished"]

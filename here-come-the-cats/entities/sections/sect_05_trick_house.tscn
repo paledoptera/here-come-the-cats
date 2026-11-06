@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="6_yg45a"]
 [ext_resource type="PackedScene" uid="uid://cmshuy1vufwt" path="res://entities/misc/candy/candy.tscn" id="7_gbrxg"]
 [ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="8_7lqsh"]
+[ext_resource type="Texture2D" uid="uid://bcievmlr8511o" path="res://minigames/here_come_the_cats/res/house_props/house_props_3.png" id="9_s3nkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -369,3 +370,9 @@ shape = SubResource("RectangleShape2D_limfy")
 
 [node name="PipeBlockerBullet" parent="." unique_id=194047947 instance=ExtResource("4_limfy")]
 position = Vector2(481, 182)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967037474]
+modulate = Color(0.51673955, 0.1845552, 0.36255714, 1)
+position = Vector2(238, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("9_s3nkv")

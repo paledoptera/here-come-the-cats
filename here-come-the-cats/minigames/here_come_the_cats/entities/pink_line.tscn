@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="9_d4gsd"]
 [ext_resource type="PackedScene" uid="uid://dqqckiaym4gb" path="res://entities/sections/sect_06_towers.tscn" id="9_guhno"]
 [ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="10_4cpn8"]
+[ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="11_4cpn8"]
 
 [sub_resource type="Curve2D" id="Curve2D_odm7m"]
 _data = {
@@ -115,3 +116,13 @@ position = Vector2(1222, -99)
 
 [node name="FriendCoinMini10" parent="." unique_id=335426172 instance=ExtResource("10_4cpn8")]
 position = Vector2(1246, -99)
+
+[node name="Rat1" parent="." unique_id=936060058 instance=ExtResource("11_4cpn8")]
+position = Vector2(4628.298, -12.106813)
+rotation = -1.8638437
+progress = 7452.2
+
+[node name="Rat2" parent="." unique_id=2122243157 instance=ExtResource("11_4cpn8")]
+position = Vector2(4598.316, -122.985756)
+rotation = -1.7274778
+progress = 7567.14

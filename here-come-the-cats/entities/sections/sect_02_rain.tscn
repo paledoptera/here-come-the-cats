@@ -52,6 +52,21 @@ position = Vector2(-1354.7462, 103)
 curve = SubResource("Curve2D_wfeub")
 script = ExtResource("2_xud30")
 
+[node name="Rat1" parent="Line2" unique_id=1324028011 instance=ExtResource("3_a6uy5")]
+position = Vector2(1651.3276, -184.95404)
+rotation = 0.019315809
+progress = 238.11008
+
+[node name="Rat2" parent="Line2" unique_id=1327815160 instance=ExtResource("3_a6uy5")]
+position = Vector2(2037.1102, -93.232)
+rotation = 1.5467222
+progress = 688.5774
+
+[node name="Rat3" parent="Line2" unique_id=423205665 instance=ExtResource("3_a6uy5")]
+position = Vector2(1987.1841, -179.50491)
+rotation = 0.061046667
+progress = 573.99817
+
 [node name="BulletSpawnerMega" type="Node2D" parent="." unique_id=743599926 node_paths=PackedStringArray("parent")]
 position = Vector2(-31, -225)
 script = ExtResource("5_bg00e")

@@ -134,7 +134,7 @@ texture = ExtResource("1_8a0bl")
 [node name="Bullet" type="Area2D" parent="." unique_id=961662763]
 collision_layer = 2
 script = ExtResource("2_j1mux")
-damage = 26
+damage = 10
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 

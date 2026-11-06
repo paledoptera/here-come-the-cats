@@ -138,11 +138,15 @@ func start_attack(attack: StringName):
 	var inst = CAT_ATTACKS[attack].instantiate()
 	
 	match attack:
+		"spit":
+			Actors.do_action("friend","spit")
 		"jaws":
+			Actors.do_action("friend","laugh")
 			pos = $SoulFriend.global_position
 			pos.y = 0.0
-			pos.x += randf_range(-100.0,100.0)
+			pos.x += randf_range(-200.0,200.0)
 		"tail":
+			Actors.do_action("friend","aim")
 			pos.x = 700.0
 			pos.y = randf_range(150.0,300.0)
 		"shooter":
