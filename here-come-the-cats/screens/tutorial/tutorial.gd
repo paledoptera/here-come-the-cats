@@ -26,7 +26,6 @@ func _ready() -> void:
 	await get_tree().create_timer(1.5).timeout
 	await display_dialogue(preload("uid://cgl387m7bi5uw"))
 	soul.taking_input = true
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,6 +65,9 @@ func _on_tutorial_aparatus_event_1() -> void:
 	$AnimationPlayer.play("investigate")
 	await get_tree().create_timer(1.0).timeout
 	display_dialogue(preload("uid://br0c02ll8dnix"))
+	await Dialogue.text_finished
+	$TutorialAparatus.continue_to_phase2()
+	
 
 func _on_tutorial_aparatus_event_2() -> void:
 	$Barrier.visible = false
@@ -77,6 +79,8 @@ func _on_tutorial_aparatus_event_2() -> void:
 	$AnimationPlayer.play("investigate_3")
 	await get_tree().create_timer(4.0).timeout
 	display_dialogue(preload("uid://ccoi1bwqn3bfb"))
+	await Dialogue.text_finished
+	$TutorialAparatus.continue_to_phase3()
 
 
 func _on_tutorial_aparatus_event_3() -> void:

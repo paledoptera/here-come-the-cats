@@ -67,9 +67,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if Party.hero:
-		if Party.hero[0].hp <= 0.0:
-			SceneLoader.goto_gameover()
-			return
+		if not Global.options.god_mode:
+			
+			if Party.hero[0].hp <= 0.0:
+				SceneLoader.goto_gameover()
+				return
 	
 	if soul_state == SoulState.OUT_OF_BOUNDS:
 		taking_input = false

@@ -41,9 +41,15 @@ func _on_beat() -> void:
 	if time_left == 0.0:
 		Sound.play(preload("res://shared/sound_effects/snd_meow.wav"),ticking_volume,0.5+(ticking_volume/2))
 		Sound.play(preload("uid://6h3yan5cx6ek"),2.0)
-		Sound.play(preload("uid://bllvy088nfet1"),2.0)
-		Sound.play(preload("uid://bsgom8dbhcrsr"),0.5,1.2)
-		SceneLoader.goto_gameover()
+		
+		if Party.hero[0].hp <= 50.0 and not Global.options.god_mode:
+			Global.cause_of_death = "cat_clock"
+			Sound.play(preload("uid://bllvy088nfet1"),2.0)
+			Sound.play(preload("uid://bsgom8dbhcrsr"),0.5,1.2)
+			SceneLoader.goto_gameover()
+		
+		else:
+			EventBus.damage_player.emit(randf_range(6.0,7.0))
 		return
 	
 	match state:

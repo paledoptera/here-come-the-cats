@@ -7,6 +7,7 @@ signal game_restarted
 
 var options:= CatsOptions.new()
 
+var cause_of_death: String = ""
 var save_file:= SaveData.new()
 
 var backtraces: Array

@@ -7,6 +7,10 @@ func _ready() -> void:
 	if index >= Party.hero.size():
 		hide()
 		return
+	
+	if Global.options.no_hit_mode and Party.hero[0]:
+		Party.hero[0].hp = 1
+		Party.hero[0].hp_max = 1
 		
 	
 	

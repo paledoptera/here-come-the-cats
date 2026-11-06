@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dqqckiaym4gb"]
 
-[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="1_4kdyj"]
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_qum7t"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="3_fmkj0"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="4_dr8v4"]
+[ext_resource type="PackedScene" uid="uid://cmshuy1vufwt" path="res://entities/misc/candy/candy.tscn" id="4_qum7t"]
+[ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="5_qum7t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el6vb"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,17 +14,42 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(218, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qum7t"]
+size = Vector2(162, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwdwp"]
+size = Vector2(162, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmkj0"]
+size = Vector2(37, 261.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(21, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mjyo"]
+size = Vector2(162, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwtu8"]
+size = Vector2(162, 76.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4go0w"]
+size = Vector2(37, 426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdhih"]
+size = Vector2(382, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgbxr"]
+size = Vector2(305, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s441"]
+size = Vector2(305, 32.5)
+
 [node name="Towers" type="Node2D" unique_id=1013303839]
 
 [node name="Tower1" type="Node2D" parent="." unique_id=139876858]
-
-[node name="PinkWallBullet" parent="Tower1" unique_id=194047947 instance=ExtResource("1_4kdyj")]
-z_index = 0
-position = Vector2(-61, 239)
-
-[node name="PinkWallBullet2" parent="Tower1" unique_id=1997077393 instance=ExtResource("1_4kdyj")]
-z_index = 0
-position = Vector2(70, 239)
 
 [node name="OldHouse4" type="Panel" parent="Tower1" unique_id=38749667]
 anchors_preset = 15
@@ -76,11 +102,29 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower1" unique_id=737664659]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower1/StaticBody2D" unique_id=1758098628]
+position = Vector2(0, 188)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower1/StaticBody2D" unique_id=1987277785]
+position = Vector2(4, 202.5)
+shape = SubResource("RectangleShape2D_qum7t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tower1/StaticBody2D" unique_id=1212652896]
+position = Vector2(4, 283.75)
+shape = SubResource("RectangleShape2D_lwdwp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tower1/StaticBody2D" unique_id=1978408435]
+position = Vector2(1.5, 398.25)
+shape = SubResource("RectangleShape2D_fmkj0")
+
 [node name="Tower2" type="Node2D" parent="." unique_id=1434446318]
 position = Vector2(439, 0)
 
 [node name="Door" type="Node2D" parent="Tower2" unique_id=1754490220]
-position = Vector2(-74, 22)
+position = Vector2(-74, 10)
 script = ExtResource("3_fmkj0")
 offset = Vector2(0, -100)
 
@@ -109,6 +153,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower2/Door" unique_id=943752717]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower2/Door/StaticBody2D" unique_id=405935471]
+position = Vector2(24.5, 32)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower2/Door/StaticBody2D" unique_id=192331430]
+position = Vector2(134, 32)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="OldHouse4" type="Panel" parent="Tower2" unique_id=1637833169]
 anchors_preset = 15
@@ -178,12 +232,34 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 position = Vector2(-83, 240)
 linked_contraptions = [NodePath("../Door")]
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower2" unique_id=708041991]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=216453461]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=1400900190]
+position = Vector2(4, 10.5)
+shape = SubResource("RectangleShape2D_0mjyo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=104949381]
+position = Vector2(4, 202.5)
+shape = SubResource("RectangleShape2D_qum7t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=1616839225]
+position = Vector2(4, 92)
+shape = SubResource("RectangleShape2D_lwdwp")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=1234690356]
+position = Vector2(4, 243.875)
+shape = SubResource("RectangleShape2D_cwtu8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tower2/StaticBody2D" unique_id=882966984]
+position = Vector2(1.5, 316)
+shape = SubResource("RectangleShape2D_4go0w")
+
 [node name="Tower3" type="Node2D" parent="." unique_id=634535489]
 position = Vector2(850, 0)
-
-[node name="PinkWallBullet3" parent="Tower3" unique_id=2002382743 instance=ExtResource("1_4kdyj")]
-z_index = 0
-position = Vector2(-47, 159)
 
 [node name="Door" type="Node2D" parent="Tower3" unique_id=982793067]
 position = Vector2(175, 135)
@@ -202,6 +278,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower3/Door" unique_id=911119090]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower3/Door/StaticBody2D" unique_id=1414725471]
+position = Vector2(24.5, 32)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="OldHouse4" type="Panel" parent="Tower3" unique_id=349903553]
 anchors_preset = 15
@@ -256,8 +338,38 @@ scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 
 [node name="Switch" parent="Tower3" unique_id=475317117 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_qum7t")]
-position = Vector2(58, 157)
+position = Vector2(156, 157)
 linked_contraptions = [NodePath("../Door")]
 
 [node name="FriendCoin" parent="Tower3" unique_id=1685877794 instance=ExtResource("4_dr8v4")]
 position = Vector2(-847, 239)
+
+[node name="Candy" parent="Tower3" unique_id=497665051 instance=ExtResource("4_qum7t")]
+position = Vector2(61, 158)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tower3" unique_id=36029927]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower3/StaticBody2D" unique_id=1066789676]
+position = Vector2(82, 109)
+shape = SubResource("RectangleShape2D_tdhih")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Tower3/StaticBody2D" unique_id=702603217]
+position = Vector2(75.5, 124)
+shape = SubResource("RectangleShape2D_pgbxr")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Tower3/StaticBody2D" unique_id=358152525]
+position = Vector2(75.5, 204.75)
+shape = SubResource("RectangleShape2D_8s441")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tower3/StaticBody2D" unique_id=455369494]
+position = Vector2(57, 433)
+shape = SubResource("RectangleShape2D_4go0w")
+
+[node name="PipeBlockerBullet" parent="." unique_id=194047947 instance=ExtResource("5_qum7t")]
+position = Vector2(-62, 240)
+
+[node name="PipeBlockerBullet2" parent="." unique_id=193339593 instance=ExtResource("5_qum7t")]
+position = Vector2(73, 240)
+
+[node name="PipeBlockerBullet3" parent="." unique_id=558299627 instance=ExtResource("5_qum7t")]
+position = Vector2(785, 159)

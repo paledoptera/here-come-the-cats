@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://cnk6joyipknvi" path="res://screens/game_over/res/gameover.png" id="8_tmuew"]
 [ext_resource type="AudioStream" uid="uid://c2ga30yp20mpb" path="res://shared/sound_effects/AUDIO_INTRONOISE.ogg" id="9_w8u05"]
 [ext_resource type="Texture2D" uid="uid://csyfgd2ey6o1w" path="res://shared/sprites/soul_blurry.png" id="10_6fchp"]
+[ext_resource type="Texture2D" uid="uid://m84awsagrpdc" path="res://minigames/here_come_the_cats/res/life_and_death.png" id="12_mhanc"]
+[ext_resource type="Texture2D" uid="uid://xm17fnbg34j5" path="res://minigames/here_come_the_cats/res/death_clock.png" id="13_iqxe6"]
+[ext_resource type="Texture2D" uid="uid://cfgrtxp4lli60" path="res://minigames/here_come_the_cats/res/death_clock_cover.png" id="14_m7owc"]
+[ext_resource type="Texture2D" uid="uid://4jx6i0o7j328" path="res://minigames/here_come_the_cats/res/death_clock_hand.png" id="15_klpr3"]
+[ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="16_8wl80"]
+[ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="17_0gwec"]
+[ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="18_hital"]
+[ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="19_sh07a"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_g4v7s"]
 frames = 4
@@ -271,6 +279,118 @@ _data = {
 &"leave": SubResource("Animation_6fchp")
 }
 
+[sub_resource type="Animation" id="Animation_mhanc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CatClockDeath/Hint:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.23921569, 0.23921569, 0.23921569, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatClockDeath/TimesUpLabel:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatClockDeath/TimesUpLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CatClockDeath:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_w8u05"]
+resource_name = "cat_clock"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CatClockDeath/Hint:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.23921569, 0.23921569, 0.23921569, 0), Color(0.23921569, 0.23921569, 0.23921569, 0), Color(0.23921569, 0.23921569, 0.23921569, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatClockDeath/TimesUpLabel:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1.3333334),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(0.5, 1), Vector2(1.2, 1.2), Vector2(1.4, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatClockDeath/TimesUpLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 1.4333334),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CatClockDeath:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_koldc"]
+_data = {
+&"RESET": SubResource("Animation_mhanc"),
+&"cat_clock": SubResource("Animation_w8u05")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_mhanc"]
+spacing_glyph = 7
+
 [node name="Gameover" type="Node" unique_id=441753125]
 script = ExtResource("1_6vjeb")
 
@@ -338,6 +458,126 @@ offset_right = 451.0
 offset_bottom = 380.0
 scale = Vector2(2, 2)
 text = "GIVE UP"
+
+[node name="Extra" type="AnimationPlayer" parent="." unique_id=773023694]
+libraries/ = SubResource("AnimationLibrary_koldc")
+
+[node name="CatClockDeath" type="Node2D" parent="." unique_id=1706101307]
+visible = false
+
+[node name="TimesUpLabel" type="RichTextLabel" parent="CatClockDeath" unique_id=187710624]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 31.0
+offset_right = 640.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mhanc")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[shake]TIME'S UP!"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Hint" type="RichTextLabel" parent="CatClockDeath" unique_id=1896851760]
+modulate = Color(0.23921569, 0.23921569, 0.23921569, 0)
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = 397.0
+offset_right = 640.0
+offset_bottom = 503.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]The [color=yellow]DEATH CLOCK [color=white]never stops ticking.
+Collect [color=yellow]COINS [color=white]to delay the inevitable."
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Offset" type="Node2D" parent="CatClockDeath/Hint" unique_id=2085693137]
+position = Vector2(0.5, -547)
+
+[node name="ClockContainer" type="Node2D" parent="CatClockDeath/Hint/Offset" unique_id=385470930]
+position = Vector2(309, 382)
+scale = Vector2(1.5, 1)
+
+[node name="LifeAndDeath" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer" unique_id=164339451]
+position = Vector2(0, 42.5)
+scale = Vector2(1, 1.6666666)
+texture = ExtResource("12_mhanc")
+
+[node name="Clock" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer" unique_id=1566850875]
+unique_name_in_owner = true
+position = Vector2(0, 43.56704)
+texture = ExtResource("13_iqxe6")
+
+[node name="Cover" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer" unique_id=805424771]
+position = Vector2(0, 24.677687)
+scale = Vector2(1, 1.171)
+texture = ExtResource("14_m7owc")
+
+[node name="HandContainer" type="Node2D" parent="CatClockDeath/Hint/Offset/ClockContainer" unique_id=275038302]
+position = Vector2(0, 43.86428)
+rotation = 3.1415927
+
+[node name="Hand" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer/HandContainer" unique_id=1062919294]
+unique_name_in_owner = true
+rotation = -3.1415927
+scale = Vector2(1.0000002, 1.5000004)
+texture = ExtResource("15_klpr3")
+offset = Vector2(0, 3.5)
+
+[node name="Cat" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer" unique_id=700610018]
+position = Vector2(0, 24.166664)
+scale = Vector2(1, 1.6666666)
+texture = ExtResource("16_8wl80")
+
+[node name="EyeSprite" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat" unique_id=2071200057]
+position = Vector2(0, -14)
+texture = ExtResource("17_0gwec")
+
+[node name="EyeSpriteWhite" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat" unique_id=366401896]
+self_modulate = Color(1, 1, 1, 0.73333335)
+position = Vector2(0, -13.999998)
+texture = ExtResource("18_hital")
+
+[node name="Eyes" type="Node2D" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat" unique_id=1295882388]
+position = Vector2(2.5000007, -12)
+scale = Vector2(0.5, 0.5)
+
+[node name="Left" type="ColorRect" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat/Eyes" unique_id=1850203024]
+offset_left = -16.994385
+offset_top = -10.0
+offset_right = -8.994385
+offset_bottom = 2.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="ColorRect" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat/Eyes" unique_id=202974542]
+offset_left = 9.005615
+offset_top = -10.0
+offset_right = 17.005615
+offset_bottom = 2.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Tail" type="Sprite2D" parent="CatClockDeath/Hint/Offset/ClockContainer/Cat" unique_id=1155992030]
+z_index = -1
+position = Vector2(0, 11)
+rotation = 5.9341197
+texture = ExtResource("19_sh07a")
+offset = Vector2(0, 24)
+flip_v = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1921558432]
 anchors_preset = 15

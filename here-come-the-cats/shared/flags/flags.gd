@@ -22,7 +22,6 @@ class StoryFlags:
 		set(value):
 			phase2_dess_start_hp = max(value,250.0)
 	var phase2_friend_start_hp: int = 1200
-	var dream_warden_phase: int = 0
 
 
 var battle = BattleFlags.new()

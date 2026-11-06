@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bbgm1nipi3ltb"]
+
+[ext_resource type="Texture2D" uid="uid://bs2bgkf73qrob" path="res://entities/effects/vortex.png" id="1_2qreq"]
+
+[sub_resource type="Animation" id="Animation_q5i2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_2qreq"]
+resource_name = "vortex"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.40000004, 0.50000006, 0.6, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(2, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5i2c"]
+_data = {
+&"RESET": SubResource("Animation_q5i2c"),
+&"vortex": SubResource("Animation_2qreq")
+}
+
+[node name="Vortex" type="Node2D" unique_id=1642196158]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325604572]
+scale = Vector2(2, 2)
+texture = ExtResource("1_2qreq")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1360836116]
+libraries/ = SubResource("AnimationLibrary_q5i2c")
+autoplay = &"vortex"

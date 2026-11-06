@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3tyaq6bdfbgw"]
 
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_ostkx"]
-[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_gbrxg"]
+[ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="4_limfy"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_s3nkv"]
 [ext_resource type="Script" uid="uid://b8ipxyvwwfh7a" path="res://minigames/here_come_the_cats/pink_line.gd" id="5_limfy"]
 [ext_resource type="PackedScene" uid="uid://b2fc20c7ycwg6" path="res://entities/bullets/generic/rat_runner.tscn" id="6_gbrxg"]
@@ -25,6 +25,12 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(19, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfjyh"]
+size = Vector2(104, 29)
+
 [sub_resource type="Curve2D" id="Curve2D_707hj"]
 _data = {
 "points": PackedVector2Array(-2.549046, -78.7018, 0, 75, -300, -150, 100, 0, -100, 0, -475, -100, 0, 75, 0.637, -75, -650, -150, -100, 0, 100, 0, -475, -208, 0, -75, 0.637, -75, -300, -150)
@@ -40,6 +46,27 @@ script/source = "extends PathFollow2D
 func _process(delta: float) -> void:
 	progress -= 300.0 * delta
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lqsh"]
+size = Vector2(20, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3nkv"]
+size = Vector2(20, 73.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yg45a"]
+size = Vector2(20, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjivt"]
+size = Vector2(510, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_707hj"]
+size = Vector2(204, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j78ut"]
+size = Vector2(509, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_limfy"]
+size = Vector2(19.5, 59)
 
 [node name="TrickHouse" type="Node2D" unique_id=709242782]
 
@@ -105,7 +132,7 @@ anchor_bottom = 1.0
 offset_left = 473.0
 offset_top = 2.0
 offset_right = 482.5
-offset_bottom = 49.5
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -182,9 +209,6 @@ linked_contraptions = [NodePath("../Door1"), NodePath("../Door2")]
 position = Vector2(471, 28)
 linked_contraptions = [NodePath("../Door3")]
 
-[node name="PinkWallBullet" parent="." unique_id=42666868 instance=ExtResource("2_gbrxg")]
-position = Vector2(479, 158)
-
 [node name="Door1" type="Node2D" parent="." unique_id=102478406]
 position = Vector2(0, 59)
 script = ExtResource("4_s3nkv")
@@ -202,6 +226,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Door1" unique_id=6194797]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D2" unique_id=1664170676]
+position = Vector2(-7.5, 44.5)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Door2" type="Node2D" parent="." unique_id=702446925]
 position = Vector2(0, 157)
@@ -221,6 +251,12 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Door2" unique_id=1964539399]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D2" unique_id=1826657562]
+position = Vector2(-7.5, 56)
+shape = SubResource("RectangleShape2D_yf5fn")
+
 [node name="Door3" type="Node2D" parent="." unique_id=87876522]
 position = Vector2(287, 206)
 script = ExtResource("4_s3nkv")
@@ -237,6 +273,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Door3" unique_id=1641154523]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/StaticBody2D2" unique_id=39359604]
+position = Vector2(-50, 14.5)
+shape = SubResource("RectangleShape2D_qfjyh")
 
 [node name="PinkLine" type="Path2D" parent="." unique_id=2092716446 groups=["pink_lines"]]
 z_index = 101
@@ -290,3 +332,40 @@ position = Vector2(318, 268)
 
 [node name="FriendCoinMini6" parent="." unique_id=1598987600 instance=ExtResource("8_7lqsh")]
 position = Vector2(156, 268)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1645653692]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=592835365]
+position = Vector2(-7, 22)
+shape = SubResource("RectangleShape2D_7lqsh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1017919026]
+position = Vector2(482, 260.75)
+shape = SubResource("RectangleShape2D_s3nkv")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1460982459]
+position = Vector2(482, 71)
+shape = SubResource("RectangleShape2D_yg45a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=589412291]
+position = Vector2(238, -6)
+shape = SubResource("RectangleShape2D_vjivt")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1876717671]
+position = Vector2(85, 214)
+shape = SubResource("RectangleShape2D_707hj")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2114016650]
+position = Vector2(389, 214)
+shape = SubResource("RectangleShape2D_707hj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=66325204]
+position = Vector2(237.5, 306)
+shape = SubResource("RectangleShape2D_j78ut")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2" unique_id=378313106]
+position = Vector2(-7.75, 283.5)
+shape = SubResource("RectangleShape2D_limfy")
+
+[node name="PipeBlockerBullet" parent="." unique_id=194047947 instance=ExtResource("4_limfy")]
+position = Vector2(481, 182)

@@ -35,7 +35,6 @@ var time := 0.0
 func _ready() -> void:
 	collision_layer = 2
 	collision_mask = 1
-	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -50,19 +49,20 @@ func _physics_process(delta: float) -> void:
 	if rotate_sprite:
 		$Sprite2D.rotation = velocity.angle()
 	global_position += (velocity * delta) * speed_multiplier
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is Soul:
-		
-		if body.dashing and dashable:
-			destroyed_by_dash()
+	
+	if has_overlapping_bodies():
+		for body in get_overlapping_bodies():
+			if body is Soul:
+				if body.dashing and dashable:
+					destroyed_by_dash()
+				
+				else:
+				
+					body.hurt(damage,ignore_iframes)
 			
-		else:
-		
-			body.hurt(damage,ignore_iframes)
-		
-		if destructible:
-			destroy()
+				if destructible:
+					destroy()
+
 
 func destroyed_by_dash() -> void:
 	if dash_sound:

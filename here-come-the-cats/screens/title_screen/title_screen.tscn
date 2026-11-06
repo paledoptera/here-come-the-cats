@@ -35,13 +35,14 @@ menu_sounds = SubResource("Resource_bgok2")
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
 
 [sub_resource type="Gradient" id="Gradient_405we"]
-colors = PackedColorArray(0.78892565, 8.374751e-06, 0.5227781, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.46875, 0.5729167, 0.7152778, 0.8541667, 1)
+colors = PackedColorArray(0.78892565, 8.374751e-06, 0.5227781, 1, 0.42214122, 0.40762767, 0.9698166, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5529412, 0.25490198, 0.16078432, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
 gradient = SubResource("Gradient_405we")
 fill = 1
 fill_from = Vector2(0.7008547, 1)
-fill_to = Vector2(0.13675214, 0.37606838)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="Animation" id="Animation_wim8o"]
 length = 0.001
@@ -304,7 +305,7 @@ NodePath("../Options"): SubResource("Resource_8eykq")
 metadata/_custom_type_script = "uid://clqvwknmd31e5"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=876159667]
-modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+modulate = Color(0.096204735, 0.09620475, 0.096204735, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

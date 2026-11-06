@@ -471,6 +471,9 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8akph"]
+size = Vector2(26, 490)
+
 [sub_resource type="Animation" id="Animation_hesta"]
 length = 0.001
 tracks/0/type = "value"
@@ -2233,6 +2236,10 @@ frame_progress = 1.0
 
 [node name="ScreenBounds" parent="." unique_id=1667283980 instance=ExtResource("7_bg4j1")]
 
+[node name="CollisionShape2D" parent="ScreenBounds" index="0" unique_id=343956693]
+position = Vector2(9, 235)
+shape = SubResource("RectangleShape2D_8akph")
+
 [node name="CatTail" type="Node2D" parent="." unique_id=759219582]
 
 [node name="TailOfHell" type="Sprite2D" parent="CatTail" unique_id=1624516755]
@@ -2650,6 +2657,7 @@ sprite_frames = SubResource("SpriteFrames_hciib")
 [connection signal="soul_entered_bite_area" from="Cat" to="." method="_on_cat_soul_entered_bite_area"]
 [connection signal="soul_exited_bite_area" from="Cat" to="." method="_on_cat_soul_exited_bite_area"]
 
+[editable path="ScreenBounds"]
 [editable path="Attacks/CatPaws/CatPaw1"]
 [editable path="Attacks/CatPaws/CatPaw2"]
 [editable path="Attacks/CatPaws/CatPaw3"]

@@ -12,10 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="6_5uf4i"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="7_4r7sq"]
 [ext_resource type="Script" uid="uid://dclkmjmu684x0" path="res://screens/tutorial/hint_area.gd" id="8_tcom0"]
-[ext_resource type="PackedScene" uid="uid://dbb2pgub0top3" path="res://entities/bullets/yellow/yellow_pipe_blocker_bullet.tscn" id="8_wu4yr"]
+[ext_resource type="Texture2D" uid="uid://d14km03bf0i0l" path="res://entities/bullets/generic/rat_sleeping.png" id="13_2b1i8"]
+[ext_resource type="Script" uid="uid://4eqy0mlc36f7" path="res://entities/bullets/pink/pink_hitbox.gd" id="14_x84cp"]
+[ext_resource type="PackedScene" uid="uid://bbgm1nipi3ltb" path="res://screens/tutorial/vortex.tscn" id="15_2mu56"]
 
 [sub_resource type="Gradient" id="Gradient_f5cco"]
 colors = PackedColorArray(1, 1, 1, 1, 0.2, 0.2, 0.2, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(52, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w6y0"]
+size = Vector2(52, 68)
 
 [sub_resource type="Curve2D" id="Curve2D_vn1fq"]
 _data = {
@@ -66,14 +74,40 @@ size = Vector2(635, 107)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(294, 126)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1guvq"]
-size = Vector2(375, 89)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uf4i"]
-size = Vector2(187, 89)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iu08"]
+size = Vector2(194, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r7sq"]
 size = Vector2(305, 89)
+
+[sub_resource type="GDScript" id="GDScript_rpohs"]
+resource_name = "rat"
+script/source = "extends Bullet
+
+const PARTICLE = preload(\"uid://bjho8f8gw78rd\")
+
+func destroy() -> void:
+	var particle = PARTICLE.instantiate()
+	get_parent().add_child(particle)
+	particle.emitting = true
+	particle.finished.connect(particle.queue_free)
+	
+	Sound.play(preload(\"uid://dg4bj4ew6vni\"),0.5,randf_range(0.7,1.0))
+	Sound.play(preload(\"uid://b5a2ojoyp4oyr\"),0.5,randf_range(0.9,1.1))
+	
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpohs"]
+size = Vector2(47.5, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpohs"]
+radius = 12.5
+height = 33.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 31.0
+height = 83.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu4yr"]
 bg_color = Color(0, 0, 0, 1)
@@ -97,6 +131,84 @@ size = Vector2(31, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a54nl"]
 size = Vector2(59, 5.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a54nl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(43, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mu56"]
+size = Vector2(14, 119)
+
+[sub_resource type="Animation" id="Animation_2iu08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneBody1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneBody2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(606, 34)]
+}
+
+[sub_resource type="Animation" id="Animation_2mu56"]
+resource_name = "phase2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneBody1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(26, 29), Vector2(26, -57)]
+}
+
+[sub_resource type="Animation" id="Animation_1w6y0"]
+resource_name = "phase3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneBody2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(606, 34), Vector2(606, -85)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1w6y0"]
+_data = {
+&"RESET": SubResource("Animation_2iu08"),
+&"phase2": SubResource("Animation_2mu56"),
+&"phase3": SubResource("Animation_1w6y0")
+}
 
 [node name="TutorialAparatus" type="Node2D" unique_id=1681316322]
 script = ExtResource("1_a54nl")
@@ -159,6 +271,14 @@ color_ramp = SubResource("Gradient_f5cco")
 build_mode = 1
 polygon = PackedVector2Array(-946, 112, -947, -64, -921, -64, -921, -88, -915, -102, -893, -124, -857, -138, -841, -140, -803, -140, -758, -127, -733, -107, -723, -87, -723, -32, -517, -32, -517, 12, -377, 12, -377, -18, -395, -18, -395, -100, 35, -100, 35, -18, 13, -18, 13, 35, 203, 34, 203, -48, 217, -73, 249, -92, 283, -100, 341, -100, 341, -108, 631, -108, 631, 75, 715, 74, 716, -28, 754, -27, 768, -1, 769, 68, 773, 80, 787, 98, 894, 98, 895, 180, 753, 180, 744, 173, 737, 149, 735, 104, 735, 11, 727, -4, 728, 107, 717, 111, 631, 107, 631, 119, 341, 120, 341, -72, 283, -72, 268, -68, 253, -59, 244, -49, 237, -36, 237, 34, 279, 34, 279, 116, -81, 118, -81, 32, -69, 32, -69, -18, -295, -18, -295, 112, -379, 110, -379, 42, -517, 42, -517, 90, -811, 90, -811, -32, -757, -32, -757, -76, -769, -94, -786, -106, -804, -112, -841, -112, -862, -105, -873, -96, -886, -79, -887, -76, -887, -64, -863, -64, -863, 113)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1516917221]
+position = Vector2(306, 32)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1875139508]
+position = Vector2(263, 0)
+shape = SubResource("RectangleShape2D_1w6y0")
+
 [node name="PinkLine1" type="Path2D" parent="." unique_id=1963943559 groups=["pink_lines"]]
 position = Vector2(-1634.6404, 119)
 curve = SubResource("Curve2D_vn1fq")
@@ -205,46 +325,23 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="HintArea2" parent="." unique_id=1863239537 instance=ExtResource("4_0k72b")]
 z_index = 562
-position = Vector2(25, -48)
+position = Vector2(145, -48)
 
 [node name="Hint" parent="HintArea2" index="0" unique_id=1274833682]
 self_modulate = Color(1, 1, 0, 1)
-offset_left = -147.0
-offset_top = 180.0
-offset_right = -35.0
-offset_bottom = 196.0
+offset_left = -178.0
+offset_top = 27.0
+offset_right = -66.0
+offset_bottom = 43.0
 text = "Press Z to shoot"
 
 [node name="Subhint" parent="HintArea2/Hint" index="0" unique_id=1997185165]
-self_modulate = Color(1, 0.4117647, 0.7058824, 1)
-text = ""
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea2" unique_id=484547336]
-position = Vector2(85.5, 127.5)
-shape = SubResource("RectangleShape2D_1guvq")
-
-[node name="HintArea3" parent="." unique_id=1019894362 instance=ExtResource("4_0k72b")]
-z_index = 562
-position = Vector2(223, -48)
-
-[node name="Hint" parent="HintArea3" index="0" unique_id=1274833682]
-offset_left = -147.0
-offset_top = 180.0
-offset_right = -35.0
-offset_bottom = 196.0
-text = ""
-
-[node name="Subhint" parent="HintArea3/Hint" index="0" unique_id=1997185165]
 self_modulate = Color(1, 1, 0, 1)
-offset_left = 18.0
-offset_top = 4.5
-offset_right = 221.0
-offset_bottom = 39.5
 text = "Shoot switches to open doors"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea3" unique_id=1133420835]
-position = Vector2(-8.5, 127.5)
-shape = SubResource("RectangleShape2D_5uf4i")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea2" unique_id=484547336]
+position = Vector2(-5, 127.5)
+shape = SubResource("RectangleShape2D_2iu08")
 
 [node name="HintArea4" type="Area2D" parent="." unique_id=694330886]
 visible = false
@@ -282,8 +379,79 @@ graze_points = 0.0
 [node name="PipeBlockerBullet2" parent="." unique_id=194047947 instance=ExtResource("5_1guvq")]
 position = Vector2(-287, -70)
 
-[node name="PipeBlockerBullet3" parent="." unique_id=665410402 instance=ExtResource("5_1guvq")]
+[node name="Rat" type="Node2D" parent="." unique_id=1594065531]
 position = Vector2(-75, -70)
+
+[node name="RatBullet" type="Area2D" parent="Rat" unique_id=665410402]
+z_index = 101
+scale = Vector2(2, 2)
+collision_layer = 2
+script = SubResource("GDScript_rpohs")
+damage = 0
+dashable = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="Rat/RatBullet" unique_id=419109947]
+position = Vector2(24, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_2b1i8")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/RatBullet" unique_id=1331419005]
+position = Vector2(-1.25, 0.5)
+shape = SubResource("RectangleShape2D_rpohs")
+debug_color = Color(0.78542984, 0.3667438, 0.60463893, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rat/RatBullet" unique_id=1803145568]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/RatBullet/StaticBody2D" unique_id=940187515]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_rpohs")
+
+[node name="PinkHitbox" type="Area2D" parent="Rat/RatBullet" unique_id=933826847]
+script = ExtResource("14_x84cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/RatBullet/PinkHitbox" unique_id=1311252572]
+shape = SubResource("CapsuleShape2D_g4v7s")
+debug_color = Color(0.6571671, 0.49560988, 0.40746483, 0.41960785)
+
+[node name="Rat2" type="Node2D" parent="." unique_id=140936980]
+position = Vector2(487, 94)
+
+[node name="RatBullet" type="Area2D" parent="Rat2" unique_id=1325382256]
+z_index = 101
+scale = Vector2(-2, 2)
+collision_layer = 2
+script = SubResource("GDScript_rpohs")
+damage = 0
+shootable = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="Rat2/RatBullet" unique_id=1150687199]
+position = Vector2(24, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_2b1i8")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat2/RatBullet" unique_id=26578397]
+position = Vector2(-1.25, 0.5)
+shape = SubResource("RectangleShape2D_rpohs")
+debug_color = Color(0.78542984, 0.3667438, 0.60463893, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rat2/RatBullet" unique_id=86579040]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat2/RatBullet/StaticBody2D" unique_id=307744030]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_rpohs")
+
+[node name="PinkHitbox" type="Area2D" parent="Rat2/RatBullet" unique_id=1895324111]
+script = ExtResource("14_x84cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat2/RatBullet/PinkHitbox" unique_id=1770630361]
+shape = SubResource("CapsuleShape2D_g4v7s")
+debug_color = Color(0.6571671, 0.49560988, 0.40746483, 0.41960785)
 
 [node name="PipeBlockerBullet4" parent="." unique_id=1656738747 instance=ExtResource("5_1guvq")]
 position = Vector2(-181, -70)
@@ -352,10 +520,27 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
 
+[node name="OldHouse6" type="Panel" parent="wall" unique_id=209226083]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 97.0
+offset_right = 50.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="wall" unique_id=535807383]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/StaticBody2D" unique_id=1224933970]
 position = Vector2(-11, 81)
+shape = SubResource("RectangleShape2D_wu4yr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall/StaticBody2D" unique_id=127348181]
+position = Vector2(50, 81)
 shape = SubResource("RectangleShape2D_wu4yr")
 
 [node name="Switch" parent="." unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("6_5uf4i")]
@@ -405,27 +590,99 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wu4yr")
 position = Vector2(29.5, 2.75)
 shape = SubResource("RectangleShape2D_a54nl")
 
-[node name="PipeBlockerBullet5" parent="." unique_id=50578561 instance=ExtResource("8_wu4yr")]
-position = Vector2(106, 76)
-
-[node name="PipeBlockerBullet7" parent="." unique_id=948184615 instance=ExtResource("8_wu4yr")]
-position = Vector2(493, 91)
-
-[node name="PipeBlockerBullet6" parent="." unique_id=1847029666 instance=ExtResource("8_wu4yr")]
-position = Vector2(487, 91)
-
-[node name="PipeBlockerBullet8" parent="." unique_id=881595709 instance=ExtResource("8_wu4yr")]
-position = Vector2(481, 91)
-
-[node name="PipeBlockerBullet9" parent="." unique_id=1030794211 instance=ExtResource("8_wu4yr")]
-position = Vector2(475, 91)
-
-[node name="PipeBlockerBullet10" parent="." unique_id=1806834780 instance=ExtResource("8_wu4yr")]
-position = Vector2(469, 91)
-
 [node name="PipeBlockerBullet11" parent="." unique_id=1838714870 instance=ExtResource("5_1guvq")]
 position = Vector2(692, 91)
 graze_points = 0.0
+
+[node name="OldHouse10" type="Panel" parent="." unique_id=1710766571]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -323.0
+offset_top = -45.0
+offset_right = -184.0
+offset_bottom = -38.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54nl")
+
+[node name="OldHouse11" type="Panel" parent="." unique_id=1303084284]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = -32.0
+offset_right = -278.5
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54nl")
+
+[node name="OldHouse12" type="Panel" parent="." unique_id=1335995447]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -32.0
+offset_right = -80.5
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54nl")
+
+[node name="CutsceneBody1" type="StaticBody2D" parent="." unique_id=2087764480]
+position = Vector2(26, 29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneBody1" unique_id=1605883566]
+position = Vector2(21.5, 45.5)
+shape = SubResource("RectangleShape2D_57qmd")
+debug_color = Color(0.9522162, 3.85046e-07, 0.5622132, 0.41960785)
+
+[node name="OldHouse12" type="Panel" parent="CutsceneBody1" unique_id=163783166]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 21.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54nl")
+
+[node name="CutsceneBody2" type="StaticBody2D" parent="." unique_id=1581069647]
+position = Vector2(606, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneBody2" unique_id=1629714004]
+position = Vector2(7, 31.5)
+shape = SubResource("RectangleShape2D_2mu56")
+debug_color = Color(0.9522162, 3.85046e-07, 0.5622132, 0.41960785)
+
+[node name="OldHouse12" type="Panel" parent="CutsceneBody2" unique_id=2051452549]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 7.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54nl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=520210805]
+libraries/ = SubResource("AnimationLibrary_1w6y0")
+
+[node name="Vortex" parent="." unique_id=1642196158 instance=ExtResource("15_2mu56")]
+position = Vector2(-28, 33)
+rotation = 1.5707964
+scale = Vector2(1, 2)
+
+[node name="Vortex2" parent="." unique_id=1992968355 instance=ExtResource("15_2mu56")]
+position = Vector2(546, 93)
+scale = Vector2(1, 1.5)
 
 [connection signal="body_entered" from="PinkArea" to="PinkArea" method="_on_body_entered"]
 [connection signal="body_entered" from="YellowArea" to="YellowArea" method="_on_body_entered"]
@@ -438,4 +695,3 @@ graze_points = 0.0
 [editable path="SoulFriend"]
 [editable path="HintArea1"]
 [editable path="HintArea2"]
-[editable path="HintArea3"]

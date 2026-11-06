@@ -16,6 +16,11 @@ var choice_made: bool = false
 func _ready() -> void:
 	Music.stop()
 	$Sprite2D.position = SceneLoader.soul_screen_pos
+	
+	if Global.cause_of_death == "cat_clock":
+		$Extra.play("cat_clock")
+	Global.cause_of_death = ""
+	
 	await get_tree().create_timer(4.0).timeout
 	Music.play(preload("uid://i0nld8865mhn"),1.0)
 	await get_tree().create_timer(1.0).timeout

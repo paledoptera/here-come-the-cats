@@ -149,7 +149,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_17lft"]
 resource_name = "battle_idle"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -792,25 +792,31 @@ scale = Vector2(1.95, 2.05)
 texture = ExtResource("7_tpveb")
 
 [node name="TailEffect" parent="Rat" unique_id=1027478356 instance=ExtResource("8_spag6")]
-z_index = 0
+z_index = 100
 position = Vector2(-17, 1)
 
 [node name="1" type="Sprite2D" parent="Rat/TailEffect" unique_id=2114475996]
+z_index = 100
 texture = ExtResource("9_tva6e")
 
 [node name="2" type="Sprite2D" parent="Rat/TailEffect" unique_id=1744881823]
+z_index = 100
 texture = ExtResource("9_tva6e")
 
 [node name="3" type="Sprite2D" parent="Rat/TailEffect" unique_id=1641401535]
+z_index = 100
 texture = ExtResource("9_tva6e")
 
 [node name="4" type="Sprite2D" parent="Rat/TailEffect" unique_id=1042260199]
+z_index = 100
 texture = ExtResource("9_tva6e")
 
 [node name="5" type="Sprite2D" parent="Rat/TailEffect" unique_id=1631121044]
+z_index = 100
 texture = ExtResource("9_tva6e")
 
 [node name="9" type="Sprite2D" parent="Rat/TailEffect" unique_id=305124507]
+z_index = 100
 scale = Vector2(-1, 1)
 texture = ExtResource("10_t7j11")
 

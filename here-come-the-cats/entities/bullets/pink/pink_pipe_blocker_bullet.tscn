@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://dvmfhtsa3g6hk"]
 
-[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_pweeu"]
 [ext_resource type="AudioStream" uid="uid://c7mxyxqoixr48" path="res://shared/sound_effects/snd_paperbreak.wav" id="2_fs0ah"]
 [ext_resource type="Texture2D" uid="uid://dp55gp0pmee2n" path="res://entities/bullets/pink/res/pink_pipe_blocker.png" id="2_pweeu"]
 [ext_resource type="Script" uid="uid://4eqy0mlc36f7" path="res://entities/bullets/pink/pink_hitbox.gd" id="3_bbn82"]
+
+[sub_resource type="GDScript" id="GDScript_w5hf4"]
+resource_name = "pinkpipeblocker"
+script/source = "extends Bullet
+
+const EFFECT = preload(\"uid://dy4bb1rgpeeca\")
+
+
+func destroy() -> void:
+	var effect = EFFECT.instantiate()
+	get_parent().add_child(effect)
+	effect.global_position = global_position
+	effect.global_rotation = global_rotation
+	queue_free()
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxoyp"]
 radius = 9.5
@@ -19,7 +33,7 @@ height = 83.6
 z_index = 101
 scale = Vector2(2, 2)
 collision_layer = 2
-script = ExtResource("1_pweeu")
+script = SubResource("GDScript_w5hf4")
 damage = 0
 dashable = true
 dash_sound = ExtResource("2_fs0ah")

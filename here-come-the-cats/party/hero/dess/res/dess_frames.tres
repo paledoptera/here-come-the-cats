@@ -289,7 +289,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"compassion",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -312,33 +312,33 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mvsrh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"idle_backward",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_633h6")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"idle_forward",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ou8ku")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"idle_left",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pp0ii")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"idle_right",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -353,7 +353,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k40r7")
 }, {
-"duration": 1.0,
+"duration": 10000.0,
 "texture": SubResource("AtlasTexture_klkec")
 }],
 "loop": 0,
@@ -399,9 +399,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vma7m")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"sigh",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -495,9 +495,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i227w")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"throw_coin",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -512,9 +512,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yjilp")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walk_backward",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -529,9 +529,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gs4ww")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walk_forward",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -548,7 +548,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -565,5 +565,5 @@ animations = [{
 }],
 "loop": 0,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 0.0
 }]

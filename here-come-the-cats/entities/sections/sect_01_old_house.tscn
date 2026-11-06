@@ -53,6 +53,15 @@ size = Vector2(20, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(417, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75p86"]
+size = Vector2(414, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djcqw"]
+size = Vector2(415, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20056"]
+size = Vector2(375, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc1a3"]
 size = Vector2(257, 16)
 
@@ -93,6 +102,45 @@ offset_left = -17.0
 offset_top = -7.0
 offset_right = 191.5
 offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse10" type="Panel" parent="." unique_id=1119443390]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 189.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse11" type="Panel" parent="." unique_id=1923757051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -36.0
+offset_right = 191.5
+offset_bottom = -27.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="OldHouse12" type="Panel" parent="." unique_id=1099078243]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -51.0
+offset_right = 195.0
+offset_bottom = -42.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -257,6 +305,18 @@ shape = SubResource("RectangleShape2D_sjeqg")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1645299787]
 position = Vector2(191.5, -2)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=383708356]
+position = Vector2(191, -13.5)
+shape = SubResource("RectangleShape2D_75p86")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=311970167]
+position = Vector2(191.5, -29)
+shape = SubResource("RectangleShape2D_djcqw")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=64668834]
+position = Vector2(195.5, -44)
+shape = SubResource("RectangleShape2D_20056")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=114798096]
 position = Vector2(111.5, 193)

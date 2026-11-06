@@ -21,10 +21,10 @@ func _on_pipe_blocker_bullet_tree_exited() -> void:
 
 
 func continue_to_phase2() -> void:
-	pass
+	$AnimationPlayer.play("phase2")
 
 func continue_to_phase3() -> void:
-	pass
+	$AnimationPlayer.play("phase3")
 
 
 func _on_switch_switched() -> void:

@@ -508,6 +508,18 @@ tracks/29/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_3iwc6"]
 resource_name = "fade_in"
@@ -594,6 +606,18 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.26666668)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.0]
+}
 
 [sub_resource type="Animation" id="Animation_k3i8g"]
 resource_name = "guitar_tune"
@@ -2433,4 +2457,3 @@ autoplay = &"rat"
 [editable path="TutorialAparatus/SoulFriend"]
 [editable path="TutorialAparatus/HintArea1"]
 [editable path="TutorialAparatus/HintArea2"]
-[editable path="TutorialAparatus/HintArea3"]

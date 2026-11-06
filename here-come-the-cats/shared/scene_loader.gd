@@ -36,6 +36,9 @@ func goto_phase2() -> void:
 
 
 func goto_gameover() -> void:
+	if Global.options.god_mode:
+		return
+	
 	get_soul_pos()
 	change_scene(GAME_OVER)
 

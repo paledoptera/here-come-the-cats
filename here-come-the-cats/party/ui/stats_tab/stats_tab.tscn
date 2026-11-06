@@ -124,7 +124,6 @@ offset_bottom = -445.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kqk38")
-index = null
 
 [node name="Background" type="ColorRect" parent="." unique_id=1569102247]
 custom_minimum_size = Vector2(213, 36)

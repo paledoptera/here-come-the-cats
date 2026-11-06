@@ -1,17 +1,30 @@
 [gd_scene format=3 uid="uid://b42tcwpq4y22c"]
 
 [ext_resource type="PackedScene" uid="uid://eh0pmaffjat1" path="res://entities/misc/door_and_switch/switch.tscn" id="1_oycta"]
-[ext_resource type="PackedScene" uid="uid://1571ks7ahv7p" path="res://entities/bullets/pink/pink_wall_bullet.tscn" id="2_pia8t"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_et73e"]
 [ext_resource type="Script" uid="uid://d1i16ug7gbawv" path="res://entities/attacks/animation_contraption.gd" id="5_1rxv2"]
 [ext_resource type="PackedScene" uid="uid://yl17d5408wkl" path="res://entities/misc/friend_coin/friend_coin_mini.tscn" id="6_qycop"]
+[ext_resource type="PackedScene" uid="uid://dvmfhtsa3g6hk" path="res://entities/bullets/pink/pink_pipe_blocker_bullet.tscn" id="7_j6ja6"]
 [ext_resource type="PackedScene" uid="uid://ckrvydqkbe3fu" path="res://entities/bullets/generic/knife_bullet.tscn" id="7_pia8t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38jv2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qycop"]
 bg_color = Color(0, 0, 0, 1)
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyr0h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
 border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6ja6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
 
@@ -22,6 +35,9 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(19, 99)
 
 [sub_resource type="Animation" id="Animation_1rxv2"]
 length = 0.001
@@ -117,12 +133,31 @@ func _process(delta: float) -> void:
 	rotate(0.1)
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tarh"]
+size = Vector2(20, 322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qycop"]
+size = Vector2(20, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6ja6"]
+size = Vector2(20, 112.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyr0h"]
+size = Vector2(19, 192.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxavb"]
+size = Vector2(289.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50i6b"]
+size = Vector2(529, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nuxo"]
+size = Vector2(656, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(33, 20)
+
 [node name="Node2D" type="Node2D" unique_id=709242782]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168786282]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165847083]
-shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="OldHouse" type="Panel" parent="." unique_id=1635334405]
 anchors_preset = 15
@@ -134,7 +169,58 @@ offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-theme_override_styles/panel = SubResource("StyleBoxFlat_38jv2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qycop")
+
+[node name="OldHouse9" type="Panel" parent="." unique_id=392460474]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fyr0h")
+
+[node name="OldHouse10" type="Panel" parent="." unique_id=491953801]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -1.0
+offset_right = 83.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fyr0h")
+
+[node name="OldHouse3" type="Panel" parent="." unique_id=1036847521]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 298.0
+offset_right = 310.5
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6ja6")
+
+[node name="OldHouse8" type="Panel" parent="." unique_id=2075851534]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = 68.0
+offset_right = 364.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6ja6")
 
 [node name="OldHouse4" type="Panel" parent="." unique_id=1187271392]
 anchors_preset = 15
@@ -201,10 +287,6 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
 
-[node name="PinkWallBullet" parent="." unique_id=42666868 instance=ExtResource("2_pia8t")]
-position = Vector2(47, 15)
-rotation = 1.5707964
-
 [node name="Door" type="Node2D" parent="." unique_id=102478406]
 position = Vector2(636, 85)
 script = ExtResource("4_et73e")
@@ -222,6 +304,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_w5hf4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door" unique_id=1015251802]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D" unique_id=655028236]
+position = Vector2(-7.5, 50.5)
+shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="Stabby" type="Node2D" parent="." unique_id=654690659]
 
@@ -247,7 +335,7 @@ autoplay = &"knives"
 speed_scale = 0.5
 
 [node name="Switch" parent="Stabby" unique_id=1021847166 node_paths=PackedStringArray("linked_contraptions") instance=ExtResource("1_oycta")]
-position = Vector2(116, 213)
+position = Vector2(182, 213)
 linked_contraptions = [NodePath("../AnimationContraption")]
 
 [node name="KnifeCarousel" type="Node2D" parent="." unique_id=1894827629]
@@ -298,3 +386,45 @@ position = Vector2(506, 120)
 
 [node name="FriendCoinMini6" parent="." unique_id=1575353625 instance=ExtResource("6_qycop")]
 position = Vector2(438, 243)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1008973963]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=885938244]
+position = Vector2(-7, 154)
+shape = SubResource("RectangleShape2D_6tarh")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=2069962011]
+position = Vector2(100, 97.5)
+shape = SubResource("RectangleShape2D_qycop")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=764815038]
+position = Vector2(629, 241.25)
+shape = SubResource("RectangleShape2D_j6ja6")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1856388664]
+position = Vector2(369.5, 88.75)
+shape = SubResource("RectangleShape2D_fyr0h")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1498366306]
+position = Vector2(235.25, 193)
+shape = SubResource("RectangleShape2D_qxavb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1434014445]
+position = Vector2(371.5, 76)
+shape = SubResource("RectangleShape2D_50i6b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1934445471]
+position = Vector2(311, 306)
+shape = SubResource("RectangleShape2D_3nuxo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=931990207]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1701615759]
+position = Vector2(92, 8)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="PipeBlockerBullet" parent="." unique_id=125706683 instance=ExtResource("7_j6ja6")]
+position = Vector2(47, 8)
+rotation = 1.5707964

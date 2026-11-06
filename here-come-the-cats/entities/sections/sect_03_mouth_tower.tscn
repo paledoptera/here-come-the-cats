@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ccmlukdjgh5gs" path="res://entities/bullets/yellow/yellow_eyeball_bullet.tscn" id="3_lum2q"]
 [ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="4_101gc"]
 [ext_resource type="Script" uid="uid://bmohg050u320l" path="res://entities/sections/door.gd" id="4_c61wv"]
-[ext_resource type="PackedScene" uid="uid://bwkuilratplt7" path="res://entities/bullets/generic/teeth_bullet.tscn" id="5_71x67"]
 [ext_resource type="PackedScene" uid="uid://8beh8ncwgxop" path="res://entities/misc/friend_coin/friend_coin.tscn" id="5_lum2q"]
 [ext_resource type="Texture2D" uid="uid://diyrxe0j8cm0g" path="res://entities/bullets/generic/res/tooth.png" id="5_ol8gk"]
 
@@ -16,9 +15,17 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jxh3m"]
-radius = 6.5
-height = 17.38
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(94.5, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(205, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvyq"]
+size = Vector2(205, 302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_101gc"]
+size = Vector2(250, 133)
 
 [node name="MouthTower" type="Node2D" unique_id=1013303839]
 
@@ -72,242 +79,187 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 
-[node name="RightHalf" type="Node2D" parent="Door/TeethTop" unique_id=923372900]
+[node name="Sprites" type="Node2D" parent="Door/TeethTop" unique_id=761079115]
 
-[node name="TeethBullet2" type="Area2D" parent="Door/TeethTop/RightHalf" unique_id=2088546641]
+[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=419109947]
+position = Vector2(171, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=2133160156]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=757128717]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=72161801]
+position = Vector2(118, 83)
+rotation = -3.1415925
+scale = Vector2(2, -1.5)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=1089233152]
+position = Vector2(101, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=212860443]
+position = Vector2(7, 76.999985)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=1054832842]
+position = Vector2(25, 82.999985)
+rotation = -3.1415925
+scale = Vector2(2.411, -2.411)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=1196067004]
+position = Vector2(42, 77.999985)
+rotation = -3.1415925
+scale = Vector2(1.5, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=1529417664]
+position = Vector2(59.999992, 83)
+scale = Vector2(2, 1.5)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Door/TeethTop/Sprites" unique_id=564867246]
+position = Vector2(76.99999, 85)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+
+[node name="TeethBullet" type="Area2D" parent="Door/TeethTop" unique_id=2088546641]
 position = Vector2(171, 77)
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("4_101gc")
 damage = 9
-graze_points = 0
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/RightHalf/TeethBullet2" unique_id=419109947]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/TeethBullet" unique_id=1331419005]
+position = Vector2(-41.25, 9.75)
+shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/RightHalf/TeethBullet2" unique_id=1331419005]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
+[node name="StaticBody2D" type="StaticBody2D" parent="Door/TeethTop" unique_id=589151570]
+position = Vector2(0, 140)
 
-[node name="TeethBullet3" type="Area2D" parent="Door/TeethTop/RightHalf" unique_id=1987211643]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/StaticBody2D" unique_id=60299183]
+position = Vector2(85.5, 47)
+shape = SubResource("RectangleShape2D_yf5fn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/RightHalf/TeethBullet3" unique_id=2133160156]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/RightHalf/TeethBullet3" unique_id=1554072353]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet4" type="Area2D" parent="Door/TeethTop/RightHalf" unique_id=1839852011]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/RightHalf/TeethBullet4" unique_id=757128717]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/RightHalf/TeethBullet4" unique_id=1666653159]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet5" type="Area2D" parent="Door/TeethTop/RightHalf" unique_id=39438686]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/RightHalf/TeethBullet5" unique_id=72161801]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/RightHalf/TeethBullet5" unique_id=700158162]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet6" type="Area2D" parent="Door/TeethTop/RightHalf" unique_id=109455554]
-position = Vector2(101, 85)
-scale = Vector2(2, 2)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/RightHalf/TeethBullet6" unique_id=1089233152]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/RightHalf/TeethBullet6" unique_id=405188573]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="LeftHalf" type="Node2D" parent="Door/TeethTop" unique_id=1610253661]
-position = Vector2(178, 0)
-rotation = 3.1415927
+[node name="TeethBottom" type="Node2D" parent="." unique_id=1583732761]
+position = Vector2(0, 234)
 scale = Vector2(1, -1)
 
-[node name="TeethBullet2" type="Area2D" parent="Door/TeethTop/LeftHalf" unique_id=91074447]
+[node name="Sprites" type="Node2D" parent="TeethBottom" unique_id=2008854942]
+position = Vector2(0, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=1281851343]
 position = Vector2(171, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=770359502]
+position = Vector2(153, 83)
+scale = Vector2(2.411, 2.411)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=634142433]
+position = Vector2(136, 78)
+scale = Vector2(1.5, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=2041040091]
+position = Vector2(118, 83)
+rotation = -3.1415925
+scale = Vector2(2, -1.5)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=1335170492]
+position = Vector2(101, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=9308361]
+position = Vector2(7, 76.999985)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=1462926388]
+position = Vector2(25, 82.999985)
+rotation = -3.1415925
+scale = Vector2(2.411, -2.411)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=1937938099]
+position = Vector2(42, 77.999985)
+rotation = -3.1415925
+scale = Vector2(1.5, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=1066775597]
+position = Vector2(59.999992, 83)
+scale = Vector2(2, 1.5)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="TeethBottom/Sprites" unique_id=2033696251]
+position = Vector2(76.99999, 85)
+rotation = -3.1415925
+scale = Vector2(2, -2)
+texture = ExtResource("5_ol8gk")
+offset = Vector2(0, 0.5)
+flip_v = true
+
+[node name="TeethBullet" type="Area2D" parent="TeethBottom" unique_id=595685573]
+position = Vector2(171, 49)
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("4_101gc")
 damage = 9
-graze_points = 0
 life_time = -1.0
 metadata/_custom_type_script = "uid://bisu8d38by8b5"
 
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/LeftHalf/TeethBullet2" unique_id=212860443]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/LeftHalf/TeethBullet2" unique_id=2068268327]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet3" type="Area2D" parent="Door/TeethTop/LeftHalf" unique_id=50707095]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/LeftHalf/TeethBullet3" unique_id=1054832842]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/LeftHalf/TeethBullet3" unique_id=882940317]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet4" type="Area2D" parent="Door/TeethTop/LeftHalf" unique_id=1364864460]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/LeftHalf/TeethBullet4" unique_id=1196067004]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/LeftHalf/TeethBullet4" unique_id=2002631163]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet5" type="Area2D" parent="Door/TeethTop/LeftHalf" unique_id=849499051]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/LeftHalf/TeethBullet5" unique_id=1529417664]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/LeftHalf/TeethBullet5" unique_id=338879323]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBullet6" type="Area2D" parent="Door/TeethTop/LeftHalf" unique_id=1088757493]
-position = Vector2(101, 85)
-scale = Vector2(2, 2)
-collision_layer = 2
-script = ExtResource("4_101gc")
-damage = 9
-graze_points = 0
-life_time = -1.0
-metadata/_custom_type_script = "uid://bisu8d38by8b5"
-
-[node name="Sprite2D" type="Sprite2D" parent="Door/TeethTop/LeftHalf/TeethBullet6" unique_id=564867246]
-texture = ExtResource("5_ol8gk")
-offset = Vector2(0, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/TeethTop/LeftHalf/TeethBullet6" unique_id=1762057127]
-position = Vector2(0, 6.5)
-shape = SubResource("CapsuleShape2D_jxh3m")
-
-[node name="TeethBottom" type="Node2D" parent="." unique_id=1215636734]
-position = Vector2(0, 71)
-
-[node name="RightHalf" type="Node2D" parent="TeethBottom" unique_id=1709873034]
-
-[node name="TeethBullet2" parent="TeethBottom/RightHalf" unique_id=1097047468 instance=ExtResource("5_71x67")]
-position = Vector2(171, 77)
-
-[node name="TeethBullet3" parent="TeethBottom/RightHalf" unique_id=480728516 instance=ExtResource("5_71x67")]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-
-[node name="TeethBullet4" parent="TeethBottom/RightHalf" unique_id=107141497 instance=ExtResource("5_71x67")]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-
-[node name="TeethBullet5" parent="TeethBottom/RightHalf" unique_id=1499016679 instance=ExtResource("5_71x67")]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-
-[node name="TeethBullet6" parent="TeethBottom/RightHalf" unique_id=489475485 instance=ExtResource("5_71x67")]
-position = Vector2(101, 85)
-
-[node name="LeftHalf" type="Node2D" parent="TeethBottom" unique_id=267055512]
-position = Vector2(178, 0)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-
-[node name="TeethBullet2" parent="TeethBottom/LeftHalf" unique_id=409435731 instance=ExtResource("5_71x67")]
-position = Vector2(171, 77)
-
-[node name="TeethBullet3" parent="TeethBottom/LeftHalf" unique_id=522250705 instance=ExtResource("5_71x67")]
-position = Vector2(153, 83)
-scale = Vector2(2.411, 2.411)
-
-[node name="TeethBullet4" parent="TeethBottom/LeftHalf" unique_id=1892367850 instance=ExtResource("5_71x67")]
-position = Vector2(136, 78)
-scale = Vector2(1.5, 2)
-
-[node name="TeethBullet5" parent="TeethBottom/LeftHalf" unique_id=1791222722 instance=ExtResource("5_71x67")]
-position = Vector2(118, 83)
-rotation = 3.1415927
-scale = Vector2(2, -1.5)
-
-[node name="TeethBullet6" parent="TeethBottom/LeftHalf" unique_id=1998608474 instance=ExtResource("5_71x67")]
-position = Vector2(101, 85)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeethBottom/TeethBullet" unique_id=466095171]
+position = Vector2(-41.25, 9.75)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="OldHouse4" type="Panel" parent="." unique_id=38749667]
 anchors_preset = 15
@@ -376,3 +328,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_el6vb")
 
 [node name="FriendCoin" parent="." unique_id=1685877794 instance=ExtResource("5_lum2q")]
 position = Vector2(-106, 334)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162295831]
+position = Vector2(0, 225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=212764650]
+position = Vector2(85.5, 104)
+shape = SubResource("RectangleShape2D_8gvyq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=317812001]
+position = Vector2(88, 153.5)
+shape = SubResource("RectangleShape2D_101gc")
