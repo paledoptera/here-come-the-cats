@@ -475,7 +475,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8akph"]
-size = Vector2(26, 490)
+size = Vector2(194, 490)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moq7w"]
+size = Vector2(1500, 121)
 
 [sub_resource type="Animation" id="Animation_hesta"]
 length = 0.001
@@ -2331,10 +2334,18 @@ texture = ExtResource("2_moq7w")
 flip_h = true
 
 [node name="ScreenBounds" parent="." unique_id=1667283980 instance=ExtResource("7_bg4j1")]
+collision_layer = 32769
+collision_mask = 32769
 
 [node name="CollisionShape2D" parent="ScreenBounds" index="0" unique_id=343956693]
-position = Vector2(9, 235)
+position = Vector2(-164, 235)
 shape = SubResource("RectangleShape2D_8akph")
+
+[node name="CollisionShape2D4" parent="ScreenBounds" index="2" unique_id=196903841]
+shape = SubResource("RectangleShape2D_moq7w")
+
+[node name="CollisionShape2D5" parent="ScreenBounds" index="3" unique_id=1426669477]
+shape = SubResource("RectangleShape2D_moq7w")
 
 [node name="CatTail" type="Node2D" parent="." unique_id=759219582]
 
@@ -2623,9 +2634,6 @@ is_in_air = true
 switchable = true
 recover_when_offscreen = true
 speed_mult = 2.0
-
-[node name="Flash" parent="SoulFriend" index="7" unique_id=1076581337]
-scale = Vector2(0.9997565, 1.0002435)
 
 [node name="Dess" parent="SoulFriend" unique_id=435877441 instance=ExtResource("21_hesta")]
 position = Vector2(0, -4)

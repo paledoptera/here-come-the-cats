@@ -320,7 +320,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 		return
 	
 	soul_state = SoulState.OUT_OF_BOUNDS
-	Party.hero[0].hp -= 10.0
+	EventBus.damage_player.emit(3.0)
 	taking_input = false
 	recovering = 0.0
 	recovering_start_pos = global_position

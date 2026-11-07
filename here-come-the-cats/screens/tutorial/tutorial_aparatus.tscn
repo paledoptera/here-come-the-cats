@@ -41,7 +41,6 @@ point_count = 2
 resource_name = "pin"
 script/source = "extends Area2D
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is SoulFriend:
 		if body.soul_state == SoulFriend.SoulState.PINK:
@@ -52,7 +51,7 @@ func _on_body_entered(body: Node2D) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1fq"]
-size = Vector2(995, 189)
+size = Vector2(983.5, 176)
 
 [sub_resource type="GDScript" id="GDScript_vn1fq"]
 resource_name = "yellow"
@@ -69,7 +68,7 @@ func _on_body_entered(body: Node2D) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k72b"]
-size = Vector2(635, 107)
+size = Vector2(631, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(294, 126)
@@ -221,6 +220,9 @@ big_shot_needs_tp = false
 [node name="Grazer" parent="SoulFriend" index="5" unique_id=1156557386]
 collision_mask = 0
 
+[node name="Flash" parent="SoulFriend" index="7" unique_id=1076581337]
+rotation = -1.5707964
+
 [node name="Camera2D" type="Camera2D" parent="SoulFriend" unique_id=8599560]
 limit_top = -214
 limit_bottom = 264
@@ -294,11 +296,11 @@ position = Vector2(-1650, -145)
 script = SubResource("GDScript_i3p7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinkArea" unique_id=707343090]
-position = Vector2(1169.5, 84.5)
+position = Vector2(1169.5, 78)
 shape = SubResource("RectangleShape2D_vn1fq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PinkArea" unique_id=103109467]
-position = Vector2(2691, 255)
+position = Vector2(2701, 255)
 shape = SubResource("RectangleShape2D_vn1fq")
 
 [node name="YellowArea" type="Area2D" parent="." unique_id=545379851]
@@ -306,7 +308,7 @@ position = Vector2(-1650, -145)
 script = SubResource("GDScript_vn1fq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YellowArea" unique_id=1525558827]
-position = Vector2(1879.5, 233.5)
+position = Vector2(1877.5, 236.5)
 shape = SubResource("RectangleShape2D_0k72b")
 
 [node name="HintArea1" parent="." unique_id=409885071 instance=ExtResource("4_0k72b")]

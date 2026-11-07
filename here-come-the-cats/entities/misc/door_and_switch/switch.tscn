@@ -12,6 +12,7 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(25, 25)
 
 [sub_resource type="Animation" id="Animation_rvqxt"]
 length = 0.001
@@ -54,7 +55,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fvvmu"]
 resource_name = "switch_to_on"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,7 +95,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_qls2d"]
 resource_name = "switch_to_on"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

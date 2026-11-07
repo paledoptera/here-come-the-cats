@@ -8,9 +8,12 @@ var soul: SoulFriend
 var current_anim: String
 var animations_handled: bool = true
 
+var last_hp: int = 0
 
 func _ready() -> void:
 	super()
+	
+	last_hp = Party.hero[0].hp
 	Party.hero[0].hp_changed.connect(_on_damage)
 	EventBus.damage_player.connect(_on_damage)
 	if get_parent() is SoulFriend:
@@ -21,6 +24,7 @@ func _ready() -> void:
 		$Rat.visible = true
 	else:
 		$Rat.visible = false
+	
 	
 
 func _process(delta: float) -> void:
@@ -67,4 +71,10 @@ func _on_soul_mode_switched(mode: SoulFriend.SoulState):
 			
 
 func _on_damage(new_hp: int) -> void:
-	$Damage.play("damage")
+	
+	if new_hp < last_hp:
+		$Damage.play("damage")
+	elif new_hp > last_hp:
+		$Damage.play("heal")
+	
+	last_hp = new_hp

@@ -156,6 +156,7 @@ damage = 6
 destructible = true
 shootable = true
 shootable_hp = 5
+dashable = true
 velocity = Vector2(130, 0)
 life_time = 4.0
 linear_acceleration = -0.01

@@ -801,8 +801,8 @@ offsets = PackedFloat32Array(0, 0.9978118)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="SoulFriend" unique_id=443094051 instance=ExtResource("1_biekx")]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("2_d1x2a")
 constant_pink_speed = 0.0
 soul_state = 0
@@ -932,6 +932,7 @@ speed_scale = 0.87
 
 [node name="Flash" type="Sprite2D" parent="." index="7" unique_id=1076581337]
 modulate = Color(1, 1, 1, 0)
+rotation = -1.5707964
 texture = ExtResource("4_tsytj")
 
 [node name="PinkParticles" type="CPUParticles2D" parent="." index="8" unique_id=1447657351]
